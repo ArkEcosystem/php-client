@@ -11,33 +11,38 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace ArkEcosystem\ArkClient\API\Two;
+namespace ArkEcosystem\Client\API\Two;
 
-use ArkEcosystem\ArkClient\API\AbstractAPI;
-use Illuminate\Support\Collection;
+use ArkEcosystem\Client\API\AbstractResource;
+use GuzzleHttp\Psr7\Response;
 
-class Node extends AbstractAPI
+/**
+ * This is the node resource class.
+ *
+ * @author Brian Faust <hello@brianfaust.me>
+ */
+class Node extends AbstractResource
 {
     /**
-     * @return \Illuminate\Support\Collection
+     * @return \GuzzleHttp\Psr7\Response
      */
-    public function status(): Collection
+    public function status(): Response
     {
         return $this->get('node/status');
     }
 
     /**
-     * @return \Illuminate\Support\Collection
+     * @return \GuzzleHttp\Psr7\Response
      */
-    public function syncing(): Collection
+    public function syncing(): Response
     {
         return $this->get('node/syncing');
     }
 
     /**
-     * @return \Illuminate\Support\Collection
+     * @return \GuzzleHttp\Psr7\Response
      */
-    public function configuration(): Collection
+    public function configuration(): Response
     {
         return $this->get('node/configuration');
     }

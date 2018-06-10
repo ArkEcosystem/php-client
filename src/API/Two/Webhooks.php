@@ -11,17 +11,22 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace ArkEcosystem\ArkClient\API\Two;
+namespace ArkEcosystem\Client\API\Two;
 
-use ArkEcosystem\ArkClient\API\AbstractAPI;
-use Illuminate\Support\Collection;
+use ArkEcosystem\Client\API\AbstractResource;
+use GuzzleHttp\Psr7\Response;
 
-class Webhooks extends AbstractAPI
+/**
+ * This is the webhooks resource class.
+ *
+ * @author Brian Faust <hello@brianfaust.me>
+ */
+class Webhooks extends AbstractResource
 {
     /**
-     * @return \Illuminate\Support\Collection
+     * @return \GuzzleHttp\Psr7\Response
      */
-    public function all(): Collection
+    public function all(): Response
     {
         return $this->get('webhooks');
     }
@@ -29,9 +34,9 @@ class Webhooks extends AbstractAPI
     /**
      * @param array $payload
      *
-     * @return \Illuminate\Support\Collection
+     * @return \GuzzleHttp\Psr7\Response
      */
-    public function create(array $payload): Collection
+    public function create(array $payload): Response
     {
         return $this->post('webhooks', $payload);
     }
@@ -39,9 +44,9 @@ class Webhooks extends AbstractAPI
     /**
      * @param int $id
      *
-     * @return \Illuminate\Support\Collection
+     * @return \GuzzleHttp\Psr7\Response
      */
-    public function get(int $id): Collection
+    public function get(int $id): Response
     {
         return $this->get("webhooks/{$id}");
     }
@@ -50,9 +55,9 @@ class Webhooks extends AbstractAPI
      * @param int   $id
      * @param array $payload
      *
-     * @return \Illuminate\Support\Collection
+     * @return \GuzzleHttp\Psr7\Response
      */
-    public function update(int $id, array $payload): Collection
+    public function update(int $id, array $payload): Response
     {
         return $this->put("webhooks/{$id}", $payload);
     }
@@ -60,18 +65,10 @@ class Webhooks extends AbstractAPI
     /**
      * @param int $id
      *
-     * @return \Illuminate\Support\Collection
+     * @return \GuzzleHttp\Psr7\Response
      */
-    public function delete(int $id): Collection
+    public function delete(int $id): Response
     {
         return $this->delete("webhooks/{$id}");
-    }
-
-    /**
-     * @return \Illuminate\Support\Collection
-     */
-    public function events(): Collection
-    {
-        return $this->get('webhooks/events');
     }
 }

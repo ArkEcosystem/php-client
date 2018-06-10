@@ -11,9 +11,9 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace ArkEcosystem\Tests\ArkClient\API\One;
+namespace ArkEcosystem\Tests\Client\API\One;
 
-use ArkEcosystem\Tests\ArkClient\TestCase;
+use ArkEcosystem\Tests\Client\TestCase;
 
 /**
  * @coversNothing

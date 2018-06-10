@@ -11,21 +11,26 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace ArkEcosystem\ArkClient\API\One;
+namespace ArkEcosystem\Client\API\One;
 
-use ArkEcosystem\ArkClient\API\AbstractAPI;
-use Illuminate\Support\Collection;
+use ArkEcosystem\Client\API\AbstractResource;
+use GuzzleHttp\Psr7\Response;
 
-class Transport extends AbstractAPI
+/**
+ * This is the transport resource class.
+ *
+ * @author Brian Faust <hello@brianfaust.me>
+ */
+class Transport extends AbstractResource
 {
     /**
      * Get a list of blocks by ids.
      *
      * @param array $ids
      *
-     * @return \Illuminate\Support\Collection
+     * @return \GuzzleHttp\Psr7\Response
      */
-    public function blocksCommon(array $ids): Collection
+    public function blocksCommon(array $ids): Response
     {
         $ids = collect($ids)->transform(function (string $id) {
             return "'$id'";
@@ -39,9 +44,9 @@ class Transport extends AbstractAPI
      *
      * @param array $transactions
      *
-     * @return \Illuminate\Support\Collection
+     * @return \GuzzleHttp\Psr7\Response
      */
-    public function createTransactions(array $transactions): Collection
+    public function createTransactions(array $transactions): Response
     {
         return $this->post('peer/transactions', compact('transactions'));
     }

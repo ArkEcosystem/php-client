@@ -11,19 +11,24 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace ArkEcosystem\ArkClient\API\One;
+namespace ArkEcosystem\Client\API\One;
 
-use ArkEcosystem\ArkClient\API\AbstractAPI;
-use Illuminate\Support\Collection;
+use ArkEcosystem\Client\API\AbstractResource;
+use GuzzleHttp\Psr7\Response;
 
-class Peers extends AbstractAPI
+/**
+ * This is the peers resource class.
+ *
+ * @author Brian Faust <hello@brianfaust.me>
+ */
+class Peers extends AbstractResource
 {
     /**
      * @param string $query
      *
-     * @return \Illuminate\Support\Collection
+     * @return \GuzzleHttp\Psr7\Response
      */
-    public function all(array $query = []): Collection
+    public function all(array $query = []): Response
     {
         return $this->get('api/peers', $query);
     }
@@ -32,17 +37,17 @@ class Peers extends AbstractAPI
      * @param string $ip
      * @param int    $port
      *
-     * @return \Illuminate\Support\Collection
+     * @return \GuzzleHttp\Psr7\Response
      */
-    public function show(string $ip, int $port): Collection
+    public function show(string $ip, int $port): Response
     {
         return $this->get('api/peers/get', compact('ip', 'port'));
     }
 
     /**
-     * @return \Illuminate\Support\Collection
+     * @return \GuzzleHttp\Psr7\Response
      */
-    public function version(): Collection
+    public function version(): Response
     {
         return $this->get('api/peers/version');
     }

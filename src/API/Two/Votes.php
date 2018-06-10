@@ -11,17 +11,22 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace ArkEcosystem\ArkClient\API\Two;
+namespace ArkEcosystem\Client\API\Two;
 
-use ArkEcosystem\ArkClient\API\AbstractAPI;
-use Illuminate\Support\Collection;
+use ArkEcosystem\Client\API\AbstractResource;
+use GuzzleHttp\Psr7\Response;
 
-class Votes extends AbstractAPI
+/**
+ * This is the votes resource class.
+ *
+ * @author Brian Faust <hello@brianfaust.me>
+ */
+class Votes extends AbstractResource
 {
     /**
-     * @return \Illuminate\Support\Collection
+     * @return \GuzzleHttp\Psr7\Response
      */
-    public function all(): Collection
+    public function all(): Response
     {
         return $this->get('votes');
     }
@@ -29,9 +34,9 @@ class Votes extends AbstractAPI
     /**
      * @param string $id
      *
-     * @return \Illuminate\Support\Collection
+     * @return \GuzzleHttp\Psr7\Response
      */
-    public function get(string $id): Collection
+    public function get(string $id): Response
     {
         return $this->get("votes/{$id}");
     }

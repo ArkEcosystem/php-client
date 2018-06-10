@@ -11,17 +11,22 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace ArkEcosystem\ArkClient\API\One;
+namespace ArkEcosystem\Client\API\One;
 
-use ArkEcosystem\ArkClient\API\AbstractAPI;
-use Illuminate\Support\Collection;
+use ArkEcosystem\Client\API\AbstractResource;
+use GuzzleHttp\Psr7\Response;
 
-class Signatures extends AbstractAPI
+/**
+ * This is the signatures resource class.
+ *
+ * @author Brian Faust <hello@brianfaust.me>
+ */
+class Signatures extends AbstractResource
 {
     /**
-     * @return \Illuminate\Support\Collection
+     * @return \GuzzleHttp\Psr7\Response
      */
-    public function fee(): Collection
+    public function fee(): Response
     {
         return $this->get('api/signatures/fee');
     }

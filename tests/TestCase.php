@@ -11,10 +11,10 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace ArkEcosystem\Tests\ArkClient;
+namespace ArkEcosystem\Tests\Client;
 
-use ArkEcosystem\ArkClient\Client;
-use ArkEcosystem\ArkClient\Config;
+use ArkEcosystem\Client\Client;
+use ArkEcosystem\Client\Config;
 use PHPUnit\Framework\TestCase as BaseTestCase;
 
 abstract class TestCase extends BaseTestCase

@@ -11,19 +11,24 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace ArkEcosystem\ArkClient\API\One;
+namespace ArkEcosystem\Client\API\One;
 
-use ArkEcosystem\ArkClient\API\AbstractAPI;
-use Illuminate\Support\Collection;
+use ArkEcosystem\Client\API\AbstractResource;
+use GuzzleHttp\Psr7\Response;
 
-class Transactions extends AbstractAPI
+/**
+ * This is the transactions resource class.
+ *
+ * @author Brian Faust <hello@brianfaust.me>
+ */
+class Transactions extends AbstractResource
 {
     /**
      * @param array $query
      *
-     * @return \Illuminate\Support\Collection
+     * @return \GuzzleHttp\Psr7\Response
      */
-    public function all(array $query = []): Collection
+    public function all(array $query = []): Response
     {
         return $this->get('api/transactions', $query);
     }
@@ -31,9 +36,9 @@ class Transactions extends AbstractAPI
     /**
      * @param string $id
      *
-     * @return \Illuminate\Support\Collection
+     * @return \GuzzleHttp\Psr7\Response
      */
-    public function show(string $id): Collection
+    public function show(string $id): Response
     {
         return $this->get('api/transactions/get', compact('id'));
     }
@@ -41,9 +46,9 @@ class Transactions extends AbstractAPI
     /**
      * @param array $query
      *
-     * @return \Illuminate\Support\Collection
+     * @return \GuzzleHttp\Psr7\Response
      */
-    public function allUnconfirmed(array $query = []): Collection
+    public function allUnconfirmed(array $query = []): Response
     {
         return $this->get('api/transactions/unconfirmed', $query);
     }
@@ -51,9 +56,9 @@ class Transactions extends AbstractAPI
     /**
      * @param string $id
      *
-     * @return \Illuminate\Support\Collection
+     * @return \GuzzleHttp\Psr7\Response
      */
-    public function showUnconfirmed(string $id): Collection
+    public function showUnconfirmed(string $id): Response
     {
         return $this->get('api/transactions/unconfirmed/get', compact('id'));
     }

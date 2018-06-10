@@ -11,19 +11,24 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace ArkEcosystem\ArkClient\API\One;
+namespace ArkEcosystem\Client\API\One;
 
-use ArkEcosystem\ArkClient\API\AbstractAPI;
-use Illuminate\Support\Collection;
+use ArkEcosystem\Client\API\AbstractResource;
+use GuzzleHttp\Psr7\Response;
 
-class Blocks extends AbstractAPI
+/**
+ * This is the blocks resource class.
+ *
+ * @author Brian Faust <hello@brianfaust.me>
+ */
+class Blocks extends AbstractResource
 {
     /**
      * @param array $query
      *
-     * @return \Illuminate\Support\Collection
+     * @return \GuzzleHttp\Psr7\Response
      */
-    public function all(array $query = []): Collection
+    public function all(array $query = []): Response
     {
         return $this->get('api/blocks', $query);
     }
@@ -31,81 +36,81 @@ class Blocks extends AbstractAPI
     /**
      * @param string $id
      *
-     * @return \Illuminate\Support\Collection
+     * @return \GuzzleHttp\Psr7\Response
      */
-    public function show(string $id): Collection
+    public function show(string $id): Response
     {
         return $this->get('api/blocks/get', compact('id'));
     }
 
     /**
-     * @return \Illuminate\Support\Collection
+     * @return \GuzzleHttp\Psr7\Response
      */
-    public function epoch(): Collection
+    public function epoch(): Response
     {
         return $this->get('api/blocks/getEpoch');
     }
 
     /**
-     * @return \Illuminate\Support\Collection
+     * @return \GuzzleHttp\Psr7\Response
      */
-    public function fee(): Collection
+    public function fee(): Response
     {
         return $this->get('api/blocks/getFee');
     }
 
     /**
-     * @return \Illuminate\Support\Collection
+     * @return \GuzzleHttp\Psr7\Response
      */
-    public function fees(): Collection
+    public function fees(): Response
     {
         return $this->get('api/blocks/getFees');
     }
 
     /**
-     * @return \Illuminate\Support\Collection
+     * @return \GuzzleHttp\Psr7\Response
      */
-    public function height(): Collection
+    public function height(): Response
     {
         return $this->get('api/blocks/getHeight');
     }
 
     /**
-     * @return \Illuminate\Support\Collection
+     * @return \GuzzleHttp\Psr7\Response
      */
-    public function milestone(): Collection
+    public function milestone(): Response
     {
         return $this->get('api/blocks/getMilestone');
     }
 
     /**
-     * @return \Illuminate\Support\Collection
+     * @return \GuzzleHttp\Psr7\Response
      */
-    public function nethash(): Collection
+    public function nethash(): Response
     {
         return $this->get('api/blocks/getNethash');
     }
 
     /**
-     * @return \Illuminate\Support\Collection
+     * @return \GuzzleHttp\Psr7\Response
      */
-    public function reward(): Collection
+    public function reward(): Response
     {
         return $this->get('api/blocks/getReward');
     }
 
     /**
-     * @return \Illuminate\Support\Collection
+     * @return \GuzzleHttp\Psr7\Response
      */
-    public function status(): Collection
+    public function status(): Response
     {
         return $this->get('api/blocks/getStatus');
     }
 
     /**
-     * @return \Illuminate\Support\Collection
+     * @return \GuzzleHttp\Psr7\Response
      */
-    public function supply(): Collection
+    public function supply(): Response
     {
         return $this->get('api/blocks/getSupply');
     }

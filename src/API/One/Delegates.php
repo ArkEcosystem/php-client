@@ -11,19 +11,24 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace ArkEcosystem\ArkClient\API\One;
+namespace ArkEcosystem\Client\API\One;
 
-use ArkEcosystem\ArkClient\API\AbstractAPI;
-use Illuminate\Support\Collection;
+use ArkEcosystem\Client\API\AbstractResource;
+use GuzzleHttp\Psr7\Response;
 
-class Delegates extends AbstractAPI
+/**
+ * This is the delegates resource class.
+ *
+ * @author Brian Faust <hello@brianfaust.me>
+ */
+class Delegates extends AbstractResource
 {
     /**
      * @param string $query
      *
-     * @return \Illuminate\Support\Collection
+     * @return \GuzzleHttp\Psr7\Response
      */
-    public function all(array $query = []): Collection
+    public function all(array $query = []): Response
     {
         return $this->get('api/delegates', $query);
     }
@@ -31,25 +36,25 @@ class Delegates extends AbstractAPI
     /**
      * @param string $id
      *
-     * @return \Illuminate\Support\Collection
+     * @return \GuzzleHttp\Psr7\Response
      */
-    public function show(array $identifier): Collection
+    public function show(array $identifier): Response
     {
         return $this->get('api/delegates/get', $identifier);
     }
 
     /**
-     * @return \Illuminate\Support\Collection
+     * @return \GuzzleHttp\Psr7\Response
      */
-    public function count(): Collection
+    public function count(): Response
     {
         return $this->get('api/delegates/count');
     }
 
     /**
-     * @return \Illuminate\Support\Collection
+     * @return \GuzzleHttp\Psr7\Response
      */
-    public function fee(): Collection
+    public function fee(): Response
     {
         return $this->get('api/delegates/fee');
     }
@@ -57,9 +62,9 @@ class Delegates extends AbstractAPI
     /**
      * @param string $generatorPublicKey
      *
-     * @return \Illuminate\Support\Collection
+     * @return \GuzzleHttp\Psr7\Response
      */
-    public function forgedByAccount(string $generatorPublicKey): Collection
+    public function forgedByAccount(string $generatorPublicKey): Response
     {
         return $this->get('api/delegates/forging/getForgedByAccount', compact('generatorPublicKey'));
     }
@@ -67,9 +72,9 @@ class Delegates extends AbstractAPI
     /**
      * @param string $query
      *
-     * @return \Illuminate\Support\Collection
+     * @return \GuzzleHttp\Psr7\Response
      */
-    public function search(string $query): Collection
+    public function search(string $query): Response
     {
         return $this->get('api/delegates/search', ['q' => $query]);
     }
@@ -77,9 +82,9 @@ class Delegates extends AbstractAPI
     /**
      * @param string $publicKey
      *
-     * @return \Illuminate\Support\Collection
+     * @return \GuzzleHttp\Psr7\Response
      */
-    public function voters(string $publicKey): Collection
+    public function voters(string $publicKey): Response
     {
         return $this->get('api/delegates/voters', compact('publicKey'));
     }
@@ -87,9 +92,9 @@ class Delegates extends AbstractAPI
     /**
      * @param string $generatorPublicKey
      *
-     * @return \Illuminate\Support\Collection
+     * @return \GuzzleHttp\Psr7\Response
      */
-    public function nextForgers(): Collection
+    public function nextForgers(): Response
     {
         return $this->get('api/delegates/getNextForgers');
     }

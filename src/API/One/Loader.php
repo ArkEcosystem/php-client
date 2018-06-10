@@ -11,34 +11,39 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace ArkEcosystem\ArkClient\API\One;
+namespace ArkEcosystem\Client\API\One;
 
-use ArkEcosystem\ArkClient\API\AbstractAPI;
-use Illuminate\Support\Collection;
+use ArkEcosystem\Client\API\AbstractResource;
+use GuzzleHttp\Psr7\Response;
 
-class Loader extends AbstractAPI
+/**
+ * This is the loader resource class.
+ *
+ * @author Brian Faust <hello@brianfaust.me>
+ */
+class Loader extends AbstractResource
 {
     /**
-     * @return \Illuminate\Support\Collection
+     * @return \GuzzleHttp\Psr7\Response
      */
-    public function status(): Collection
-    {
-        return $this->get('api/loader/autoconfigure');
-    }
-
-    /**
-     * @return \Illuminate\Support\Collection
-     */
-    public function sync(): Collection
+    public function status(): Response
     {
         return $this->get('api/loader/status');
     }
 
     /**
-     * @return \Illuminate\Support\Collection
+     * @return \GuzzleHttp\Psr7\Response
      */
-    public function autoconfigure(): Collection
+    public function sync(): Response
     {
         return $this->get('api/loader/status/sync');
+    }
+
+    /**
+     * @return \GuzzleHttp\Psr7\Response
+     */
+    public function autoconfigure(): Response
+    {
+        return $this->get('api/loader/autoconfigure');
     }
 }

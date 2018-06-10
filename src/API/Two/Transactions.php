@@ -11,17 +11,22 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace ArkEcosystem\ArkClient\API\Two;
+namespace ArkEcosystem\Client\API\Two;
 
-use ArkEcosystem\ArkClient\API\AbstractAPI;
-use Illuminate\Support\Collection;
+use ArkEcosystem\Client\API\AbstractResource;
+use GuzzleHttp\Psr7\Response;
 
-class Transactions extends AbstractAPI
+/**
+ * This is the transactions resource class.
+ *
+ * @author Brian Faust <hello@brianfaust.me>
+ */
+class Transactions extends AbstractResource
 {
     /**
-     * @return \Illuminate\Support\Collection
+     * @return \GuzzleHttp\Psr7\Response
      */
-    public function all(): Collection
+    public function all(): Response
     {
         return $this->get('transactions');
     }
@@ -29,9 +34,9 @@ class Transactions extends AbstractAPI
     /**
      * @param array $payload
      *
-     * @return \Illuminate\Support\Collection
+     * @return \GuzzleHttp\Psr7\Response
      */
-    public function create(array $payload): Collection
+    public function create(array $payload): Response
     {
         return $this->post('transactions', $payload);
     }
@@ -39,17 +44,17 @@ class Transactions extends AbstractAPI
     /**
      * @param string $id
      *
-     * @return \Illuminate\Support\Collection
+     * @return \GuzzleHttp\Psr7\Response
      */
-    public function get(string $id): Collection
+    public function get(string $id): Response
     {
         return $this->get("transactions/{$id}");
     }
 
     /**
-     * @return \Illuminate\Support\Collection
+     * @return \GuzzleHttp\Psr7\Response
      */
-    public function allUnconfirmed(): Collection
+    public function allUnconfirmed(): Response
     {
         return $this->get('transactions/unconfirmed');
     }
@@ -57,9 +62,9 @@ class Transactions extends AbstractAPI
     /**
      * @param string $id
      *
-     * @return \Illuminate\Support\Collection
+     * @return \GuzzleHttp\Psr7\Response
      */
-    public function getUnconfirmed(string $id): Collection
+    public function getUnconfirmed(string $id): Response
     {
         return $this->get("transactions/unconfirmed/{$id}");
     }
@@ -67,17 +72,17 @@ class Transactions extends AbstractAPI
     /**
      * @param array $payload
      *
-     * @return \Illuminate\Support\Collection
+     * @return \GuzzleHttp\Psr7\Response
      */
-    public function search(array $payload): Collection
+    public function search(array $payload): Response
     {
         return $this->post('transactions/search', $payload);
     }
 
     /**
-     * @return \Illuminate\Support\Collection
+     * @return \GuzzleHttp\Psr7\Response
      */
-    public function types(): Collection
+    public function types(): Response
     {
         return $this->get('transactions/types');
     }

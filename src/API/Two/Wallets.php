@@ -11,25 +11,30 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace ArkEcosystem\ArkClient\API\Two;
+namespace ArkEcosystem\Client\API\Two;
 
-use ArkEcosystem\ArkClient\API\AbstractAPI;
-use Illuminate\Support\Collection;
+use ArkEcosystem\Client\API\AbstractResource;
+use GuzzleHttp\Psr7\Response;
 
-class Wallets extends AbstractAPI
+/**
+ * This is the wallets resource class.
+ *
+ * @author Brian Faust <hello@brianfaust.me>
+ */
+class Wallets extends AbstractResource
 {
     /**
-     * @return \Illuminate\Support\Collection
+     * @return \GuzzleHttp\Psr7\Response
      */
-    public function all(): Collection
+    public function all(): Response
     {
         return $this->get('wallets');
     }
 
     /**
-     * @return \Illuminate\Support\Collection
+     * @return \GuzzleHttp\Psr7\Response
      */
-    public function top(): Collection
+    public function top(): Response
     {
         return $this->get('wallets/top');
     }
@@ -37,9 +42,9 @@ class Wallets extends AbstractAPI
     /**
      * @param string $id
      *
-     * @return \Illuminate\Support\Collection
+     * @return \GuzzleHttp\Psr7\Response
      */
-    public function get(string $id): Collection
+    public function get(string $id): Response
     {
         return $this->get("wallets/{$id}");
     }
@@ -47,9 +52,9 @@ class Wallets extends AbstractAPI
     /**
      * @param string $id
      *
-     * @return \Illuminate\Support\Collection
+     * @return \GuzzleHttp\Psr7\Response
      */
-    public function transactions(string $id): Collection
+    public function transactions(string $id): Response
     {
         return $this->get("wallets/{$id}/transactions");
     }
@@ -57,9 +62,9 @@ class Wallets extends AbstractAPI
     /**
      * @param string $id
      *
-     * @return \Illuminate\Support\Collection
+     * @return \GuzzleHttp\Psr7\Response
      */
-    public function transactionsSent(string $id): Collection
+    public function transactionsSent(string $id): Response
     {
         return $this->get("wallets/{$id}/transactions/sent");
     }
@@ -67,9 +72,9 @@ class Wallets extends AbstractAPI
     /**
      * @param string $id
      *
-     * @return \Illuminate\Support\Collection
+     * @return \GuzzleHttp\Psr7\Response
      */
-    public function transactionsReceived(string $id): Collection
+    public function transactionsReceived(string $id): Response
     {
         return $this->get("wallets/{$id}/transactions/received");
     }
@@ -77,9 +82,9 @@ class Wallets extends AbstractAPI
     /**
      * @param string $id
      *
-     * @return \Illuminate\Support\Collection
+     * @return \GuzzleHttp\Psr7\Response
      */
-    public function votes(string $id): Collection
+    public function votes(string $id): Response
     {
         return $this->get("wallets/{$id}/votes");
     }
@@ -87,9 +92,9 @@ class Wallets extends AbstractAPI
     /**
      * @param array $payload
      *
-     * @return \Illuminate\Support\Collection
+     * @return \GuzzleHttp\Psr7\Response
      */
-    public function search(array $payload): Collection
+    public function search(array $payload): Response
     {
         return $this->post('wallets/search', $payload);
     }

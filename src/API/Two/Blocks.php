@@ -11,17 +11,22 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace ArkEcosystem\ArkClient\API\Two;
+namespace ArkEcosystem\Client\API\Two;
 
-use ArkEcosystem\ArkClient\API\AbstractAPI;
-use Illuminate\Support\Collection;
+use ArkEcosystem\Client\API\AbstractResource;
+use GuzzleHttp\Psr7\Response;
 
-class Blocks extends AbstractAPI
+/**
+ * This is the blocks resource class.
+ *
+ * @author Brian Faust <hello@brianfaust.me>
+ */
+class Blocks extends AbstractResource
 {
     /**
-     * @return \Illuminate\Support\Collection
+     * @return \GuzzleHttp\Psr7\Response
      */
-    public function all(): Collection
+    public function all(): Response
     {
         return $this->get('blocks');
     }
@@ -29,9 +34,9 @@ class Blocks extends AbstractAPI
     /**
      * @param string $id
      *
-     * @return \Illuminate\Support\Collection
+     * @return \GuzzleHttp\Psr7\Response
      */
-    public function get(string $id): Collection
+    public function get(string $id): Response
     {
         return $this->get("blocks/{$id}");
     }
@@ -39,9 +44,9 @@ class Blocks extends AbstractAPI
     /**
      * @param string $id
      *
-     * @return \Illuminate\Support\Collection
+     * @return \GuzzleHttp\Psr7\Response
      */
-    public function transactions(string $id): Collection
+    public function transactions(string $id): Response
     {
         return $this->get("blocks/{$id}/transactions");
     }
@@ -49,9 +54,9 @@ class Blocks extends AbstractAPI
     /**
      * @param array $payload
      *
-     * @return \Illuminate\Support\Collection
+     * @return \GuzzleHttp\Psr7\Response
      */
-    public function search(array $payload): Collection
+    public function search(array $payload): Response
     {
         return $this->post('blocks/search', $payload);
     }
