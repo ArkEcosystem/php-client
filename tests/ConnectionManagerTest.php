@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace ArkEcosystem\Tests\Client;
 
+use ArkEcosystem\Client\Config;
 use ArkEcosystem\Client\Connection;
 use ArkEcosystem\Client\ConnectionManager;
 
@@ -28,7 +29,7 @@ class ConnectionManagerTest extends TestCase
     public function it_should_create_a_connection()
     {
         $manager = new ConnectionManager();
-        $manager->connect($this->host, 'dummy-connection');
+        $manager->connect($this->getConfig(), 'dummy-connection');
 
         $this->assertArrayHasKey('dummy-connection', $manager->getConnections());
     }
@@ -37,7 +38,7 @@ class ConnectionManagerTest extends TestCase
     public function it_should_remove_a_connection()
     {
         $manager = new ConnectionManager();
-        $manager->connect($this->host, 'dummy-connection');
+        $manager->connect($this->getConfig(), 'dummy-connection');
 
         $this->assertArrayHasKey('dummy-connection', $manager->getConnections());
 
@@ -50,7 +51,7 @@ class ConnectionManagerTest extends TestCase
     public function it_should_return_a_connection()
     {
         $manager = new ConnectionManager();
-        $manager->connect($this->host, 'dummy-connection');
+        $manager->connect($this->getConfig(), 'dummy-connection');
 
         $this->assertInstanceOf(Connection::class, $manager->connection('dummy-connection'));
     }
@@ -76,11 +77,16 @@ class ConnectionManagerTest extends TestCase
     public function it_should_return_all_connections()
     {
         $manager = new ConnectionManager();
-        $manager->connect($this->host, 'dummy-connection-1');
-        $manager->connect($this->host, 'dummy-connection-2');
-        $manager->connect($this->host, 'dummy-connection-3');
+        $manager->connect($this->getConfig(), 'dummy-connection-1');
+        $manager->connect($this->getConfig(), 'dummy-connection-2');
+        $manager->connect($this->getConfig(), 'dummy-connection-3');
 
         $this->assertInternalType('array', $manager->getConnections());
         $this->assertCount(3, $manager->getConnections());
+    }
+
+    private function getConfig(): Config
+    {
+        return new Config(['host' => $this->host]);
     }
 }

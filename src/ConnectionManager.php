@@ -39,18 +39,18 @@ class ConnectionManager
     /**
      * Connect to the given connection.
      *
-     * @param array  $host
-     * @param string $name
+     * @param ArkEcosystem\Client\Config $config
+     * @param string                     $name
      *
      * @return \ArkEcosystem\Client\Connection
      */
-    public function connect(string $host, string $name = 'main'): Connection
+    public function connect(Config $config, string $name = 'main'): Connection
     {
         if (isset($this->connections[$name])) {
             throw new InvalidArgumentException("Connection [$name] is already configured.");
         }
 
-        $this->connections[$name] = new Connection($host);
+        $this->connections[$name] = new Connection($config);
 
         return $this->connections[$name];
     }

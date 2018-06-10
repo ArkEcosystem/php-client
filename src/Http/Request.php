@@ -126,12 +126,12 @@ class Request
     private function makeClient(): Client
     {
         return GuzzleFactory::make([
-            'base_uri' => $this->connection->config('host'),
+            'base_uri' => $this->connection->config->get('host'),
             'headers'  => [
-                'nethash'     => $this->connection->config('nethash'),
-                'version'     => $this->connection->config('version'),
+                'nethash'     => $this->connection->config->get('nethash'),
+                'version'     => $this->connection->config->get('version'),
                 'port'        => 1,
-                'API-Version' => $this->connection->config('api_version'),
+                'API-Version' => $this->connection->config->get('api_version'),
             ],
         ]);
     }

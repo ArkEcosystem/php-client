@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace ArkEcosystem\Tests\Client;
 
 use ArkEcosystem\Client\API\AbstractResource;
+use ArkEcosystem\Client\Config;
 use ArkEcosystem\Client\Connection;
 use ArkEcosystem\Client\ConnectionManager;
 use PHPUnit\Framework\TestCase as BaseTestCase;
@@ -26,11 +27,16 @@ abstract class TestCase extends BaseTestCase
     {
         $connections = new ConnectionManager();
 
-        return $connections->connect($this->host);
+        $config = new Config(['host' => $this->host]);
+
+        return $connections->connect($config);
     }
 
     protected function getResource(int $version, string $resource): AbstractResource
     {
-        return $this->getConnection()->version($version)->api($resource);
+        return $this
+            ->getConnection()
+            ->version($version)
+            ->api($resource);
     }
 }
