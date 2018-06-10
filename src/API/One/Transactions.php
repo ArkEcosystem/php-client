@@ -24,6 +24,8 @@ use GuzzleHttp\Psr7\Response;
 class Transactions extends AbstractResource
 {
     /**
+     * Get all accounts.
+     *
      * @param array $query
      *
      * @return \GuzzleHttp\Psr7\Response
@@ -34,6 +36,8 @@ class Transactions extends AbstractResource
     }
 
     /**
+     * Get a transaction by the given id.
+     *
      * @param string $id
      *
      * @return \GuzzleHttp\Psr7\Response
@@ -44,6 +48,8 @@ class Transactions extends AbstractResource
     }
 
     /**
+     * Get all unconfirmed transactions.
+     *
      * @param array $query
      *
      * @return \GuzzleHttp\Psr7\Response
@@ -54,6 +60,8 @@ class Transactions extends AbstractResource
     }
 
     /**
+     * Get an unconfirmed transaction by the given id.
+     *
      * @param string $id
      *
      * @return \GuzzleHttp\Psr7\Response

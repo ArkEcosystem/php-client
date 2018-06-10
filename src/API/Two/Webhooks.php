@@ -24,6 +24,8 @@ use GuzzleHttp\Psr7\Response;
 class Webhooks extends AbstractResource
 {
     /**
+     * Get all webhooks.
+     *
      * @return \GuzzleHttp\Psr7\Response
      */
     public function all(): Response
@@ -32,6 +34,8 @@ class Webhooks extends AbstractResource
     }
 
     /**
+     * Create a new webhook.
+     *
      * @param array $payload
      *
      * @return \GuzzleHttp\Psr7\Response
@@ -42,16 +46,20 @@ class Webhooks extends AbstractResource
     }
 
     /**
+     * Get the webhook by the given id.
+     *
      * @param int $id
      *
      * @return \GuzzleHttp\Psr7\Response
      */
-    public function get(int $id): Response
+    public function show(int $id): Response
     {
         return $this->get("webhooks/{$id}");
     }
 
     /**
+     * Update the webhook by the given id.
+     *
      * @param int   $id
      * @param array $payload
      *
@@ -63,6 +71,8 @@ class Webhooks extends AbstractResource
     }
 
     /**
+     * Delete the webhook by the given id.
+     *
      * @param int $id
      *
      * @return \GuzzleHttp\Psr7\Response

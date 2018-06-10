@@ -24,6 +24,8 @@ use GuzzleHttp\Psr7\Response;
 class Delegates extends AbstractResource
 {
     /**
+     * Get all accounts.
+     *
      * @return \GuzzleHttp\Psr7\Response
      */
     public function all(): Response
@@ -32,16 +34,20 @@ class Delegates extends AbstractResource
     }
 
     /**
+     * Get a block by the given id.
+     *
      * @param string $id
      *
      * @return \GuzzleHttp\Psr7\Response
      */
-    public function get(string $id): Response
+    public function show(string $id): Response
     {
         return $this->get("delegates/{$id}");
     }
 
     /**
+     * Get all blocks for the given delegate.
+     *
      * @param string $id
      *
      * @return \GuzzleHttp\Psr7\Response
@@ -52,6 +58,8 @@ class Delegates extends AbstractResource
     }
 
     /**
+     * Get all voters for the given delegate.
+     *
      * @param string $id
      *
      * @return \GuzzleHttp\Psr7\Response

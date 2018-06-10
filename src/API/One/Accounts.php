@@ -24,6 +24,8 @@ use GuzzleHttp\Psr7\Response;
 class Accounts extends AbstractResource
 {
     /**
+     * Get all accounts.
+     *
      * @param array $query
      *
      * @return \GuzzleHttp\Psr7\Response
@@ -34,6 +36,8 @@ class Accounts extends AbstractResource
     }
 
     /**
+     * Get a account by the given address.
+     *
      * @param string $address
      *
      * @return \GuzzleHttp\Psr7\Response
@@ -44,6 +48,8 @@ class Accounts extends AbstractResource
     }
 
     /**
+     * Count all accounts.
+     *
      * @return \GuzzleHttp\Psr7\Response
      */
     public function count(): Response
@@ -52,6 +58,8 @@ class Accounts extends AbstractResource
     }
 
     /**
+     * Get a delegate by the given address.
+     *
      * @param string $address
      *
      * @return \GuzzleHttp\Psr7\Response
@@ -62,6 +70,8 @@ class Accounts extends AbstractResource
     }
 
     /**
+     * Get the delegate registration fee.
+     *
      * @return \GuzzleHttp\Psr7\Response
      */
     public function fee(): Response
@@ -70,6 +80,8 @@ class Accounts extends AbstractResource
     }
 
     /**
+     * Get the balance for an account by the given address.
+     *
      * @param string $address
      *
      * @return \GuzzleHttp\Psr7\Response
@@ -80,6 +92,8 @@ class Accounts extends AbstractResource
     }
 
     /**
+     * Get the public key for an account by the given address.
+     *
      * @param string $address
      *
      * @return \GuzzleHttp\Psr7\Response
@@ -90,6 +104,8 @@ class Accounts extends AbstractResource
     }
 
     /**
+     * Get all wallets sorted by balance in descending order.
+     *
      * @param array $query
      *
      * @return \GuzzleHttp\Psr7\Response

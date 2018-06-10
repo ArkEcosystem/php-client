@@ -24,6 +24,8 @@ use GuzzleHttp\Psr7\Response;
 class Blocks extends AbstractResource
 {
     /**
+     * Get all accounts.
+     *
      * @param array $query
      *
      * @return \GuzzleHttp\Psr7\Response
@@ -34,6 +36,8 @@ class Blocks extends AbstractResource
     }
 
     /**
+     * Get a block by the given id.
+     *
      * @param string $id
      *
      * @return \GuzzleHttp\Psr7\Response
@@ -44,6 +48,8 @@ class Blocks extends AbstractResource
     }
 
     /**
+     * Get the blockchain epoch.
+     *
      * @return \GuzzleHttp\Psr7\Response
      */
     public function epoch(): Response
@@ -52,6 +58,8 @@ class Blocks extends AbstractResource
     }
 
     /**
+     * Get the transfer transaction fee.
+     *
      * @return \GuzzleHttp\Psr7\Response
      */
     public function fee(): Response
@@ -60,6 +68,8 @@ class Blocks extends AbstractResource
     }
 
     /**
+     * Get a list of transaction fees.
+     *
      * @return \GuzzleHttp\Psr7\Response
      */
     public function fees(): Response
@@ -68,6 +78,8 @@ class Blocks extends AbstractResource
     }
 
     /**
+     * Get the blockchain height.
+     *
      * @return \GuzzleHttp\Psr7\Response
      */
     public function height(): Response
@@ -76,6 +88,8 @@ class Blocks extends AbstractResource
     }
 
     /**
+     * Get the blockchain milestone.
+     *
      * @return \GuzzleHttp\Psr7\Response
      */
     public function milestone(): Response
@@ -84,6 +98,8 @@ class Blocks extends AbstractResource
     }
 
     /**
+     * Get the blockchain nethash.
+     *
      * @return \GuzzleHttp\Psr7\Response
      */
     public function nethash(): Response
@@ -92,6 +108,8 @@ class Blocks extends AbstractResource
     }
 
     /**
+     * Get the blockchain reward.
+     *
      * @return \GuzzleHttp\Psr7\Response
      */
     public function reward(): Response
@@ -100,6 +118,8 @@ class Blocks extends AbstractResource
     }
 
     /**
+     * Get the blockchain status.
+     *
      * @return \GuzzleHttp\Psr7\Response
      */
     public function status(): Response
@@ -108,6 +128,8 @@ class Blocks extends AbstractResource
     }
 
     /**
+     * Get the blockchain supply.
+     *
      * @return \GuzzleHttp\Psr7\Response
      */
     public function supply(): Response

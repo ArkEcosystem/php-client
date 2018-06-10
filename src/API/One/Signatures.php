@@ -24,6 +24,8 @@ use GuzzleHttp\Psr7\Response;
 class Signatures extends AbstractResource
 {
     /**
+     * Get the second signature registration fee.
+     *
      * @return \GuzzleHttp\Psr7\Response
      */
     public function fee(): Response

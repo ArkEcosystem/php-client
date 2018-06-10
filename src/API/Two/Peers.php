@@ -24,6 +24,8 @@ use GuzzleHttp\Psr7\Response;
 class Peers extends AbstractResource
 {
     /**
+     * Get all peers.
+     *
      * @return \GuzzleHttp\Psr7\Response
      */
     public function all(): Response
@@ -32,11 +34,13 @@ class Peers extends AbstractResource
     }
 
     /**
+     * Get a peer by the given IP address.
+     *
      * @param string $ip
      *
      * @return \GuzzleHttp\Psr7\Response
      */
-    public function get(string $ip): Response
+    public function show(string $ip): Response
     {
         return $this->get("peers/${ip}");
     }

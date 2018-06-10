@@ -24,6 +24,8 @@ use GuzzleHttp\Psr7\Response;
 class Loader extends AbstractResource
 {
     /**
+     * Get the loader status.
+     *
      * @return \GuzzleHttp\Psr7\Response
      */
     public function status(): Response
@@ -32,6 +34,8 @@ class Loader extends AbstractResource
     }
 
     /**
+     * Get the loader syncing status.
+     *
      * @return \GuzzleHttp\Psr7\Response
      */
     public function sync(): Response
@@ -40,6 +44,8 @@ class Loader extends AbstractResource
     }
 
     /**
+     * Get the loader configuration.
+     *
      * @return \GuzzleHttp\Psr7\Response
      */
     public function autoconfigure(): Response

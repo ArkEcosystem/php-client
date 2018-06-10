@@ -24,6 +24,8 @@ use GuzzleHttp\Psr7\Response;
 class Votes extends AbstractResource
 {
     /**
+     * Get all votes.
+     *
      * @return \GuzzleHttp\Psr7\Response
      */
     public function all(): Response
@@ -32,11 +34,13 @@ class Votes extends AbstractResource
     }
 
     /**
+     * Get a vote by the given id.
+     *
      * @param string $id
      *
      * @return \GuzzleHttp\Psr7\Response
      */
-    public function get(string $id): Response
+    public function show(string $id): Response
     {
         return $this->get("votes/{$id}");
     }

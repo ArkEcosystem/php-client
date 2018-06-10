@@ -24,6 +24,8 @@ use GuzzleHttp\Psr7\Response;
 class Wallets extends AbstractResource
 {
     /**
+     * Get all wallets.
+     *
      * @return \GuzzleHttp\Psr7\Response
      */
     public function all(): Response
@@ -32,6 +34,8 @@ class Wallets extends AbstractResource
     }
 
     /**
+     * Get all wallets sorted by balance in descending order.
+     *
      * @return \GuzzleHttp\Psr7\Response
      */
     public function top(): Response
@@ -40,16 +44,20 @@ class Wallets extends AbstractResource
     }
 
     /**
+     * Get a wallet by the given id.
+     *
      * @param string $id
      *
      * @return \GuzzleHttp\Psr7\Response
      */
-    public function get(string $id): Response
+    public function show(string $id): Response
     {
         return $this->get("wallets/{$id}");
     }
 
     /**
+     * Get all transactions for the given wallet.
+     *
      * @param string $id
      *
      * @return \GuzzleHttp\Psr7\Response
@@ -60,6 +68,8 @@ class Wallets extends AbstractResource
     }
 
     /**
+     * Get all transactions sent by the given wallet.
+     *
      * @param string $id
      *
      * @return \GuzzleHttp\Psr7\Response
@@ -70,6 +80,8 @@ class Wallets extends AbstractResource
     }
 
     /**
+     * Get all transactions received by the given wallet.
+     *
      * @param string $id
      *
      * @return \GuzzleHttp\Psr7\Response
@@ -80,6 +92,8 @@ class Wallets extends AbstractResource
     }
 
     /**
+     * Get all votes by the given wallet.
+     *
      * @param string $id
      *
      * @return \GuzzleHttp\Psr7\Response
@@ -90,12 +104,14 @@ class Wallets extends AbstractResource
     }
 
     /**
-     * @param array $payload
+     * Filter all wallets by the given criteria.
+     *
+     * @param array $criteria
      *
      * @return \GuzzleHttp\Psr7\Response
      */
-    public function search(array $payload): Response
+    public function search(array $criteria): Response
     {
-        return $this->post('wallets/search', $payload);
+        return $this->post('wallets/search', $criteria);
     }
 }

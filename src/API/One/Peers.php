@@ -24,6 +24,8 @@ use GuzzleHttp\Psr7\Response;
 class Peers extends AbstractResource
 {
     /**
+     * Get all accounts.
+     *
      * @param string $query
      *
      * @return \GuzzleHttp\Psr7\Response
@@ -34,6 +36,8 @@ class Peers extends AbstractResource
     }
 
     /**
+     * Get a peer by the given IP address and port.
+     *
      * @param string $ip
      * @param int    $port
      *
@@ -45,6 +49,8 @@ class Peers extends AbstractResource
     }
 
     /**
+     * Get the node version of the given peer.
+     *
      * @return \GuzzleHttp\Psr7\Response
      */
     public function version(): Response

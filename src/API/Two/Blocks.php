@@ -24,6 +24,8 @@ use GuzzleHttp\Psr7\Response;
 class Blocks extends AbstractResource
 {
     /**
+     * Get all blocks.
+     *
      * @return \GuzzleHttp\Psr7\Response
      */
     public function all(): Response
@@ -32,16 +34,20 @@ class Blocks extends AbstractResource
     }
 
     /**
+     * Get a block by the given id.
+     *
      * @param string $id
      *
      * @return \GuzzleHttp\Psr7\Response
      */
-    public function get(string $id): Response
+    public function show(string $id): Response
     {
         return $this->get("blocks/{$id}");
     }
 
     /**
+     * Get all transactions by the given block.
+     *
      * @param string $id
      *
      * @return \GuzzleHttp\Psr7\Response
@@ -52,12 +58,14 @@ class Blocks extends AbstractResource
     }
 
     /**
-     * @param array $payload
+     * Filter all blocks by the given criteria.
+     *
+     * @param array $criteria
      *
      * @return \GuzzleHttp\Psr7\Response
      */
-    public function search(array $payload): Response
+    public function search(array $criteria): Response
     {
-        return $this->post('blocks/search', $payload);
+        return $this->post('blocks/search', $criteria);
     }
 }

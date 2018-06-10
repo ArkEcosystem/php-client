@@ -24,6 +24,8 @@ use GuzzleHttp\Psr7\Response;
 class Delegates extends AbstractResource
 {
     /**
+     * Get all accounts.
+     *
      * @param string $query
      *
      * @return \GuzzleHttp\Psr7\Response
@@ -34,6 +36,8 @@ class Delegates extends AbstractResource
     }
 
     /**
+     * Get a delegate by the given id.
+     *
      * @param string $id
      *
      * @return \GuzzleHttp\Psr7\Response
@@ -44,6 +48,8 @@ class Delegates extends AbstractResource
     }
 
     /**
+     * Count all delegates.
+     *
      * @return \GuzzleHttp\Psr7\Response
      */
     public function count(): Response
@@ -52,6 +58,8 @@ class Delegates extends AbstractResource
     }
 
     /**
+     * Get the delegate registration fee.
+     *
      * @return \GuzzleHttp\Psr7\Response
      */
     public function fee(): Response
@@ -60,6 +68,8 @@ class Delegates extends AbstractResource
     }
 
     /**
+     * Get the forged totals by the given public key.
+     *
      * @param string $generatorPublicKey
      *
      * @return \GuzzleHttp\Psr7\Response
@@ -70,6 +80,8 @@ class Delegates extends AbstractResource
     }
 
     /**
+     * Filter all delegates by the given criteria.
+     *
      * @param string $query
      *
      * @return \GuzzleHttp\Psr7\Response
@@ -80,6 +92,8 @@ class Delegates extends AbstractResource
     }
 
     /**
+     * Get all voters by the given public key.
+     *
      * @param string $publicKey
      *
      * @return \GuzzleHttp\Psr7\Response
@@ -90,6 +104,8 @@ class Delegates extends AbstractResource
     }
 
     /**
+     * Get a list of the next forgers.
+     *
      * @param string $generatorPublicKey
      *
      * @return \GuzzleHttp\Psr7\Response

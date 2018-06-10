@@ -24,6 +24,8 @@ use GuzzleHttp\Psr7\Response;
 class Transactions extends AbstractResource
 {
     /**
+     * Get all transactions.
+     *
      * @return \GuzzleHttp\Psr7\Response
      */
     public function all(): Response
@@ -32,26 +34,32 @@ class Transactions extends AbstractResource
     }
 
     /**
-     * @param array $payload
+     * Create a new transaction.
+     *
+     * @param array $transactions
      *
      * @return \GuzzleHttp\Psr7\Response
      */
-    public function create(array $payload): Response
+    public function create(array $transactions): Response
     {
-        return $this->post('transactions', $payload);
+        return $this->post('transactions', $transactions);
     }
 
     /**
+     * Get a transaction by the given id.
+     *
      * @param string $id
      *
      * @return \GuzzleHttp\Psr7\Response
      */
-    public function get(string $id): Response
+    public function show(string $id): Response
     {
         return $this->get("transactions/{$id}");
     }
 
     /**
+     * Get all unconfirmed transactions.
+     *
      * @return \GuzzleHttp\Psr7\Response
      */
     public function allUnconfirmed(): Response
@@ -60,6 +68,8 @@ class Transactions extends AbstractResource
     }
 
     /**
+     * Get an unconfirmed transaction by the given id.
+     *
      * @param string $id
      *
      * @return \GuzzleHttp\Psr7\Response
@@ -70,16 +80,20 @@ class Transactions extends AbstractResource
     }
 
     /**
-     * @param array $payload
+     * Filter all transactions by the given criteria.
+     *
+     * @param array $criteria
      *
      * @return \GuzzleHttp\Psr7\Response
      */
-    public function search(array $payload): Response
+    public function search(array $criteria): Response
     {
-        return $this->post('transactions/search', $payload);
+        return $this->post('transactions/search', $criteria);
     }
 
     /**
+     * Get a list of valid transaction types.
+     *
      * @return \GuzzleHttp\Psr7\Response
      */
     public function types(): Response

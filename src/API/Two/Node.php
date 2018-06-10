@@ -24,6 +24,8 @@ use GuzzleHttp\Psr7\Response;
 class Node extends AbstractResource
 {
     /**
+     * Get the node status.
+     *
      * @return \GuzzleHttp\Psr7\Response
      */
     public function status(): Response
@@ -32,6 +34,8 @@ class Node extends AbstractResource
     }
 
     /**
+     * Get the node syncing status.
+     *
      * @return \GuzzleHttp\Psr7\Response
      */
     public function syncing(): Response
@@ -40,6 +44,8 @@ class Node extends AbstractResource
     }
 
     /**
+     * Get the node configuration.
+     *
      * @return \GuzzleHttp\Psr7\Response
      */
     public function configuration(): Response
