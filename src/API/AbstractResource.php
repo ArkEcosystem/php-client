@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace ArkEcosystem\Client\API;
 
 use ArkEcosystem\Client\Connection;
+use ArkEcosystem\Client\Http\Request;
 use ArkEcosystem\Client\Http\Response;
 use GuzzleHttp\Client;
 
@@ -32,22 +33,21 @@ abstract class AbstractResource
     private $connection;
 
     /**
-     * The Guzzle client.
+     * The http request instance.
      *
-     * @var \GuzzleHttp\Client
+     * @var \ArkEcosystem\Client\Http\Request
      */
-    private $client;
+    private $request;
 
     /**
      * Create a new API class instance.
      *
      * @param \ArkEcosystem\Client\Connection $connection
-     * @param \GuzzleHttp\Client              $client
      */
-    public function __construct(Connection $connection, Client $client)
+    public function __construct(Connection $connection)
     {
         $this->connection = $connection;
-        $this->client     = $client;
+        $this->request    = new Request($connection);
     }
 
     /**
@@ -60,7 +60,7 @@ abstract class AbstractResource
      */
     protected function get(string $url, array $params = []): Response
     {
-        return new Response($this->client->get($url, $params));
+        return $this->request->get($url, $params);
     }
 
     /**
@@ -73,7 +73,7 @@ abstract class AbstractResource
      */
     protected function post(string $url, array $params = []): Response
     {
-        return new Response($this->client->post($url, $params));
+        return $this->request->post($url, $params);
     }
 
     /**
@@ -86,7 +86,7 @@ abstract class AbstractResource
      */
     protected function put(string $url, array $params = []): Response
     {
-        return new Response($this->client->put($url, $params));
+        return $this->request->put($url, $params);
     }
 
     /**
@@ -99,7 +99,7 @@ abstract class AbstractResource
      */
     protected function patch(string $url, array $params = []): Response
     {
-        return new Response($this->client->patch($url, $params));
+        return $this->request->patch($url, $params);
     }
 
     /**
@@ -112,6 +112,6 @@ abstract class AbstractResource
      */
     protected function delete(string $url, array $params = []): Response
     {
-        return new Response($this->client->delete($url, $params));
+        return $this->request->delete($url, $params);
     }
 }

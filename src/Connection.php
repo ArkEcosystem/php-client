@@ -13,7 +13,6 @@ declare(strict_types=1);
 
 namespace ArkEcosystem\Client;
 
-use GrahamCampbell\GuzzleFactory\GuzzleFactory;
 use GuzzleHttp\Client;
 use NumberFormatter;
 use RuntimeException;
@@ -59,6 +58,19 @@ class Connection
     }
 
     /**
+     * Get a configuration value.
+     *
+     * @param string     $key
+     * @param null|mixed $default
+     *
+     * @return mixed
+     */
+    public function config(string $key, $default = null)
+    {
+        return array_get($this->config, $key, $default);
+    }
+
+    /**
      * Make a new resource instance.
      *
      * @param string $name
@@ -75,25 +87,7 @@ class Connection
             throw new RuntimeException("Class [$class] does not exist.");
         }
 
-        return new $class($this, $this->makeClient());
-    }
-
-    /**
-     * Make the guzzle client instance.
-     *
-     * @return \GuzzleHttp\Client
-     */
-    private function makeClient(): Client
-    {
-        return GuzzleFactory::make([
-            'base_uri' => $this->config['host'],
-            'headers'  => [
-                'nethash'     => array_get($this->config, 'nethash'),
-                'version'     => array_get($this->config, 'version'),
-                'port'        => 1,
-                'API-Version' => $this->config['api_version'],
-            ],
-        ]);
+        return new $class($this);
     }
 
     /**
