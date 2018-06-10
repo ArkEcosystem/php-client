@@ -24,8 +24,10 @@ use ArkEcosystem\Tests\Client\TestCase;
 class SignaturesTest extends TestCase
 {
     /** @test */
-    public function fee()
+    public function fee_should_be_successful()
     {
-        $this->markTestIncomplete('This test has not been implemented yet.');
+        $response = $this->getResource(1, 'signatures')->fee();
+
+        $this->assertTrue($response->isSucess());
     }
 }

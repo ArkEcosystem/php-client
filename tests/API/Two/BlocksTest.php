@@ -24,26 +24,34 @@ use ArkEcosystem\Tests\Client\TestCase;
 class BlocksTest extends TestCase
 {
     /** @test */
-    public function all()
+    public function all_should_be_successful()
     {
-        $this->markTestIncomplete('This test has not been implemented yet.');
+        $response = $this->getResource(2, 'blocks')->all();
+
+        $this->assertTrue($response->isSucess());
     }
 
     /** @test */
-    public function show()
+    public function show_should_be_successful()
     {
-        $this->markTestIncomplete('This test has not been implemented yet.');
+        $response = $this->getResource(2, 'blocks')->show();
+
+        $this->assertTrue($response->isSucess());
     }
 
     /** @test */
-    public function transactions()
+    public function transactions_should_be_successful()
     {
-        $this->markTestIncomplete('This test has not been implemented yet.');
+        $response = $this->getResource(2, 'blocks')->transactions();
+
+        $this->assertTrue($response->isSucess());
     }
 
     /** @test */
-    public function search()
+    public function search_should_be_successful()
     {
-        $this->markTestIncomplete('This test has not been implemented yet.');
+        $response = $this->getResource(2, 'blocks')->search();
+
+        $this->assertTrue($response->isSucess());
     }
 }

@@ -24,20 +24,26 @@ use ArkEcosystem\Tests\Client\TestCase;
 class LoaderTest extends TestCase
 {
     /** @test */
-    public function status()
+    public function status_should_be_successful()
     {
-        $this->markTestIncomplete('This test has not been implemented yet.');
+        $response = $this->getResource(1, 'loader')->status();
+
+        $this->assertTrue($response->isSucess());
     }
 
     /** @test */
-    public function sync()
+    public function sync_should_be_successful()
     {
-        $this->markTestIncomplete('This test has not been implemented yet.');
+        $response = $this->getResource(1, 'loader')->sync();
+
+        $this->assertTrue($response->isSucess());
     }
 
     /** @test */
-    public function autoconfigure()
+    public function autoconfigure_should_be_successful()
     {
-        $this->markTestIncomplete('This test has not been implemented yet.');
+        $response = $this->getResource(1, 'loader')->autoconfigure();
+
+        $this->assertTrue($response->isSucess());
     }
 }

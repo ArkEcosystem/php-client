@@ -24,14 +24,18 @@ use ArkEcosystem\Tests\Client\TestCase;
 class VotesTest extends TestCase
 {
     /** @test */
-    public function all()
+    public function all_should_be_successful()
     {
-        $this->markTestIncomplete('This test has not been implemented yet.');
+        $response = $this->getResource(2, 'votes')->all();
+
+        $this->assertTrue($response->isSucess());
     }
 
     /** @test */
-    public function show()
+    public function show_should_be_successful()
     {
-        $this->markTestIncomplete('This test has not been implemented yet.');
+        $response = $this->getResource(2, 'votes')->show();
+
+        $this->assertTrue($response->isSucess());
     }
 }

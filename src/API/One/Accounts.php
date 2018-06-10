@@ -30,7 +30,7 @@ class Accounts extends AbstractResource
      *
      * @return \ArkEcosystem\Client\Http\Response
      */
-    public function all(string $query): Response
+    public function all(array $query = []): Response
     {
         return $this->get('api/accounts/getAllAccounts', $query);
     }

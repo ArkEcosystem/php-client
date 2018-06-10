@@ -24,26 +24,34 @@ use ArkEcosystem\Tests\Client\TestCase;
 class TransactionsTest extends TestCase
 {
     /** @test */
-    public function all()
+    public function all_should_be_successful()
     {
-        $this->markTestIncomplete('This test has not been implemented yet.');
+        $response = $this->getResource(1, 'transactions')->all();
+
+        $this->assertTrue($response->isSucess());
     }
 
     /** @test */
-    public function show()
+    public function show_should_be_successful()
     {
-        $this->markTestIncomplete('This test has not been implemented yet.');
+        $response = $this->getResource(1, 'transactions')->show();
+
+        $this->assertTrue($response->isSucess());
     }
 
     /** @test */
-    public function allUnconfirmed()
+    public function all_unconfirmed_should_be_successful()
     {
-        $this->markTestIncomplete('This test has not been implemented yet.');
+        $response = $this->getResource(1, 'transactions')->allUnconfirmed();
+
+        $this->assertTrue($response->isSucess());
     }
 
     /** @test */
-    public function showUnconfirmed()
+    public function show_unconfirmed_should_be_successful()
     {
-        $this->markTestIncomplete('This test has not been implemented yet.');
+        $response = $this->getResource(1, 'transactions')->showUnconfirmed();
+
+        $this->assertTrue($response->isSucess());
     }
 }

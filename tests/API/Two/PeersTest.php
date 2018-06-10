@@ -24,14 +24,18 @@ use ArkEcosystem\Tests\Client\TestCase;
 class PeersTest extends TestCase
 {
     /** @test */
-    public function all()
+    public function all_should_be_successful()
     {
-        $this->markTestIncomplete('This test has not been implemented yet.');
+        $response = $this->getResource(2, 'peers')->all();
+
+        $this->assertTrue($response->isSucess());
     }
 
     /** @test */
-    public function show(string $ip)
+    public function show_should_be_successful()
     {
-        $this->markTestIncomplete('This test has not been implemented yet.');
+        $response = $this->getResource(2, 'peers')->show();
+
+        $this->assertTrue($response->isSucess());
     }
 }

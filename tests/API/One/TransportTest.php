@@ -24,14 +24,18 @@ use ArkEcosystem\Tests\Client\TestCase;
 class TransportTest extends TestCase
 {
     /** @test */
-    public function blocksCommon()
+    public function blocks_common_should_be_successful()
     {
-        $this->markTestIncomplete('This test has not been implemented yet.');
+        $response = $this->getResource(1, 'transport')->blocksCommon();
+
+        $this->assertTrue($response->isSucess());
     }
 
     /** @test */
-    public function createTransactions()
+    public function create_transactions_should_be_successful()
     {
-        $this->markTestIncomplete('This test has not been implemented yet.');
+        $response = $this->getResource(1, 'transport')->createTransactions();
+
+        $this->assertTrue($response->isSucess());
     }
 }

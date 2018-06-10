@@ -24,20 +24,26 @@ use ArkEcosystem\Tests\Client\TestCase;
 class NodeTest extends TestCase
 {
     /** @test */
-    public function status()
+    public function status_should_be_successful()
     {
-        $this->markTestIncomplete('This test has not been implemented yet.');
+        $response = $this->getResource(2, 'node')->status();
+
+        $this->assertTrue($response->isSucess());
     }
 
     /** @test */
-    public function syncing()
+    public function syncing_should_be_successful()
     {
-        $this->markTestIncomplete('This test has not been implemented yet.');
+        $response = $this->getResource(2, 'node')->syncing();
+
+        $this->assertTrue($response->isSucess());
     }
 
     /** @test */
-    public function configuration()
+    public function configuration_should_be_successful()
     {
-        $this->markTestIncomplete('This test has not been implemented yet.');
+        $response = $this->getResource(2, 'node')->configuration();
+
+        $this->assertTrue($response->isSucess());
     }
 }

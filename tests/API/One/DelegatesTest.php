@@ -24,50 +24,66 @@ use ArkEcosystem\Tests\Client\TestCase;
 class DelegatesTest extends TestCase
 {
     /** @test */
-    public function all()
+    public function all_should_be_successful()
     {
-        $this->markTestIncomplete('This test has not been implemented yet.');
+        $response = $this->getResource(1, 'delegates')->all();
+
+        $this->assertTrue($response->isSucess());
     }
 
     /** @test */
-    public function show(array $identifier)
+    public function show_should_be_successful()
     {
-        $this->markTestIncomplete('This test has not been implemented yet.');
+        $response = $this->getResource(1, 'delegates')->show();
+
+        $this->assertTrue($response->isSucess());
     }
 
     /** @test */
-    public function count()
+    public function count_should_be_successful()
     {
-        $this->markTestIncomplete('This test has not been implemented yet.');
+        $response = $this->getResource(1, 'delegates')->count();
+
+        $this->assertTrue($response->isSucess());
     }
 
     /** @test */
-    public function fee()
+    public function fee_should_be_successful()
     {
-        $this->markTestIncomplete('This test has not been implemented yet.');
+        $response = $this->getResource(1, 'delegates')->fee();
+
+        $this->assertTrue($response->isSucess());
     }
 
     /** @test */
-    public function forgedByAccount(string $generatorPublicKey)
+    public function forged_by_account_should_be_successful()
     {
-        $this->markTestIncomplete('This test has not been implemented yet.');
+        $response = $this->getResource(1, 'delegates')->forgedByAccount();
+
+        $this->assertTrue($response->isSucess());
     }
 
     /** @test */
-    public function search(string $query)
+    public function search_should_be_successful()
     {
-        $this->markTestIncomplete('This test has not been implemented yet.');
+        $response = $this->getResource(1, 'delegates')->search();
+
+        $this->assertTrue($response->isSucess());
     }
 
     /** @test */
-    public function voters(string $publicKey)
+    public function voters_should_be_successful()
     {
-        $this->markTestIncomplete('This test has not been implemented yet.');
+        $response = $this->getResource(1, 'delegates')->voters();
+
+        $this->assertTrue($response->isSucess());
     }
 
     /** @test */
-    public function nextForgers()
+    public function next_forgers_should_be_successful()
     {
-        $this->markTestIncomplete('This test has not been implemented yet.');
+        $response = $this->getResource(1, 'delegates')->nextForgers();
+
+        $this->assertTrue($response->isSucess());
     }
 }

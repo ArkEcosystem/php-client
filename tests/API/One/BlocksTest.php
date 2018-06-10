@@ -24,68 +24,90 @@ use ArkEcosystem\Tests\Client\TestCase;
 class BlocksTest extends TestCase
 {
     /** @test */
-    public function all()
+    public function all_should_be_successful()
     {
-        $this->markTestIncomplete('This test has not been implemented yet.');
+        $response = $this->getResource(1, 'blocks')->all();
+
+        $this->assertTrue($response->isSucess());
     }
 
     /** @test */
-    public function show()
+    public function show_should_be_successful()
     {
-        $this->markTestIncomplete('This test has not been implemented yet.');
+        $response = $this->getResource(1, 'blocks')->show();
+
+        $this->assertTrue($response->isSucess());
     }
 
     /** @test */
-    public function epoch()
+    public function epoch_should_be_successful()
     {
-        $this->markTestIncomplete('This test has not been implemented yet.');
+        $response = $this->getResource(1, 'blocks')->epoch();
+
+        $this->assertTrue($response->isSucess());
     }
 
     /** @test */
-    public function fee()
+    public function fee_should_be_successful()
     {
-        $this->markTestIncomplete('This test has not been implemented yet.');
+        $response = $this->getResource(1, 'blocks')->fee();
+
+        $this->assertTrue($response->isSucess());
     }
 
     /** @test */
-    public function fees()
+    public function fees_should_be_successful()
     {
-        $this->markTestIncomplete('This test has not been implemented yet.');
+        $response = $this->getResource(1, 'blocks')->fees();
+
+        $this->assertTrue($response->isSucess());
     }
 
     /** @test */
-    public function height()
+    public function height_should_be_successful()
     {
-        $this->markTestIncomplete('This test has not been implemented yet.');
+        $response = $this->getResource(1, 'blocks')->height();
+
+        $this->assertTrue($response->isSucess());
     }
 
     /** @test */
-    public function milestone()
+    public function milestone_should_be_successful()
     {
-        $this->markTestIncomplete('This test has not been implemented yet.');
+        $response = $this->getResource(1, 'blocks')->milestone();
+
+        $this->assertTrue($response->isSucess());
     }
 
     /** @test */
-    public function nethash()
+    public function nethash_should_be_successful()
     {
-        $this->markTestIncomplete('This test has not been implemented yet.');
+        $response = $this->getResource(1, 'blocks')->nethash();
+
+        $this->assertTrue($response->isSucess());
     }
 
     /** @test */
-    public function reward()
+    public function reward_should_be_successful()
     {
-        $this->markTestIncomplete('This test has not been implemented yet.');
+        $response = $this->getResource(1, 'blocks')->reward();
+
+        $this->assertTrue($response->isSucess());
     }
 
     /** @test */
-    public function status()
+    public function status_should_be_successful()
     {
-        $this->markTestIncomplete('This test has not been implemented yet.');
+        $response = $this->getResource(1, 'blocks')->status();
+
+        $this->assertTrue($response->isSucess());
     }
 
     /** @test */
-    public function supply()
+    public function supply_should_be_successful()
     {
-        $this->markTestIncomplete('This test has not been implemented yet.');
+        $response = $this->getResource(1, 'blocks')->supply();
+
+        $this->assertTrue($response->isSucess());
     }
 }

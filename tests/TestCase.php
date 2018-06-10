@@ -13,11 +13,24 @@ declare(strict_types=1);
 
 namespace ArkEcosystem\Tests\Client;
 
+use ArkEcosystem\Client\API\AbstractResource;
+use ArkEcosystem\Client\Connection;
+use ArkEcosystem\Client\ConnectionManager;
 use PHPUnit\Framework\TestCase as BaseTestCase;
 
 abstract class TestCase extends BaseTestCase
 {
-    protected function getConnection()
+    protected $host = 'https://dexplorer.ark.io:8443/';
+
+    protected function getConnection(): Connection
     {
+        $connections = new ConnectionManager();
+
+        return $connections->connect($this->host);
+    }
+
+    protected function getResource(int $version, string $resource): AbstractResource
+    {
+        return $this->getConnection()->version($version)->api($resource);
     }
 }

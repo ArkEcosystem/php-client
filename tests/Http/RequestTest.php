@@ -13,53 +13,64 @@ declare(strict_types=1);
 
 namespace ArkEcosystem\Tests\Client\Http;
 
+use ArkEcosystem\Client\Connection;
+use ArkEcosystem\Client\Http\Request;
+use ArkEcosystem\Client\Http\Response;
+use ArkEcosystem\Tests\Client\TestCase;
+use GuzzleHttp\Client;
+
 /**
  * This is the http request test class.
  *
  * @author Brian Faust <brian@ark.io>
  * @coversNothing
  */
-class RequestTest
+class RequestTest extends TestCase
 {
     /** @test */
-    public function get()
+    public function get_returns_a_response()
     {
-        $this->markTestIncomplete('This test has not been implemented yet.');
+        $request = $this->getRequest();
+
+        $this->assertInstanceOf(Response::class, $request->get('get'));
     }
 
     /** @test */
-    public function post()
+    public function post_returns_a_response()
     {
-        $this->markTestIncomplete('This test has not been implemented yet.');
+        $request = $this->getRequest();
+
+        $this->assertInstanceOf(Response::class, $request->post('post'));
     }
 
     /** @test */
-    public function put()
+    public function put_returns_a_response()
     {
-        $this->markTestIncomplete('This test has not been implemented yet.');
+        $request = $this->getRequest();
+
+        $this->assertInstanceOf(Response::class, $request->put('put'));
     }
 
     /** @test */
-    public function patch()
+    public function patch_returns_a_response()
     {
-        $this->markTestIncomplete('This test has not been implemented yet.');
+        $request = $this->getRequest();
+
+        $this->assertInstanceOf(Response::class, $request->patch('patch'));
     }
 
     /** @test */
-    public function delete()
+    public function delete_returns_a_response()
     {
-        $this->markTestIncomplete('This test has not been implemented yet.');
+        $request = $this->getRequest();
+
+        $this->assertInstanceOf(Response::class, $request->delete('delete'));
     }
 
-    /** @test */
-    private function send()
+    private function getRequest(): Request
     {
-        $this->markTestIncomplete('This test has not been implemented yet.');
-    }
+        $connection = new Connection('https://httpbin.org');
 
-    /** @test */
-    private function makeClient()
-    {
-        $this->markTestIncomplete('This test has not been implemented yet.');
+        return new Request($connection);
     }
 }

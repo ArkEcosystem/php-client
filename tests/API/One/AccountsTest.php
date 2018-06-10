@@ -24,50 +24,66 @@ use ArkEcosystem\Tests\Client\TestCase;
 class AccountsTest extends TestCase
 {
     /** @test */
-    public function all(string $query)
+    public function all_should_be_successful()
     {
-        $this->markTestIncomplete('This test has not been implemented yet.');
+        $response = $this->getResource(1, 'accounts')->all();
+
+        $this->assertTrue($response->isSucess());
     }
 
     /** @test */
-    public function show(string $address)
+    public function show_should_be_successful()
     {
-        $this->markTestIncomplete('This test has not been implemented yet.');
+        $response = $this->getResource(1, 'accounts')->show();
+
+        $this->assertTrue($response->isSucess());
     }
 
     /** @test */
-    public function count()
+    public function count_should_be_successful()
     {
-        $this->markTestIncomplete('This test has not been implemented yet.');
+        $response = $this->getResource(1, 'accounts')->count();
+
+        $this->assertTrue($response->isSucess());
     }
 
     /** @test */
-    public function delegates(string $address)
+    public function delegates_should_be_successful()
     {
-        $this->markTestIncomplete('This test has not been implemented yet.');
+        $response = $this->getResource(1, 'accounts')->delegates();
+
+        $this->assertTrue($response->isSucess());
     }
 
     /** @test */
-    public function fee()
+    public function fee_should_be_successful()
     {
-        $this->markTestIncomplete('This test has not been implemented yet.');
+        $response = $this->getResource(1, 'accounts')->fee();
+
+        $this->assertTrue($response->isSucess());
     }
 
     /** @test */
-    public function balance(string $address)
+    public function balance_should_be_successful()
     {
-        $this->markTestIncomplete('This test has not been implemented yet.');
+        $response = $this->getResource(1, 'accounts')->balance();
+
+        $this->assertTrue($response->isSucess());
     }
 
     /** @test */
-    public function publicKey(string $address)
+    public function public_key_should_be_successful()
     {
-        $this->markTestIncomplete('This test has not been implemented yet.');
+        $response = $this->getResource(1, 'accounts')->publicKey();
+
+        $this->assertTrue($response->isSucess());
     }
 
     /** @test */
-    public function top(string $query)
+    public function top_should_be_successful()
     {
-        $this->markTestIncomplete('This test has not been implemented yet.');
+        $response = $this->getResource(1, 'accounts')->top();
+
+        $this->assertTrue($response->isSucess());
     }
 }

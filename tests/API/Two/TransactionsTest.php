@@ -24,44 +24,58 @@ use ArkEcosystem\Tests\Client\TestCase;
 class TransactionsTest extends TestCase
 {
     /** @test */
-    public function all()
+    public function all_should_be_successful()
     {
-        $this->markTestIncomplete('This test has not been implemented yet.');
+        $response = $this->getResource(2, 'transactions')->all();
+
+        $this->assertTrue($response->isSucess());
     }
 
     /** @test */
-    public function create(array $transactions)
+    public function create_should_be_successful()
     {
-        $this->markTestIncomplete('This test has not been implemented yet.');
+        $response = $this->getResource(2, 'transactions')->create();
+
+        $this->assertTrue($response->isSucess());
     }
 
     /** @test */
-    public function show()
+    public function show_should_be_successful()
     {
-        $this->markTestIncomplete('This test has not been implemented yet.');
+        $response = $this->getResource(2, 'transactions')->show();
+
+        $this->assertTrue($response->isSucess());
     }
 
     /** @test */
-    public function allUnconfirmed()
+    public function all_unconfirmed_should_be_successful()
     {
-        $this->markTestIncomplete('This test has not been implemented yet.');
+        $response = $this->getResource(2, 'transactions')->allUnconfirmed();
+
+        $this->assertTrue($response->isSucess());
     }
 
     /** @test */
-    public function getUnconfirmed()
+    public function get_unconfirmed_should_be_successful()
     {
-        $this->markTestIncomplete('This test has not been implemented yet.');
+        $response = $this->getResource(2, 'transactions')->getUnconfirmed();
+
+        $this->assertTrue($response->isSucess());
     }
 
     /** @test */
-    public function search()
+    public function search_should_be_successful()
     {
-        $this->markTestIncomplete('This test has not been implemented yet.');
+        $response = $this->getResource(2, 'transactions')->search();
+
+        $this->assertTrue($response->isSucess());
     }
 
     /** @test */
-    public function types()
+    public function types_should_be_successful()
     {
-        $this->markTestIncomplete('This test has not been implemented yet.');
+        $response = $this->getResource(2, 'transactions')->types();
+
+        $this->assertTrue($response->isSucess());
     }
 }

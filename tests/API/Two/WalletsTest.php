@@ -24,50 +24,66 @@ use ArkEcosystem\Tests\Client\TestCase;
 class WalletsTest extends TestCase
 {
     /** @test */
-    public function all()
+    public function all_should_be_successful()
     {
-        $this->markTestIncomplete('This test has not been implemented yet.');
+        $response = $this->getResource(2, 'wallets')->all();
+
+        $this->assertTrue($response->isSucess());
     }
 
     /** @test */
-    public function top()
+    public function top_should_be_successful()
     {
-        $this->markTestIncomplete('This test has not been implemented yet.');
+        $response = $this->getResource(2, 'wallets')->top();
+
+        $this->assertTrue($response->isSucess());
     }
 
     /** @test */
-    public function show()
+    public function show_should_be_successful()
     {
-        $this->markTestIncomplete('This test has not been implemented yet.');
+        $response = $this->getResource(2, 'wallets')->show();
+
+        $this->assertTrue($response->isSucess());
     }
 
     /** @test */
-    public function transactions()
+    public function transactions_should_be_successful()
     {
-        $this->markTestIncomplete('This test has not been implemented yet.');
+        $response = $this->getResource(2, 'wallets')->transactions();
+
+        $this->assertTrue($response->isSucess());
     }
 
     /** @test */
-    public function transactionsSent()
+    public function transactions_sent_should_be_successful()
     {
-        $this->markTestIncomplete('This test has not been implemented yet.');
+        $response = $this->getResource(2, 'wallets')->transactionsSent();
+
+        $this->assertTrue($response->isSucess());
     }
 
     /** @test */
-    public function transactionsReceived()
+    public function transactions_received_should_be_successful()
     {
-        $this->markTestIncomplete('This test has not been implemented yet.');
+        $response = $this->getResource(2, 'wallets')->transactionsReceived();
+
+        $this->assertTrue($response->isSucess());
     }
 
     /** @test */
-    public function votes()
+    public function votes_should_be_successful()
     {
-        $this->markTestIncomplete('This test has not been implemented yet.');
+        $response = $this->getResource(2, 'wallets')->votes();
+
+        $this->assertTrue($response->isSucess());
     }
 
     /** @test */
-    public function search()
+    public function search_should_be_successful()
     {
-        $this->markTestIncomplete('This test has not been implemented yet.');
+        $response = $this->getResource(2, 'wallets')->search();
+
+        $this->assertTrue($response->isSucess());
     }
 }

@@ -13,6 +13,10 @@ declare(strict_types=1);
 
 namespace ArkEcosystem\Tests\Client\Http;
 
+use ArkEcosystem\Client\Http\Response;
+use ArkEcosystem\Tests\Client\TestCase;
+use GrahamCampbell\GuzzleFactory\GuzzleFactory;
+
 /**
  * This is the http response test class.
  *
@@ -22,44 +26,67 @@ namespace ArkEcosystem\Tests\Client\Http;
 class ResponseTest extends TestCase
 {
     /** @test */
-    public function body()
+    public function it_should_return_the_raw_body()
     {
-        $this->markTestIncomplete('This test has not been implemented yet.');
+        $response = $this->getResponse();
+
+        $this->assertInternalType('string', $response->body());
     }
 
     /** @test */
-    public function json()
+    public function it_should_return_the_json_decoded_body()
     {
-        $this->markTestIncomplete('This test has not been implemented yet.');
+        $response = $this->getResponse();
+
+        $this->assertInternalType('array', $response->json());
     }
 
     /** @test */
-    public function header(string $header)
+    public function it_should_return_a_header_value()
     {
-        $this->markTestIncomplete('This test has not been implemented yet.');
+        $response = $this->getResponse();
+
+        $this->assertInternalType('string', $response->header('Content-Type'));
     }
 
     /** @test */
-    public function status()
+    public function it_should_return_a_status_code()
     {
-        $this->markTestIncomplete('This test has not been implemented yet.');
+        $response = $this->getResponse();
+
+        $this->assertInternalType('integer', $response->status());
     }
 
     /** @test */
-    public function isSuccess()
+    public function it_should_return_a_boolean_for_is_success()
     {
-        $this->markTestIncomplete('This test has not been implemented yet.');
+        $response = $this->getResponse();
+
+        $this->assertInternalType('boolean', $response->isSuccess());
     }
 
     /** @test */
-    public function isClientError()
+    public function it_should_return_a_boolean_for_is_client_error()
     {
-        $this->markTestIncomplete('This test has not been implemented yet.');
+        $response = $this->getResponse();
+
+        $this->assertInternalType('boolean', $response->isClientError());
     }
 
     /** @test */
-    public function isServerError()
+    public function it_should_return_a_boolean_for_is_server_error()
     {
-        $this->markTestIncomplete('This test has not been implemented yet.');
+        $response = $this->getResponse();
+
+        $this->assertInternalType('boolean', $response->isServerError());
+    }
+
+    private function getResponse(): Response
+    {
+        $client = GuzzleFactory::make([
+            'base_uri' => 'https://httpbin.org/',
+        ]);
+
+        return new Response($client->get('get'));
     }
 }

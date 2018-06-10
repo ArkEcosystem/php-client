@@ -13,6 +13,8 @@ declare(strict_types=1);
 
 namespace ArkEcosystem\Tests\Client;
 
+use ArkEcosystem\Client\API\AbstractResource;
+
 /**
  * This is the connection manager test class.
  *
@@ -22,8 +24,29 @@ namespace ArkEcosystem\Tests\Client;
 class ConnectionTest extends TestCase
 {
     /** @test */
-    public function basic_test()
+    public function it_should_set_the_api_version()
     {
-        $this->markTestIncomplete('This test has not been implemented yet.');
+        $connection = $this->getConnection();
+        $connection->version(123);
+
+        $this->assertSame($connection->config->get('api_version'), 123);
+    }
+
+    /** @test */
+    public function it_should_configure_the_connection()
+    {
+        $connection = $this->getConnection();
+        $connection->configure();
+
+        $this->assertInternalType('string', $connection->config->get('nethash'));
+        $this->assertInternalType('string', $connection->config->get('version'));
+    }
+
+    /** @test */
+    public function it_should_return_a_resource()
+    {
+        $connection = $this->getConnection();
+
+        $this->assertInstanceOf(AbstractResource::class, $connection->api('blocks'));
     }
 }

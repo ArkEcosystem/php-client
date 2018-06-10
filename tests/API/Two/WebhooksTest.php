@@ -24,32 +24,42 @@ use ArkEcosystem\Tests\Client\TestCase;
 class WebhooksTest extends TestCase
 {
     /** @test */
-    public function all()
+    public function all_should_be_successful()
     {
-        $this->markTestIncomplete('This test has not been implemented yet.');
+        $response = $this->getResource(2, 'webhooks')->all();
+
+        $this->assertTrue($response->isSucess());
     }
 
     /** @test */
-    public function create()
+    public function create_should_be_successful()
     {
-        $this->markTestIncomplete('This test has not been implemented yet.');
+        $response = $this->getResource(2, 'webhooks')->create();
+
+        $this->assertTrue($response->isSucess());
     }
 
     /** @test */
-    public function show()
+    public function show_should_be_successful()
     {
-        $this->markTestIncomplete('This test has not been implemented yet.');
+        $response = $this->getResource(2, 'webhooks')->show();
+
+        $this->assertTrue($response->isSucess());
     }
 
     /** @test */
-    public function update()
+    public function update_should_be_successful()
     {
-        $this->markTestIncomplete('This test has not been implemented yet.');
+        $response = $this->getResource(2, 'webhooks')->update();
+
+        $this->assertTrue($response->isSucess());
     }
 
     /** @test */
-    public function delete()
+    public function delete_should_be_successful()
     {
-        $this->markTestIncomplete('This test has not been implemented yet.');
+        $response = $this->getResource(2, 'webhooks')->delete();
+
+        $this->assertTrue($response->isSucess());
     }
 }

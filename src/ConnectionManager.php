@@ -114,14 +114,4 @@ class ConnectionManager
     {
         return $this->connections;
     }
-
-    /**
-     * Get the configuration name.
-     *
-     * @return string
-     */
-    private function getConfigName(): string
-    {
-        return 'arkecosystem.client';
-    }
 }
