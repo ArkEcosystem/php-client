@@ -14,7 +14,7 @@ declare(strict_types=1);
 namespace ArkEcosystem\Client\API\Two;
 
 use ArkEcosystem\Client\API\AbstractResource;
-use GuzzleHttp\Psr7\Response;
+use ArkEcosystem\Client\Http\Response;
 
 /**
  * This is the wallets resource class.
@@ -26,7 +26,7 @@ class Wallets extends AbstractResource
     /**
      * Get all wallets.
      *
-     * @return \GuzzleHttp\Psr7\Response
+     * @return \ArkEcosystem\Client\Http\Response
      */
     public function all(): Response
     {
@@ -36,7 +36,7 @@ class Wallets extends AbstractResource
     /**
      * Get all wallets sorted by balance in descending order.
      *
-     * @return \GuzzleHttp\Psr7\Response
+     * @return \ArkEcosystem\Client\Http\Response
      */
     public function top(): Response
     {
@@ -48,7 +48,7 @@ class Wallets extends AbstractResource
      *
      * @param string $id
      *
-     * @return \GuzzleHttp\Psr7\Response
+     * @return \ArkEcosystem\Client\Http\Response
      */
     public function show(string $id): Response
     {
@@ -60,7 +60,7 @@ class Wallets extends AbstractResource
      *
      * @param string $id
      *
-     * @return \GuzzleHttp\Psr7\Response
+     * @return \ArkEcosystem\Client\Http\Response
      */
     public function transactions(string $id): Response
     {
@@ -72,7 +72,7 @@ class Wallets extends AbstractResource
      *
      * @param string $id
      *
-     * @return \GuzzleHttp\Psr7\Response
+     * @return \ArkEcosystem\Client\Http\Response
      */
     public function transactionsSent(string $id): Response
     {
@@ -84,7 +84,7 @@ class Wallets extends AbstractResource
      *
      * @param string $id
      *
-     * @return \GuzzleHttp\Psr7\Response
+     * @return \ArkEcosystem\Client\Http\Response
      */
     public function transactionsReceived(string $id): Response
     {
@@ -96,7 +96,7 @@ class Wallets extends AbstractResource
      *
      * @param string $id
      *
-     * @return \GuzzleHttp\Psr7\Response
+     * @return \ArkEcosystem\Client\Http\Response
      */
     public function votes(string $id): Response
     {
@@ -108,7 +108,7 @@ class Wallets extends AbstractResource
      *
      * @param array $criteria
      *
-     * @return \GuzzleHttp\Psr7\Response
+     * @return \ArkEcosystem\Client\Http\Response
      */
     public function search(array $criteria): Response
     {

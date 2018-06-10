@@ -14,8 +14,8 @@ declare(strict_types=1);
 namespace ArkEcosystem\Client\API;
 
 use ArkEcosystem\Client\Connection;
+use ArkEcosystem\Client\Http\Response;
 use GuzzleHttp\Client;
-use GuzzleHttp\Psr7\Response;
 
 /**
  * This is the abstract resource class.
@@ -56,11 +56,11 @@ abstract class AbstractResource
      * @param string $url
      * @param array  $params
      *
-     * @return \GuzzleHttp\Psr7\Response
+     * @return \ArkEcosystem\Client\Http\Response
      */
     protected function get(string $url, array $params = []): Response
     {
-        return $this->client->get($url, $params);
+        return new Response($this->client->get($url, $params));
     }
 
     /**
@@ -69,11 +69,11 @@ abstract class AbstractResource
      * @param string $url
      * @param array  $params
      *
-     * @return \GuzzleHttp\Psr7\Response
+     * @return \ArkEcosystem\Client\Http\Response
      */
     protected function post(string $url, array $params = []): Response
     {
-        return $this->client->post($url, $params);
+        return new Response($this->client->post($url, $params));
     }
 
     /**
@@ -82,11 +82,11 @@ abstract class AbstractResource
      * @param string $url
      * @param array  $params
      *
-     * @return \GuzzleHttp\Psr7\Response
+     * @return \ArkEcosystem\Client\Http\Response
      */
     protected function put(string $url, array $params = []): Response
     {
-        return $this->client->put($url, $params);
+        return new Response($this->client->put($url, $params));
     }
 
     /**
@@ -95,11 +95,11 @@ abstract class AbstractResource
      * @param string $url
      * @param array  $params
      *
-     * @return \GuzzleHttp\Psr7\Response
+     * @return \ArkEcosystem\Client\Http\Response
      */
     protected function patch(string $url, array $params = []): Response
     {
-        return $this->client->patch($url, $params);
+        return new Response($this->client->patch($url, $params));
     }
 
     /**
@@ -108,10 +108,10 @@ abstract class AbstractResource
      * @param string $url
      * @param array  $params
      *
-     * @return \GuzzleHttp\Psr7\Response
+     * @return \ArkEcosystem\Client\Http\Response
      */
     protected function delete(string $url, array $params = []): Response
     {
-        return $this->client->delete($url, $params);
+        return new Response($this->client->delete($url, $params));
     }
 }

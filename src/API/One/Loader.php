@@ -14,7 +14,7 @@ declare(strict_types=1);
 namespace ArkEcosystem\Client\API\One;
 
 use ArkEcosystem\Client\API\AbstractResource;
-use GuzzleHttp\Psr7\Response;
+use ArkEcosystem\Client\Http\Response;
 
 /**
  * This is the loader resource class.
@@ -26,7 +26,7 @@ class Loader extends AbstractResource
     /**
      * Get the loader status.
      *
-     * @return \GuzzleHttp\Psr7\Response
+     * @return \ArkEcosystem\Client\Http\Response
      */
     public function status(): Response
     {
@@ -36,7 +36,7 @@ class Loader extends AbstractResource
     /**
      * Get the loader syncing status.
      *
-     * @return \GuzzleHttp\Psr7\Response
+     * @return \ArkEcosystem\Client\Http\Response
      */
     public function sync(): Response
     {
@@ -46,7 +46,7 @@ class Loader extends AbstractResource
     /**
      * Get the loader configuration.
      *
-     * @return \GuzzleHttp\Psr7\Response
+     * @return \ArkEcosystem\Client\Http\Response
      */
     public function autoconfigure(): Response
     {

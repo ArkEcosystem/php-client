@@ -14,7 +14,7 @@ declare(strict_types=1);
 namespace ArkEcosystem\Client\API\One;
 
 use ArkEcosystem\Client\API\AbstractResource;
-use GuzzleHttp\Psr7\Response;
+use ArkEcosystem\Client\Http\Response;
 
 /**
  * This is the blocks resource class.
@@ -28,7 +28,7 @@ class Blocks extends AbstractResource
      *
      * @param array $query
      *
-     * @return \GuzzleHttp\Psr7\Response
+     * @return \ArkEcosystem\Client\Http\Response
      */
     public function all(array $query = []): Response
     {
@@ -40,7 +40,7 @@ class Blocks extends AbstractResource
      *
      * @param string $id
      *
-     * @return \GuzzleHttp\Psr7\Response
+     * @return \ArkEcosystem\Client\Http\Response
      */
     public function show(string $id): Response
     {
@@ -50,7 +50,7 @@ class Blocks extends AbstractResource
     /**
      * Get the blockchain epoch.
      *
-     * @return \GuzzleHttp\Psr7\Response
+     * @return \ArkEcosystem\Client\Http\Response
      */
     public function epoch(): Response
     {
@@ -60,7 +60,7 @@ class Blocks extends AbstractResource
     /**
      * Get the transfer transaction fee.
      *
-     * @return \GuzzleHttp\Psr7\Response
+     * @return \ArkEcosystem\Client\Http\Response
      */
     public function fee(): Response
     {
@@ -70,7 +70,7 @@ class Blocks extends AbstractResource
     /**
      * Get a list of transaction fees.
      *
-     * @return \GuzzleHttp\Psr7\Response
+     * @return \ArkEcosystem\Client\Http\Response
      */
     public function fees(): Response
     {
@@ -80,7 +80,7 @@ class Blocks extends AbstractResource
     /**
      * Get the blockchain height.
      *
-     * @return \GuzzleHttp\Psr7\Response
+     * @return \ArkEcosystem\Client\Http\Response
      */
     public function height(): Response
     {
@@ -90,7 +90,7 @@ class Blocks extends AbstractResource
     /**
      * Get the blockchain milestone.
      *
-     * @return \GuzzleHttp\Psr7\Response
+     * @return \ArkEcosystem\Client\Http\Response
      */
     public function milestone(): Response
     {
@@ -100,7 +100,7 @@ class Blocks extends AbstractResource
     /**
      * Get the blockchain nethash.
      *
-     * @return \GuzzleHttp\Psr7\Response
+     * @return \ArkEcosystem\Client\Http\Response
      */
     public function nethash(): Response
     {
@@ -110,7 +110,7 @@ class Blocks extends AbstractResource
     /**
      * Get the blockchain reward.
      *
-     * @return \GuzzleHttp\Psr7\Response
+     * @return \ArkEcosystem\Client\Http\Response
      */
     public function reward(): Response
     {
@@ -120,7 +120,7 @@ class Blocks extends AbstractResource
     /**
      * Get the blockchain status.
      *
-     * @return \GuzzleHttp\Psr7\Response
+     * @return \ArkEcosystem\Client\Http\Response
      */
     public function status(): Response
     {
@@ -130,7 +130,7 @@ class Blocks extends AbstractResource
     /**
      * Get the blockchain supply.
      *
-     * @return \GuzzleHttp\Psr7\Response
+     * @return \ArkEcosystem\Client\Http\Response
      */
     public function supply(): Response
     {

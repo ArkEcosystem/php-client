@@ -14,7 +14,7 @@ declare(strict_types=1);
 namespace ArkEcosystem\Client\API\One;
 
 use ArkEcosystem\Client\API\AbstractResource;
-use GuzzleHttp\Psr7\Response;
+use ArkEcosystem\Client\Http\Response;
 
 /**
  * This is the transactions resource class.
@@ -28,7 +28,7 @@ class Transactions extends AbstractResource
      *
      * @param array $query
      *
-     * @return \GuzzleHttp\Psr7\Response
+     * @return \ArkEcosystem\Client\Http\Response
      */
     public function all(array $query = []): Response
     {
@@ -40,7 +40,7 @@ class Transactions extends AbstractResource
      *
      * @param string $id
      *
-     * @return \GuzzleHttp\Psr7\Response
+     * @return \ArkEcosystem\Client\Http\Response
      */
     public function show(string $id): Response
     {
@@ -52,7 +52,7 @@ class Transactions extends AbstractResource
      *
      * @param array $query
      *
-     * @return \GuzzleHttp\Psr7\Response
+     * @return \ArkEcosystem\Client\Http\Response
      */
     public function allUnconfirmed(array $query = []): Response
     {
@@ -64,7 +64,7 @@ class Transactions extends AbstractResource
      *
      * @param string $id
      *
-     * @return \GuzzleHttp\Psr7\Response
+     * @return \ArkEcosystem\Client\Http\Response
      */
     public function showUnconfirmed(string $id): Response
     {

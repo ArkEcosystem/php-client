@@ -14,7 +14,7 @@ declare(strict_types=1);
 namespace ArkEcosystem\Client\API\Two;
 
 use ArkEcosystem\Client\API\AbstractResource;
-use GuzzleHttp\Psr7\Response;
+use ArkEcosystem\Client\Http\Response;
 
 /**
  * This is the node resource class.
@@ -26,7 +26,7 @@ class Node extends AbstractResource
     /**
      * Get the node status.
      *
-     * @return \GuzzleHttp\Psr7\Response
+     * @return \ArkEcosystem\Client\Http\Response
      */
     public function status(): Response
     {
@@ -36,7 +36,7 @@ class Node extends AbstractResource
     /**
      * Get the node syncing status.
      *
-     * @return \GuzzleHttp\Psr7\Response
+     * @return \ArkEcosystem\Client\Http\Response
      */
     public function syncing(): Response
     {
@@ -46,7 +46,7 @@ class Node extends AbstractResource
     /**
      * Get the node configuration.
      *
-     * @return \GuzzleHttp\Psr7\Response
+     * @return \ArkEcosystem\Client\Http\Response
      */
     public function configuration(): Response
     {

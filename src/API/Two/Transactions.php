@@ -14,7 +14,7 @@ declare(strict_types=1);
 namespace ArkEcosystem\Client\API\Two;
 
 use ArkEcosystem\Client\API\AbstractResource;
-use GuzzleHttp\Psr7\Response;
+use ArkEcosystem\Client\Http\Response;
 
 /**
  * This is the transactions resource class.
@@ -26,7 +26,7 @@ class Transactions extends AbstractResource
     /**
      * Get all transactions.
      *
-     * @return \GuzzleHttp\Psr7\Response
+     * @return \ArkEcosystem\Client\Http\Response
      */
     public function all(): Response
     {
@@ -38,7 +38,7 @@ class Transactions extends AbstractResource
      *
      * @param array $transactions
      *
-     * @return \GuzzleHttp\Psr7\Response
+     * @return \ArkEcosystem\Client\Http\Response
      */
     public function create(array $transactions): Response
     {
@@ -50,7 +50,7 @@ class Transactions extends AbstractResource
      *
      * @param string $id
      *
-     * @return \GuzzleHttp\Psr7\Response
+     * @return \ArkEcosystem\Client\Http\Response
      */
     public function show(string $id): Response
     {
@@ -60,7 +60,7 @@ class Transactions extends AbstractResource
     /**
      * Get all unconfirmed transactions.
      *
-     * @return \GuzzleHttp\Psr7\Response
+     * @return \ArkEcosystem\Client\Http\Response
      */
     public function allUnconfirmed(): Response
     {
@@ -72,7 +72,7 @@ class Transactions extends AbstractResource
      *
      * @param string $id
      *
-     * @return \GuzzleHttp\Psr7\Response
+     * @return \ArkEcosystem\Client\Http\Response
      */
     public function getUnconfirmed(string $id): Response
     {
@@ -84,7 +84,7 @@ class Transactions extends AbstractResource
      *
      * @param array $criteria
      *
-     * @return \GuzzleHttp\Psr7\Response
+     * @return \ArkEcosystem\Client\Http\Response
      */
     public function search(array $criteria): Response
     {
@@ -94,7 +94,7 @@ class Transactions extends AbstractResource
     /**
      * Get a list of valid transaction types.
      *
-     * @return \GuzzleHttp\Psr7\Response
+     * @return \ArkEcosystem\Client\Http\Response
      */
     public function types(): Response
     {

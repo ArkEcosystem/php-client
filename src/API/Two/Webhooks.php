@@ -14,7 +14,7 @@ declare(strict_types=1);
 namespace ArkEcosystem\Client\API\Two;
 
 use ArkEcosystem\Client\API\AbstractResource;
-use GuzzleHttp\Psr7\Response;
+use ArkEcosystem\Client\Http\Response;
 
 /**
  * This is the webhooks resource class.
@@ -26,7 +26,7 @@ class Webhooks extends AbstractResource
     /**
      * Get all webhooks.
      *
-     * @return \GuzzleHttp\Psr7\Response
+     * @return \ArkEcosystem\Client\Http\Response
      */
     public function all(): Response
     {
@@ -38,7 +38,7 @@ class Webhooks extends AbstractResource
      *
      * @param array $payload
      *
-     * @return \GuzzleHttp\Psr7\Response
+     * @return \ArkEcosystem\Client\Http\Response
      */
     public function create(array $payload): Response
     {
@@ -50,7 +50,7 @@ class Webhooks extends AbstractResource
      *
      * @param int $id
      *
-     * @return \GuzzleHttp\Psr7\Response
+     * @return \ArkEcosystem\Client\Http\Response
      */
     public function show(int $id): Response
     {
@@ -63,7 +63,7 @@ class Webhooks extends AbstractResource
      * @param int   $id
      * @param array $payload
      *
-     * @return \GuzzleHttp\Psr7\Response
+     * @return \ArkEcosystem\Client\Http\Response
      */
     public function update(int $id, array $payload): Response
     {
@@ -75,7 +75,7 @@ class Webhooks extends AbstractResource
      *
      * @param int $id
      *
-     * @return \GuzzleHttp\Psr7\Response
+     * @return \ArkEcosystem\Client\Http\Response
      */
     public function delete(int $id): Response
     {

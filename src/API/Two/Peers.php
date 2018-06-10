@@ -14,7 +14,7 @@ declare(strict_types=1);
 namespace ArkEcosystem\Client\API\Two;
 
 use ArkEcosystem\Client\API\AbstractResource;
-use GuzzleHttp\Psr7\Response;
+use ArkEcosystem\Client\Http\Response;
 
 /**
  * This is the peers resource class.
@@ -26,7 +26,7 @@ class Peers extends AbstractResource
     /**
      * Get all peers.
      *
-     * @return \GuzzleHttp\Psr7\Response
+     * @return \ArkEcosystem\Client\Http\Response
      */
     public function all(): Response
     {
@@ -38,7 +38,7 @@ class Peers extends AbstractResource
      *
      * @param string $ip
      *
-     * @return \GuzzleHttp\Psr7\Response
+     * @return \ArkEcosystem\Client\Http\Response
      */
     public function show(string $ip): Response
     {

@@ -14,7 +14,7 @@ declare(strict_types=1);
 namespace ArkEcosystem\Client\API\One;
 
 use ArkEcosystem\Client\API\AbstractResource;
-use GuzzleHttp\Psr7\Response;
+use ArkEcosystem\Client\Http\Response;
 
 /**
  * This is the transport resource class.
@@ -28,7 +28,7 @@ class Transport extends AbstractResource
      *
      * @param array $ids
      *
-     * @return \GuzzleHttp\Psr7\Response
+     * @return \ArkEcosystem\Client\Http\Response
      */
     public function blocksCommon(array $ids): Response
     {
@@ -44,7 +44,7 @@ class Transport extends AbstractResource
      *
      * @param array $transactions
      *
-     * @return \GuzzleHttp\Psr7\Response
+     * @return \ArkEcosystem\Client\Http\Response
      */
     public function createTransactions(array $transactions): Response
     {

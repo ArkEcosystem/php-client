@@ -14,7 +14,7 @@ declare(strict_types=1);
 namespace ArkEcosystem\Client\API\One;
 
 use ArkEcosystem\Client\API\AbstractResource;
-use GuzzleHttp\Psr7\Response;
+use ArkEcosystem\Client\Http\Response;
 
 /**
  * This is the accounts resource class.
@@ -28,7 +28,7 @@ class Accounts extends AbstractResource
      *
      * @param array $query
      *
-     * @return \GuzzleHttp\Psr7\Response
+     * @return \ArkEcosystem\Client\Http\Response
      */
     public function all(string $query): Response
     {
@@ -40,7 +40,7 @@ class Accounts extends AbstractResource
      *
      * @param string $address
      *
-     * @return \GuzzleHttp\Psr7\Response
+     * @return \ArkEcosystem\Client\Http\Response
      */
     public function show(string $address): Response
     {
@@ -50,7 +50,7 @@ class Accounts extends AbstractResource
     /**
      * Count all accounts.
      *
-     * @return \GuzzleHttp\Psr7\Response
+     * @return \ArkEcosystem\Client\Http\Response
      */
     public function count(): Response
     {
@@ -62,7 +62,7 @@ class Accounts extends AbstractResource
      *
      * @param string $address
      *
-     * @return \GuzzleHttp\Psr7\Response
+     * @return \ArkEcosystem\Client\Http\Response
      */
     public function delegates(string $address): Response
     {
@@ -72,7 +72,7 @@ class Accounts extends AbstractResource
     /**
      * Get the delegate registration fee.
      *
-     * @return \GuzzleHttp\Psr7\Response
+     * @return \ArkEcosystem\Client\Http\Response
      */
     public function fee(): Response
     {
@@ -84,7 +84,7 @@ class Accounts extends AbstractResource
      *
      * @param string $address
      *
-     * @return \GuzzleHttp\Psr7\Response
+     * @return \ArkEcosystem\Client\Http\Response
      */
     public function balance(string $address): Response
     {
@@ -96,7 +96,7 @@ class Accounts extends AbstractResource
      *
      * @param string $address
      *
-     * @return \GuzzleHttp\Psr7\Response
+     * @return \ArkEcosystem\Client\Http\Response
      */
     public function publicKey(string $address): Response
     {
@@ -108,7 +108,7 @@ class Accounts extends AbstractResource
      *
      * @param array $query
      *
-     * @return \GuzzleHttp\Psr7\Response
+     * @return \ArkEcosystem\Client\Http\Response
      */
     public function top(string $query): Response
     {

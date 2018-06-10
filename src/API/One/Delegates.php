@@ -14,7 +14,7 @@ declare(strict_types=1);
 namespace ArkEcosystem\Client\API\One;
 
 use ArkEcosystem\Client\API\AbstractResource;
-use GuzzleHttp\Psr7\Response;
+use ArkEcosystem\Client\Http\Response;
 
 /**
  * This is the delegates resource class.
@@ -28,7 +28,7 @@ class Delegates extends AbstractResource
      *
      * @param string $query
      *
-     * @return \GuzzleHttp\Psr7\Response
+     * @return \ArkEcosystem\Client\Http\Response
      */
     public function all(array $query = []): Response
     {
@@ -40,7 +40,7 @@ class Delegates extends AbstractResource
      *
      * @param string $id
      *
-     * @return \GuzzleHttp\Psr7\Response
+     * @return \ArkEcosystem\Client\Http\Response
      */
     public function show(array $identifier): Response
     {
@@ -50,7 +50,7 @@ class Delegates extends AbstractResource
     /**
      * Count all delegates.
      *
-     * @return \GuzzleHttp\Psr7\Response
+     * @return \ArkEcosystem\Client\Http\Response
      */
     public function count(): Response
     {
@@ -60,7 +60,7 @@ class Delegates extends AbstractResource
     /**
      * Get the delegate registration fee.
      *
-     * @return \GuzzleHttp\Psr7\Response
+     * @return \ArkEcosystem\Client\Http\Response
      */
     public function fee(): Response
     {
@@ -72,7 +72,7 @@ class Delegates extends AbstractResource
      *
      * @param string $generatorPublicKey
      *
-     * @return \GuzzleHttp\Psr7\Response
+     * @return \ArkEcosystem\Client\Http\Response
      */
     public function forgedByAccount(string $generatorPublicKey): Response
     {
@@ -84,7 +84,7 @@ class Delegates extends AbstractResource
      *
      * @param string $query
      *
-     * @return \GuzzleHttp\Psr7\Response
+     * @return \ArkEcosystem\Client\Http\Response
      */
     public function search(string $query): Response
     {
@@ -96,7 +96,7 @@ class Delegates extends AbstractResource
      *
      * @param string $publicKey
      *
-     * @return \GuzzleHttp\Psr7\Response
+     * @return \ArkEcosystem\Client\Http\Response
      */
     public function voters(string $publicKey): Response
     {
@@ -108,7 +108,7 @@ class Delegates extends AbstractResource
      *
      * @param string $generatorPublicKey
      *
-     * @return \GuzzleHttp\Psr7\Response
+     * @return \ArkEcosystem\Client\Http\Response
      */
     public function nextForgers(): Response
     {
