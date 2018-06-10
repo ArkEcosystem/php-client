@@ -16,6 +16,7 @@ namespace ArkEcosystem\Client;
 use GrahamCampbell\GuzzleFactory\GuzzleFactory;
 use GuzzleHttp\Client;
 use NumberFormatter;
+use RuntimeException;
 
 /**
  * This is the connection class.
@@ -29,25 +30,32 @@ class Connection
      *
      * @var array
      */
-    private $config;
-
-    /**
-     * The Guzzle client.
-     *
-     * @var \GuzzleHttp\Client
-     */
-    private $client;
+    private $config = ['api_version' => 1];
 
     /**
      * Make a new connection instance.
      *
-     * @param array $config
+     * @param string $host
      */
-    public function __construct(array $config)
+    public function __construct(string $host)
     {
-        $this->config = $config;
+        $this->config['host'] = $host;
 
         $this->configure();
+    }
+
+    /**
+     * Set the connection API version on the fly.
+     *
+     * @param string $version
+     *
+     * @return \ArkEcosystem\Client\Connection
+     */
+    public function version(string $version): self
+    {
+        $this->config['api_version'] = $version;
+
+        return $this;
     }
 
     /**
@@ -63,6 +71,10 @@ class Connection
         $version   = ucfirst($formatter->format($this->config['api_version']));
         $class     = "ArkEcosystem\\Client\\API\\{$version}\\{$name}";
 
+        if (!class_exists($class)) {
+            throw new RuntimeException("Class [$class] does not exist.");
+        }
+
         return new $class($this, $this->makeClient());
     }
 
@@ -73,19 +85,15 @@ class Connection
      */
     private function makeClient(): Client
     {
-        if (!$this->client) {
-            $this->client = GuzzleFactory::make([
-                'base_uri' => $this->config['host'],
-                'headers'  => [
-                    'nethash'     => array_get($this->config, 'nethash'),
-                    'version'     => array_get($this->config, 'version'),
-                    'port'        => 1,
-                    'API-Version' => $this->config['api_version'],
-                ],
-            ]);
-        }
-
-        return $this->client;
+        return GuzzleFactory::make([
+            'base_uri' => $this->config['host'],
+            'headers'  => [
+                'nethash'     => array_get($this->config, 'nethash'),
+                'version'     => array_get($this->config, 'version'),
+                'port'        => 1,
+                'API-Version' => $this->config['api_version'],
+            ],
+        ]);
     }
 
     /**
@@ -94,11 +102,13 @@ class Connection
     private function configure(): void
     {
         if (1 === $this->config['api_version']) {
-            $response = $this->api('loader')->autoconfigure();
-            $response = json_decode($response->getBody()->getContents());
-
+            $response                = $this->api('loader')->autoconfigure();
+            $response                = json_decode($response->getBody()->getContents());
             $this->config['nethash'] = $response->network->nethash;
-            $this->config['version'] = $response->network->version;
+
+            $response                = $this->api('peers')->version();
+            $response                = json_decode($response->getBody()->getContents());
+            $this->config['version'] = $response->version;
         } else {
             $response = $this->api('node')->configuration();
             $response = json_decode($response->getBody()->getContents());
