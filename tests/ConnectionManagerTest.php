@@ -13,11 +13,17 @@ declare(strict_types=1);
 
 namespace ArkEcosystem\Tests\Client;
 
-use PHPUnit\Framework\TestCase as BaseTestCase;
-
-abstract class TestCase extends BaseTestCase
+/**
+ * This is the connection manager test class.
+ *
+ * @author Brian Faust <brian@ark.io>
+ * @coversNothing
+ */
+class ConnectionManagerTest extends TestCase
 {
-    protected function getConnection()
+    /** @test */
+    public function basic_test()
     {
+        $this->markTestIncomplete('This test has not been implemented yet.');
     }
 }

@@ -16,33 +16,22 @@ namespace ArkEcosystem\Tests\Client\API\One;
 use ArkEcosystem\Tests\Client\TestCase;
 
 /**
+ * This is the transport resource test class.
+ *
+ * @author Brian Faust <brian@ark.io>
  * @coversNothing
  */
 class TransportTest extends TestCase
 {
     /** @test */
-    public function can_get_blocks_common()
+    public function blocksCommon()
     {
-        // Arrange...
-        $ids = ['2745982198389373800'];
-
-        // Act...
-        $response = $this->getClient()->api('Transport')->blocksCommon($ids);
-
-        // Assert...
-        $this->assertInstanceOf('Illuminate\Support\Collection', $response);
+        $this->markTestIncomplete('This test has not been implemented yet.');
     }
 
     /** @test */
-    public function can_add_transactions()
+    public function createTransactions()
     {
-        // Arrange...
-        $transactions = [];
-
-        // Act...
-        $response = $this->getClient()->api('Transport')->createTransactions($transactions);
-
-        // Assert...
-        $this->assertInstanceOf('Illuminate\Support\Collection', $response);
+        $this->markTestIncomplete('This test has not been implemented yet.');
     }
 }

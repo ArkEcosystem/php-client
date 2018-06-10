@@ -16,27 +16,33 @@ namespace ArkEcosystem\Tests\Client\API\One;
 use ArkEcosystem\Tests\Client\TestCase;
 
 /**
- * This is the loader resource test class.
+ * This is the transactions resource test class.
  *
  * @author Brian Faust <brian@ark.io>
  * @coversNothing
  */
-class LoaderTest extends TestCase
+class TransactionsTest extends TestCase
 {
     /** @test */
-    public function status()
+    public function all()
     {
         $this->markTestIncomplete('This test has not been implemented yet.');
     }
 
     /** @test */
-    public function sync()
+    public function show()
     {
         $this->markTestIncomplete('This test has not been implemented yet.');
     }
 
     /** @test */
-    public function autoconfigure()
+    public function allUnconfirmed()
+    {
+        $this->markTestIncomplete('This test has not been implemented yet.');
+    }
+
+    /** @test */
+    public function showUnconfirmed()
     {
         $this->markTestIncomplete('This test has not been implemented yet.');
     }

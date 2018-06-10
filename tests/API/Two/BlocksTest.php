@@ -11,32 +11,38 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace ArkEcosystem\Tests\Client\API\One;
+namespace ArkEcosystem\Tests\Client\API\Two;
 
 use ArkEcosystem\Tests\Client\TestCase;
 
 /**
- * This is the loader resource test class.
+ * This is the blocks resource test class.
  *
  * @author Brian Faust <brian@ark.io>
  * @coversNothing
  */
-class LoaderTest extends TestCase
+class BlocksTest extends TestCase
 {
     /** @test */
-    public function status()
+    public function all()
     {
         $this->markTestIncomplete('This test has not been implemented yet.');
     }
 
     /** @test */
-    public function sync()
+    public function show()
     {
         $this->markTestIncomplete('This test has not been implemented yet.');
     }
 
     /** @test */
-    public function autoconfigure()
+    public function transactions()
+    {
+        $this->markTestIncomplete('This test has not been implemented yet.');
+    }
+
+    /** @test */
+    public function search()
     {
         $this->markTestIncomplete('This test has not been implemented yet.');
     }
