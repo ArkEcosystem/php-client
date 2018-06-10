@@ -58,7 +58,7 @@ class Config
      */
     public function set(string $key, $value): void
     {
-        $this->config[$key] = $value;
+        $this->config = array_set($this->config, $key, $value);
     }
 
     /**
@@ -70,6 +70,6 @@ class Config
      */
     public function has(string $key): bool
     {
-        return isset($this->config[$key]);
+        return array_has($this->config, $key);
     }
 }
