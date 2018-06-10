@@ -28,7 +28,7 @@ class PeersTest extends TestCase
     {
         $response = $this->getResource(2, 'peers')->all();
 
-        $this->assertTrue($response->isSucess());
+        $this->assertTrue($response->isSuccess());
     }
 
     /** @test */
@@ -36,6 +36,6 @@ class PeersTest extends TestCase
     {
         $response = $this->getResource(2, 'peers')->show();
 
-        $this->assertTrue($response->isSucess());
+        $this->assertTrue($response->isSuccess());
     }
 }

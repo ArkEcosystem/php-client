@@ -28,7 +28,7 @@ class DelegatesTest extends TestCase
     {
         $response = $this->getResource(1, 'delegates')->all();
 
-        $this->assertTrue($response->isSucess());
+        $this->assertTrue($response->isSuccess());
     }
 
     /** @test */
@@ -36,7 +36,7 @@ class DelegatesTest extends TestCase
     {
         $response = $this->getResource(1, 'delegates')->show();
 
-        $this->assertTrue($response->isSucess());
+        $this->assertTrue($response->isSuccess());
     }
 
     /** @test */
@@ -44,7 +44,7 @@ class DelegatesTest extends TestCase
     {
         $response = $this->getResource(1, 'delegates')->count();
 
-        $this->assertTrue($response->isSucess());
+        $this->assertTrue($response->isSuccess());
     }
 
     /** @test */
@@ -52,7 +52,7 @@ class DelegatesTest extends TestCase
     {
         $response = $this->getResource(1, 'delegates')->fee();
 
-        $this->assertTrue($response->isSucess());
+        $this->assertTrue($response->isSuccess());
     }
 
     /** @test */
@@ -60,7 +60,7 @@ class DelegatesTest extends TestCase
     {
         $response = $this->getResource(1, 'delegates')->forgedByAccount();
 
-        $this->assertTrue($response->isSucess());
+        $this->assertTrue($response->isSuccess());
     }
 
     /** @test */
@@ -68,7 +68,7 @@ class DelegatesTest extends TestCase
     {
         $response = $this->getResource(1, 'delegates')->search();
 
-        $this->assertTrue($response->isSucess());
+        $this->assertTrue($response->isSuccess());
     }
 
     /** @test */
@@ -76,7 +76,7 @@ class DelegatesTest extends TestCase
     {
         $response = $this->getResource(1, 'delegates')->voters();
 
-        $this->assertTrue($response->isSucess());
+        $this->assertTrue($response->isSuccess());
     }
 
     /** @test */
@@ -84,6 +84,6 @@ class DelegatesTest extends TestCase
     {
         $response = $this->getResource(1, 'delegates')->nextForgers();
 
-        $this->assertTrue($response->isSucess());
+        $this->assertTrue($response->isSuccess());
     }
 }

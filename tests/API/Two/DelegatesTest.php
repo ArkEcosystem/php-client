@@ -28,7 +28,7 @@ class DelegatesTest extends TestCase
     {
         $response = $this->getResource(2, 'delegates')->all();
 
-        $this->assertTrue($response->isSucess());
+        $this->assertTrue($response->isSuccess());
     }
 
     /** @test */
@@ -36,7 +36,7 @@ class DelegatesTest extends TestCase
     {
         $response = $this->getResource(2, 'delegates')->show();
 
-        $this->assertTrue($response->isSucess());
+        $this->assertTrue($response->isSuccess());
     }
 
     /** @test */
@@ -44,7 +44,7 @@ class DelegatesTest extends TestCase
     {
         $response = $this->getResource(2, 'delegates')->blocks();
 
-        $this->assertTrue($response->isSucess());
+        $this->assertTrue($response->isSuccess());
     }
 
     /** @test */
@@ -52,6 +52,6 @@ class DelegatesTest extends TestCase
     {
         $response = $this->getResource(2, 'delegates')->voters();
 
-        $this->assertTrue($response->isSucess());
+        $this->assertTrue($response->isSuccess());
     }
 }

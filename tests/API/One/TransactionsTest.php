@@ -28,7 +28,7 @@ class TransactionsTest extends TestCase
     {
         $response = $this->getResource(1, 'transactions')->all();
 
-        $this->assertTrue($response->isSucess());
+        $this->assertTrue($response->isSuccess());
     }
 
     /** @test */
@@ -36,7 +36,7 @@ class TransactionsTest extends TestCase
     {
         $response = $this->getResource(1, 'transactions')->show();
 
-        $this->assertTrue($response->isSucess());
+        $this->assertTrue($response->isSuccess());
     }
 
     /** @test */
@@ -44,7 +44,7 @@ class TransactionsTest extends TestCase
     {
         $response = $this->getResource(1, 'transactions')->allUnconfirmed();
 
-        $this->assertTrue($response->isSucess());
+        $this->assertTrue($response->isSuccess());
     }
 
     /** @test */
@@ -52,6 +52,6 @@ class TransactionsTest extends TestCase
     {
         $response = $this->getResource(1, 'transactions')->showUnconfirmed();
 
-        $this->assertTrue($response->isSucess());
+        $this->assertTrue($response->isSuccess());
     }
 }

@@ -28,7 +28,7 @@ class WalletsTest extends TestCase
     {
         $response = $this->getResource(2, 'wallets')->all();
 
-        $this->assertTrue($response->isSucess());
+        $this->assertTrue($response->isSuccess());
     }
 
     /** @test */
@@ -36,7 +36,7 @@ class WalletsTest extends TestCase
     {
         $response = $this->getResource(2, 'wallets')->top();
 
-        $this->assertTrue($response->isSucess());
+        $this->assertTrue($response->isSuccess());
     }
 
     /** @test */
@@ -44,7 +44,7 @@ class WalletsTest extends TestCase
     {
         $response = $this->getResource(2, 'wallets')->show();
 
-        $this->assertTrue($response->isSucess());
+        $this->assertTrue($response->isSuccess());
     }
 
     /** @test */
@@ -52,7 +52,7 @@ class WalletsTest extends TestCase
     {
         $response = $this->getResource(2, 'wallets')->transactions();
 
-        $this->assertTrue($response->isSucess());
+        $this->assertTrue($response->isSuccess());
     }
 
     /** @test */
@@ -60,7 +60,7 @@ class WalletsTest extends TestCase
     {
         $response = $this->getResource(2, 'wallets')->transactionsSent();
 
-        $this->assertTrue($response->isSucess());
+        $this->assertTrue($response->isSuccess());
     }
 
     /** @test */
@@ -68,7 +68,7 @@ class WalletsTest extends TestCase
     {
         $response = $this->getResource(2, 'wallets')->transactionsReceived();
 
-        $this->assertTrue($response->isSucess());
+        $this->assertTrue($response->isSuccess());
     }
 
     /** @test */
@@ -76,7 +76,7 @@ class WalletsTest extends TestCase
     {
         $response = $this->getResource(2, 'wallets')->votes();
 
-        $this->assertTrue($response->isSucess());
+        $this->assertTrue($response->isSuccess());
     }
 
     /** @test */
@@ -84,6 +84,6 @@ class WalletsTest extends TestCase
     {
         $response = $this->getResource(2, 'wallets')->search();
 
-        $this->assertTrue($response->isSucess());
+        $this->assertTrue($response->isSuccess());
     }
 }

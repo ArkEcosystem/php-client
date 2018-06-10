@@ -28,7 +28,7 @@ class AccountsTest extends TestCase
     {
         $response = $this->getResource(1, 'accounts')->all();
 
-        $this->assertTrue($response->isSucess());
+        $this->assertTrue($response->isSuccess());
     }
 
     /** @test */
@@ -36,7 +36,7 @@ class AccountsTest extends TestCase
     {
         $response = $this->getResource(1, 'accounts')->show();
 
-        $this->assertTrue($response->isSucess());
+        $this->assertTrue($response->isSuccess());
     }
 
     /** @test */
@@ -44,7 +44,7 @@ class AccountsTest extends TestCase
     {
         $response = $this->getResource(1, 'accounts')->count();
 
-        $this->assertTrue($response->isSucess());
+        $this->assertTrue($response->isSuccess());
     }
 
     /** @test */
@@ -52,7 +52,7 @@ class AccountsTest extends TestCase
     {
         $response = $this->getResource(1, 'accounts')->delegates();
 
-        $this->assertTrue($response->isSucess());
+        $this->assertTrue($response->isSuccess());
     }
 
     /** @test */
@@ -60,7 +60,7 @@ class AccountsTest extends TestCase
     {
         $response = $this->getResource(1, 'accounts')->fee();
 
-        $this->assertTrue($response->isSucess());
+        $this->assertTrue($response->isSuccess());
     }
 
     /** @test */
@@ -68,7 +68,7 @@ class AccountsTest extends TestCase
     {
         $response = $this->getResource(1, 'accounts')->balance();
 
-        $this->assertTrue($response->isSucess());
+        $this->assertTrue($response->isSuccess());
     }
 
     /** @test */
@@ -76,7 +76,7 @@ class AccountsTest extends TestCase
     {
         $response = $this->getResource(1, 'accounts')->publicKey();
 
-        $this->assertTrue($response->isSucess());
+        $this->assertTrue($response->isSuccess());
     }
 
     /** @test */
@@ -84,6 +84,6 @@ class AccountsTest extends TestCase
     {
         $response = $this->getResource(1, 'accounts')->top();
 
-        $this->assertTrue($response->isSucess());
+        $this->assertTrue($response->isSuccess());
     }
 }

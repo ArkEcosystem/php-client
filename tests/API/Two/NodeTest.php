@@ -28,7 +28,7 @@ class NodeTest extends TestCase
     {
         $response = $this->getResource(2, 'node')->status();
 
-        $this->assertTrue($response->isSucess());
+        $this->assertTrue($response->isSuccess());
     }
 
     /** @test */
@@ -36,7 +36,7 @@ class NodeTest extends TestCase
     {
         $response = $this->getResource(2, 'node')->syncing();
 
-        $this->assertTrue($response->isSucess());
+        $this->assertTrue($response->isSuccess());
     }
 
     /** @test */
@@ -44,6 +44,6 @@ class NodeTest extends TestCase
     {
         $response = $this->getResource(2, 'node')->configuration();
 
-        $this->assertTrue($response->isSucess());
+        $this->assertTrue($response->isSuccess());
     }
 }

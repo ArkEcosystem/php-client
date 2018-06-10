@@ -28,6 +28,6 @@ class SignaturesTest extends TestCase
     {
         $response = $this->getResource(1, 'signatures')->fee();
 
-        $this->assertTrue($response->isSucess());
+        $this->assertTrue($response->isSuccess());
     }
 }

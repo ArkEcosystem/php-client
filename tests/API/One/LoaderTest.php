@@ -28,7 +28,7 @@ class LoaderTest extends TestCase
     {
         $response = $this->getResource(1, 'loader')->status();
 
-        $this->assertTrue($response->isSucess());
+        $this->assertTrue($response->isSuccess());
     }
 
     /** @test */
@@ -36,7 +36,7 @@ class LoaderTest extends TestCase
     {
         $response = $this->getResource(1, 'loader')->sync();
 
-        $this->assertTrue($response->isSucess());
+        $this->assertTrue($response->isSuccess());
     }
 
     /** @test */
@@ -44,6 +44,6 @@ class LoaderTest extends TestCase
     {
         $response = $this->getResource(1, 'loader')->autoconfigure();
 
-        $this->assertTrue($response->isSucess());
+        $this->assertTrue($response->isSuccess());
     }
 }

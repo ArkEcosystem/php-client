@@ -28,7 +28,7 @@ class TransportTest extends TestCase
     {
         $response = $this->getResource(1, 'transport')->blocksCommon();
 
-        $this->assertTrue($response->isSucess());
+        $this->assertTrue($response->isSuccess());
     }
 
     /** @test */
@@ -36,6 +36,6 @@ class TransportTest extends TestCase
     {
         $response = $this->getResource(1, 'transport')->createTransactions();
 
-        $this->assertTrue($response->isSucess());
+        $this->assertTrue($response->isSuccess());
     }
 }

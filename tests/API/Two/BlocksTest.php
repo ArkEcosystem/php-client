@@ -28,7 +28,7 @@ class BlocksTest extends TestCase
     {
         $response = $this->getResource(2, 'blocks')->all();
 
-        $this->assertTrue($response->isSucess());
+        $this->assertTrue($response->isSuccess());
     }
 
     /** @test */
@@ -36,7 +36,7 @@ class BlocksTest extends TestCase
     {
         $response = $this->getResource(2, 'blocks')->show();
 
-        $this->assertTrue($response->isSucess());
+        $this->assertTrue($response->isSuccess());
     }
 
     /** @test */
@@ -44,7 +44,7 @@ class BlocksTest extends TestCase
     {
         $response = $this->getResource(2, 'blocks')->transactions();
 
-        $this->assertTrue($response->isSucess());
+        $this->assertTrue($response->isSuccess());
     }
 
     /** @test */
@@ -52,6 +52,6 @@ class BlocksTest extends TestCase
     {
         $response = $this->getResource(2, 'blocks')->search();
 
-        $this->assertTrue($response->isSucess());
+        $this->assertTrue($response->isSuccess());
     }
 }

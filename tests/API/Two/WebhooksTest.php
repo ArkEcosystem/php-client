@@ -28,7 +28,7 @@ class WebhooksTest extends TestCase
     {
         $response = $this->getResource(2, 'webhooks')->all();
 
-        $this->assertTrue($response->isSucess());
+        $this->assertTrue($response->isSuccess());
     }
 
     /** @test */
@@ -36,7 +36,7 @@ class WebhooksTest extends TestCase
     {
         $response = $this->getResource(2, 'webhooks')->create();
 
-        $this->assertTrue($response->isSucess());
+        $this->assertTrue($response->isSuccess());
     }
 
     /** @test */
@@ -44,7 +44,7 @@ class WebhooksTest extends TestCase
     {
         $response = $this->getResource(2, 'webhooks')->show();
 
-        $this->assertTrue($response->isSucess());
+        $this->assertTrue($response->isSuccess());
     }
 
     /** @test */
@@ -52,7 +52,7 @@ class WebhooksTest extends TestCase
     {
         $response = $this->getResource(2, 'webhooks')->update();
 
-        $this->assertTrue($response->isSucess());
+        $this->assertTrue($response->isSuccess());
     }
 
     /** @test */
@@ -60,6 +60,6 @@ class WebhooksTest extends TestCase
     {
         $response = $this->getResource(2, 'webhooks')->delete();
 
-        $this->assertTrue($response->isSucess());
+        $this->assertTrue($response->isSuccess());
     }
 }

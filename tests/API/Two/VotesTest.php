@@ -28,7 +28,7 @@ class VotesTest extends TestCase
     {
         $response = $this->getResource(2, 'votes')->all();
 
-        $this->assertTrue($response->isSucess());
+        $this->assertTrue($response->isSuccess());
     }
 
     /** @test */
@@ -36,6 +36,6 @@ class VotesTest extends TestCase
     {
         $response = $this->getResource(2, 'votes')->show();
 
-        $this->assertTrue($response->isSucess());
+        $this->assertTrue($response->isSuccess());
     }
 }

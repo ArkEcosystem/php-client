@@ -28,7 +28,7 @@ class BlocksTest extends TestCase
     {
         $response = $this->getResource(1, 'blocks')->all();
 
-        $this->assertTrue($response->isSucess());
+        $this->assertTrue($response->isSuccess());
     }
 
     /** @test */
@@ -36,7 +36,7 @@ class BlocksTest extends TestCase
     {
         $response = $this->getResource(1, 'blocks')->show();
 
-        $this->assertTrue($response->isSucess());
+        $this->assertTrue($response->isSuccess());
     }
 
     /** @test */
@@ -44,7 +44,7 @@ class BlocksTest extends TestCase
     {
         $response = $this->getResource(1, 'blocks')->epoch();
 
-        $this->assertTrue($response->isSucess());
+        $this->assertTrue($response->isSuccess());
     }
 
     /** @test */
@@ -52,7 +52,7 @@ class BlocksTest extends TestCase
     {
         $response = $this->getResource(1, 'blocks')->fee();
 
-        $this->assertTrue($response->isSucess());
+        $this->assertTrue($response->isSuccess());
     }
 
     /** @test */
@@ -60,7 +60,7 @@ class BlocksTest extends TestCase
     {
         $response = $this->getResource(1, 'blocks')->fees();
 
-        $this->assertTrue($response->isSucess());
+        $this->assertTrue($response->isSuccess());
     }
 
     /** @test */
@@ -68,7 +68,7 @@ class BlocksTest extends TestCase
     {
         $response = $this->getResource(1, 'blocks')->height();
 
-        $this->assertTrue($response->isSucess());
+        $this->assertTrue($response->isSuccess());
     }
 
     /** @test */
@@ -76,7 +76,7 @@ class BlocksTest extends TestCase
     {
         $response = $this->getResource(1, 'blocks')->milestone();
 
-        $this->assertTrue($response->isSucess());
+        $this->assertTrue($response->isSuccess());
     }
 
     /** @test */
@@ -84,7 +84,7 @@ class BlocksTest extends TestCase
     {
         $response = $this->getResource(1, 'blocks')->nethash();
 
-        $this->assertTrue($response->isSucess());
+        $this->assertTrue($response->isSuccess());
     }
 
     /** @test */
@@ -92,7 +92,7 @@ class BlocksTest extends TestCase
     {
         $response = $this->getResource(1, 'blocks')->reward();
 
-        $this->assertTrue($response->isSucess());
+        $this->assertTrue($response->isSuccess());
     }
 
     /** @test */
@@ -100,7 +100,7 @@ class BlocksTest extends TestCase
     {
         $response = $this->getResource(1, 'blocks')->status();
 
-        $this->assertTrue($response->isSucess());
+        $this->assertTrue($response->isSuccess());
     }
 
     /** @test */
@@ -108,6 +108,6 @@ class BlocksTest extends TestCase
     {
         $response = $this->getResource(1, 'blocks')->supply();
 
-        $this->assertTrue($response->isSucess());
+        $this->assertTrue($response->isSuccess());
     }
 }
