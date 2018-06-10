@@ -19,7 +19,7 @@ use GuzzleHttp\Psr7\Response;
 /**
  * This is the blocks resource class.
  *
- * @author Brian Faust <hello@brianfaust.me>
+ * @author Brian Faust <brian@ark.io>
  */
 class Blocks extends AbstractResource
 {

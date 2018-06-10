@@ -19,7 +19,7 @@ use GuzzleHttp\Psr7\Response;
 /**
  * This is the node resource class.
  *
- * @author Brian Faust <hello@brianfaust.me>
+ * @author Brian Faust <brian@ark.io>
  */
 class Node extends AbstractResource
 {

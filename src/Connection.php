@@ -20,7 +20,7 @@ use NumberFormatter;
 /**
  * This is the connection class.
  *
- * @author Brian Faust <hello@brianfaust.me>
+ * @author Brian Faust <brian@ark.io>
  */
 class Connection
 {
@@ -29,14 +29,14 @@ class Connection
      *
      * @var array
      */
-    public $config;
+    private $config;
 
     /**
      * The Guzzle client.
      *
      * @var \GuzzleHttp\Client
      */
-    public $client;
+    private $client;
 
     /**
      * Make a new connection instance.

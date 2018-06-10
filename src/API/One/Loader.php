@@ -19,7 +19,7 @@ use GuzzleHttp\Psr7\Response;
 /**
  * This is the loader resource class.
  *
- * @author Brian Faust <hello@brianfaust.me>
+ * @author Brian Faust <brian@ark.io>
  */
 class Loader extends AbstractResource
 {

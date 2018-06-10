@@ -19,7 +19,7 @@ use GuzzleHttp\Psr7\Response;
 /**
  * This is the transactions resource class.
  *
- * @author Brian Faust <hello@brianfaust.me>
+ * @author Brian Faust <brian@ark.io>
  */
 class Transactions extends AbstractResource
 {

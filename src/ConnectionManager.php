@@ -18,7 +18,7 @@ use InvalidArgumentException;
 /**
  * This is the connection manager class.
  *
- * @author Brian Faust <hello@brianfaust.me>
+ * @author Brian Faust <brian@ark.io>
  */
 class ConnectionManager
 {

@@ -20,25 +20,29 @@ use GuzzleHttp\Psr7\Response;
 /**
  * This is the abstract resource class.
  *
- * @author Brian Faust <hello@brianfaust.me>
+ * @author Brian Faust <brian@ark.io>
  */
 abstract class AbstractResource
 {
     /**
-     * @var \ArkEcosystem\Client\Client
+     * The client connection.
+     *
+     * @var \ArkEcosystem\Client\Connection
      */
-    protected $connection;
+    private $connection;
 
     /**
-     * @var \BrianFaust\Http\PendingHttpRequest
+     * The Guzzle client.
+     *
+     * @var \GuzzleHttp\Client
      */
-    protected $client;
+    private $client;
 
     /**
      * Create a new API class instance.
      *
-     * @param \ArkEcosystem\Client\Client         $connection
-     * @param \BrianFaust\Http\PendingHttpRequest $client
+     * @param \ArkEcosystem\Client\Connection $connection
+     * @param \GuzzleHttp\Client              $client
      */
     public function __construct(Connection $connection, Client $client)
     {
