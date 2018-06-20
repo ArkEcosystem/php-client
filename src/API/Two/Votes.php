@@ -30,7 +30,7 @@ class Votes extends AbstractResource
      */
     public function all(): Response
     {
-        return $this->get('votes');
+        return $this->request->get('votes');
     }
 
     /**
@@ -42,6 +42,6 @@ class Votes extends AbstractResource
      */
     public function show(string $id): Response
     {
-        return $this->get("votes/{$id}");
+        return $this->request->get("votes/{$id}");
     }
 }

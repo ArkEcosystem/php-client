@@ -32,7 +32,7 @@ class Peers extends AbstractResource
      */
     public function all(array $query = []): Response
     {
-        return $this->get('api/peers', $query);
+        return $this->request->get('api/peers', $query);
     }
 
     /**
@@ -45,7 +45,7 @@ class Peers extends AbstractResource
      */
     public function show(string $ip, int $port): Response
     {
-        return $this->get('api/peers/get', compact('ip', 'port'));
+        return $this->request->get('api/peers/get', compact('ip', 'port'));
     }
 
     /**
@@ -55,6 +55,6 @@ class Peers extends AbstractResource
      */
     public function version(): Response
     {
-        return $this->get('api/peers/version');
+        return $this->request->get('api/peers/version');
     }
 }

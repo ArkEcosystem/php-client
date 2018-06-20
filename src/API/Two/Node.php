@@ -30,7 +30,7 @@ class Node extends AbstractResource
      */
     public function status(): Response
     {
-        return $this->get('node/status');
+        return $this->request->get('node/status');
     }
 
     /**
@@ -40,7 +40,7 @@ class Node extends AbstractResource
      */
     public function syncing(): Response
     {
-        return $this->get('node/syncing');
+        return $this->request->get('node/syncing');
     }
 
     /**
@@ -50,6 +50,6 @@ class Node extends AbstractResource
      */
     public function configuration(): Response
     {
-        return $this->get('node/configuration');
+        return $this->request->get('node/configuration');
     }
 }

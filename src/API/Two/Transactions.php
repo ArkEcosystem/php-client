@@ -30,7 +30,7 @@ class Transactions extends AbstractResource
      */
     public function all(): Response
     {
-        return $this->get('transactions');
+        return $this->request->get('transactions');
     }
 
     /**
@@ -42,7 +42,7 @@ class Transactions extends AbstractResource
      */
     public function create(array $transactions): Response
     {
-        return $this->post('transactions', $transactions);
+        return $this->request->post('transactions', $transactions);
     }
 
     /**
@@ -54,7 +54,7 @@ class Transactions extends AbstractResource
      */
     public function show(string $id): Response
     {
-        return $this->get("transactions/{$id}");
+        return $this->request->get("transactions/{$id}");
     }
 
     /**
@@ -64,7 +64,7 @@ class Transactions extends AbstractResource
      */
     public function allUnconfirmed(): Response
     {
-        return $this->get('transactions/unconfirmed');
+        return $this->request->get('transactions/unconfirmed');
     }
 
     /**
@@ -76,7 +76,7 @@ class Transactions extends AbstractResource
      */
     public function getUnconfirmed(string $id): Response
     {
-        return $this->get("transactions/unconfirmed/{$id}");
+        return $this->request->get("transactions/unconfirmed/{$id}");
     }
 
     /**
@@ -88,7 +88,7 @@ class Transactions extends AbstractResource
      */
     public function search(array $criteria): Response
     {
-        return $this->post('transactions/search', $criteria);
+        return $this->request->post('transactions/search', $criteria);
     }
 
     /**
@@ -98,6 +98,6 @@ class Transactions extends AbstractResource
      */
     public function types(): Response
     {
-        return $this->get('transactions/types');
+        return $this->request->get('transactions/types');
     }
 }

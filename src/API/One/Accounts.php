@@ -32,7 +32,7 @@ class Accounts extends AbstractResource
      */
     public function all(array $query = []): Response
     {
-        return $this->get('api/accounts/getAllAccounts', $query);
+        return $this->request->get('api/accounts/getAllAccounts', $query);
     }
 
     /**
@@ -44,7 +44,7 @@ class Accounts extends AbstractResource
      */
     public function show(string $address): Response
     {
-        return $this->get('api/accounts', compact('address'));
+        return $this->request->get('api/accounts', compact('address'));
     }
 
     /**
@@ -54,7 +54,7 @@ class Accounts extends AbstractResource
      */
     public function count(): Response
     {
-        return $this->get('api/accounts/count');
+        return $this->request->get('api/accounts/count');
     }
 
     /**
@@ -66,7 +66,7 @@ class Accounts extends AbstractResource
      */
     public function delegates(string $address): Response
     {
-        return $this->get('api/accounts/delegates', compact('address'));
+        return $this->request->get('api/accounts/delegates', compact('address'));
     }
 
     /**
@@ -76,7 +76,7 @@ class Accounts extends AbstractResource
      */
     public function fee(): Response
     {
-        return $this->get('api/accounts/delegates/fee');
+        return $this->request->get('api/accounts/delegates/fee');
     }
 
     /**
@@ -88,7 +88,7 @@ class Accounts extends AbstractResource
      */
     public function balance(string $address): Response
     {
-        return $this->get('api/accounts/getBalance', compact('address'));
+        return $this->request->get('api/accounts/getBalance', compact('address'));
     }
 
     /**
@@ -100,7 +100,7 @@ class Accounts extends AbstractResource
      */
     public function publicKey(string $address): Response
     {
-        return $this->get('api/accounts/getPublicKey', compact('address'));
+        return $this->request->get('api/accounts/getPublicKey', compact('address'));
     }
 
     /**
@@ -112,6 +112,6 @@ class Accounts extends AbstractResource
      */
     public function top(string $query): Response
     {
-        return $this->get('api/accounts/top', $query);
+        return $this->request->get('api/accounts/top', $query);
     }
 }

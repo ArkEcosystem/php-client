@@ -30,7 +30,7 @@ class Delegates extends AbstractResource
      */
     public function all(): Response
     {
-        return $this->get('delegates');
+        return $this->request->get('delegates');
     }
 
     /**
@@ -42,7 +42,7 @@ class Delegates extends AbstractResource
      */
     public function show(string $id): Response
     {
-        return $this->get("delegates/{$id}");
+        return $this->request->get("delegates/{$id}");
     }
 
     /**
@@ -54,7 +54,7 @@ class Delegates extends AbstractResource
      */
     public function blocks(string $id): Response
     {
-        return $this->get("delegates/{$id}/blocks");
+        return $this->request->get("delegates/{$id}/blocks");
     }
 
     /**
@@ -66,6 +66,6 @@ class Delegates extends AbstractResource
      */
     public function voters(string $id): Response
     {
-        return $this->get("delegates/{$id}/voters");
+        return $this->request->get("delegates/{$id}/voters");
     }
 }

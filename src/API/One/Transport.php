@@ -36,7 +36,7 @@ class Transport extends AbstractResource
             return "'$id'";
         });
 
-        return $this->get('peer/blocks/common', ['ids' => $ids->implode(',')]);
+        return $this->request->get('peer/blocks/common', ['ids' => $ids->implode(',')]);
     }
 
     /**
@@ -48,6 +48,6 @@ class Transport extends AbstractResource
      */
     public function createTransactions(array $transactions): Response
     {
-        return $this->post('peer/transactions', compact('transactions'));
+        return $this->request->post('peer/transactions', compact('transactions'));
     }
 }

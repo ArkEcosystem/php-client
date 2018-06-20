@@ -42,35 +42,29 @@ class Connection
     }
 
     /**
-     * Set the connection API version on the fly.
-     *
-     * @param int $version
-     *
-     * @return \ArkEcosystem\Client\Connection
-     */
-    public function version(int $version): self
-    {
-        $this->config->set('api_version', $version);
-
-        return $this;
-    }
-
-    /**
      * Configure the connection based on the server.
      */
     public function configure(): void
     {
-        if (1 === $this->config->get('api_version')) {
-            $response = $this->api('loader')->autoconfigure();
-            $this->config->set('nethash', array_get($response->json(), 'network.nethash'));
+        switch ($this->config->get('api_version')) {
+            case 1:
+                $response = $this->api('loader')->autoconfigure();
+                $this->config->set('nethash', array_get($response->json(), 'network.nethash'));
 
-            $response = $this->api('peers')->version();
-            $this->config->set('version', array_get($response->json(), 'version'));
-        } else {
-            $response = $this->api('node')->configuration();
+                $response = $this->api('peers')->version();
+                $this->config->set('version', array_get($response->json(), 'version'));
+            break;
 
-            $this->config->set('nethash', array_get($response->json(), 'data.nethash'));
-            $this->config->set('version', array_get($response->json(), 'data.nethash'));
+            case 2:
+                $response = $this->api('node')->configuration();
+
+                $this->config->set('nethash', array_get($response->json(), 'data.nethash'));
+                $this->config->set('version', array_get($response->json(), 'data.nethash'));
+            break;
+
+            default:
+                // no configuration needed...
+            break;
         }
     }
 

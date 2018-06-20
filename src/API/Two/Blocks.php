@@ -30,7 +30,7 @@ class Blocks extends AbstractResource
      */
     public function all(): Response
     {
-        return $this->get('blocks');
+        return $this->request->get('blocks');
     }
 
     /**
@@ -42,7 +42,7 @@ class Blocks extends AbstractResource
      */
     public function show(string $id): Response
     {
-        return $this->get("blocks/{$id}");
+        return $this->request->get("blocks/{$id}");
     }
 
     /**
@@ -54,7 +54,7 @@ class Blocks extends AbstractResource
      */
     public function transactions(string $id): Response
     {
-        return $this->get("blocks/{$id}/transactions");
+        return $this->request->get("blocks/{$id}/transactions");
     }
 
     /**
@@ -66,6 +66,6 @@ class Blocks extends AbstractResource
      */
     public function search(array $criteria): Response
     {
-        return $this->post('blocks/search', $criteria);
+        return $this->request->post('blocks/search', $criteria);
     }
 }

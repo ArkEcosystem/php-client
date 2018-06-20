@@ -30,7 +30,7 @@ class Wallets extends AbstractResource
      */
     public function all(): Response
     {
-        return $this->get('wallets');
+        return $this->request->get('wallets');
     }
 
     /**
@@ -40,7 +40,7 @@ class Wallets extends AbstractResource
      */
     public function top(): Response
     {
-        return $this->get('wallets/top');
+        return $this->request->get('wallets/top');
     }
 
     /**
@@ -52,7 +52,7 @@ class Wallets extends AbstractResource
      */
     public function show(string $id): Response
     {
-        return $this->get("wallets/{$id}");
+        return $this->request->get("wallets/{$id}");
     }
 
     /**
@@ -64,7 +64,7 @@ class Wallets extends AbstractResource
      */
     public function transactions(string $id): Response
     {
-        return $this->get("wallets/{$id}/transactions");
+        return $this->request->get("wallets/{$id}/transactions");
     }
 
     /**
@@ -76,7 +76,7 @@ class Wallets extends AbstractResource
      */
     public function transactionsSent(string $id): Response
     {
-        return $this->get("wallets/{$id}/transactions/sent");
+        return $this->request->get("wallets/{$id}/transactions/sent");
     }
 
     /**
@@ -88,7 +88,7 @@ class Wallets extends AbstractResource
      */
     public function transactionsReceived(string $id): Response
     {
-        return $this->get("wallets/{$id}/transactions/received");
+        return $this->request->get("wallets/{$id}/transactions/received");
     }
 
     /**
@@ -100,7 +100,7 @@ class Wallets extends AbstractResource
      */
     public function votes(string $id): Response
     {
-        return $this->get("wallets/{$id}/votes");
+        return $this->request->get("wallets/{$id}/votes");
     }
 
     /**
@@ -112,6 +112,6 @@ class Wallets extends AbstractResource
      */
     public function search(array $criteria): Response
     {
-        return $this->post('wallets/search', $criteria);
+        return $this->request->post('wallets/search', $criteria);
     }
 }

@@ -32,7 +32,7 @@ class Blocks extends AbstractResource
      */
     public function all(array $query = []): Response
     {
-        return $this->get('api/blocks', $query);
+        return $this->request->get('api/blocks', $query);
     }
 
     /**
@@ -44,7 +44,7 @@ class Blocks extends AbstractResource
      */
     public function show(string $id): Response
     {
-        return $this->get('api/blocks/get', compact('id'));
+        return $this->request->get('api/blocks/get', compact('id'));
     }
 
     /**
@@ -54,7 +54,7 @@ class Blocks extends AbstractResource
      */
     public function epoch(): Response
     {
-        return $this->get('api/blocks/getEpoch');
+        return $this->request->get('api/blocks/getEpoch');
     }
 
     /**
@@ -64,7 +64,7 @@ class Blocks extends AbstractResource
      */
     public function fee(): Response
     {
-        return $this->get('api/blocks/getFee');
+        return $this->request->get('api/blocks/getFee');
     }
 
     /**
@@ -74,7 +74,7 @@ class Blocks extends AbstractResource
      */
     public function fees(): Response
     {
-        return $this->get('api/blocks/getFees');
+        return $this->request->get('api/blocks/getFees');
     }
 
     /**
@@ -84,7 +84,7 @@ class Blocks extends AbstractResource
      */
     public function height(): Response
     {
-        return $this->get('api/blocks/getHeight');
+        return $this->request->get('api/blocks/getHeight');
     }
 
     /**
@@ -94,7 +94,7 @@ class Blocks extends AbstractResource
      */
     public function milestone(): Response
     {
-        return $this->get('api/blocks/getMilestone');
+        return $this->request->get('api/blocks/getMilestone');
     }
 
     /**
@@ -104,7 +104,7 @@ class Blocks extends AbstractResource
      */
     public function nethash(): Response
     {
-        return $this->get('api/blocks/getNethash');
+        return $this->request->get('api/blocks/getNethash');
     }
 
     /**
@@ -114,7 +114,7 @@ class Blocks extends AbstractResource
      */
     public function reward(): Response
     {
-        return $this->get('api/blocks/getReward');
+        return $this->request->get('api/blocks/getReward');
     }
 
     /**
@@ -124,7 +124,7 @@ class Blocks extends AbstractResource
      */
     public function status(): Response
     {
-        return $this->get('api/blocks/getStatus');
+        return $this->request->get('api/blocks/getStatus');
     }
 
     /**
@@ -134,6 +134,6 @@ class Blocks extends AbstractResource
      */
     public function supply(): Response
     {
-        return $this->get('api/blocks/getSupply');
+        return $this->request->get('api/blocks/getSupply');
     }
 }

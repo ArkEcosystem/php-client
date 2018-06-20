@@ -15,7 +15,6 @@ namespace ArkEcosystem\Client\API;
 
 use ArkEcosystem\Client\Connection;
 use ArkEcosystem\Client\Http\Request;
-use ArkEcosystem\Client\Http\Response;
 use GuzzleHttp\Client;
 
 /**
@@ -30,14 +29,14 @@ abstract class AbstractResource
      *
      * @var \ArkEcosystem\Client\Connection
      */
-    private $connection;
+    protected $connection;
 
     /**
      * The http request instance.
      *
      * @var \ArkEcosystem\Client\Http\Request
      */
-    private $request;
+    protected $request;
 
     /**
      * Create a new API class instance.
@@ -48,70 +47,5 @@ abstract class AbstractResource
     {
         $this->connection = $connection;
         $this->request    = new Request($connection);
-    }
-
-    /**
-     * Create and send a HTTP "GET" request.
-     *
-     * @param string $url
-     * @param array  $params
-     *
-     * @return \ArkEcosystem\Client\Http\Response
-     */
-    protected function get(string $url, array $params = []): Response
-    {
-        return $this->request->get($url, $params);
-    }
-
-    /**
-     * Create and send a HTTP "POST" request.
-     *
-     * @param string $url
-     * @param array  $params
-     *
-     * @return \ArkEcosystem\Client\Http\Response
-     */
-    protected function post(string $url, array $params = []): Response
-    {
-        return $this->request->post($url, $params);
-    }
-
-    /**
-     * Create and send a HTTP "PUT" request.
-     *
-     * @param string $url
-     * @param array  $params
-     *
-     * @return \ArkEcosystem\Client\Http\Response
-     */
-    protected function put(string $url, array $params = []): Response
-    {
-        return $this->request->put($url, $params);
-    }
-
-    /**
-     * Create and send a HTTP "PATCH" request.
-     *
-     * @param string $url
-     * @param array  $params
-     *
-     * @return \ArkEcosystem\Client\Http\Response
-     */
-    protected function patch(string $url, array $params = []): Response
-    {
-        return $this->request->patch($url, $params);
-    }
-
-    /**
-     * Create and send a HTTP "DELETE" request.
-     *
-     * @param string $url
-     * @param array  $params
-     *
-     * @return \ArkEcosystem\Client\Http\Response
-     */
-    protected function delete(string $url, array $params = []): Response
-    {
-        return $this->request->delete($url, $params);
     }
 }

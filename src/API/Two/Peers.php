@@ -30,7 +30,7 @@ class Peers extends AbstractResource
      */
     public function all(): Response
     {
-        return $this->get('peers');
+        return $this->request->get('peers');
     }
 
     /**
@@ -42,6 +42,6 @@ class Peers extends AbstractResource
      */
     public function show(string $ip): Response
     {
-        return $this->get("peers/${ip}");
+        return $this->request->get("peers/${ip}");
     }
 }

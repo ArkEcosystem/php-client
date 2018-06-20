@@ -32,7 +32,7 @@ class Transactions extends AbstractResource
      */
     public function all(array $query = []): Response
     {
-        return $this->get('api/transactions', $query);
+        return $this->request->get('api/transactions', $query);
     }
 
     /**
@@ -44,7 +44,7 @@ class Transactions extends AbstractResource
      */
     public function show(string $id): Response
     {
-        return $this->get('api/transactions/get', compact('id'));
+        return $this->request->get('api/transactions/get', compact('id'));
     }
 
     /**
@@ -56,7 +56,7 @@ class Transactions extends AbstractResource
      */
     public function allUnconfirmed(array $query = []): Response
     {
-        return $this->get('api/transactions/unconfirmed', $query);
+        return $this->request->get('api/transactions/unconfirmed', $query);
     }
 
     /**
@@ -68,6 +68,6 @@ class Transactions extends AbstractResource
      */
     public function showUnconfirmed(string $id): Response
     {
-        return $this->get('api/transactions/unconfirmed/get', compact('id'));
+        return $this->request->get('api/transactions/unconfirmed/get', compact('id'));
     }
 }

@@ -32,7 +32,7 @@ class Delegates extends AbstractResource
      */
     public function all(array $query = []): Response
     {
-        return $this->get('api/delegates', $query);
+        return $this->request->get('api/delegates', $query);
     }
 
     /**
@@ -44,7 +44,7 @@ class Delegates extends AbstractResource
      */
     public function show(array $identifier): Response
     {
-        return $this->get('api/delegates/get', $identifier);
+        return $this->request->get('api/delegates/get', $identifier);
     }
 
     /**
@@ -54,7 +54,7 @@ class Delegates extends AbstractResource
      */
     public function count(): Response
     {
-        return $this->get('api/delegates/count');
+        return $this->request->get('api/delegates/count');
     }
 
     /**
@@ -64,7 +64,7 @@ class Delegates extends AbstractResource
      */
     public function fee(): Response
     {
-        return $this->get('api/delegates/fee');
+        return $this->request->get('api/delegates/fee');
     }
 
     /**
@@ -76,7 +76,7 @@ class Delegates extends AbstractResource
      */
     public function forgedByAccount(string $generatorPublicKey): Response
     {
-        return $this->get('api/delegates/forging/getForgedByAccount', compact('generatorPublicKey'));
+        return $this->request->get('api/delegates/forging/getForgedByAccount', compact('generatorPublicKey'));
     }
 
     /**
@@ -88,7 +88,7 @@ class Delegates extends AbstractResource
      */
     public function search(string $query): Response
     {
-        return $this->get('api/delegates/search', ['q' => $query]);
+        return $this->request->get('api/delegates/search', ['q' => $query]);
     }
 
     /**
@@ -100,7 +100,7 @@ class Delegates extends AbstractResource
      */
     public function voters(string $publicKey): Response
     {
-        return $this->get('api/delegates/voters', compact('publicKey'));
+        return $this->request->get('api/delegates/voters', compact('publicKey'));
     }
 
     /**
@@ -112,6 +112,6 @@ class Delegates extends AbstractResource
      */
     public function nextForgers(): Response
     {
-        return $this->get('api/delegates/getNextForgers');
+        return $this->request->get('api/delegates/getNextForgers');
     }
 }

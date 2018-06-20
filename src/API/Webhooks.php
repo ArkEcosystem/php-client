@@ -11,9 +11,8 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace ArkEcosystem\Client\API\Two;
+namespace ArkEcosystem\Client\API;
 
-use ArkEcosystem\Client\API\AbstractResource;
 use ArkEcosystem\Client\Http\Response;
 
 /**
@@ -30,7 +29,7 @@ class Webhooks extends AbstractResource
      */
     public function all(): Response
     {
-        return $this->get('webhooks');
+        return $this->request->get('webhooks');
     }
 
     /**
@@ -42,7 +41,7 @@ class Webhooks extends AbstractResource
      */
     public function create(array $payload): Response
     {
-        return $this->post('webhooks', $payload);
+        return $this->request->post('webhooks', $payload);
     }
 
     /**
@@ -54,7 +53,7 @@ class Webhooks extends AbstractResource
      */
     public function show(int $id): Response
     {
-        return $this->get("webhooks/{$id}");
+        return $this->request->get("webhooks/{$id}");
     }
 
     /**
@@ -67,7 +66,7 @@ class Webhooks extends AbstractResource
      */
     public function update(int $id, array $payload): Response
     {
-        return $this->put("webhooks/{$id}", $payload);
+        return $this->request->put("webhooks/{$id}", $payload);
     }
 
     /**
@@ -79,6 +78,6 @@ class Webhooks extends AbstractResource
      */
     public function delete(int $id): Response
     {
-        return $this->delete("webhooks/{$id}");
+        return $this->request->delete("webhooks/{$id}");
     }
 }

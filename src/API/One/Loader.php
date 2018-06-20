@@ -30,7 +30,7 @@ class Loader extends AbstractResource
      */
     public function status(): Response
     {
-        return $this->get('api/loader/status');
+        return $this->request->get('api/loader/status');
     }
 
     /**
@@ -40,7 +40,7 @@ class Loader extends AbstractResource
      */
     public function sync(): Response
     {
-        return $this->get('api/loader/status/sync');
+        return $this->request->get('api/loader/status/sync');
     }
 
     /**
@@ -50,6 +50,6 @@ class Loader extends AbstractResource
      */
     public function autoconfigure(): Response
     {
-        return $this->get('api/loader/autoconfigure');
+        return $this->request->get('api/loader/autoconfigure');
     }
 }

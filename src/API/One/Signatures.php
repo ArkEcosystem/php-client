@@ -30,6 +30,6 @@ class Signatures extends AbstractResource
      */
     public function fee(): Response
     {
-        return $this->get('api/signatures/fee');
+        return $this->request->get('api/signatures/fee');
     }
 }
