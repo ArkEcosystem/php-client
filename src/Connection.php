@@ -39,10 +39,6 @@ class Connection
     public function __construct(Config $config)
     {
         $this->config = $config;
-
-        if (!$this->config->has('api_version')) {
-            $this->config->set('api_version', 1);
-        }
     }
 
     /**
