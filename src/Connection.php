@@ -42,33 +42,6 @@ class Connection
     }
 
     /**
-     * Configure the connection based on the server.
-     */
-    public function configure(): void
-    {
-        switch ($this->config->get('api_version')) {
-            case 1:
-                $response = $this->api('loader')->autoconfigure();
-                $this->config->set('nethash', array_get($response->json(), 'network.nethash'));
-
-                $response = $this->api('peers')->version();
-                $this->config->set('version', array_get($response->json(), 'version'));
-            break;
-
-            case 2:
-                $response = $this->api('node')->configuration();
-
-                $this->config->set('nethash', array_get($response->json(), 'data.nethash'));
-                $this->config->set('version', array_get($response->json(), 'data.nethash'));
-            break;
-
-            default:
-                // no configuration needed...
-            break;
-        }
-    }
-
-    /**
      * Make a new resource instance.
      *
      * @param string $name

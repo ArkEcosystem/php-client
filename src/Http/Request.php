@@ -128,9 +128,6 @@ class Request
         return GuzzleFactory::make([
             'base_uri' => $this->connection->config->get('host'),
             'headers'  => [
-                'nethash'     => $this->connection->config->get('nethash'),
-                'version'     => $this->connection->config->get('version'),
-                'port'        => 1,
                 'API-Version' => $this->connection->config->get('api_version'),
             ],
         ]);
