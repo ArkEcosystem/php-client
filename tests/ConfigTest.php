@@ -14,7 +14,6 @@ declare(strict_types=1);
 namespace ArkEcosystem\Tests\Client;
 
 use ArkEcosystem\Client\Config;
-use ArkEcosystem\Client\Connection;
 
 /**
  * This is the config test class.
@@ -27,8 +26,7 @@ class ConfigTest extends TestCase
     /** @test */
     public function get()
     {
-        $config = $this->getConfig();
-        $config->set('key', 'value');
+        $config = $this->setUpConfig();
 
         $this->assertSame($config->get('key'), 'value');
     }
@@ -36,8 +34,7 @@ class ConfigTest extends TestCase
     /** @test */
     public function set()
     {
-        $config = $this->getConfig();
-        $config->set('key', 'value');
+        $config = $this->setUpConfig();
 
         $this->assertTrue($config->has('key'));
     }
@@ -45,14 +42,13 @@ class ConfigTest extends TestCase
     /** @test */
     public function has()
     {
-        $config = $this->getConfig();
-        $config->set('key', 'value');
+        $config = $this->setUpConfig();
 
         $this->assertTrue($config->has('key'));
     }
 
-    private function getConfig(): Config
+    private function setUpConfig(): Config
     {
-        return new Config();
+        return new Config(['key' => 'value']);
     }
 }

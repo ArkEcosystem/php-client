@@ -13,7 +13,10 @@ declare(strict_types=1);
 
 namespace ArkEcosystem\Tests\Client;
 
-use ArkEcosystem\Client\API\AbstractResource;
+use ArkEcosystem\Client\API\AbstractAPI;
+use ArkEcosystem\Client\Config;
+use ArkEcosystem\Client\Connection;
+use ArkEcosystem\Client\ConnectionManager;
 
 /**
  * This is the connection manager test class.
@@ -24,29 +27,27 @@ use ArkEcosystem\Client\API\AbstractResource;
 class ConnectionTest extends TestCase
 {
     /** @test */
-    public function it_should_set_the_api_version()
+    public function it_should_return_an_api()
     {
         $connection = $this->getConnection();
-        $connection->version(123);
 
-        $this->assertSame($connection->config->get('api_version'), 123);
+        $this->assertInstanceOf(AbstractAPI::class, $connection->api('blocks'));
     }
 
-    /** @test */
-    public function it_should_configure_the_connection()
+    /**
+     * Get a new connection instance.
+     *
+     * @return Connection
+     */
+    private function getConnection(): Connection
     {
-        $connection = $this->getConnection();
-        $connection->configure();
+        $connections = new ConnectionManager();
 
-        $this->assertInternalType('string', $connection->config->get('nethash'));
-        $this->assertInternalType('string', $connection->config->get('version'));
-    }
+        $config = new Config([
+            'host'        => $this->host,
+            'version'     => 1,
+        ]);
 
-    /** @test */
-    public function it_should_return_a_resource()
-    {
-        $connection = $this->getConnection();
-
-        $this->assertInstanceOf(AbstractResource::class, $connection->api('blocks'));
+        return $connections->connect($config);
     }
 }
