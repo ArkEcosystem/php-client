@@ -98,11 +98,10 @@ abstract class AbstractAPI implements API
      *
      * @param string $path
      * @param array  $parameters
-     * @param array  $requestHeaders
      *
      * @return array|string
      */
-    protected function get(string $path, array $parameters = [], array $requestHeaders = [])
+    protected function get(string $path, array $parameters = [])
     {
         if (null !== $this->offset && !isset($parameters['offset'])) {
             $parameters['offset'] = $this->offset;
@@ -116,7 +115,7 @@ abstract class AbstractAPI implements API
             $path .= '?'.http_build_query($parameters);
         }
 
-        $response = $this->connection->getHttpClient()->get($path, $requestHeaders);
+        $response = $this->connection->getHttpClient()->get($path);
 
         return ResponseMediator::getContent($response);
     }
@@ -126,16 +125,14 @@ abstract class AbstractAPI implements API
      *
      * @param string $path
      * @param array  $parameters
-     * @param array  $requestHeaders
      *
      * @return array|string
      */
-    protected function post(string $path, array $parameters = [], array $requestHeaders = [])
+    protected function post(string $path, array $parameters = [])
     {
-        $response = $this->connection->getHttpClient()->patch(
+        $response = $this->connection->getHttpClient()->post(
             $path,
-            ['json' => $parameters],
-            $requestHeaders
+            ['json' => $parameters]
         );
 
         return ResponseMediator::getContent($response);
