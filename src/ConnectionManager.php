@@ -39,8 +39,8 @@ class ConnectionManager
     /**
      * Connect to the given connection.
      *
-     * @param ArkEcosystem\Client\Config $config
-     * @param string                     $name
+     * @param \ArkEcosystem\Client\Config $config
+     * @param string                      $name
      *
      * @return \ArkEcosystem\Client\Connection
      */

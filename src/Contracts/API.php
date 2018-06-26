@@ -31,6 +31,8 @@ interface API
      * Set the offset used for requests.
      *
      * @param int $offset
+     *
+     * @return \ArkEcosystem\Client\Contracts\API
      */
     public function setOffset(int $offset): API;
 
@@ -45,6 +47,8 @@ interface API
      * Set the number of items returned per request.
      *
      * @param int $limit
+     *
+     * @return \ArkEcosystem\Client\Contracts\API
      */
     public function setLimit(int $limit): API;
 }
