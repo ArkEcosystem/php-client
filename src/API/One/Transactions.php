@@ -13,26 +13,25 @@ declare(strict_types=1);
 
 namespace ArkEcosystem\Client\API\One;
 
-use ArkEcosystem\Client\API\AbstractResource;
-use ArkEcosystem\Client\Http\Response;
+use ArkEcosystem\Client\API\AbstractAPI;
 
 /**
  * This is the transactions resource class.
  *
  * @author Brian Faust <brian@ark.io>
  */
-class Transactions extends AbstractResource
+class Transactions extends AbstractAPI
 {
     /**
      * Get all accounts.
      *
      * @param array $query
      *
-     * @return \ArkEcosystem\Client\Http\Response
+     * @return array
      */
-    public function all(array $query = []): Response
+    public function all(array $query = []): array
     {
-        return $this->request->get('api/transactions', $query);
+        return $this->get('api/transactions', $query);
     }
 
     /**
@@ -40,11 +39,11 @@ class Transactions extends AbstractResource
      *
      * @param string $id
      *
-     * @return \ArkEcosystem\Client\Http\Response
+     * @return array
      */
-    public function show(string $id): Response
+    public function show(string $id): array
     {
-        return $this->request->get('api/transactions/get', compact('id'));
+        return $this->get('api/transactions/get', compact('id'));
     }
 
     /**
@@ -52,11 +51,11 @@ class Transactions extends AbstractResource
      *
      * @param array $query
      *
-     * @return \ArkEcosystem\Client\Http\Response
+     * @return array
      */
-    public function allUnconfirmed(array $query = []): Response
+    public function allUnconfirmed(array $query = []): array
     {
-        return $this->request->get('api/transactions/unconfirmed', $query);
+        return $this->get('api/transactions/unconfirmed', $query);
     }
 
     /**
@@ -64,10 +63,10 @@ class Transactions extends AbstractResource
      *
      * @param string $id
      *
-     * @return \ArkEcosystem\Client\Http\Response
+     * @return array
      */
-    public function showUnconfirmed(string $id): Response
+    public function showUnconfirmed(string $id): array
     {
-        return $this->request->get('api/transactions/unconfirmed/get', compact('id'));
+        return $this->get('api/transactions/unconfirmed/get', compact('id'));
     }
 }

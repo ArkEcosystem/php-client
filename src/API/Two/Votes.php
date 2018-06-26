@@ -13,24 +13,23 @@ declare(strict_types=1);
 
 namespace ArkEcosystem\Client\API\Two;
 
-use ArkEcosystem\Client\API\AbstractResource;
-use ArkEcosystem\Client\Http\Response;
+use ArkEcosystem\Client\API\AbstractAPI;
 
 /**
  * This is the votes resource class.
  *
  * @author Brian Faust <brian@ark.io>
  */
-class Votes extends AbstractResource
+class Votes extends AbstractAPI
 {
     /**
      * Get all votes.
      *
-     * @return \ArkEcosystem\Client\Http\Response
+     * @return array
      */
-    public function all(): Response
+    public function all(): array
     {
-        return $this->request->get('votes');
+        return $this->get('api/votes');
     }
 
     /**
@@ -38,10 +37,10 @@ class Votes extends AbstractResource
      *
      * @param string $id
      *
-     * @return \ArkEcosystem\Client\Http\Response
+     * @return array
      */
-    public function show(string $id): Response
+    public function show(string $id): array
     {
-        return $this->request->get("votes/{$id}");
+        return $this->get("api/votes/{$id}");
     }
 }

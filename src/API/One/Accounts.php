@@ -13,26 +13,25 @@ declare(strict_types=1);
 
 namespace ArkEcosystem\Client\API\One;
 
-use ArkEcosystem\Client\API\AbstractResource;
-use ArkEcosystem\Client\Http\Response;
+use ArkEcosystem\Client\API\AbstractAPI;
 
 /**
  * This is the accounts resource class.
  *
  * @author Brian Faust <brian@ark.io>
  */
-class Accounts extends AbstractResource
+class Accounts extends AbstractAPI
 {
     /**
      * Get all accounts.
      *
      * @param array $query
      *
-     * @return \ArkEcosystem\Client\Http\Response
+     * @return array
      */
-    public function all(array $query = []): Response
+    public function all(array $query = []): array
     {
-        return $this->request->get('api/accounts/getAllAccounts', $query);
+        return $this->get('api/accounts/getAllAccounts', $query);
     }
 
     /**
@@ -40,21 +39,21 @@ class Accounts extends AbstractResource
      *
      * @param string $address
      *
-     * @return \ArkEcosystem\Client\Http\Response
+     * @return array
      */
-    public function show(string $address): Response
+    public function show(string $address): array
     {
-        return $this->request->get('api/accounts', compact('address'));
+        return $this->get('api/accounts', compact('address'));
     }
 
     /**
      * Count all accounts.
      *
-     * @return \ArkEcosystem\Client\Http\Response
+     * @return array
      */
-    public function count(): Response
+    public function count(): array
     {
-        return $this->request->get('api/accounts/count');
+        return $this->get('api/accounts/count');
     }
 
     /**
@@ -62,21 +61,21 @@ class Accounts extends AbstractResource
      *
      * @param string $address
      *
-     * @return \ArkEcosystem\Client\Http\Response
+     * @return array
      */
-    public function delegates(string $address): Response
+    public function delegates(string $address): array
     {
-        return $this->request->get('api/accounts/delegates', compact('address'));
+        return $this->get('api/accounts/delegates', compact('address'));
     }
 
     /**
      * Get the delegate registration fee.
      *
-     * @return \ArkEcosystem\Client\Http\Response
+     * @return array
      */
-    public function fee(): Response
+    public function fee(): array
     {
-        return $this->request->get('api/accounts/delegates/fee');
+        return $this->get('api/accounts/delegates/fee');
     }
 
     /**
@@ -84,11 +83,11 @@ class Accounts extends AbstractResource
      *
      * @param string $address
      *
-     * @return \ArkEcosystem\Client\Http\Response
+     * @return array
      */
-    public function balance(string $address): Response
+    public function balance(string $address): array
     {
-        return $this->request->get('api/accounts/getBalance', compact('address'));
+        return $this->get('api/accounts/getBalance', compact('address'));
     }
 
     /**
@@ -96,11 +95,11 @@ class Accounts extends AbstractResource
      *
      * @param string $address
      *
-     * @return \ArkEcosystem\Client\Http\Response
+     * @return array
      */
-    public function publicKey(string $address): Response
+    public function publicKey(string $address): array
     {
-        return $this->request->get('api/accounts/getPublicKey', compact('address'));
+        return $this->get('api/accounts/getPublicKey', compact('address'));
     }
 
     /**
@@ -108,10 +107,10 @@ class Accounts extends AbstractResource
      *
      * @param array $query
      *
-     * @return \ArkEcosystem\Client\Http\Response
+     * @return array
      */
-    public function top(string $query): Response
+    public function top(array $query = []): array
     {
-        return $this->request->get('api/accounts/top', $query);
+        return $this->get('api/accounts/top', $query);
     }
 }

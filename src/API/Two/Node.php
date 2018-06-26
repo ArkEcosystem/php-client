@@ -13,43 +13,42 @@ declare(strict_types=1);
 
 namespace ArkEcosystem\Client\API\Two;
 
-use ArkEcosystem\Client\API\AbstractResource;
-use ArkEcosystem\Client\Http\Response;
+use ArkEcosystem\Client\API\AbstractAPI;
 
 /**
  * This is the node resource class.
  *
  * @author Brian Faust <brian@ark.io>
  */
-class Node extends AbstractResource
+class Node extends AbstractAPI
 {
     /**
      * Get the node status.
      *
-     * @return \ArkEcosystem\Client\Http\Response
+     * @return array
      */
-    public function status(): Response
+    public function status(): array
     {
-        return $this->request->get('node/status');
+        return $this->get('api/node/status');
     }
 
     /**
      * Get the node syncing status.
      *
-     * @return \ArkEcosystem\Client\Http\Response
+     * @return array
      */
-    public function syncing(): Response
+    public function syncing(): array
     {
-        return $this->request->get('node/syncing');
+        return $this->get('api/node/syncing');
     }
 
     /**
      * Get the node configuration.
      *
-     * @return \ArkEcosystem\Client\Http\Response
+     * @return array
      */
-    public function configuration(): Response
+    public function configuration(): array
     {
-        return $this->request->get('node/configuration');
+        return $this->get('api/node/configuration');
     }
 }

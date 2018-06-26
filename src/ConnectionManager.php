@@ -62,7 +62,7 @@ class ConnectionManager
      */
     public function disconnect(string $name = null): void
     {
-        $name = $name ?: $this->getDefaultConnection();
+        $name = $name ?? $this->getDefaultConnection();
 
         unset($this->connections[$name]);
     }
@@ -76,7 +76,7 @@ class ConnectionManager
      */
     public function connection(string $name = null): Connection
     {
-        $name = $name ?: $this->getDefaultConnection();
+        $name = $name ?? $this->getDefaultConnection();
 
         if (!isset($this->connections[$name])) {
             throw new InvalidArgumentException("Connection [$name] not configured.");

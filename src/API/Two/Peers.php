@@ -13,24 +13,23 @@ declare(strict_types=1);
 
 namespace ArkEcosystem\Client\API\Two;
 
-use ArkEcosystem\Client\API\AbstractResource;
-use ArkEcosystem\Client\Http\Response;
+use ArkEcosystem\Client\API\AbstractAPI;
 
 /**
  * This is the peers resource class.
  *
  * @author Brian Faust <brian@ark.io>
  */
-class Peers extends AbstractResource
+class Peers extends AbstractAPI
 {
     /**
      * Get all peers.
      *
-     * @return \ArkEcosystem\Client\Http\Response
+     * @return array
      */
-    public function all(): Response
+    public function all(): array
     {
-        return $this->request->get('peers');
+        return $this->get('api/peers');
     }
 
     /**
@@ -38,10 +37,10 @@ class Peers extends AbstractResource
      *
      * @param string $ip
      *
-     * @return \ArkEcosystem\Client\Http\Response
+     * @return array
      */
-    public function show(string $ip): Response
+    public function show(string $ip): array
     {
-        return $this->request->get("peers/${ip}");
+        return $this->get("api/peers/${ip}");
     }
 }

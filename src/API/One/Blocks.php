@@ -13,26 +13,25 @@ declare(strict_types=1);
 
 namespace ArkEcosystem\Client\API\One;
 
-use ArkEcosystem\Client\API\AbstractResource;
-use ArkEcosystem\Client\Http\Response;
+use ArkEcosystem\Client\API\AbstractAPI;
 
 /**
  * This is the blocks resource class.
  *
  * @author Brian Faust <brian@ark.io>
  */
-class Blocks extends AbstractResource
+class Blocks extends AbstractAPI
 {
     /**
      * Get all accounts.
      *
      * @param array $query
      *
-     * @return \ArkEcosystem\Client\Http\Response
+     * @return array
      */
-    public function all(array $query = []): Response
+    public function all(array $query = []): array
     {
-        return $this->request->get('api/blocks', $query);
+        return $this->get('api/blocks', $query);
     }
 
     /**
@@ -40,100 +39,100 @@ class Blocks extends AbstractResource
      *
      * @param string $id
      *
-     * @return \ArkEcosystem\Client\Http\Response
+     * @return array
      */
-    public function show(string $id): Response
+    public function show(string $id): array
     {
-        return $this->request->get('api/blocks/get', compact('id'));
+        return $this->get('api/blocks/get', compact('id'));
     }
 
     /**
      * Get the blockchain epoch.
      *
-     * @return \ArkEcosystem\Client\Http\Response
+     * @return array
      */
-    public function epoch(): Response
+    public function epoch(): array
     {
-        return $this->request->get('api/blocks/getEpoch');
+        return $this->get('api/blocks/getEpoch');
     }
 
     /**
      * Get the transfer transaction fee.
      *
-     * @return \ArkEcosystem\Client\Http\Response
+     * @return array
      */
-    public function fee(): Response
+    public function fee(): array
     {
-        return $this->request->get('api/blocks/getFee');
+        return $this->get('api/blocks/getFee');
     }
 
     /**
      * Get a list of transaction fees.
      *
-     * @return \ArkEcosystem\Client\Http\Response
+     * @return array
      */
-    public function fees(): Response
+    public function fees(): array
     {
-        return $this->request->get('api/blocks/getFees');
+        return $this->get('api/blocks/getFees');
     }
 
     /**
      * Get the blockchain height.
      *
-     * @return \ArkEcosystem\Client\Http\Response
+     * @return array
      */
-    public function height(): Response
+    public function height(): array
     {
-        return $this->request->get('api/blocks/getHeight');
+        return $this->get('api/blocks/getHeight');
     }
 
     /**
      * Get the blockchain milestone.
      *
-     * @return \ArkEcosystem\Client\Http\Response
+     * @return array
      */
-    public function milestone(): Response
+    public function milestone(): array
     {
-        return $this->request->get('api/blocks/getMilestone');
+        return $this->get('api/blocks/getMilestone');
     }
 
     /**
      * Get the blockchain nethash.
      *
-     * @return \ArkEcosystem\Client\Http\Response
+     * @return array
      */
-    public function nethash(): Response
+    public function nethash(): array
     {
-        return $this->request->get('api/blocks/getNethash');
+        return $this->get('api/blocks/getNethash');
     }
 
     /**
      * Get the blockchain reward.
      *
-     * @return \ArkEcosystem\Client\Http\Response
+     * @return array
      */
-    public function reward(): Response
+    public function reward(): array
     {
-        return $this->request->get('api/blocks/getReward');
+        return $this->get('api/blocks/getReward');
     }
 
     /**
      * Get the blockchain status.
      *
-     * @return \ArkEcosystem\Client\Http\Response
+     * @return array
      */
-    public function status(): Response
+    public function status(): array
     {
-        return $this->request->get('api/blocks/getStatus');
+        return $this->get('api/blocks/getStatus');
     }
 
     /**
      * Get the blockchain supply.
      *
-     * @return \ArkEcosystem\Client\Http\Response
+     * @return array
      */
-    public function supply(): Response
+    public function supply(): array
     {
-        return $this->request->get('api/blocks/getSupply');
+        return $this->get('api/blocks/getSupply');
     }
 }

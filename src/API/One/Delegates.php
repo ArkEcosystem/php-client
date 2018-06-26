@@ -13,26 +13,25 @@ declare(strict_types=1);
 
 namespace ArkEcosystem\Client\API\One;
 
-use ArkEcosystem\Client\API\AbstractResource;
-use ArkEcosystem\Client\Http\Response;
+use ArkEcosystem\Client\API\AbstractAPI;
 
 /**
  * This is the delegates resource class.
  *
  * @author Brian Faust <brian@ark.io>
  */
-class Delegates extends AbstractResource
+class Delegates extends AbstractAPI
 {
     /**
      * Get all accounts.
      *
      * @param string $query
      *
-     * @return \ArkEcosystem\Client\Http\Response
+     * @return array
      */
-    public function all(array $query = []): Response
+    public function all(array $query = []): array
     {
-        return $this->request->get('api/delegates', $query);
+        return $this->get('api/delegates', $query);
     }
 
     /**
@@ -40,31 +39,31 @@ class Delegates extends AbstractResource
      *
      * @param string $id
      *
-     * @return \ArkEcosystem\Client\Http\Response
+     * @return array
      */
-    public function show(array $identifier): Response
+    public function show(array $identifier): array
     {
-        return $this->request->get('api/delegates/get', $identifier);
+        return $this->get('api/delegates/get', $identifier);
     }
 
     /**
      * Count all delegates.
      *
-     * @return \ArkEcosystem\Client\Http\Response
+     * @return array
      */
-    public function count(): Response
+    public function count(): array
     {
-        return $this->request->get('api/delegates/count');
+        return $this->get('api/delegates/count');
     }
 
     /**
      * Get the delegate registration fee.
      *
-     * @return \ArkEcosystem\Client\Http\Response
+     * @return array
      */
-    public function fee(): Response
+    public function fee(): array
     {
-        return $this->request->get('api/delegates/fee');
+        return $this->get('api/delegates/fee');
     }
 
     /**
@@ -72,11 +71,11 @@ class Delegates extends AbstractResource
      *
      * @param string $generatorPublicKey
      *
-     * @return \ArkEcosystem\Client\Http\Response
+     * @return array
      */
-    public function forgedByAccount(string $generatorPublicKey): Response
+    public function forgedByAccount(string $generatorPublicKey): array
     {
-        return $this->request->get('api/delegates/forging/getForgedByAccount', compact('generatorPublicKey'));
+        return $this->get('api/delegates/forging/getForgedByAccount', compact('generatorPublicKey'));
     }
 
     /**
@@ -84,11 +83,11 @@ class Delegates extends AbstractResource
      *
      * @param string $query
      *
-     * @return \ArkEcosystem\Client\Http\Response
+     * @return array
      */
-    public function search(string $query): Response
+    public function search(string $query): array
     {
-        return $this->request->get('api/delegates/search', ['q' => $query]);
+        return $this->get('api/delegates/search', ['q' => $query]);
     }
 
     /**
@@ -96,11 +95,11 @@ class Delegates extends AbstractResource
      *
      * @param string $publicKey
      *
-     * @return \ArkEcosystem\Client\Http\Response
+     * @return array
      */
-    public function voters(string $publicKey): Response
+    public function voters(string $publicKey): array
     {
-        return $this->request->get('api/delegates/voters', compact('publicKey'));
+        return $this->get('api/delegates/voters', compact('publicKey'));
     }
 
     /**
@@ -108,10 +107,10 @@ class Delegates extends AbstractResource
      *
      * @param string $generatorPublicKey
      *
-     * @return \ArkEcosystem\Client\Http\Response
+     * @return array
      */
-    public function nextForgers(): Response
+    public function nextForgers(): array
     {
-        return $this->request->get('api/delegates/getNextForgers');
+        return $this->get('api/delegates/getNextForgers');
     }
 }

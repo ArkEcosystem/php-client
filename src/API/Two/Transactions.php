@@ -13,24 +13,23 @@ declare(strict_types=1);
 
 namespace ArkEcosystem\Client\API\Two;
 
-use ArkEcosystem\Client\API\AbstractResource;
-use ArkEcosystem\Client\Http\Response;
+use ArkEcosystem\Client\API\AbstractAPI;
 
 /**
  * This is the transactions resource class.
  *
  * @author Brian Faust <brian@ark.io>
  */
-class Transactions extends AbstractResource
+class Transactions extends AbstractAPI
 {
     /**
      * Get all transactions.
      *
-     * @return \ArkEcosystem\Client\Http\Response
+     * @return array
      */
-    public function all(): Response
+    public function all(): array
     {
-        return $this->request->get('transactions');
+        return $this->get('api/transactions');
     }
 
     /**
@@ -38,11 +37,11 @@ class Transactions extends AbstractResource
      *
      * @param array $transactions
      *
-     * @return \ArkEcosystem\Client\Http\Response
+     * @return array
      */
-    public function create(array $transactions): Response
+    public function create(array $transactions): array
     {
-        return $this->request->post('transactions', $transactions);
+        return $this->post('api/transactions', $transactions);
     }
 
     /**
@@ -50,21 +49,21 @@ class Transactions extends AbstractResource
      *
      * @param string $id
      *
-     * @return \ArkEcosystem\Client\Http\Response
+     * @return array
      */
-    public function show(string $id): Response
+    public function show(string $id): array
     {
-        return $this->request->get("transactions/{$id}");
+        return $this->get("api/transactions/{$id}");
     }
 
     /**
      * Get all unconfirmed transactions.
      *
-     * @return \ArkEcosystem\Client\Http\Response
+     * @return array
      */
-    public function allUnconfirmed(): Response
+    public function allUnconfirmed(): array
     {
-        return $this->request->get('transactions/unconfirmed');
+        return $this->get('api/transactions/unconfirmed');
     }
 
     /**
@@ -72,11 +71,11 @@ class Transactions extends AbstractResource
      *
      * @param string $id
      *
-     * @return \ArkEcosystem\Client\Http\Response
+     * @return array
      */
-    public function getUnconfirmed(string $id): Response
+    public function showUnconfirmed(string $id): array
     {
-        return $this->request->get("transactions/unconfirmed/{$id}");
+        return $this->get("api/transactions/unconfirmed/{$id}");
     }
 
     /**
@@ -84,20 +83,20 @@ class Transactions extends AbstractResource
      *
      * @param array $criteria
      *
-     * @return \ArkEcosystem\Client\Http\Response
+     * @return array
      */
-    public function search(array $criteria): Response
+    public function search(array $criteria): array
     {
-        return $this->request->post('transactions/search', $criteria);
+        return $this->post('api/transactions/search', $criteria);
     }
 
     /**
      * Get a list of valid transaction types.
      *
-     * @return \ArkEcosystem\Client\Http\Response
+     * @return array
      */
-    public function types(): Response
+    public function types(): array
     {
-        return $this->request->get('transactions/types');
+        return $this->get('api/transactions/types');
     }
 }

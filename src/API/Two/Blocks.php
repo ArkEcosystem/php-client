@@ -13,24 +13,23 @@ declare(strict_types=1);
 
 namespace ArkEcosystem\Client\API\Two;
 
-use ArkEcosystem\Client\API\AbstractResource;
-use ArkEcosystem\Client\Http\Response;
+use ArkEcosystem\Client\API\AbstractAPI;
 
 /**
  * This is the blocks resource class.
  *
  * @author Brian Faust <brian@ark.io>
  */
-class Blocks extends AbstractResource
+class Blocks extends AbstractAPI
 {
     /**
      * Get all blocks.
      *
-     * @return \ArkEcosystem\Client\Http\Response
+     * @return array
      */
-    public function all(): Response
+    public function all(): array
     {
-        return $this->request->get('blocks');
+        return $this->get('api/blocks');
     }
 
     /**
@@ -38,11 +37,11 @@ class Blocks extends AbstractResource
      *
      * @param string $id
      *
-     * @return \ArkEcosystem\Client\Http\Response
+     * @return array
      */
-    public function show(string $id): Response
+    public function show(string $id): array
     {
-        return $this->request->get("blocks/{$id}");
+        return $this->get("api/blocks/{$id}");
     }
 
     /**
@@ -50,11 +49,11 @@ class Blocks extends AbstractResource
      *
      * @param string $id
      *
-     * @return \ArkEcosystem\Client\Http\Response
+     * @return array
      */
-    public function transactions(string $id): Response
+    public function transactions(string $id): array
     {
-        return $this->request->get("blocks/{$id}/transactions");
+        return $this->get("api/blocks/{$id}/transactions");
     }
 
     /**
@@ -62,10 +61,10 @@ class Blocks extends AbstractResource
      *
      * @param array $criteria
      *
-     * @return \ArkEcosystem\Client\Http\Response
+     * @return array
      */
-    public function search(array $criteria): Response
+    public function search(array $criteria): array
     {
-        return $this->request->post('blocks/search', $criteria);
+        return $this->post('api/blocks/search', $criteria);
     }
 }

@@ -13,23 +13,22 @@ declare(strict_types=1);
 
 namespace ArkEcosystem\Client\API\One;
 
-use ArkEcosystem\Client\API\AbstractResource;
-use ArkEcosystem\Client\Http\Response;
+use ArkEcosystem\Client\API\AbstractAPI;
 
 /**
  * This is the signatures resource class.
  *
  * @author Brian Faust <brian@ark.io>
  */
-class Signatures extends AbstractResource
+class Signatures extends AbstractAPI
 {
     /**
      * Get the second signature registration fee.
      *
-     * @return \ArkEcosystem\Client\Http\Response
+     * @return array
      */
-    public function fee(): Response
+    public function fee(): array
     {
-        return $this->request->get('api/signatures/fee');
+        return $this->get('api/signatures/fee');
     }
 }

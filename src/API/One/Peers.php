@@ -13,26 +13,25 @@ declare(strict_types=1);
 
 namespace ArkEcosystem\Client\API\One;
 
-use ArkEcosystem\Client\API\AbstractResource;
-use ArkEcosystem\Client\Http\Response;
+use ArkEcosystem\Client\API\AbstractAPI;
 
 /**
  * This is the peers resource class.
  *
  * @author Brian Faust <brian@ark.io>
  */
-class Peers extends AbstractResource
+class Peers extends AbstractAPI
 {
     /**
      * Get all accounts.
      *
      * @param string $query
      *
-     * @return \ArkEcosystem\Client\Http\Response
+     * @return array
      */
-    public function all(array $query = []): Response
+    public function all(array $query = []): array
     {
-        return $this->request->get('api/peers', $query);
+        return $this->get('api/peers', $query);
     }
 
     /**
@@ -41,20 +40,20 @@ class Peers extends AbstractResource
      * @param string $ip
      * @param int    $port
      *
-     * @return \ArkEcosystem\Client\Http\Response
+     * @return array
      */
-    public function show(string $ip, int $port): Response
+    public function show(string $ip, int $port): array
     {
-        return $this->request->get('api/peers/get', compact('ip', 'port'));
+        return $this->get('api/peers/get', compact('ip', 'port'));
     }
 
     /**
      * Get the node version of the given peer.
      *
-     * @return \ArkEcosystem\Client\Http\Response
+     * @return array
      */
-    public function version(): Response
+    public function version(): array
     {
-        return $this->request->get('api/peers/version');
+        return $this->get('api/peers/version');
     }
 }

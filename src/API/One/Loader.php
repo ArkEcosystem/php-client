@@ -13,43 +13,42 @@ declare(strict_types=1);
 
 namespace ArkEcosystem\Client\API\One;
 
-use ArkEcosystem\Client\API\AbstractResource;
-use ArkEcosystem\Client\Http\Response;
+use ArkEcosystem\Client\API\AbstractAPI;
 
 /**
  * This is the loader resource class.
  *
  * @author Brian Faust <brian@ark.io>
  */
-class Loader extends AbstractResource
+class Loader extends AbstractAPI
 {
     /**
      * Get the loader status.
      *
-     * @return \ArkEcosystem\Client\Http\Response
+     * @return array
      */
-    public function status(): Response
+    public function status(): array
     {
-        return $this->request->get('api/loader/status');
+        return $this->get('api/loader/status');
     }
 
     /**
      * Get the loader syncing status.
      *
-     * @return \ArkEcosystem\Client\Http\Response
+     * @return array
      */
-    public function sync(): Response
+    public function sync(): array
     {
-        return $this->request->get('api/loader/status/sync');
+        return $this->get('api/loader/status/sync');
     }
 
     /**
      * Get the loader configuration.
      *
-     * @return \ArkEcosystem\Client\Http\Response
+     * @return array
      */
-    public function autoconfigure(): Response
+    public function autoconfigure(): array
     {
-        return $this->request->get('api/loader/autoconfigure');
+        return $this->get('api/loader/autoconfigure');
     }
 }

@@ -13,24 +13,23 @@ declare(strict_types=1);
 
 namespace ArkEcosystem\Client\API\Two;
 
-use ArkEcosystem\Client\API\AbstractResource;
-use ArkEcosystem\Client\Http\Response;
+use ArkEcosystem\Client\API\AbstractAPI;
 
 /**
  * This is the delegates resource class.
  *
  * @author Brian Faust <brian@ark.io>
  */
-class Delegates extends AbstractResource
+class Delegates extends AbstractAPI
 {
     /**
      * Get all accounts.
      *
-     * @return \ArkEcosystem\Client\Http\Response
+     * @return array
      */
-    public function all(): Response
+    public function all(): array
     {
-        return $this->request->get('delegates');
+        return $this->get('api/delegates');
     }
 
     /**
@@ -38,11 +37,11 @@ class Delegates extends AbstractResource
      *
      * @param string $id
      *
-     * @return \ArkEcosystem\Client\Http\Response
+     * @return array
      */
-    public function show(string $id): Response
+    public function show(string $id): array
     {
-        return $this->request->get("delegates/{$id}");
+        return $this->get("api/delegates/{$id}");
     }
 
     /**
@@ -50,11 +49,11 @@ class Delegates extends AbstractResource
      *
      * @param string $id
      *
-     * @return \ArkEcosystem\Client\Http\Response
+     * @return array
      */
-    public function blocks(string $id): Response
+    public function blocks(string $id): array
     {
-        return $this->request->get("delegates/{$id}/blocks");
+        return $this->get("api/delegates/{$id}/blocks");
     }
 
     /**
@@ -62,10 +61,10 @@ class Delegates extends AbstractResource
      *
      * @param string $id
      *
-     * @return \ArkEcosystem\Client\Http\Response
+     * @return array
      */
-    public function voters(string $id): Response
+    public function voters(string $id): array
     {
-        return $this->request->get("delegates/{$id}/voters");
+        return $this->get("api/delegates/{$id}/voters");
     }
 }

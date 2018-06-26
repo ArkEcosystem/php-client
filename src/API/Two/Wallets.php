@@ -13,34 +13,33 @@ declare(strict_types=1);
 
 namespace ArkEcosystem\Client\API\Two;
 
-use ArkEcosystem\Client\API\AbstractResource;
-use ArkEcosystem\Client\Http\Response;
+use ArkEcosystem\Client\API\AbstractAPI;
 
 /**
  * This is the wallets resource class.
  *
  * @author Brian Faust <brian@ark.io>
  */
-class Wallets extends AbstractResource
+class Wallets extends AbstractAPI
 {
     /**
      * Get all wallets.
      *
-     * @return \ArkEcosystem\Client\Http\Response
+     * @return array
      */
-    public function all(): Response
+    public function all(): array
     {
-        return $this->request->get('wallets');
+        return $this->get('api/wallets');
     }
 
     /**
      * Get all wallets sorted by balance in descending order.
      *
-     * @return \ArkEcosystem\Client\Http\Response
+     * @return array
      */
-    public function top(): Response
+    public function top(): array
     {
-        return $this->request->get('wallets/top');
+        return $this->get('api/wallets/top');
     }
 
     /**
@@ -48,11 +47,11 @@ class Wallets extends AbstractResource
      *
      * @param string $id
      *
-     * @return \ArkEcosystem\Client\Http\Response
+     * @return array
      */
-    public function show(string $id): Response
+    public function show(string $id): array
     {
-        return $this->request->get("wallets/{$id}");
+        return $this->get("api/wallets/{$id}");
     }
 
     /**
@@ -60,11 +59,11 @@ class Wallets extends AbstractResource
      *
      * @param string $id
      *
-     * @return \ArkEcosystem\Client\Http\Response
+     * @return array
      */
-    public function transactions(string $id): Response
+    public function transactions(string $id): array
     {
-        return $this->request->get("wallets/{$id}/transactions");
+        return $this->get("api/wallets/{$id}/transactions");
     }
 
     /**
@@ -72,11 +71,11 @@ class Wallets extends AbstractResource
      *
      * @param string $id
      *
-     * @return \ArkEcosystem\Client\Http\Response
+     * @return array
      */
-    public function transactionsSent(string $id): Response
+    public function sentTransactions(string $id): array
     {
-        return $this->request->get("wallets/{$id}/transactions/sent");
+        return $this->get("api/wallets/{$id}/transactions/sent");
     }
 
     /**
@@ -84,11 +83,11 @@ class Wallets extends AbstractResource
      *
      * @param string $id
      *
-     * @return \ArkEcosystem\Client\Http\Response
+     * @return array
      */
-    public function transactionsReceived(string $id): Response
+    public function receivedTransactions(string $id): array
     {
-        return $this->request->get("wallets/{$id}/transactions/received");
+        return $this->get("api/wallets/{$id}/transactions/received");
     }
 
     /**
@@ -96,11 +95,11 @@ class Wallets extends AbstractResource
      *
      * @param string $id
      *
-     * @return \ArkEcosystem\Client\Http\Response
+     * @return array
      */
-    public function votes(string $id): Response
+    public function votes(string $id): array
     {
-        return $this->request->get("wallets/{$id}/votes");
+        return $this->get("api/wallets/{$id}/votes");
     }
 
     /**
@@ -108,10 +107,10 @@ class Wallets extends AbstractResource
      *
      * @param array $criteria
      *
-     * @return \ArkEcosystem\Client\Http\Response
+     * @return array
      */
-    public function search(array $criteria): Response
+    public function search(array $criteria): array
     {
-        return $this->request->post('wallets/search', $criteria);
+        return $this->post('api/wallets/search', $criteria);
     }
 }
