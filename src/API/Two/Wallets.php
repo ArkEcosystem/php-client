@@ -33,16 +33,6 @@ class Wallets extends AbstractAPI
     }
 
     /**
-     * Get all wallets sorted by balance in descending order.
-     *
-     * @return array
-     */
-    public function top(): array
-    {
-        return $this->get('api/wallets/top');
-    }
-
-    /**
      * Get a wallet by the given id.
      *
      * @param string $id
@@ -103,14 +93,24 @@ class Wallets extends AbstractAPI
     }
 
     /**
-     * Filter all wallets by the given criteria.
+     * Filter all wallets by the given parameters.
      *
-     * @param array $criteria
+     * @param array $parameters
      *
      * @return array
      */
-    public function search(array $criteria): array
+    public function search(array $parameters): array
     {
-        return $this->post('api/wallets/search', $criteria);
+        return $this->post('api/wallets/search', $parameters);
+    }
+
+    /**
+     * Get all wallets sorted by balance in descending order.
+     *
+     * @return array
+     */
+    public function top(): array
+    {
+        return $this->get('api/wallets/top');
     }
 }

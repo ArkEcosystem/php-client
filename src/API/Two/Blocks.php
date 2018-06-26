@@ -57,14 +57,14 @@ class Blocks extends AbstractAPI
     }
 
     /**
-     * Filter all blocks by the given criteria.
+     * Filter all blocks by the given parameters.
      *
-     * @param array $criteria
+     * @param array $parameters
      *
      * @return array
      */
-    public function search(array $criteria): array
+    public function search(array $parameters): array
     {
-        return $this->post('api/blocks/search', $criteria);
+        return $this->post('api/blocks/search', $parameters);
     }
 }

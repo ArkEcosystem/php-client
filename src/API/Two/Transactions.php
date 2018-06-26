@@ -79,15 +79,15 @@ class Transactions extends AbstractAPI
     }
 
     /**
-     * Filter all transactions by the given criteria.
+     * Filter all transactions by the given parameters.
      *
-     * @param array $criteria
+     * @param array $parameters
      *
      * @return array
      */
-    public function search(array $criteria): array
+    public function search(array $parameters): array
     {
-        return $this->post('api/transactions/search', $criteria);
+        return $this->post('api/transactions/search', $parameters);
     }
 
     /**

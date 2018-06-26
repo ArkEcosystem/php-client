@@ -41,9 +41,9 @@ class Delegates extends AbstractAPI
      *
      * @return array
      */
-    public function show(array $identifier): array
+    public function show(array $id): array
     {
-        return $this->get('api/delegates/get', $identifier);
+        return $this->get('api/delegates/get', $id);
     }
 
     /**
