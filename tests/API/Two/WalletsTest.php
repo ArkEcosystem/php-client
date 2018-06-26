@@ -24,66 +24,74 @@ use ArkEcosystem\Tests\Client\TestCase;
 class WalletsTest extends TestCase
 {
     /** @test */
-    public function all_should_be_successful()
+    public function all_calls_correct_url()
     {
-        $response = $this->getResource(2, 'wallets')->all();
-
-        $this->assertTrue($response->isSuccess());
+        $this->assertResponse(2, 'GET', 'api/wallets', function ($mock) {
+            return $mock->all();
+        });
     }
 
     /** @test */
-    public function top_should_be_successful()
+    public function top_calls_correct_url()
     {
-        $response = $this->getResource(2, 'wallets')->top();
-
-        $this->assertTrue($response->isSuccess());
+        $this->assertResponse(2, 'GET', 'api/wallets/top', function ($mock) {
+            return $mock->top();
+        });
     }
 
     /** @test */
-    public function show_should_be_successful()
+    public function show_calls_correct_url()
     {
-        $response = $this->getResource(2, 'wallets')->show();
-
-        $this->assertTrue($response->isSuccess());
+        $this->assertResponse(2, 'GET', 'api/wallets/dummy', function ($mock) {
+            return $mock->show('dummy');
+        });
     }
 
     /** @test */
-    public function transactions_should_be_successful()
+    public function transactions_calls_correct_url()
     {
-        $response = $this->getResource(2, 'wallets')->transactions();
-
-        $this->assertTrue($response->isSuccess());
+        $this->assertResponse(2, 'GET', 'api/wallets/dummy/transactions', function ($mock) {
+            return $mock->transactions('dummy');
+        });
     }
 
     /** @test */
-    public function transactions_sent_should_be_successful()
+    public function sent_transactions_calls_correct_url()
     {
-        $response = $this->getResource(2, 'wallets')->transactionsSent();
-
-        $this->assertTrue($response->isSuccess());
+        $this->assertResponse(2, 'GET', 'api/wallets/dummy/transactions/sent', function ($mock) {
+            return $mock->sentTransactions('dummy');
+        });
     }
 
     /** @test */
-    public function transactions_received_should_be_successful()
+    public function received_transactions_calls_correct_url()
     {
-        $response = $this->getResource(2, 'wallets')->transactionsReceived();
-
-        $this->assertTrue($response->isSuccess());
+        $this->assertResponse(2, 'GET', 'api/wallets/dummy/transactions/received', function ($mock) {
+            return $mock->receivedTransactions('dummy');
+        });
     }
 
     /** @test */
-    public function votes_should_be_successful()
+    public function votes_calls_correct_url()
     {
-        $response = $this->getResource(2, 'wallets')->votes();
-
-        $this->assertTrue($response->isSuccess());
+        $this->assertResponse(2, 'GET', 'api/wallets/dummy/votes', function ($mock) {
+            return $mock->votes('dummy');
+        });
     }
 
     /** @test */
-    public function search_should_be_successful()
+    public function search_calls_correct_url()
     {
-        $response = $this->getResource(2, 'wallets')->search();
+        $this->assertResponse(2, 'POST', 'api/wallets/search', function ($mock) {
+            return $mock->search(['address' => 'dummy']);
+        });
+    }
 
-        $this->assertTrue($response->isSuccess());
+    /**
+     * @return string
+     */
+    protected function getApiClass()
+    {
+        return \ArkEcosystem\Client\API\Two\Wallets::class;
     }
 }

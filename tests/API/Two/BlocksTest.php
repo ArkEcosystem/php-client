@@ -24,34 +24,42 @@ use ArkEcosystem\Tests\Client\TestCase;
 class BlocksTest extends TestCase
 {
     /** @test */
-    public function all_should_be_successful()
+    public function all_calls_correct_url()
     {
-        $response = $this->getResource(2, 'blocks')->all();
-
-        $this->assertTrue($response->isSuccess());
+        $this->assertResponse(2, 'GET', 'api/blocks', function ($mock) {
+            return $mock->all();
+        });
     }
 
     /** @test */
-    public function show_should_be_successful()
+    public function show_calls_correct_url()
     {
-        $response = $this->getResource(2, 'blocks')->show();
-
-        $this->assertTrue($response->isSuccess());
+        $this->assertResponse(2, 'GET', 'api/blocks/dummy', function ($mock) {
+            return $mock->show('dummy');
+        });
     }
 
     /** @test */
-    public function transactions_should_be_successful()
+    public function transactions_calls_correct_url()
     {
-        $response = $this->getResource(2, 'blocks')->transactions();
-
-        $this->assertTrue($response->isSuccess());
+        $this->assertResponse(2, 'GET', 'api/blocks/dummy/transactions', function ($mock) {
+            return $mock->transactions('dummy');
+        });
     }
 
     /** @test */
-    public function search_should_be_successful()
+    public function search_calls_correct_url()
     {
-        $response = $this->getResource(2, 'blocks')->search();
+        $this->assertResponse(2, 'POST', 'api/blocks/search', function ($mock) {
+            return $mock->search(['address' => 'dummy']);
+        });
+    }
 
-        $this->assertTrue($response->isSuccess());
+    /**
+     * @return string
+     */
+    protected function getApiClass()
+    {
+        return \ArkEcosystem\Client\API\Two\Blocks::class;
     }
 }

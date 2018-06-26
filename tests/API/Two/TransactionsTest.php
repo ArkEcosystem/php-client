@@ -24,58 +24,66 @@ use ArkEcosystem\Tests\Client\TestCase;
 class TransactionsTest extends TestCase
 {
     /** @test */
-    public function all_should_be_successful()
+    public function all_calls_correct_url()
     {
-        $response = $this->getResource(2, 'transactions')->all();
-
-        $this->assertTrue($response->isSuccess());
+        $this->assertResponse(2, 'GET', 'api/transactions', function ($mock) {
+            return $mock->all();
+        });
     }
 
     /** @test */
-    public function create_should_be_successful()
+    public function create_calls_correct_url()
     {
-        $response = $this->getResource(2, 'transactions')->create();
-
-        $this->assertTrue($response->isSuccess());
+        $this->assertResponse(2, 'POST', 'api/transactions', function ($mock) {
+            return $mock->create(['transactions' => []]);
+        });
     }
 
     /** @test */
-    public function show_should_be_successful()
+    public function show_calls_correct_url()
     {
-        $response = $this->getResource(2, 'transactions')->show();
-
-        $this->assertTrue($response->isSuccess());
+        $this->assertResponse(2, 'GET', 'api/transactions/dummy', function ($mock) {
+            return $mock->show('dummy');
+        });
     }
 
     /** @test */
-    public function all_unconfirmed_should_be_successful()
+    public function all_unconfirmed_calls_correct_url()
     {
-        $response = $this->getResource(2, 'transactions')->allUnconfirmed();
-
-        $this->assertTrue($response->isSuccess());
+        $this->assertResponse(2, 'GET', 'api/transactions/unconfirmed', function ($mock) {
+            return $mock->allUnconfirmed();
+        });
     }
 
     /** @test */
-    public function get_unconfirmed_should_be_successful()
+    public function show_unconfirmed_calls_correct_url()
     {
-        $response = $this->getResource(2, 'transactions')->getUnconfirmed();
-
-        $this->assertTrue($response->isSuccess());
+        $this->assertResponse(2, 'GET', 'api/transactions/unconfirmed/dummy', function ($mock) {
+            return $mock->showUnconfirmed('dummy');
+        });
     }
 
     /** @test */
-    public function search_should_be_successful()
+    public function search_calls_correct_url()
     {
-        $response = $this->getResource(2, 'transactions')->search();
-
-        $this->assertTrue($response->isSuccess());
+        $this->assertResponse(2, 'POST', 'api/transactions/search', function ($mock) {
+            return $mock->search(['amount' => 1]);
+        });
     }
 
     /** @test */
-    public function types_should_be_successful()
+    public function types_calls_correct_url()
     {
-        $response = $this->getResource(2, 'transactions')->types();
+        $this->assertResponse(2, 'GET', 'api/transactions/types', function ($mock) {
+            return $mock->types();
+        });
+    }
 
-        $this->assertTrue($response->isSuccess());
+    /**
+     * @return string
+     */
+    protected function getApiClass()
+    {
+        return \ArkEcosystem\Client\API\Two\Transactions::class;
     }
 }

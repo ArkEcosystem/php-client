@@ -24,34 +24,42 @@ use ArkEcosystem\Tests\Client\TestCase;
 class DelegatesTest extends TestCase
 {
     /** @test */
-    public function all_should_be_successful()
+    public function all_calls_correct_url()
     {
-        $response = $this->getResource(2, 'delegates')->all();
-
-        $this->assertTrue($response->isSuccess());
+        $this->assertResponse(2, 'GET', 'api/delegates', function ($mock) {
+            return $mock->all();
+        });
     }
 
     /** @test */
-    public function show_should_be_successful()
+    public function show_calls_correct_url()
     {
-        $response = $this->getResource(2, 'delegates')->show();
-
-        $this->assertTrue($response->isSuccess());
+        $this->assertResponse(2, 'GET', 'api/delegates/dummy', function ($mock) {
+            return $mock->show('dummy');
+        });
     }
 
     /** @test */
-    public function blocks_should_be_successful()
+    public function blocks_calls_correct_url()
     {
-        $response = $this->getResource(2, 'delegates')->blocks();
-
-        $this->assertTrue($response->isSuccess());
+        $this->assertResponse(2, 'GET', 'api/delegates/dummy/blocks', function ($mock) {
+            return $mock->blocks('dummy');
+        });
     }
 
     /** @test */
-    public function voters_should_be_successful()
+    public function voters_calls_correct_url()
     {
-        $response = $this->getResource(2, 'delegates')->voters();
+        $this->assertResponse(2, 'GET', 'api/delegates/dummy/voters', function ($mock) {
+            return $mock->voters('dummy');
+        });
+    }
 
-        $this->assertTrue($response->isSuccess());
+    /**
+     * @return string
+     */
+    protected function getApiClass()
+    {
+        return \ArkEcosystem\Client\API\Two\Delegates::class;
     }
 }

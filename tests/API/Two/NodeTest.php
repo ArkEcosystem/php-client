@@ -24,26 +24,34 @@ use ArkEcosystem\Tests\Client\TestCase;
 class NodeTest extends TestCase
 {
     /** @test */
-    public function status_should_be_successful()
+    public function status_calls_correct_url()
     {
-        $response = $this->getResource(2, 'node')->status();
-
-        $this->assertTrue($response->isSuccess());
+        $this->assertResponse(2, 'GET', 'api/node/status', function ($mock) {
+            return $mock->status();
+        });
     }
 
     /** @test */
-    public function syncing_should_be_successful()
+    public function syncing_calls_correct_url()
     {
-        $response = $this->getResource(2, 'node')->syncing();
-
-        $this->assertTrue($response->isSuccess());
+        $this->assertResponse(2, 'GET', 'api/node/syncing', function ($mock) {
+            return $mock->syncing();
+        });
     }
 
     /** @test */
-    public function configuration_should_be_successful()
+    public function configuration_calls_correct_url()
     {
-        $response = $this->getResource(2, 'node')->configuration();
+        $this->assertResponse(2, 'GET', 'api/node/configuration', function ($mock) {
+            return $mock->configuration();
+        });
+    }
 
-        $this->assertTrue($response->isSuccess());
+    /**
+     * @return string
+     */
+    protected function getApiClass()
+    {
+        return \ArkEcosystem\Client\API\Two\Node::class;
     }
 }
