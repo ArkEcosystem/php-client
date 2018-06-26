@@ -29,7 +29,7 @@ class Wallets extends AbstractAPI
      */
     public function all(): array
     {
-        return $this->get('api/wallets');
+        return $this->get('wallets');
     }
 
     /**
@@ -41,7 +41,7 @@ class Wallets extends AbstractAPI
      */
     public function show(string $id): array
     {
-        return $this->get("api/wallets/{$id}");
+        return $this->get("wallets/{$id}");
     }
 
     /**
@@ -53,7 +53,7 @@ class Wallets extends AbstractAPI
      */
     public function transactions(string $id): array
     {
-        return $this->get("api/wallets/{$id}/transactions");
+        return $this->get("wallets/{$id}/transactions");
     }
 
     /**
@@ -65,7 +65,7 @@ class Wallets extends AbstractAPI
      */
     public function sentTransactions(string $id): array
     {
-        return $this->get("api/wallets/{$id}/transactions/sent");
+        return $this->get("wallets/{$id}/transactions/sent");
     }
 
     /**
@@ -77,7 +77,7 @@ class Wallets extends AbstractAPI
      */
     public function receivedTransactions(string $id): array
     {
-        return $this->get("api/wallets/{$id}/transactions/received");
+        return $this->get("wallets/{$id}/transactions/received");
     }
 
     /**
@@ -89,7 +89,7 @@ class Wallets extends AbstractAPI
      */
     public function votes(string $id): array
     {
-        return $this->get("api/wallets/{$id}/votes");
+        return $this->get("wallets/{$id}/votes");
     }
 
     /**
@@ -101,7 +101,7 @@ class Wallets extends AbstractAPI
      */
     public function search(array $parameters): array
     {
-        return $this->post('api/wallets/search', $parameters);
+        return $this->post('wallets/search', $parameters);
     }
 
     /**
@@ -111,6 +111,6 @@ class Wallets extends AbstractAPI
      */
     public function top(): array
     {
-        return $this->get('api/wallets/top');
+        return $this->get('wallets/top');
     }
 }

@@ -26,7 +26,7 @@ class LoaderTest extends TestCase
     /** @test */
     public function status_calls_correct_url()
     {
-        $this->assertResponse(1, 'GET', 'api/loader/status', function ($mock) {
+        $this->assertResponse(1, 'GET', 'loader/status', function ($mock) {
             return $mock->status();
         });
     }
@@ -34,7 +34,7 @@ class LoaderTest extends TestCase
     /** @test */
     public function sync_calls_correct_url()
     {
-        $this->assertResponse(1, 'GET', 'api/loader/status/sync', function ($mock) {
+        $this->assertResponse(1, 'GET', 'loader/status/sync', function ($mock) {
             return $mock->sync();
         });
     }
@@ -42,7 +42,7 @@ class LoaderTest extends TestCase
     /** @test */
     public function autoconfigure_calls_correct_url()
     {
-        $this->assertResponse(1, 'GET', 'api/loader/autoconfigure', function ($mock) {
+        $this->assertResponse(1, 'GET', 'loader/autoconfigure', function ($mock) {
             return $mock->autoconfigure();
         });
     }

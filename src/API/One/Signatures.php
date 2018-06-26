@@ -29,6 +29,6 @@ class Signatures extends AbstractAPI
      */
     public function fee(): array
     {
-        return $this->get('api/signatures/fee');
+        return $this->get('signatures/fee');
     }
 }

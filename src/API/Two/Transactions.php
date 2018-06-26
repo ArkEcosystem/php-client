@@ -29,7 +29,7 @@ class Transactions extends AbstractAPI
      */
     public function all(): array
     {
-        return $this->get('api/transactions');
+        return $this->get('transactions');
     }
 
     /**
@@ -41,7 +41,7 @@ class Transactions extends AbstractAPI
      */
     public function create(array $transactions): array
     {
-        return $this->post('api/transactions', $transactions);
+        return $this->post('transactions', $transactions);
     }
 
     /**
@@ -53,7 +53,7 @@ class Transactions extends AbstractAPI
      */
     public function show(string $id): array
     {
-        return $this->get("api/transactions/{$id}");
+        return $this->get("transactions/{$id}");
     }
 
     /**
@@ -63,7 +63,7 @@ class Transactions extends AbstractAPI
      */
     public function allUnconfirmed(): array
     {
-        return $this->get('api/transactions/unconfirmed');
+        return $this->get('transactions/unconfirmed');
     }
 
     /**
@@ -75,7 +75,7 @@ class Transactions extends AbstractAPI
      */
     public function showUnconfirmed(string $id): array
     {
-        return $this->get("api/transactions/unconfirmed/{$id}");
+        return $this->get("transactions/unconfirmed/{$id}");
     }
 
     /**
@@ -87,7 +87,7 @@ class Transactions extends AbstractAPI
      */
     public function search(array $parameters): array
     {
-        return $this->post('api/transactions/search', $parameters);
+        return $this->post('transactions/search', $parameters);
     }
 
     /**
@@ -97,6 +97,6 @@ class Transactions extends AbstractAPI
      */
     public function types(): array
     {
-        return $this->get('api/transactions/types');
+        return $this->get('transactions/types');
     }
 }

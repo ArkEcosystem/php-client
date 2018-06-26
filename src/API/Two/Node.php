@@ -29,7 +29,7 @@ class Node extends AbstractAPI
      */
     public function status(): array
     {
-        return $this->get('api/node/status');
+        return $this->get('node/status');
     }
 
     /**
@@ -39,7 +39,7 @@ class Node extends AbstractAPI
      */
     public function syncing(): array
     {
-        return $this->get('api/node/syncing');
+        return $this->get('node/syncing');
     }
 
     /**
@@ -49,6 +49,6 @@ class Node extends AbstractAPI
      */
     public function configuration(): array
     {
-        return $this->get('api/node/configuration');
+        return $this->get('node/configuration');
     }
 }

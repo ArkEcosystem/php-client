@@ -26,7 +26,7 @@ class TransactionsTest extends TestCase
     /** @test */
     public function all_calls_correct_url()
     {
-        $this->assertResponse(1, 'GET', 'api/transactions', function ($mock) {
+        $this->assertResponse(1, 'GET', 'transactions', function ($mock) {
             return $mock->all();
         });
     }
@@ -34,7 +34,7 @@ class TransactionsTest extends TestCase
     /** @test */
     public function show_calls_correct_url()
     {
-        $this->assertResponse(1, 'GET', 'api/transactions/get', function ($mock) {
+        $this->assertResponse(1, 'GET', 'transactions/get', function ($mock) {
             return $mock->show('dummy');
         });
     }
@@ -42,7 +42,7 @@ class TransactionsTest extends TestCase
     /** @test */
     public function all_unconfirmed_calls_correct_url()
     {
-        $this->assertResponse(1, 'GET', 'api/transactions/unconfirmed', function ($mock) {
+        $this->assertResponse(1, 'GET', 'transactions/unconfirmed', function ($mock) {
             return $mock->allUnconfirmed();
         });
     }
@@ -50,7 +50,7 @@ class TransactionsTest extends TestCase
     /** @test */
     public function show_unconfirmed_calls_correct_url()
     {
-        $this->assertResponse(1, 'GET', 'api/transactions/unconfirmed/get', function ($mock) {
+        $this->assertResponse(1, 'GET', 'transactions/unconfirmed/get', function ($mock) {
             return $mock->showUnconfirmed('dummy');
         });
     }

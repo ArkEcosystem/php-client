@@ -31,7 +31,7 @@ class Accounts extends AbstractAPI
      */
     public function all(array $query = []): array
     {
-        return $this->get('api/accounts/getAllAccounts', $query);
+        return $this->get('accounts/getAllAccounts', $query);
     }
 
     /**
@@ -43,7 +43,7 @@ class Accounts extends AbstractAPI
      */
     public function show(string $address): array
     {
-        return $this->get('api/accounts', compact('address'));
+        return $this->get('accounts', compact('address'));
     }
 
     /**
@@ -53,7 +53,7 @@ class Accounts extends AbstractAPI
      */
     public function count(): array
     {
-        return $this->get('api/accounts/count');
+        return $this->get('accounts/count');
     }
 
     /**
@@ -65,7 +65,7 @@ class Accounts extends AbstractAPI
      */
     public function delegates(string $address): array
     {
-        return $this->get('api/accounts/delegates', compact('address'));
+        return $this->get('accounts/delegates', compact('address'));
     }
 
     /**
@@ -75,7 +75,7 @@ class Accounts extends AbstractAPI
      */
     public function fee(): array
     {
-        return $this->get('api/accounts/delegates/fee');
+        return $this->get('accounts/delegates/fee');
     }
 
     /**
@@ -87,7 +87,7 @@ class Accounts extends AbstractAPI
      */
     public function balance(string $address): array
     {
-        return $this->get('api/accounts/getBalance', compact('address'));
+        return $this->get('accounts/getBalance', compact('address'));
     }
 
     /**
@@ -99,7 +99,7 @@ class Accounts extends AbstractAPI
      */
     public function publicKey(string $address): array
     {
-        return $this->get('api/accounts/getPublicKey', compact('address'));
+        return $this->get('accounts/getPublicKey', compact('address'));
     }
 
     /**
@@ -111,6 +111,6 @@ class Accounts extends AbstractAPI
      */
     public function top(array $query = []): array
     {
-        return $this->get('api/accounts/top', $query);
+        return $this->get('accounts/top', $query);
     }
 }

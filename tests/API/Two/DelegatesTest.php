@@ -26,7 +26,7 @@ class DelegatesTest extends TestCase
     /** @test */
     public function all_calls_correct_url()
     {
-        $this->assertResponse(2, 'GET', 'api/delegates', function ($mock) {
+        $this->assertResponse(2, 'GET', 'delegates', function ($mock) {
             return $mock->all();
         });
     }
@@ -34,7 +34,7 @@ class DelegatesTest extends TestCase
     /** @test */
     public function show_calls_correct_url()
     {
-        $this->assertResponse(2, 'GET', 'api/delegates/dummy', function ($mock) {
+        $this->assertResponse(2, 'GET', 'delegates/dummy', function ($mock) {
             return $mock->show('dummy');
         });
     }
@@ -42,7 +42,7 @@ class DelegatesTest extends TestCase
     /** @test */
     public function blocks_calls_correct_url()
     {
-        $this->assertResponse(2, 'GET', 'api/delegates/dummy/blocks', function ($mock) {
+        $this->assertResponse(2, 'GET', 'delegates/dummy/blocks', function ($mock) {
             return $mock->blocks('dummy');
         });
     }
@@ -50,7 +50,7 @@ class DelegatesTest extends TestCase
     /** @test */
     public function voters_calls_correct_url()
     {
-        $this->assertResponse(2, 'GET', 'api/delegates/dummy/voters', function ($mock) {
+        $this->assertResponse(2, 'GET', 'delegates/dummy/voters', function ($mock) {
             return $mock->voters('dummy');
         });
     }

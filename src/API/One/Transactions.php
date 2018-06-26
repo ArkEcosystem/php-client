@@ -31,7 +31,7 @@ class Transactions extends AbstractAPI
      */
     public function all(array $query = []): array
     {
-        return $this->get('api/transactions', $query);
+        return $this->get('transactions', $query);
     }
 
     /**
@@ -43,7 +43,7 @@ class Transactions extends AbstractAPI
      */
     public function show(string $id): array
     {
-        return $this->get('api/transactions/get', compact('id'));
+        return $this->get('transactions/get', compact('id'));
     }
 
     /**
@@ -55,7 +55,7 @@ class Transactions extends AbstractAPI
      */
     public function allUnconfirmed(array $query = []): array
     {
-        return $this->get('api/transactions/unconfirmed', $query);
+        return $this->get('transactions/unconfirmed', $query);
     }
 
     /**
@@ -67,6 +67,6 @@ class Transactions extends AbstractAPI
      */
     public function showUnconfirmed(string $id): array
     {
-        return $this->get('api/transactions/unconfirmed/get', compact('id'));
+        return $this->get('transactions/unconfirmed/get', compact('id'));
     }
 }

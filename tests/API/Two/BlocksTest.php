@@ -26,7 +26,7 @@ class BlocksTest extends TestCase
     /** @test */
     public function all_calls_correct_url()
     {
-        $this->assertResponse(2, 'GET', 'api/blocks', function ($mock) {
+        $this->assertResponse(2, 'GET', 'blocks', function ($mock) {
             return $mock->all();
         });
     }
@@ -34,7 +34,7 @@ class BlocksTest extends TestCase
     /** @test */
     public function show_calls_correct_url()
     {
-        $this->assertResponse(2, 'GET', 'api/blocks/dummy', function ($mock) {
+        $this->assertResponse(2, 'GET', 'blocks/dummy', function ($mock) {
             return $mock->show('dummy');
         });
     }
@@ -42,7 +42,7 @@ class BlocksTest extends TestCase
     /** @test */
     public function transactions_calls_correct_url()
     {
-        $this->assertResponse(2, 'GET', 'api/blocks/dummy/transactions', function ($mock) {
+        $this->assertResponse(2, 'GET', 'blocks/dummy/transactions', function ($mock) {
             return $mock->transactions('dummy');
         });
     }
@@ -50,7 +50,7 @@ class BlocksTest extends TestCase
     /** @test */
     public function search_calls_correct_url()
     {
-        $this->assertResponse(2, 'POST', 'api/blocks/search', function ($mock) {
+        $this->assertResponse(2, 'POST', 'blocks/search', function ($mock) {
             return $mock->search(['address' => 'dummy']);
         });
     }

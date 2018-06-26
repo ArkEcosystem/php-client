@@ -26,7 +26,7 @@ class PeersTest extends TestCase
     /** @test */
     public function all_calls_correct_url()
     {
-        $this->assertResponse(2, 'GET', 'api/peers', function ($mock) {
+        $this->assertResponse(2, 'GET', 'peers', function ($mock) {
             return $mock->all();
         });
     }
@@ -34,7 +34,7 @@ class PeersTest extends TestCase
     /** @test */
     public function show_calls_correct_url()
     {
-        $this->assertResponse(2, 'GET', 'api/peers/dummy', function ($mock) {
+        $this->assertResponse(2, 'GET', 'peers/dummy', function ($mock) {
             return $mock->show('dummy');
         });
     }

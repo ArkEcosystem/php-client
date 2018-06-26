@@ -29,7 +29,7 @@ class Votes extends AbstractAPI
      */
     public function all(): array
     {
-        return $this->get('api/votes');
+        return $this->get('votes');
     }
 
     /**
@@ -41,6 +41,6 @@ class Votes extends AbstractAPI
      */
     public function show(string $id): array
     {
-        return $this->get("api/votes/{$id}");
+        return $this->get("votes/{$id}");
     }
 }

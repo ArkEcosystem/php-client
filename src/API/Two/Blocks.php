@@ -29,7 +29,7 @@ class Blocks extends AbstractAPI
      */
     public function all(): array
     {
-        return $this->get('api/blocks');
+        return $this->get('blocks');
     }
 
     /**
@@ -41,7 +41,7 @@ class Blocks extends AbstractAPI
      */
     public function show(string $id): array
     {
-        return $this->get("api/blocks/{$id}");
+        return $this->get("blocks/{$id}");
     }
 
     /**
@@ -53,7 +53,7 @@ class Blocks extends AbstractAPI
      */
     public function transactions(string $id): array
     {
-        return $this->get("api/blocks/{$id}/transactions");
+        return $this->get("blocks/{$id}/transactions");
     }
 
     /**
@@ -65,6 +65,6 @@ class Blocks extends AbstractAPI
      */
     public function search(array $parameters): array
     {
-        return $this->post('api/blocks/search', $parameters);
+        return $this->post('blocks/search', $parameters);
     }
 }

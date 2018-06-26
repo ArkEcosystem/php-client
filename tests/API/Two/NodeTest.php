@@ -26,7 +26,7 @@ class NodeTest extends TestCase
     /** @test */
     public function status_calls_correct_url()
     {
-        $this->assertResponse(2, 'GET', 'api/node/status', function ($mock) {
+        $this->assertResponse(2, 'GET', 'node/status', function ($mock) {
             return $mock->status();
         });
     }
@@ -34,7 +34,7 @@ class NodeTest extends TestCase
     /** @test */
     public function syncing_calls_correct_url()
     {
-        $this->assertResponse(2, 'GET', 'api/node/syncing', function ($mock) {
+        $this->assertResponse(2, 'GET', 'node/syncing', function ($mock) {
             return $mock->syncing();
         });
     }
@@ -42,7 +42,7 @@ class NodeTest extends TestCase
     /** @test */
     public function configuration_calls_correct_url()
     {
-        $this->assertResponse(2, 'GET', 'api/node/configuration', function ($mock) {
+        $this->assertResponse(2, 'GET', 'node/configuration', function ($mock) {
             return $mock->configuration();
         });
     }

@@ -31,7 +31,7 @@ class Delegates extends AbstractAPI
      */
     public function all(array $query = []): array
     {
-        return $this->get('api/delegates', $query);
+        return $this->get('delegates', $query);
     }
 
     /**
@@ -43,7 +43,7 @@ class Delegates extends AbstractAPI
      */
     public function show(array $id): array
     {
-        return $this->get('api/delegates/get', $id);
+        return $this->get('delegates/get', $id);
     }
 
     /**
@@ -53,7 +53,7 @@ class Delegates extends AbstractAPI
      */
     public function count(): array
     {
-        return $this->get('api/delegates/count');
+        return $this->get('delegates/count');
     }
 
     /**
@@ -63,7 +63,7 @@ class Delegates extends AbstractAPI
      */
     public function fee(): array
     {
-        return $this->get('api/delegates/fee');
+        return $this->get('delegates/fee');
     }
 
     /**
@@ -75,7 +75,7 @@ class Delegates extends AbstractAPI
      */
     public function forgedByAccount(string $generatorPublicKey): array
     {
-        return $this->get('api/delegates/forging/getForgedByAccount', compact('generatorPublicKey'));
+        return $this->get('delegates/forging/getForgedByAccount', compact('generatorPublicKey'));
     }
 
     /**
@@ -87,7 +87,7 @@ class Delegates extends AbstractAPI
      */
     public function search(string $query): array
     {
-        return $this->get('api/delegates/search', ['q' => $query]);
+        return $this->get('delegates/search', ['q' => $query]);
     }
 
     /**
@@ -99,7 +99,7 @@ class Delegates extends AbstractAPI
      */
     public function voters(string $publicKey): array
     {
-        return $this->get('api/delegates/voters', compact('publicKey'));
+        return $this->get('delegates/voters', compact('publicKey'));
     }
 
     /**
@@ -111,6 +111,6 @@ class Delegates extends AbstractAPI
      */
     public function nextForgers(): array
     {
-        return $this->get('api/delegates/getNextForgers');
+        return $this->get('delegates/getNextForgers');
     }
 }

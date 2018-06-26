@@ -26,7 +26,7 @@ class BlocksTest extends TestCase
     /** @test */
     public function all_calls_correct_url()
     {
-        $this->assertResponse(1, 'GET', 'api/blocks', function ($mock) {
+        $this->assertResponse(1, 'GET', 'blocks', function ($mock) {
             return $mock->all();
         });
     }
@@ -34,7 +34,7 @@ class BlocksTest extends TestCase
     /** @test */
     public function show_calls_correct_url()
     {
-        $this->assertResponse(1, 'GET', 'api/blocks/get', function ($mock) {
+        $this->assertResponse(1, 'GET', 'blocks/get', function ($mock) {
             return $mock->show('dummy');
         });
     }
@@ -42,7 +42,7 @@ class BlocksTest extends TestCase
     /** @test */
     public function epoch_calls_correct_url()
     {
-        $this->assertResponse(1, 'GET', 'api/blocks/getEpoch', function ($mock) {
+        $this->assertResponse(1, 'GET', 'blocks/getEpoch', function ($mock) {
             return $mock->epoch();
         });
     }
@@ -50,7 +50,7 @@ class BlocksTest extends TestCase
     /** @test */
     public function fee_calls_correct_url()
     {
-        $this->assertResponse(1, 'GET', 'api/blocks/getFee', function ($mock) {
+        $this->assertResponse(1, 'GET', 'blocks/getFee', function ($mock) {
             return $mock->fee();
         });
     }
@@ -58,7 +58,7 @@ class BlocksTest extends TestCase
     /** @test */
     public function fees_calls_correct_url()
     {
-        $this->assertResponse(1, 'GET', 'api/blocks/getFees', function ($mock) {
+        $this->assertResponse(1, 'GET', 'blocks/getFees', function ($mock) {
             return $mock->fees();
         });
     }
@@ -66,7 +66,7 @@ class BlocksTest extends TestCase
     /** @test */
     public function height_calls_correct_url()
     {
-        $this->assertResponse(1, 'GET', 'api/blocks/getHeight', function ($mock) {
+        $this->assertResponse(1, 'GET', 'blocks/getHeight', function ($mock) {
             return $mock->height();
         });
     }
@@ -74,7 +74,7 @@ class BlocksTest extends TestCase
     /** @test */
     public function milestone_calls_correct_url()
     {
-        $this->assertResponse(1, 'GET', 'api/blocks/getMilestone', function ($mock) {
+        $this->assertResponse(1, 'GET', 'blocks/getMilestone', function ($mock) {
             return $mock->milestone();
         });
     }
@@ -82,7 +82,7 @@ class BlocksTest extends TestCase
     /** @test */
     public function nethash_calls_correct_url()
     {
-        $this->assertResponse(1, 'GET', 'api/blocks/getNethash', function ($mock) {
+        $this->assertResponse(1, 'GET', 'blocks/getNethash', function ($mock) {
             return $mock->nethash();
         });
     }
@@ -90,7 +90,7 @@ class BlocksTest extends TestCase
     /** @test */
     public function reward_calls_correct_url()
     {
-        $this->assertResponse(1, 'GET', 'api/blocks/getReward', function ($mock) {
+        $this->assertResponse(1, 'GET', 'blocks/getReward', function ($mock) {
             return $mock->reward();
         });
     }
@@ -98,7 +98,7 @@ class BlocksTest extends TestCase
     /** @test */
     public function status_calls_correct_url()
     {
-        $this->assertResponse(1, 'GET', 'api/blocks/getStatus', function ($mock) {
+        $this->assertResponse(1, 'GET', 'blocks/getStatus', function ($mock) {
             return $mock->status();
         });
     }
@@ -106,7 +106,7 @@ class BlocksTest extends TestCase
     /** @test */
     public function supply_calls_correct_url()
     {
-        $this->assertResponse(1, 'GET', 'api/blocks/getSupply', function ($mock) {
+        $this->assertResponse(1, 'GET', 'blocks/getSupply', function ($mock) {
             return $mock->supply();
         });
     }

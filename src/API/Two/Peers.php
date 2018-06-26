@@ -29,7 +29,7 @@ class Peers extends AbstractAPI
      */
     public function all(): array
     {
-        return $this->get('api/peers');
+        return $this->get('peers');
     }
 
     /**
@@ -41,6 +41,6 @@ class Peers extends AbstractAPI
      */
     public function show(string $ip): array
     {
-        return $this->get("api/peers/{$ip}");
+        return $this->get("peers/{$ip}");
     }
 }

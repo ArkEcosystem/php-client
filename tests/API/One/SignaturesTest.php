@@ -26,7 +26,7 @@ class SignaturesTest extends TestCase
     /** @test */
     public function fee_calls_correct_url()
     {
-        $this->assertResponse(1, 'GET', 'api/signatures/fee', function ($mock) {
+        $this->assertResponse(1, 'GET', 'signatures/fee', function ($mock) {
             return $mock->fee();
         });
     }

@@ -26,7 +26,7 @@ class DelegatesTest extends TestCase
     /** @test */
     public function all_calls_correct_url()
     {
-        $this->assertResponse(1, 'GET', 'api/delegates', function ($mock) {
+        $this->assertResponse(1, 'GET', 'delegates', function ($mock) {
             return $mock->all();
         });
     }
@@ -34,7 +34,7 @@ class DelegatesTest extends TestCase
     /** @test */
     public function show_calls_correct_url()
     {
-        $this->assertResponse(1, 'GET', 'api/delegates/get', function ($mock) {
+        $this->assertResponse(1, 'GET', 'delegates/get', function ($mock) {
             return $mock->show(['username' => 'dummy']);
         });
     }
@@ -42,7 +42,7 @@ class DelegatesTest extends TestCase
     /** @test */
     public function count_calls_correct_url()
     {
-        $this->assertResponse(1, 'GET', 'api/delegates/count', function ($mock) {
+        $this->assertResponse(1, 'GET', 'delegates/count', function ($mock) {
             return $mock->count();
         });
     }
@@ -50,7 +50,7 @@ class DelegatesTest extends TestCase
     /** @test */
     public function fee_calls_correct_url()
     {
-        $this->assertResponse(1, 'GET', 'api/delegates/fee', function ($mock) {
+        $this->assertResponse(1, 'GET', 'delegates/fee', function ($mock) {
             return $mock->fee();
         });
     }
@@ -58,7 +58,7 @@ class DelegatesTest extends TestCase
     /** @test */
     public function forged_by_account_calls_correct_url()
     {
-        $this->assertResponse(1, 'GET', 'api/delegates/forging/getForgedByAccount', function ($mock) {
+        $this->assertResponse(1, 'GET', 'delegates/forging/getForgedByAccount', function ($mock) {
             return $mock->forgedByAccount('dummy');
         });
     }
@@ -66,7 +66,7 @@ class DelegatesTest extends TestCase
     /** @test */
     public function search_calls_correct_url()
     {
-        $this->assertResponse(1, 'GET', 'api/delegates/search', function ($mock) {
+        $this->assertResponse(1, 'GET', 'delegates/search', function ($mock) {
             return $mock->search('dummy');
         });
     }
@@ -74,7 +74,7 @@ class DelegatesTest extends TestCase
     /** @test */
     public function voters_calls_correct_url()
     {
-        $this->assertResponse(1, 'GET', 'api/delegates/voters', function ($mock) {
+        $this->assertResponse(1, 'GET', 'delegates/voters', function ($mock) {
             return $mock->voters('dummy');
         });
     }
@@ -82,7 +82,7 @@ class DelegatesTest extends TestCase
     /** @test */
     public function next_forgers_calls_correct_url()
     {
-        $this->assertResponse(1, 'GET', 'api/delegates/getNextForgers', function ($mock) {
+        $this->assertResponse(1, 'GET', 'delegates/getNextForgers', function ($mock) {
             return $mock->nextForgers();
         });
     }

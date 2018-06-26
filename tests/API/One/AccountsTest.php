@@ -27,7 +27,7 @@ class AccountsTest extends TestCase
     /** @test */
     public function all_calls_correct_url()
     {
-        $this->assertResponse(1, 'GET', 'api/accounts/getAllAccounts', function ($mock) {
+        $this->assertResponse(1, 'GET', 'accounts/getAllAccounts', function ($mock) {
             return $mock->all();
         });
     }
@@ -35,7 +35,7 @@ class AccountsTest extends TestCase
     /** @test */
     public function show_calls_correct_url()
     {
-        $this->assertResponse(1, 'GET', 'api/accounts', function ($mock) {
+        $this->assertResponse(1, 'GET', 'accounts', function ($mock) {
             return $mock->show('dummy');
         });
     }
@@ -43,7 +43,7 @@ class AccountsTest extends TestCase
     /** @test */
     public function count_calls_correct_url()
     {
-        $this->assertResponse(1, 'GET', 'api/accounts/count', function ($mock) {
+        $this->assertResponse(1, 'GET', 'accounts/count', function ($mock) {
             return $mock->count();
         });
     }
@@ -51,7 +51,7 @@ class AccountsTest extends TestCase
     /** @test */
     public function delegates_calls_correct_url()
     {
-        $this->assertResponse(1, 'GET', 'api/accounts/delegates', function ($mock) {
+        $this->assertResponse(1, 'GET', 'accounts/delegates', function ($mock) {
             return $mock->delegates('dummy');
         });
     }
@@ -59,7 +59,7 @@ class AccountsTest extends TestCase
     /** @test */
     public function fee_calls_correct_url()
     {
-        $this->assertResponse(1, 'GET', 'api/accounts/delegates/fee', function ($mock) {
+        $this->assertResponse(1, 'GET', 'accounts/delegates/fee', function ($mock) {
             return $mock->fee();
         });
     }
@@ -67,7 +67,7 @@ class AccountsTest extends TestCase
     /** @test */
     public function balance_calls_correct_url()
     {
-        $this->assertResponse(1, 'GET', 'api/accounts/getBalance', function ($mock) {
+        $this->assertResponse(1, 'GET', 'accounts/getBalance', function ($mock) {
             return $mock->balance('dummy');
         });
     }
@@ -75,7 +75,7 @@ class AccountsTest extends TestCase
     /** @test */
     public function public_key_calls_correct_url()
     {
-        $this->assertResponse(1, 'GET', 'api/accounts/getPublicKey', function ($mock) {
+        $this->assertResponse(1, 'GET', 'accounts/getPublicKey', function ($mock) {
             return $mock->publicKey('dummy');
         });
     }
@@ -83,7 +83,7 @@ class AccountsTest extends TestCase
     /** @test */
     public function top_calls_correct_url()
     {
-        $this->assertResponse(1, 'GET', 'api/accounts/top', function ($mock) {
+        $this->assertResponse(1, 'GET', 'accounts/top', function ($mock) {
             return $mock->top();
         });
     }

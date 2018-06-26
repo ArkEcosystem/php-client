@@ -31,7 +31,7 @@ class Blocks extends AbstractAPI
      */
     public function all(array $query = []): array
     {
-        return $this->get('api/blocks', $query);
+        return $this->get('blocks', $query);
     }
 
     /**
@@ -43,7 +43,7 @@ class Blocks extends AbstractAPI
      */
     public function show(string $id): array
     {
-        return $this->get('api/blocks/get', compact('id'));
+        return $this->get('blocks/get', compact('id'));
     }
 
     /**
@@ -53,7 +53,7 @@ class Blocks extends AbstractAPI
      */
     public function epoch(): array
     {
-        return $this->get('api/blocks/getEpoch');
+        return $this->get('blocks/getEpoch');
     }
 
     /**
@@ -63,7 +63,7 @@ class Blocks extends AbstractAPI
      */
     public function fee(): array
     {
-        return $this->get('api/blocks/getFee');
+        return $this->get('blocks/getFee');
     }
 
     /**
@@ -73,7 +73,7 @@ class Blocks extends AbstractAPI
      */
     public function fees(): array
     {
-        return $this->get('api/blocks/getFees');
+        return $this->get('blocks/getFees');
     }
 
     /**
@@ -83,7 +83,7 @@ class Blocks extends AbstractAPI
      */
     public function height(): array
     {
-        return $this->get('api/blocks/getHeight');
+        return $this->get('blocks/getHeight');
     }
 
     /**
@@ -93,7 +93,7 @@ class Blocks extends AbstractAPI
      */
     public function milestone(): array
     {
-        return $this->get('api/blocks/getMilestone');
+        return $this->get('blocks/getMilestone');
     }
 
     /**
@@ -103,7 +103,7 @@ class Blocks extends AbstractAPI
      */
     public function nethash(): array
     {
-        return $this->get('api/blocks/getNethash');
+        return $this->get('blocks/getNethash');
     }
 
     /**
@@ -113,7 +113,7 @@ class Blocks extends AbstractAPI
      */
     public function reward(): array
     {
-        return $this->get('api/blocks/getReward');
+        return $this->get('blocks/getReward');
     }
 
     /**
@@ -123,7 +123,7 @@ class Blocks extends AbstractAPI
      */
     public function status(): array
     {
-        return $this->get('api/blocks/getStatus');
+        return $this->get('blocks/getStatus');
     }
 
     /**
@@ -133,6 +133,6 @@ class Blocks extends AbstractAPI
      */
     public function supply(): array
     {
-        return $this->get('api/blocks/getSupply');
+        return $this->get('blocks/getSupply');
     }
 }

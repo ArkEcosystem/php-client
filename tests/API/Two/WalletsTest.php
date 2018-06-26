@@ -26,7 +26,7 @@ class WalletsTest extends TestCase
     /** @test */
     public function all_calls_correct_url()
     {
-        $this->assertResponse(2, 'GET', 'api/wallets', function ($mock) {
+        $this->assertResponse(2, 'GET', 'wallets', function ($mock) {
             return $mock->all();
         });
     }
@@ -34,7 +34,7 @@ class WalletsTest extends TestCase
     /** @test */
     public function top_calls_correct_url()
     {
-        $this->assertResponse(2, 'GET', 'api/wallets/top', function ($mock) {
+        $this->assertResponse(2, 'GET', 'wallets/top', function ($mock) {
             return $mock->top();
         });
     }
@@ -42,7 +42,7 @@ class WalletsTest extends TestCase
     /** @test */
     public function show_calls_correct_url()
     {
-        $this->assertResponse(2, 'GET', 'api/wallets/dummy', function ($mock) {
+        $this->assertResponse(2, 'GET', 'wallets/dummy', function ($mock) {
             return $mock->show('dummy');
         });
     }
@@ -50,7 +50,7 @@ class WalletsTest extends TestCase
     /** @test */
     public function transactions_calls_correct_url()
     {
-        $this->assertResponse(2, 'GET', 'api/wallets/dummy/transactions', function ($mock) {
+        $this->assertResponse(2, 'GET', 'wallets/dummy/transactions', function ($mock) {
             return $mock->transactions('dummy');
         });
     }
@@ -58,7 +58,7 @@ class WalletsTest extends TestCase
     /** @test */
     public function sent_transactions_calls_correct_url()
     {
-        $this->assertResponse(2, 'GET', 'api/wallets/dummy/transactions/sent', function ($mock) {
+        $this->assertResponse(2, 'GET', 'wallets/dummy/transactions/sent', function ($mock) {
             return $mock->sentTransactions('dummy');
         });
     }
@@ -66,7 +66,7 @@ class WalletsTest extends TestCase
     /** @test */
     public function received_transactions_calls_correct_url()
     {
-        $this->assertResponse(2, 'GET', 'api/wallets/dummy/transactions/received', function ($mock) {
+        $this->assertResponse(2, 'GET', 'wallets/dummy/transactions/received', function ($mock) {
             return $mock->receivedTransactions('dummy');
         });
     }
@@ -74,7 +74,7 @@ class WalletsTest extends TestCase
     /** @test */
     public function votes_calls_correct_url()
     {
-        $this->assertResponse(2, 'GET', 'api/wallets/dummy/votes', function ($mock) {
+        $this->assertResponse(2, 'GET', 'wallets/dummy/votes', function ($mock) {
             return $mock->votes('dummy');
         });
     }
@@ -82,7 +82,7 @@ class WalletsTest extends TestCase
     /** @test */
     public function search_calls_correct_url()
     {
-        $this->assertResponse(2, 'POST', 'api/wallets/search', function ($mock) {
+        $this->assertResponse(2, 'POST', 'wallets/search', function ($mock) {
             return $mock->search(['address' => 'dummy']);
         });
     }

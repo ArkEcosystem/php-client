@@ -26,7 +26,7 @@ class TransactionsTest extends TestCase
     /** @test */
     public function all_calls_correct_url()
     {
-        $this->assertResponse(2, 'GET', 'api/transactions', function ($mock) {
+        $this->assertResponse(2, 'GET', 'transactions', function ($mock) {
             return $mock->all();
         });
     }
@@ -34,7 +34,7 @@ class TransactionsTest extends TestCase
     /** @test */
     public function create_calls_correct_url()
     {
-        $this->assertResponse(2, 'POST', 'api/transactions', function ($mock) {
+        $this->assertResponse(2, 'POST', 'transactions', function ($mock) {
             return $mock->create(['transactions' => []]);
         });
     }
@@ -42,7 +42,7 @@ class TransactionsTest extends TestCase
     /** @test */
     public function show_calls_correct_url()
     {
-        $this->assertResponse(2, 'GET', 'api/transactions/dummy', function ($mock) {
+        $this->assertResponse(2, 'GET', 'transactions/dummy', function ($mock) {
             return $mock->show('dummy');
         });
     }
@@ -50,7 +50,7 @@ class TransactionsTest extends TestCase
     /** @test */
     public function all_unconfirmed_calls_correct_url()
     {
-        $this->assertResponse(2, 'GET', 'api/transactions/unconfirmed', function ($mock) {
+        $this->assertResponse(2, 'GET', 'transactions/unconfirmed', function ($mock) {
             return $mock->allUnconfirmed();
         });
     }
@@ -58,7 +58,7 @@ class TransactionsTest extends TestCase
     /** @test */
     public function show_unconfirmed_calls_correct_url()
     {
-        $this->assertResponse(2, 'GET', 'api/transactions/unconfirmed/dummy', function ($mock) {
+        $this->assertResponse(2, 'GET', 'transactions/unconfirmed/dummy', function ($mock) {
             return $mock->showUnconfirmed('dummy');
         });
     }
@@ -66,7 +66,7 @@ class TransactionsTest extends TestCase
     /** @test */
     public function search_calls_correct_url()
     {
-        $this->assertResponse(2, 'POST', 'api/transactions/search', function ($mock) {
+        $this->assertResponse(2, 'POST', 'transactions/search', function ($mock) {
             return $mock->search(['amount' => 1]);
         });
     }
@@ -74,7 +74,7 @@ class TransactionsTest extends TestCase
     /** @test */
     public function types_calls_correct_url()
     {
-        $this->assertResponse(2, 'GET', 'api/transactions/types', function ($mock) {
+        $this->assertResponse(2, 'GET', 'transactions/types', function ($mock) {
             return $mock->types();
         });
     }

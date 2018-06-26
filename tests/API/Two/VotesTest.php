@@ -26,7 +26,7 @@ class VotesTest extends TestCase
     /** @test */
     public function all_calls_correct_url()
     {
-        $this->assertResponse(2, 'GET', 'api/votes', function ($mock) {
+        $this->assertResponse(2, 'GET', 'votes', function ($mock) {
             return $mock->all();
         });
     }
@@ -34,7 +34,7 @@ class VotesTest extends TestCase
     /** @test */
     public function show_calls_correct_url()
     {
-        $this->assertResponse(2, 'GET', 'api/votes/dummy', function ($mock) {
+        $this->assertResponse(2, 'GET', 'votes/dummy', function ($mock) {
             return $mock->show('dummy');
         });
     }

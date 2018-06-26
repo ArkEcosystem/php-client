@@ -29,7 +29,7 @@ class Loader extends AbstractAPI
      */
     public function status(): array
     {
-        return $this->get('api/loader/status');
+        return $this->get('loader/status');
     }
 
     /**
@@ -39,7 +39,7 @@ class Loader extends AbstractAPI
      */
     public function sync(): array
     {
-        return $this->get('api/loader/status/sync');
+        return $this->get('loader/status/sync');
     }
 
     /**
@@ -49,6 +49,6 @@ class Loader extends AbstractAPI
      */
     public function autoconfigure(): array
     {
-        return $this->get('api/loader/autoconfigure');
+        return $this->get('loader/autoconfigure');
     }
 }
