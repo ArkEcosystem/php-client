@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace ArkEcosystem\Tests\Client\API\One;
 
 use ArkEcosystem\Tests\Client\TestCase;
+use GuzzleHttp\Client;
 
 /**
  * This is the accounts resource test class.
@@ -24,66 +25,74 @@ use ArkEcosystem\Tests\Client\TestCase;
 class AccountsTest extends TestCase
 {
     /** @test */
-    public function all_should_be_successful()
+    public function all_calls_correct_url()
     {
-        $response = $this->getResource(1, 'accounts')->all();
-
-        $this->assertTrue($response->isSuccess());
+        $this->assertResponse(1, 'GET', 'api/accounts/getAllAccounts', function ($mock) {
+            return $mock->all();
+        });
     }
 
     /** @test */
-    public function show_should_be_successful()
+    public function show_calls_correct_url()
     {
-        $response = $this->getResource(1, 'accounts')->show();
-
-        $this->assertTrue($response->isSuccess());
+        $this->assertResponse(1, 'GET', 'api/accounts', function ($mock) {
+            return $mock->show('dummy');
+        });
     }
 
     /** @test */
-    public function count_should_be_successful()
+    public function count_calls_correct_url()
     {
-        $response = $this->getResource(1, 'accounts')->count();
-
-        $this->assertTrue($response->isSuccess());
+        $this->assertResponse(1, 'GET', 'api/accounts/count', function ($mock) {
+            return $mock->count();
+        });
     }
 
     /** @test */
-    public function delegates_should_be_successful()
+    public function delegates_calls_correct_url()
     {
-        $response = $this->getResource(1, 'accounts')->delegates();
-
-        $this->assertTrue($response->isSuccess());
+        $this->assertResponse(1, 'GET', 'api/accounts/delegates', function ($mock) {
+            return $mock->delegates('dummy');
+        });
     }
 
     /** @test */
-    public function fee_should_be_successful()
+    public function fee_calls_correct_url()
     {
-        $response = $this->getResource(1, 'accounts')->fee();
-
-        $this->assertTrue($response->isSuccess());
+        $this->assertResponse(1, 'GET', 'api/accounts/delegates/fee', function ($mock) {
+            return $mock->fee();
+        });
     }
 
     /** @test */
-    public function balance_should_be_successful()
+    public function balance_calls_correct_url()
     {
-        $response = $this->getResource(1, 'accounts')->balance();
-
-        $this->assertTrue($response->isSuccess());
+        $this->assertResponse(1, 'GET', 'api/accounts/getBalance', function ($mock) {
+            return $mock->balance('dummy');
+        });
     }
 
     /** @test */
-    public function public_key_should_be_successful()
+    public function public_key_calls_correct_url()
     {
-        $response = $this->getResource(1, 'accounts')->publicKey();
-
-        $this->assertTrue($response->isSuccess());
+        $this->assertResponse(1, 'GET', 'api/accounts/getPublicKey', function ($mock) {
+            return $mock->publicKey('dummy');
+        });
     }
 
     /** @test */
-    public function top_should_be_successful()
+    public function top_calls_correct_url()
     {
-        $response = $this->getResource(1, 'accounts')->top();
+        $this->assertResponse(1, 'GET', 'api/accounts/top', function ($mock) {
+            return $mock->top();
+        });
+    }
 
-        $this->assertTrue($response->isSuccess());
+    /**
+     * @return string
+     */
+    protected function getApiClass()
+    {
+        return \ArkEcosystem\Client\API\One\Accounts::class;
     }
 }

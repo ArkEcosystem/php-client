@@ -24,26 +24,34 @@ use ArkEcosystem\Tests\Client\TestCase;
 class LoaderTest extends TestCase
 {
     /** @test */
-    public function status_should_be_successful()
+    public function status_calls_correct_url()
     {
-        $response = $this->getResource(1, 'loader')->status();
-
-        $this->assertTrue($response->isSuccess());
+        $this->assertResponse(1, 'GET', 'api/loader/status', function ($mock) {
+            return $mock->status();
+        });
     }
 
     /** @test */
-    public function sync_should_be_successful()
+    public function sync_calls_correct_url()
     {
-        $response = $this->getResource(1, 'loader')->sync();
-
-        $this->assertTrue($response->isSuccess());
+        $this->assertResponse(1, 'GET', 'api/loader/status/sync', function ($mock) {
+            return $mock->sync();
+        });
     }
 
     /** @test */
-    public function autoconfigure_should_be_successful()
+    public function autoconfigure_calls_correct_url()
     {
-        $response = $this->getResource(1, 'loader')->autoconfigure();
+        $this->assertResponse(1, 'GET', 'api/loader/autoconfigure', function ($mock) {
+            return $mock->autoconfigure();
+        });
+    }
 
-        $this->assertTrue($response->isSuccess());
+    /**
+     * @return string
+     */
+    protected function getApiClass()
+    {
+        return \ArkEcosystem\Client\API\One\Loader::class;
     }
 }

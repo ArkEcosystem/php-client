@@ -24,66 +24,74 @@ use ArkEcosystem\Tests\Client\TestCase;
 class DelegatesTest extends TestCase
 {
     /** @test */
-    public function all_should_be_successful()
+    public function all_calls_correct_url()
     {
-        $response = $this->getResource(1, 'delegates')->all();
-
-        $this->assertTrue($response->isSuccess());
+        $this->assertResponse(1, 'GET', 'api/delegates', function ($mock) {
+            return $mock->all();
+        });
     }
 
     /** @test */
-    public function show_should_be_successful()
+    public function show_calls_correct_url()
     {
-        $response = $this->getResource(1, 'delegates')->show();
-
-        $this->assertTrue($response->isSuccess());
+        $this->assertResponse(1, 'GET', 'api/delegates/get', function ($mock) {
+            return $mock->show(['username' => 'dummy']);
+        });
     }
 
     /** @test */
-    public function count_should_be_successful()
+    public function count_calls_correct_url()
     {
-        $response = $this->getResource(1, 'delegates')->count();
-
-        $this->assertTrue($response->isSuccess());
+        $this->assertResponse(1, 'GET', 'api/delegates/count', function ($mock) {
+            return $mock->count();
+        });
     }
 
     /** @test */
-    public function fee_should_be_successful()
+    public function fee_calls_correct_url()
     {
-        $response = $this->getResource(1, 'delegates')->fee();
-
-        $this->assertTrue($response->isSuccess());
+        $this->assertResponse(1, 'GET', 'api/delegates/fee', function ($mock) {
+            return $mock->fee();
+        });
     }
 
     /** @test */
-    public function forged_by_account_should_be_successful()
+    public function forged_by_account_calls_correct_url()
     {
-        $response = $this->getResource(1, 'delegates')->forgedByAccount();
-
-        $this->assertTrue($response->isSuccess());
+        $this->assertResponse(1, 'GET', 'api/delegates/forging/getForgedByAccount', function ($mock) {
+            return $mock->forgedByAccount('dummy');
+        });
     }
 
     /** @test */
-    public function search_should_be_successful()
+    public function search_calls_correct_url()
     {
-        $response = $this->getResource(1, 'delegates')->search();
-
-        $this->assertTrue($response->isSuccess());
+        $this->assertResponse(1, 'GET', 'api/delegates/search', function ($mock) {
+            return $mock->search('dummy');
+        });
     }
 
     /** @test */
-    public function voters_should_be_successful()
+    public function voters_calls_correct_url()
     {
-        $response = $this->getResource(1, 'delegates')->voters();
-
-        $this->assertTrue($response->isSuccess());
+        $this->assertResponse(1, 'GET', 'api/delegates/voters', function ($mock) {
+            return $mock->voters('dummy');
+        });
     }
 
     /** @test */
-    public function next_forgers_should_be_successful()
+    public function next_forgers_calls_correct_url()
     {
-        $response = $this->getResource(1, 'delegates')->nextForgers();
+        $this->assertResponse(1, 'GET', 'api/delegates/getNextForgers', function ($mock) {
+            return $mock->nextForgers();
+        });
+    }
 
-        $this->assertTrue($response->isSuccess());
+    /**
+     * @return string
+     */
+    protected function getApiClass()
+    {
+        return \ArkEcosystem\Client\API\One\Delegates::class;
     }
 }

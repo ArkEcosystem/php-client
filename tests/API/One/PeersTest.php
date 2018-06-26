@@ -24,26 +24,34 @@ use ArkEcosystem\Tests\Client\TestCase;
 class PeersTest extends TestCase
 {
     /** @test */
-    public function all_should_be_successful()
+    public function all_calls_correct_url()
     {
-        $response = $this->getResource(1, 'peers')->all();
-
-        $this->assertTrue($response->isSuccess());
+        $this->assertResponse(1, 'GET', 'api/peers', function ($mock) {
+            return $mock->all();
+        });
     }
 
     /** @test */
-    public function show_should_be_successful()
+    public function show_calls_correct_url()
     {
-        $response = $this->getResource(1, 'peers')->show();
-
-        $this->assertTrue($response->isSuccess());
+        $this->assertResponse(1, 'GET', 'api/peers/get', function ($mock) {
+            return $mock->show('ip', 1234);
+        });
     }
 
     /** @test */
-    public function version_should_be_successful()
+    public function version_calls_correct_url()
     {
-        $response = $this->getResource(1, 'peers')->version();
+        $this->assertResponse(1, 'GET', 'api/peers/version', function ($mock) {
+            return $mock->version();
+        });
+    }
 
-        $this->assertTrue($response->isSuccess());
+    /**
+     * @return string
+     */
+    protected function getApiClass()
+    {
+        return \ArkEcosystem\Client\API\One\Peers::class;
     }
 }

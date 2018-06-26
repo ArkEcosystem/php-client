@@ -24,10 +24,18 @@ use ArkEcosystem\Tests\Client\TestCase;
 class SignaturesTest extends TestCase
 {
     /** @test */
-    public function fee_should_be_successful()
+    public function fee_calls_correct_url()
     {
-        $response = $this->getResource(1, 'signatures')->fee();
+        $this->assertResponse(1, 'GET', 'api/signatures/fee', function ($mock) {
+            return $mock->fee();
+        });
+    }
 
-        $this->assertTrue($response->isSuccess());
+    /**
+     * @return string
+     */
+    protected function getApiClass()
+    {
+        return \ArkEcosystem\Client\API\One\Signatures::class;
     }
 }
