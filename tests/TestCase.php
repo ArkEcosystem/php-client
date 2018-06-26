@@ -13,30 +13,70 @@ declare(strict_types=1);
 
 namespace ArkEcosystem\Tests\Client;
 
-use ArkEcosystem\Client\API\AbstractResource;
 use ArkEcosystem\Client\Config;
 use ArkEcosystem\Client\Connection;
-use ArkEcosystem\Client\ConnectionManager;
 use PHPUnit\Framework\TestCase as BaseTestCase;
 
 abstract class TestCase extends BaseTestCase
 {
-    protected $host = 'https://dexplorer.ark.io:8443/';
+    /**
+     * [$host description].
+     *
+     * @var string
+     */
+    protected $host = 'http://127.0.0.1:4002';
 
-    protected function getConnection(): Connection
+    /**
+     * Create an API resource mock.
+     *
+     * @param int $version
+     *
+     * @return object
+     */
+    protected function getApiMock(int $version)
     {
-        $connections = new ConnectionManager();
+        $httpClient = $this
+            ->getMockBuilder(\Http\Client\HttpClient::class)
+            ->setMethods(['sendRequest'])
+            ->getMock();
 
-        $config = new Config(['host' => $this->host]);
+        $httpClient
+            ->expects($this->any())
+            ->method('sendRequest');
 
-        return $connections->connect($config);
+        $config = new Config([
+            'host'    => $this->host,
+            'version' => $version,
+        ]);
+
+        $connection = Connection::createWithHttpClient($config, $httpClient);
+
+        return $this
+            ->getMockBuilder($this->getApiClass())
+            ->setMethods(['get', 'post', 'postRaw', 'patch', 'delete', 'put', 'head'])
+            ->setConstructorArgs([$connection])
+            ->getMock();
     }
 
-    protected function getResource(int $version, string $resource): AbstractResource
+    /**
+     * Perform a mocked request and assert its response.
+     *
+     * @param int        $version
+     * @param string     $method
+     * @param string     $path
+     * @param callable   $callback
+     * @param array|null $expected
+     */
+    protected function assertResponse(int $version, string $method, string $path, callable $callback, array $expected = null): void
     {
-        return $this
-            ->getConnection()
-            ->version($version)
-            ->api($resource);
+        $expected = $expected ?: ['success' => true];
+
+        $api = $this->getApiMock($version);
+        $api->expects($this->once())
+            ->method(strtolower($method))
+            ->with($path)
+            ->will($this->returnValue($expected));
+
+        $this->assertSame($expected, $callback($api));
     }
 }
