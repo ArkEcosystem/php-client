@@ -42,10 +42,10 @@ class Connection
     /**
      * Make a new connection instance.
      *
-     * @param \ArkEcosystem\Client\Config             $config
+     * @param array                                   $config
      * @param \ArkEcosystem\Client\HttpClient\Builder $config
      */
-    public function __construct(Config $config, Builder $httpClientBuilder = null)
+    public function __construct(array $config, Builder $httpClientBuilder = null)
     {
         $this->config            = $config;
         $this->responseHistory   = new History();
@@ -54,12 +54,12 @@ class Connection
         $this->httpClientBuilder->addPlugin(new ExceptionThrower());
         $this->httpClientBuilder->addPlugin(new Plugin\HistoryPlugin($this->responseHistory));
         $this->httpClientBuilder->addPlugin(new Plugin\RedirectPlugin());
-        $this->httpClientBuilder->addPlugin(new Plugin\AddHostPlugin(UriFactoryDiscovery::find()->createUri($config->get('host'))));
+        $this->httpClientBuilder->addPlugin(new Plugin\AddHostPlugin(UriFactoryDiscovery::find()->createUri($config['host'])));
         $this->httpClientBuilder->addPlugin(new Plugin\HeaderDefaultsPlugin([
             'User-Agent' => 'ark-php-client (https://github.com/ArkEcosystem/php-client)',
         ]));
 
-        $this->httpClientBuilder->addHeaderValue('API-Version', $config->get('version'));
+        $this->httpClientBuilder->addHeaderValue('API-Version', $config['version']);
     }
 
     /**
@@ -82,12 +82,12 @@ class Connection
     /**
      * Create a Github\Client using a HttpClient.
      *
-     * @param \ArkEcosystem\Client\Config $config
-     * @param \Http\Client\HttpClient     $httpClient
+     * @param array                   $config
+     * @param \Http\Client\HttpClient $httpClient
      *
      * @return \ArkEcosystem\Client\Connection
      */
-    public static function createWithHttpClient(Config $config, HttpClient $httpClient): Connection
+    public static function createWithHttpClient(array $config, HttpClient $httpClient): Connection
     {
         return new static($config, new Builder($httpClient));
     }
@@ -102,7 +102,7 @@ class Connection
     public function api(string $name): API\AbstractAPI
     {
         $formatter = new NumberFormatter('en', NumberFormatter::SPELLOUT);
-        $version   = ucfirst($formatter->format($this->config->get('version')));
+        $version   = ucfirst($formatter->format($this->config['version']));
         $class     = "ArkEcosystem\\Client\\API\\{$version}\\{$name}";
 
         if (!class_exists($class)) {

@@ -13,7 +13,6 @@ declare(strict_types=1);
 
 namespace ArkEcosystem\Tests\Client;
 
-use ArkEcosystem\Client\Config;
 use ArkEcosystem\Client\Connection;
 use PHPUnit\Framework\TestCase as BaseTestCase;
 
@@ -44,12 +43,10 @@ abstract class TestCase extends BaseTestCase
             ->expects($this->any())
             ->method('sendRequest');
 
-        $config = new Config([
+        $connection = Connection::createWithHttpClient([
             'host'    => $this->host,
             'version' => $version,
-        ]);
-
-        $connection = Connection::createWithHttpClient($config, $httpClient);
+        ], $httpClient);
 
         return $this
             ->getMockBuilder($this->getApiClass())

@@ -14,7 +14,6 @@ declare(strict_types=1);
 namespace ArkEcosystem\Tests\Client;
 
 use ArkEcosystem\Client\API\AbstractAPI;
-use ArkEcosystem\Client\Config;
 use ArkEcosystem\Client\Connection;
 use ArkEcosystem\Client\ConnectionManager;
 
@@ -41,13 +40,9 @@ class ConnectionTest extends TestCase
      */
     private function getConnection(): Connection
     {
-        $connections = new ConnectionManager();
-
-        $config = new Config([
+        return (new ConnectionManager())->connect([
             'host'        => $this->host,
             'version'     => 1,
         ]);
-
-        return $connections->connect($config);
     }
 }

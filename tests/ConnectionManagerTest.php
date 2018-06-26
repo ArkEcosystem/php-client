@@ -13,7 +13,6 @@ declare(strict_types=1);
 
 namespace ArkEcosystem\Tests\Client;
 
-use ArkEcosystem\Client\Config;
 use ArkEcosystem\Client\Connection;
 use ArkEcosystem\Client\ConnectionManager;
 
@@ -85,8 +84,8 @@ class ConnectionManagerTest extends TestCase
         $this->assertCount(3, $manager->getConnections());
     }
 
-    private function setUpConfig(): Config
+    private function setUpConfig(): array
     {
-        return new Config(['host' => $this->host]);
+        return ['host' => $this->host, 'version' => 1];
     }
 }
