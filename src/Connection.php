@@ -54,6 +54,7 @@ class Connection
         $this->httpClientBuilder->addPlugin(new ExceptionThrower());
         $this->httpClientBuilder->addPlugin(new Plugin\HistoryPlugin($this->responseHistory));
         $this->httpClientBuilder->addPlugin(new Plugin\RedirectPlugin());
+        // TODO: the AddHostPlugin plugin currently takes no effect, figure out why
         $this->httpClientBuilder->addPlugin(new Plugin\AddHostPlugin(UriFactoryDiscovery::find()->createUri($config['host'])));
         $this->httpClientBuilder->addPlugin(new Plugin\HeaderDefaultsPlugin([
             'User-Agent' => 'ark-php-client (https://github.com/ArkEcosystem/php-client)',

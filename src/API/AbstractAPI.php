@@ -115,7 +115,7 @@ abstract class AbstractAPI implements API
             $path .= '?'.http_build_query($parameters);
         }
 
-        $response = $this->connection->getHttpClient()->get($path);
+        $response = $this->connection->getHttpClient()->get($this->getUri($path));
 
         return ResponseMediator::getContent($response);
     }
@@ -131,10 +131,22 @@ abstract class AbstractAPI implements API
     protected function post(string $path, array $parameters = [])
     {
         $response = $this->connection->getHttpClient()->post(
-            $path,
+            $this->getUri($path),
             ['json' => $parameters]
         );
 
         return ResponseMediator::getContent($response);
+    }
+
+    /**
+     * Get the URI used for the request.
+     *
+     * @param string $path
+     *
+     * @return string
+     */
+    private function getUri(string $path): string
+    {
+        return $this->connection->config['host'].$path;
     }
 }
