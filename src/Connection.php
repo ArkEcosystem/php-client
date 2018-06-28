@@ -19,6 +19,7 @@ use ArkEcosystem\Client\HttpClient\Plugin\History;
 use GuzzleHttp\Client;
 use Http\Client\Common\HttpMethodsClient;
 use Http\Client\Common\Plugin;
+use Http\Client\Common\Plugin\BaseUriPlugin;
 use Http\Client\HttpClient;
 use Http\Discovery\UriFactoryDiscovery;
 use NumberFormatter;
