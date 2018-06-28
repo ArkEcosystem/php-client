@@ -13,10 +13,10 @@ declare(strict_types=1);
 
 namespace ArkEcosystem\Client\HttpClient\Plugin;
 
-use Github\Exception\ErrorException;
-use Github\Exception\RuntimeException;
-use Github\Exception\ValidationFailedException;
-use Github\HttpClient\Message\ResponseMediator;
+use ArkEcosystem\Client\Exceptions\ErrorException;
+use ArkEcosystem\Client\Exceptions\RuntimeException;
+use ArkEcosystem\Client\Exceptions\ValidationFailedException;
+use ArkEcosystem\Client\HttpClient\Message\ResponseMediator;
 use Http\Client\Common\Plugin;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;

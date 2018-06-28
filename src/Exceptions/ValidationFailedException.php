@@ -11,7 +11,7 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace ArkEcosystem\Client\Exception;
+namespace ArkEcosystem\Client\Exceptions;
 
 /**
  * This is the ValidationFailedException class.
