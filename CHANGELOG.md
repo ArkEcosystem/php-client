@@ -7,8 +7,5 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## Unreleased
 
-## 0.1.0 - 2018-06-14
-### Added
-- 1.0 API Support
-- 2.0 API Support
-- Multiple Connections
+## 0.1.0 - 2018-06-28
+- Initial Release
