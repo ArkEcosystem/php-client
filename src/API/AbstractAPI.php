@@ -147,6 +147,10 @@ abstract class AbstractAPI implements API
      */
     private function getUri(string $path): string
     {
-        return $this->connection->config['host'].$path;
+        if ('/' !== $path[0]) {
+            return "/{$path}";
+        }
+
+        return $path;
     }
 }
