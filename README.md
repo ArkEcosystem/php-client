@@ -18,6 +18,10 @@ Require this package, with [Composer](https://getcomposer.org/), in the root dir
 $ composer require arkecosystem/client
 ```
 
+## Documentation
+
+Have a look at the [official documentation](https://docs.ark.io/v1.0/docs/clients-php) for advanced examples and features.
+
 ## Testing
 
 ``` bash
