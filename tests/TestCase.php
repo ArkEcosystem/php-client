@@ -23,7 +23,7 @@ abstract class TestCase extends BaseTestCase
      *
      * @var string
      */
-    protected $host = 'http://127.0.0.1:4002/api/';
+    protected $host = 'http://127.0.0.1:4002/api';
 
     /**
      * Create an API resource mock.
