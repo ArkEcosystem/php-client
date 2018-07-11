@@ -16,7 +16,7 @@
          verbose="true"
 >
     <testsuites>
-        <testsuite name="ARK PHP Test Suite">
+        <testsuite name="Ark PHP Client Test Suite">
             <directory suffix="Test.php">./tests</directory>
         </testsuite>
     </testsuites>
@@ -25,8 +25,4 @@
             <directory suffix=".php">src/</directory>
         </whitelist>
     </filter>
-    <php>
-        <env name="ARK_TESTING_SECRET" value=""/>
-        <env name="ARK_TESTING_SECOND_SECRET" value="" />
-    </php>
 </phpunit>

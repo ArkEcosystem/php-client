@@ -1,10 +1,10 @@
-# ARK PHP - Client
+# Ark PHP - Client
 
 <p align="center">
     <img src="https://github.com/ArkEcosystem/php-client/blob/master/banner.png" />
 </p>
 
-> A simple PHP API client for the ARK Blockchain.
+> A simple PHP API client for the Ark Blockchain.
 
 [![Build Status](https://travis-ci.org/ArkEcosystem/php-client.svg?branch=develop)](https://travis-ci.org/ArkEcosystem/php-client)
 [![Latest Version](https://img.shields.io/github/release/ArkEcosystem/php-client.svg?style=flat-square)](https://github.com/ArkEcosystem/php-client/releases)

@@ -1,6 +1,6 @@
 {
     "name": "arkecosystem/client",
-    "description": "A simple PHP API client for the ARK Blockchain.",
+    "description": "A simple PHP API client for the Ark Blockchain.",
     "keywords": ["api", "ark", "blockchain", "crypto", "currency"],
     "license": "MIT",
     "authors": [{
