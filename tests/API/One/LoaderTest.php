@@ -19,7 +19,7 @@ use ArkEcosystem\Tests\Client\TestCase;
  * This is the loader resource test class.
  *
  * @author Brian Faust <brian@ark.io>
- * @coversNothing
+ * @covers \ArkEcosystem\Client\API\One\Loader
  */
 class LoaderTest extends TestCase
 {

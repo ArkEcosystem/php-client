@@ -14,13 +14,12 @@ declare(strict_types=1);
 namespace ArkEcosystem\Tests\Client\API\One;
 
 use ArkEcosystem\Tests\Client\TestCase;
-use GuzzleHttp\Client;
 
 /**
  * This is the accounts resource test class.
  *
  * @author Brian Faust <brian@ark.io>
- * @coversNothing
+ * @covers \ArkEcosystem\Client\API\One\Accounts
  */
 class AccountsTest extends TestCase
 {

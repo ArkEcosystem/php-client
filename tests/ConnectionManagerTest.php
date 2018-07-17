@@ -20,7 +20,7 @@ use ArkEcosystem\Client\ConnectionManager;
  * This is the connection manager test class.
  *
  * @author Brian Faust <brian@ark.io>
- * @coversNothing
+ * @covers \ArkEcosystem\Client\ConnectionManager
  */
 class ConnectionManagerTest extends TestCase
 {
