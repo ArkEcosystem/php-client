@@ -34,6 +34,17 @@ class ConnectionManagerTest extends TestCase
     }
 
     /** @test */
+    public function it_should_throw_if_a_connection_already_exists()
+    {
+        $manager = new ConnectionManager();
+        $manager->connect($this->setUpConfig(), 'dummy-connection');
+
+        $this->expectException(\InvalidArgumentException::class);
+
+        $manager->connect($this->setUpConfig(), 'dummy-connection');
+    }
+
+    /** @test */
     public function it_should_remove_a_connection()
     {
         $manager = new ConnectionManager();
@@ -53,6 +64,16 @@ class ConnectionManagerTest extends TestCase
         $manager->connect($this->setUpConfig(), 'dummy-connection');
 
         $this->assertInstanceOf(Connection::class, $manager->connection('dummy-connection'));
+    }
+
+    /** @test */
+    public function it_should_throw_if_a_connection_does_not_exists()
+    {
+        $manager = new ConnectionManager();
+
+        $this->expectException(\InvalidArgumentException::class);
+
+        $manager->connection('dummy-connection');
     }
 
     /** @test */
