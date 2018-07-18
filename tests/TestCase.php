@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace ArkEcosystem\Tests\Client;
 
 use ArkEcosystem\Client\Connection;
+use GuzzleHttp\Psr7\Response;
 use PHPUnit\Framework\TestCase as BaseTestCase;
 
 abstract class TestCase extends BaseTestCase
@@ -75,5 +76,16 @@ abstract class TestCase extends BaseTestCase
             ->will($this->returnValue($expected));
 
         $this->assertSame($expected, $callback($api));
+    }
+
+    protected function getResponse(): Response
+    {
+        $body = \GuzzleHttp\Psr7\stream_for(json_encode([
+            'username' => 'dummy',
+        ]));
+
+        return new Response(200, [
+            'Content-Type' => 'application/json',
+        ], $body);
     }
 }

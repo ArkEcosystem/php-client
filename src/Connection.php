@@ -16,10 +16,10 @@ namespace ArkEcosystem\Client;
 use ArkEcosystem\Client\HttpClient\Builder;
 use ArkEcosystem\Client\HttpClient\Plugin\ExceptionThrower;
 use ArkEcosystem\Client\HttpClient\Plugin\History;
+use BadMethodCallException;
 use GuzzleHttp\Client;
 use Http\Client\Common\HttpMethodsClient;
 use Http\Client\Common\Plugin;
-use Http\Client\Common\Plugin\BaseUriPlugin;
 use Http\Client\HttpClient;
 use Http\Discovery\UriFactoryDiscovery;
 use NumberFormatter;
@@ -75,7 +75,7 @@ class Connection
     {
         try {
             return $this->api($name);
-        } catch (InvalidArgumentException $e) {
+        } catch (RuntimeException $e) {
             throw new BadMethodCallException(sprintf('Undefined method called: "%s"', $name));
         }
     }
@@ -127,7 +127,7 @@ class Connection
     /**
      * Remove the cache plugin.
      */
-    public function removeCache()
+    public function removeCache(): void
     {
         $this->getHttpClientBuilder()->removeCache();
     }
@@ -141,17 +141,17 @@ class Connection
     }
 
     /**
-     * @return HttpMethodsClient
+     * @return \Http\Client\Common\HttpMethodsClient
      */
-    public function getHttpClient()
+    public function getHttpClient(): HttpMethodsClient
     {
         return $this->getHttpClientBuilder()->getHttpClient();
     }
 
     /**
-     * @return Builder
+     * @return \ArkEcosystem\Client\HttpClient\Builder
      */
-    protected function getHttpClientBuilder()
+    public function getHttpClientBuilder(): Builder
     {
         return $this->httpClientBuilder;
     }

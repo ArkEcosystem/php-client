@@ -121,6 +121,14 @@ class Builder
     }
 
     /**
+     * Get a list of all plugins.
+     */
+    public function getPlugins()
+    {
+        return $this->plugins;
+    }
+
+    /**
      * Add a new plugin to the end of the plugin chain.
      *
      * @param Plugin $plugin
@@ -182,6 +190,14 @@ class Builder
 
         $this->removePlugin(Plugin\HeaderAppendPlugin::class);
         $this->addPlugin(new Plugin\HeaderAppendPlugin($this->headers));
+    }
+
+    /**
+     * Get the cache plugin.
+     */
+    public function getCache()
+    {
+        return $this->cachePlugin;
     }
 
     /**
