@@ -20,7 +20,7 @@ use ArkEcosystem\Tests\Client\TestCase;
  * This is the ErrorException test class.
  *
  * @author Brian Faust <brian@ark.io>
- * @covers \ArkEcosystem\Client\Exceptions\BadMethodCallException
+ * @covers \ArkEcosystem\Client\Exceptions\ErrorException
  */
 class ErrorExceptionTest extends TestCase
 {
