@@ -6,10 +6,10 @@
 
 > A simple PHP API client for the Ark Blockchain.
 
-[![Build Status](https://travis-ci.org/ArkEcosystem/php-client.svg)](https://travis-ci.org/ArkEcosystem/php-client)
-[![Codecov](https://img.shields.io/codecov/c/github/arkecosystem/php-client/master.svg)](https://codecov.io/gh/arkecosystem/php-client)
-[![Latest Version](https://img.shields.io/github/release/ArkEcosystem/php-client.svg)](https://github.com/ArkEcosystem/php-client/releases)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Build Status](https://badgen.now.sh/travis/ArkEcosystem/php-client)](https://badgen.now.sh/travis/ArkEcosystem/php-client)
+[![Codecov](https://badgen.now.sh/codecov/c/github/arkecosystem/php-client)](https://codecov.io/gh/arkecosystem/php-client)
+[![Latest Version](https://badgen.now.sh/github/release/ArkEcosystem/php-client)](https://github.com/ArkEcosystem/php-client/releases)
+[![License: MIT](https://badgen.now.sh/badge/license/MIT/green)](https://opensource.org/licenses/MIT)
 
 ## Documentation
 
