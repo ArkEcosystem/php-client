@@ -7,5 +7,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## Unreleased
 
+## 0.1.1 - 2018-09-13
+
+### Fixed:
+
+- Add explicit class name casting with ucfirst
+
 ## 0.1.0 - 2018-06-28
 - Initial Release
