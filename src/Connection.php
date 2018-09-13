@@ -104,6 +104,7 @@ class Connection
     {
         $formatter = new NumberFormatter('en', NumberFormatter::SPELLOUT);
         $version   = ucfirst($formatter->format($this->config['version']));
+        $name      = ucfirst($name);
         $class     = "ArkEcosystem\\Client\\API\\{$version}\\{$name}";
 
         if (!class_exists($class)) {
