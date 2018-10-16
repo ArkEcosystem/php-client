@@ -1,0 +1,30 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/php:7.2-cli
+    working_directory: ~/arkecosystem/client
+    steps:
+      - checkout
+      - run:
+          name: Update System Dependencies
+          command: sudo apt-get update
+      - run:
+          name: Update Composer
+          command: sudo composer self-update
+      - restore_cache:
+          name: Restore Composer Package Cache
+          keys:
+          - v1-dependencies-{{ checksum "composer.json" }}
+          - v1-dependencies-
+      - run:
+          name: Install Composer Dependencies
+          command: composer install -n --prefer-dist
+      - save_cache:
+          name: Save Composer Package Cache
+          paths:
+            - ./vendor
+          key: v1-dependencies-{{ checksum "composer.json" }}
+      - run:
+          name: Run Tests
+          command: ./vendor/bin/phpunit
