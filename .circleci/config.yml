@@ -28,3 +28,7 @@ jobs:
       - run:
           name: Run Tests
           command: ./vendor/bin/phpunit
+      - run:
+          name: Codecov
+          when: on_success
+          command: bash <(curl -s https://codecov.io/bash)
