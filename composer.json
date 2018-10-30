@@ -27,6 +27,9 @@
         "phpunit/phpunit": "^7.0",
         "symfony/var-dumper": "^4.1"
     },
+    "suggest": {
+        "ext-mbstring": "If ext-mbstring is not available you MUST install symfony/polyfill-mbstring"
+    },
     "autoload": {
         "psr-4": {
             "ArkEcosystem\\Client\\": "src"
