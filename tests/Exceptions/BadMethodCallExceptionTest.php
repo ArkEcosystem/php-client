@@ -13,8 +13,8 @@ declare(strict_types=1);
 
 namespace ArkEcosystem\Tests\Client\Exceptions;
 
-use ArkEcosystem\Client\Exceptions\BadMethodCallException;
 use ArkEcosystem\Tests\Client\TestCase;
+use ArkEcosystem\Client\Exceptions\BadMethodCallException;
 
 /**
  * This is the BadMethodCallException test class.

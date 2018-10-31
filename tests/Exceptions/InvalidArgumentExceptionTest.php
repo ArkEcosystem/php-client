@@ -13,8 +13,8 @@ declare(strict_types=1);
 
 namespace ArkEcosystem\Tests\Client\Exceptions;
 
-use ArkEcosystem\Client\Exceptions\InvalidArgumentException;
 use ArkEcosystem\Tests\Client\TestCase;
+use ArkEcosystem\Client\Exceptions\InvalidArgumentException;
 
 /**
  * This is the InvalidArgumentException test class.
