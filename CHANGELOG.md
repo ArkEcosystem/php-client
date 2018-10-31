@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## Unreleased
 
+## 0.1.3 - 2018-10-31
+
+### Fixed:
+
+- JSON payload encoding
+- Transaction posting
+
 ## 0.1.2 - 2018-10-30
 
 ### Added:
