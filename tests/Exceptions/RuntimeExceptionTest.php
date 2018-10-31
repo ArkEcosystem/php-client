@@ -13,8 +13,8 @@ declare(strict_types=1);
 
 namespace ArkEcosystem\Tests\Client\Exceptions;
 
-use ArkEcosystem\Client\Exceptions\RuntimeException;
 use ArkEcosystem\Tests\Client\TestCase;
+use ArkEcosystem\Client\Exceptions\RuntimeException;
 
 /**
  * This is the RuntimeException test class.

@@ -13,11 +13,11 @@ declare(strict_types=1);
 
 namespace ArkEcosystem\Client\API;
 
-use ArkEcosystem\Client\Connection;
-use ArkEcosystem\Client\Contracts\API;
-use ArkEcosystem\Client\Http\Request;
-use ArkEcosystem\Client\HttpClient\Message\ResponseMediator;
 use GuzzleHttp\Client;
+use ArkEcosystem\Client\Connection;
+use ArkEcosystem\Client\Http\Request;
+use ArkEcosystem\Client\Contracts\API;
+use ArkEcosystem\Client\HttpClient\Message\ResponseMediator;
 
 /**
  * This is the abstract resource class.
@@ -103,11 +103,11 @@ abstract class AbstractAPI implements API
      */
     protected function get(string $path, array $parameters = [])
     {
-        if (null !== $this->offset && !isset($parameters['offset'])) {
+        if (null !== $this->offset && ! isset($parameters['offset'])) {
             $parameters['offset'] = $this->offset;
         }
 
-        if (null !== $this->limit && !isset($parameters['limit'])) {
+        if (null !== $this->limit && ! isset($parameters['limit'])) {
             $parameters['limit'] = $this->limit;
         }
 

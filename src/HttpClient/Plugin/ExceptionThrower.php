@@ -13,13 +13,13 @@ declare(strict_types=1);
 
 namespace ArkEcosystem\Client\HttpClient\Plugin;
 
-use ArkEcosystem\Client\Exceptions\ErrorException;
-use ArkEcosystem\Client\Exceptions\RuntimeException;
-use ArkEcosystem\Client\Exceptions\ValidationFailedException;
-use ArkEcosystem\Client\HttpClient\Message\ResponseMediator;
 use Http\Client\Common\Plugin;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
+use ArkEcosystem\Client\Exceptions\ErrorException;
+use ArkEcosystem\Client\Exceptions\RuntimeException;
+use ArkEcosystem\Client\HttpClient\Message\ResponseMediator;
+use ArkEcosystem\Client\Exceptions\ValidationFailedException;
 
 /**
  * This is the exception thrower class.

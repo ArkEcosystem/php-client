@@ -13,18 +13,18 @@ declare(strict_types=1);
 
 namespace ArkEcosystem\Client\HttpClient;
 
-use Http\Client\Common\HttpMethodsClient;
-use Http\Client\Common\Plugin;
-use Http\Client\Common\Plugin\Cache\Generator\HeaderCacheKeyGenerator;
-use Http\Client\Common\PluginClientFactory;
 use Http\Client\HttpClient;
-use Http\Discovery\HttpClientDiscovery;
-use Http\Discovery\MessageFactoryDiscovery;
-use Http\Discovery\StreamFactoryDiscovery;
+use Http\Client\Common\Plugin;
+use Http\Message\StreamFactory;
 use Http\Message\MessageFactory;
 use Http\Message\RequestFactory;
-use Http\Message\StreamFactory;
 use Psr\Cache\CacheItemPoolInterface;
+use Http\Discovery\HttpClientDiscovery;
+use Http\Client\Common\HttpMethodsClient;
+use Http\Discovery\StreamFactoryDiscovery;
+use Http\Client\Common\PluginClientFactory;
+use Http\Discovery\MessageFactoryDiscovery;
+use Http\Client\Common\Plugin\Cache\Generator\HeaderCacheKeyGenerator;
 
 /**
  * A builder that builds the API client.
@@ -93,9 +93,9 @@ class Builder
         RequestFactory $requestFactory = null,
         StreamFactory $streamFactory = null
     ) {
-        $this->httpClient     = $httpClient ?? HttpClientDiscovery::find();
+        $this->httpClient = $httpClient ?? HttpClientDiscovery::find();
         $this->requestFactory = $requestFactory ?? MessageFactoryDiscovery::find();
-        $this->streamFactory  = $streamFactory ?? StreamFactoryDiscovery::find();
+        $this->streamFactory = $streamFactory ?? StreamFactoryDiscovery::find();
     }
 
     /**
@@ -135,7 +135,7 @@ class Builder
      */
     public function addPlugin(Plugin $plugin)
     {
-        $this->plugins[]          = $plugin;
+        $this->plugins[] = $plugin;
         $this->httpClientModified = true;
     }
 
@@ -182,7 +182,7 @@ class Builder
      */
     public function addHeaderValue($header, $headerValue)
     {
-        if (!isset($this->headers[$header])) {
+        if (! isset($this->headers[$header])) {
             $this->headers[$header] = $headerValue;
         } else {
             $this->headers[$header] = array_merge((array) $this->headers[$header], [$headerValue]);
@@ -208,10 +208,10 @@ class Builder
      */
     public function addCache(CacheItemPoolInterface $cachePool, array $config = [])
     {
-        if (!isset($config['cache_key_generator'])) {
+        if (! isset($config['cache_key_generator'])) {
             $config['cache_key_generator'] = new HeaderCacheKeyGenerator(['Cookie', 'Accept', 'Content-type']);
         }
-        $this->cachePlugin        = Plugin\CachePlugin::clientCache($cachePool, $this->streamFactory, $config);
+        $this->cachePlugin = Plugin\CachePlugin::clientCache($cachePool, $this->streamFactory, $config);
         $this->httpClientModified = true;
     }
 
@@ -220,7 +220,7 @@ class Builder
      */
     public function removeCache()
     {
-        $this->cachePlugin        = null;
+        $this->cachePlugin = null;
         $this->httpClientModified = true;
     }
 }
