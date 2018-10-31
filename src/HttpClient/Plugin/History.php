@@ -13,8 +13,8 @@ declare(strict_types=1);
 
 namespace ArkEcosystem\Client\HttpClient\Plugin;
 
-use Http\Client\Common\Plugin\Journal;
 use Http\Client\Exception;
+use Http\Client\Common\Plugin\Journal;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 

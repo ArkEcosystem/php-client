@@ -78,7 +78,7 @@ class ConnectionManager
     {
         $name = $name ?? $this->getDefaultConnection();
 
-        if (!isset($this->connections[$name])) {
+        if (! isset($this->connections[$name])) {
             throw new InvalidArgumentException("Connection [$name] not configured.");
         }
 
