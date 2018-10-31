@@ -132,7 +132,8 @@ abstract class AbstractAPI implements API
     {
         $response = $this->connection->getHttpClient()->post(
             $this->getUri($path),
-            ['json' => $parameters]
+            [],
+            $this->createJsonBody($parameters)
         );
 
         return ResponseMediator::getContent($response);
@@ -148,5 +149,19 @@ abstract class AbstractAPI implements API
     private function getUri(string $path): string
     {
         return '/' !== $path[0] ? "/{$path}" : $path;
+    }
+
+    /**
+     * Create a JSON encoded version of an array of parameters.
+     *
+     * @param array $parameters Request parameters
+     *
+     * @return null|string
+     */
+    protected function createJsonBody(array $parameters): ?string
+    {
+        return (count($parameters) === 0)
+            ? null
+            : json_encode($parameters, empty($parameters) ? JSON_FORCE_OBJECT : 0);
     }
 }
