@@ -93,9 +93,9 @@ class Builder
         RequestFactory $requestFactory = null,
         StreamFactory $streamFactory = null
     ) {
-        $this->httpClient     = $httpClient ?? HttpClientDiscovery::find();
+        $this->httpClient = $httpClient ?? HttpClientDiscovery::find();
         $this->requestFactory = $requestFactory ?? MessageFactoryDiscovery::find();
-        $this->streamFactory  = $streamFactory ?? StreamFactoryDiscovery::find();
+        $this->streamFactory = $streamFactory ?? StreamFactoryDiscovery::find();
     }
 
     /**
@@ -135,7 +135,7 @@ class Builder
      */
     public function addPlugin(Plugin $plugin)
     {
-        $this->plugins[]          = $plugin;
+        $this->plugins[] = $plugin;
         $this->httpClientModified = true;
     }
 
@@ -211,7 +211,7 @@ class Builder
         if (!isset($config['cache_key_generator'])) {
             $config['cache_key_generator'] = new HeaderCacheKeyGenerator(['Cookie', 'Accept', 'Content-type']);
         }
-        $this->cachePlugin        = Plugin\CachePlugin::clientCache($cachePool, $this->streamFactory, $config);
+        $this->cachePlugin = Plugin\CachePlugin::clientCache($cachePool, $this->streamFactory, $config);
         $this->httpClientModified = true;
     }
 
@@ -220,7 +220,7 @@ class Builder
      */
     public function removeCache()
     {
-        $this->cachePlugin        = null;
+        $this->cachePlugin = null;
         $this->httpClientModified = true;
     }
 }

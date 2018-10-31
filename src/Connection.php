@@ -48,8 +48,8 @@ class Connection
      */
     public function __construct(array $config, Builder $httpClientBuilder = null)
     {
-        $this->config            = $config;
-        $this->responseHistory   = new History();
+        $this->config = $config;
+        $this->responseHistory = new History();
         $this->httpClientBuilder = $httpClientBuilder ?? new Builder();
 
         $this->httpClientBuilder->addPlugin(new ExceptionThrower());
@@ -88,7 +88,7 @@ class Connection
      *
      * @return \ArkEcosystem\Client\Connection
      */
-    public static function createWithHttpClient(array $config, HttpClient $httpClient): Connection
+    public static function createWithHttpClient(array $config, HttpClient $httpClient): self
     {
         return new static($config, new Builder($httpClient));
     }
@@ -103,9 +103,9 @@ class Connection
     public function api(string $name): API\AbstractAPI
     {
         $formatter = new NumberFormatter('en', NumberFormatter::SPELLOUT);
-        $version   = ucfirst($formatter->format($this->config['version']));
-        $name      = ucfirst($name);
-        $class     = "ArkEcosystem\\Client\\API\\{$version}\\{$name}";
+        $version = ucfirst($formatter->format($this->config['version']));
+        $name = ucfirst($name);
+        $class = "ArkEcosystem\\Client\\API\\{$version}\\{$name}";
 
         if (!class_exists($class)) {
             throw new RuntimeException("Class [$class] does not exist.");

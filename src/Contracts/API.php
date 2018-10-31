@@ -34,7 +34,7 @@ interface API
      *
      * @return \ArkEcosystem\Client\Contracts\API
      */
-    public function setOffset(int $offset): API;
+    public function setOffset(int $offset): self;
 
     /**
      * Get the number of items returned per request.
@@ -50,5 +50,5 @@ interface API
      *
      * @return \ArkEcosystem\Client\Contracts\API
      */
-    public function setLimit(int $limit): API;
+    public function setLimit(int $limit): self;
 }
