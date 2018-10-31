@@ -41,7 +41,7 @@ class Transactions extends AbstractAPI
      */
     public function create(array $transactions): array
     {
-        return $this->post('transactions', $transactions);
+        return $this->post('transactions', compact('transactions'));
     }
 
     /**
