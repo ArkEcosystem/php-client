@@ -58,7 +58,7 @@ class Connection
         $this->httpClientBuilder->addPlugin(new Plugin\BaseUriPlugin(UriFactoryDiscovery::find()->createUri($config['host'])));
         $this->httpClientBuilder->addPlugin(new Plugin\HeaderDefaultsPlugin([
             'User-Agent' => 'ark-php-client (https://github.com/ArkEcosystem/php-client)',
-            'Content-Type' => 'application/json'
+            'Content-Type' => 'application/json',
         ]));
 
         $this->httpClientBuilder->addHeaderValue('API-Version', $config['version']);
