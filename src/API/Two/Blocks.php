@@ -25,11 +25,13 @@ class Blocks extends AbstractAPI
     /**
      * Get all blocks.
      *
+     * @param array $query
+     *
      * @return array
      */
-    public function all(): array
+    public function all(array $query = []): array
     {
-        return $this->get('blocks');
+        return $this->get('blocks', $query);
     }
 
     /**
@@ -48,10 +50,11 @@ class Blocks extends AbstractAPI
      * Get all transactions by the given block.
      *
      * @param string $id
+     * @param array  $query
      *
      * @return array
      */
-    public function transactions(string $id): array
+    public function transactions(string $id, array $query = []): array
     {
         return $this->get("blocks/{$id}/transactions");
     }

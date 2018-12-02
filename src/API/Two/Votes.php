@@ -25,11 +25,13 @@ class Votes extends AbstractAPI
     /**
      * Get all votes.
      *
+     * @param array $query
+     *
      * @return array
      */
-    public function all(): array
+    public function all(array $query = []): array
     {
-        return $this->get('votes');
+        return $this->get('votes', $query);
     }
 
     /**
