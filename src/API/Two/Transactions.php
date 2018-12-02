@@ -25,11 +25,13 @@ class Transactions extends AbstractAPI
     /**
      * Get all transactions.
      *
+     * @param array $query
+     *
      * @return array
      */
-    public function all(): array
+    public function all(array $query = []): array
     {
-        return $this->get('transactions');
+        return $this->get('transactions', $query);
     }
 
     /**

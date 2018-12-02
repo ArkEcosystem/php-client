@@ -25,11 +25,13 @@ class Delegates extends AbstractAPI
     /**
      * Get all accounts.
      *
+     * @param array $query
+     *
      * @return array
      */
-    public function all(): array
+    public function all(array $query = []): array
     {
-        return $this->get('delegates');
+        return $this->get('delegates', $query);
     }
 
     /**
@@ -48,10 +50,11 @@ class Delegates extends AbstractAPI
      * Get all blocks for the given delegate.
      *
      * @param string $id
+     * @param array  $query
      *
      * @return array
      */
-    public function blocks(string $id): array
+    public function blocks(string $id, array $query = []): array
     {
         return $this->get("delegates/{$id}/blocks");
     }
@@ -60,10 +63,11 @@ class Delegates extends AbstractAPI
      * Get all voters for the given delegate.
      *
      * @param string $id
+     * @param array  $query
      *
      * @return array
      */
-    public function voters(string $id): array
+    public function voters(string $id, array $query = []): array
     {
         return $this->get("delegates/{$id}/voters");
     }
