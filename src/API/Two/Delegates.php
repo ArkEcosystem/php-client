@@ -56,7 +56,7 @@ class Delegates extends AbstractAPI
      */
     public function blocks(string $id, array $query = []): array
     {
-        return $this->get("delegates/{$id}/blocks");
+        return $this->get("delegates/{$id}/blocks", $query);
     }
 
     /**
@@ -69,6 +69,6 @@ class Delegates extends AbstractAPI
      */
     public function voters(string $id, array $query = []): array
     {
-        return $this->get("delegates/{$id}/voters");
+        return $this->get("delegates/{$id}/voters", $query);
     }
 }

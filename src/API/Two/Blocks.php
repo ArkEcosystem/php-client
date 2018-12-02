@@ -56,7 +56,7 @@ class Blocks extends AbstractAPI
      */
     public function transactions(string $id, array $query = []): array
     {
-        return $this->get("blocks/{$id}/transactions");
+        return $this->get("blocks/{$id}/transactions", $query);
     }
 
     /**

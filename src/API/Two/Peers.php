@@ -25,11 +25,13 @@ class Peers extends AbstractAPI
     /**
      * Get all peers.
      *
+     * @param array $query
+     *
      * @return array
      */
-    public function all(): array
+    public function all(array $query = []): array
     {
-        return $this->get('peers');
+        return $this->get('peers', $query);
     }
 
     /**

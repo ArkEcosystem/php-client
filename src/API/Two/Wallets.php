@@ -56,7 +56,7 @@ class Wallets extends AbstractAPI
      */
     public function transactions(string $id, array $query = []): array
     {
-        return $this->get("wallets/{$id}/transactions");
+        return $this->get("wallets/{$id}/transactions", $query);
     }
 
     /**
@@ -69,7 +69,7 @@ class Wallets extends AbstractAPI
      */
     public function sentTransactions(string $id, array $query = []): array
     {
-        return $this->get("wallets/{$id}/transactions/sent");
+        return $this->get("wallets/{$id}/transactions/sent", $query);
     }
 
     /**
@@ -82,7 +82,7 @@ class Wallets extends AbstractAPI
      */
     public function receivedTransactions(string $id, array $query = []): array
     {
-        return $this->get("wallets/{$id}/transactions/received");
+        return $this->get("wallets/{$id}/transactions/received", $query);
     }
 
     /**
@@ -95,7 +95,7 @@ class Wallets extends AbstractAPI
      */
     public function votes(string $id, array $query = []): array
     {
-        return $this->get("wallets/{$id}/votes");
+        return $this->get("wallets/{$id}/votes", $query);
     }
 
     /**
