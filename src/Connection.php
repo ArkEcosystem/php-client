@@ -61,7 +61,7 @@ class Connection
             'Content-Type' => 'application/json',
         ]));
 
-        $this->httpClientBuilder->addHeaderValue('API-Version', $config['version']);
+        $this->httpClientBuilder->addHeaderValue('API-Version', 2);
     }
 
     /**
@@ -103,10 +103,8 @@ class Connection
      */
     public function api(string $name): API\AbstractAPI
     {
-        $formatter = new NumberFormatter('en', NumberFormatter::SPELLOUT);
-        $version = ucfirst($formatter->format($this->config['version']));
         $name = ucfirst($name);
-        $class = "ArkEcosystem\\Client\\API\\{$version}\\{$name}";
+        $class = "ArkEcosystem\\Client\\API\\{$name}";
 
         if (! class_exists($class)) {
             throw new RuntimeException("Class [$class] does not exist.");

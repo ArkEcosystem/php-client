@@ -11,7 +11,7 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace ArkEcosystem\Tests\Client\API\Two;
+namespace ArkEcosystem\Tests\Client\API;
 
 use ArkEcosystem\Tests\Client\TestCase;
 
@@ -19,7 +19,7 @@ use ArkEcosystem\Tests\Client\TestCase;
  * This is the wallets resource test class.
  *
  * @author Brian Faust <brian@ark.io>
- * @covers \ArkEcosystem\Client\API\Two\Wallets
+ * @covers \ArkEcosystem\Client\API\Wallets
  */
 class WalletsTest extends TestCase
 {
@@ -92,6 +92,6 @@ class WalletsTest extends TestCase
      */
     protected function getApiClass()
     {
-        return \ArkEcosystem\Client\API\Two\Wallets::class;
+        return \ArkEcosystem\Client\API\Wallets::class;
     }
 }

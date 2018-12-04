@@ -11,7 +11,7 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace ArkEcosystem\Client\API\Two;
+namespace ArkEcosystem\Client\API;
 
 use ArkEcosystem\Client\API\AbstractAPI;
 

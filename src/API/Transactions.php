@@ -11,7 +11,7 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace ArkEcosystem\Client\API\One;
+namespace ArkEcosystem\Client\API;
 
 use ArkEcosystem\Client\API\AbstractAPI;
 
@@ -23,7 +23,7 @@ use ArkEcosystem\Client\API\AbstractAPI;
 class Transactions extends AbstractAPI
 {
     /**
-     * Get all accounts.
+     * Get all transactions.
      *
      * @param array $query
      *
@@ -35,6 +35,18 @@ class Transactions extends AbstractAPI
     }
 
     /**
+     * Create a new transaction.
+     *
+     * @param array $transactions
+     *
+     * @return array
+     */
+    public function create(array $transactions): array
+    {
+        return $this->post('transactions', compact('transactions'));
+    }
+
+    /**
      * Get a transaction by the given id.
      *
      * @param string $id
@@ -43,19 +55,17 @@ class Transactions extends AbstractAPI
      */
     public function show(string $id): array
     {
-        return $this->get('transactions/get', compact('id'));
+        return $this->get("transactions/{$id}");
     }
 
     /**
      * Get all unconfirmed transactions.
      *
-     * @param array $query
-     *
      * @return array
      */
-    public function allUnconfirmed(array $query = []): array
+    public function allUnconfirmed(): array
     {
-        return $this->get('transactions/unconfirmed', $query);
+        return $this->get('transactions/unconfirmed');
     }
 
     /**
@@ -67,6 +77,28 @@ class Transactions extends AbstractAPI
      */
     public function showUnconfirmed(string $id): array
     {
-        return $this->get('transactions/unconfirmed/get', compact('id'));
+        return $this->get("transactions/unconfirmed/{$id}");
+    }
+
+    /**
+     * Filter all transactions by the given parameters.
+     *
+     * @param array $parameters
+     *
+     * @return array
+     */
+    public function search(array $parameters): array
+    {
+        return $this->post('transactions/search', $parameters);
+    }
+
+    /**
+     * Get a list of valid transaction types.
+     *
+     * @return array
+     */
+    public function types(): array
+    {
+        return $this->get('transactions/types');
     }
 }
