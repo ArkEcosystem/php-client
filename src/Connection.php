@@ -13,7 +13,6 @@ declare(strict_types=1);
 
 namespace ArkEcosystem\Client;
 
-use NumberFormatter;
 use RuntimeException;
 use GuzzleHttp\Client;
 use BadMethodCallException;
