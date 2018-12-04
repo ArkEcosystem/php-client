@@ -13,8 +13,6 @@ declare(strict_types=1);
 
 namespace ArkEcosystem\Client\API;
 
-use ArkEcosystem\Client\API\AbstractAPI;
-
 /**
  * This is the transactions resource class.
  *
