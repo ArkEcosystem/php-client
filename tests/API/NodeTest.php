@@ -11,7 +11,7 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace ArkEcosystem\Tests\Client\API\Two;
+namespace ArkEcosystem\Tests\Client\API;
 
 use ArkEcosystem\Tests\Client\TestCase;
 
@@ -19,7 +19,7 @@ use ArkEcosystem\Tests\Client\TestCase;
  * This is the node resource test class.
  *
  * @author Brian Faust <brian@ark.io>
- * @covers \ArkEcosystem\Client\API\Two\Node
+ * @covers \ArkEcosystem\Client\API\Node
  */
 class NodeTest extends TestCase
 {
@@ -52,6 +52,6 @@ class NodeTest extends TestCase
      */
     protected function getApiClass()
     {
-        return \ArkEcosystem\Client\API\Two\Node::class;
+        return \ArkEcosystem\Client\API\Node::class;
     }
 }

@@ -11,44 +11,44 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace ArkEcosystem\Client\API\One;
+namespace ArkEcosystem\Client\API;
 
 use ArkEcosystem\Client\API\AbstractAPI;
 
 /**
- * This is the loader resource class.
+ * This is the node resource class.
  *
  * @author Brian Faust <brian@ark.io>
  */
-class Loader extends AbstractAPI
+class Node extends AbstractAPI
 {
     /**
-     * Get the loader status.
+     * Get the node status.
      *
      * @return array
      */
     public function status(): array
     {
-        return $this->get('loader/status');
+        return $this->get('node/status');
     }
 
     /**
-     * Get the loader syncing status.
+     * Get the node syncing status.
      *
      * @return array
      */
-    public function sync(): array
+    public function syncing(): array
     {
-        return $this->get('loader/status/sync');
+        return $this->get('node/syncing');
     }
 
     /**
-     * Get the loader configuration.
+     * Get the node configuration.
      *
      * @return array
      */
-    public function autoconfigure(): array
+    public function configuration(): array
     {
-        return $this->get('loader/autoconfigure');
+        return $this->get('node/configuration');
     }
 }

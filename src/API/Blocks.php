@@ -11,19 +11,19 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace ArkEcosystem\Client\API\Two;
+namespace ArkEcosystem\Client\API;
 
 use ArkEcosystem\Client\API\AbstractAPI;
 
 /**
- * This is the delegates resource class.
+ * This is the blocks resource class.
  *
  * @author Brian Faust <brian@ark.io>
  */
-class Delegates extends AbstractAPI
+class Blocks extends AbstractAPI
 {
     /**
-     * Get all accounts.
+     * Get all blocks.
      *
      * @param array $query
      *
@@ -31,7 +31,7 @@ class Delegates extends AbstractAPI
      */
     public function all(array $query = []): array
     {
-        return $this->get('delegates', $query);
+        return $this->get('blocks', $query);
     }
 
     /**
@@ -43,32 +43,31 @@ class Delegates extends AbstractAPI
      */
     public function show(string $id): array
     {
-        return $this->get("delegates/{$id}");
+        return $this->get("blocks/{$id}");
     }
 
     /**
-     * Get all blocks for the given delegate.
+     * Get all transactions by the given block.
      *
      * @param string $id
      * @param array  $query
      *
      * @return array
      */
-    public function blocks(string $id, array $query = []): array
+    public function transactions(string $id, array $query = []): array
     {
-        return $this->get("delegates/{$id}/blocks", $query);
+        return $this->get("blocks/{$id}/transactions", $query);
     }
 
     /**
-     * Get all voters for the given delegate.
+     * Filter all blocks by the given parameters.
      *
-     * @param string $id
-     * @param array  $query
+     * @param array $parameters
      *
      * @return array
      */
-    public function voters(string $id, array $query = []): array
+    public function search(array $parameters): array
     {
-        return $this->get("delegates/{$id}/voters", $query);
+        return $this->post('blocks/search', $parameters);
     }
 }

@@ -11,7 +11,7 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace ArkEcosystem\Tests\Client\API\Two;
+namespace ArkEcosystem\Tests\Client\API;
 
 use ArkEcosystem\Tests\Client\TestCase;
 
@@ -19,7 +19,7 @@ use ArkEcosystem\Tests\Client\TestCase;
  * This is the transactions resource test class.
  *
  * @author Brian Faust <brian@ark.io>
- * @covers \ArkEcosystem\Client\API\Two\Transactions
+ * @covers \ArkEcosystem\Client\API\Transactions
  */
 class TransactionsTest extends TestCase
 {
@@ -84,6 +84,6 @@ class TransactionsTest extends TestCase
      */
     protected function getApiClass()
     {
-        return \ArkEcosystem\Client\API\Two\Transactions::class;
+        return \ArkEcosystem\Client\API\Transactions::class;
     }
 }

@@ -11,22 +11,22 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace ArkEcosystem\Tests\Client\API\Two;
+namespace ArkEcosystem\Tests\Client\API;
 
 use ArkEcosystem\Tests\Client\TestCase;
 
 /**
- * This is the blocks resource test class.
+ * This is the delegates resource test class.
  *
  * @author Brian Faust <brian@ark.io>
- * @covers \ArkEcosystem\Client\API\Two\Blocks
+ * @covers \ArkEcosystem\Client\API\Delegates
  */
-class BlocksTest extends TestCase
+class DelegatesTest extends TestCase
 {
     /** @test */
     public function all_calls_correct_url()
     {
-        $this->assertResponse(2, 'GET', 'blocks', function ($mock) {
+        $this->assertResponse(2, 'GET', 'delegates', function ($mock) {
             return $mock->all();
         });
     }
@@ -34,24 +34,24 @@ class BlocksTest extends TestCase
     /** @test */
     public function show_calls_correct_url()
     {
-        $this->assertResponse(2, 'GET', 'blocks/dummy', function ($mock) {
+        $this->assertResponse(2, 'GET', 'delegates/dummy', function ($mock) {
             return $mock->show('dummy');
         });
     }
 
     /** @test */
-    public function transactions_calls_correct_url()
+    public function blocks_calls_correct_url()
     {
-        $this->assertResponse(2, 'GET', 'blocks/dummy/transactions', function ($mock) {
-            return $mock->transactions('dummy');
+        $this->assertResponse(2, 'GET', 'delegates/dummy/blocks', function ($mock) {
+            return $mock->blocks('dummy');
         });
     }
 
     /** @test */
-    public function search_calls_correct_url()
+    public function voters_calls_correct_url()
     {
-        $this->assertResponse(2, 'POST', 'blocks/search', function ($mock) {
-            return $mock->search(['address' => 'dummy']);
+        $this->assertResponse(2, 'GET', 'delegates/dummy/voters', function ($mock) {
+            return $mock->voters('dummy');
         });
     }
 
@@ -60,6 +60,6 @@ class BlocksTest extends TestCase
      */
     protected function getApiClass()
     {
-        return \ArkEcosystem\Client\API\Two\Blocks::class;
+        return \ArkEcosystem\Client\API\Delegates::class;
     }
 }

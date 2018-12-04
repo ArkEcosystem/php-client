@@ -11,22 +11,22 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace ArkEcosystem\Tests\Client\API\Two;
+namespace ArkEcosystem\Tests\Client\API;
 
 use ArkEcosystem\Tests\Client\TestCase;
 
 /**
- * This is the votes resource test class.
+ * This is the peers resource test class.
  *
  * @author Brian Faust <brian@ark.io>
- * @covers \ArkEcosystem\Client\API\Two\Votes
+ * @covers \ArkEcosystem\Client\API\Peers
  */
-class VotesTest extends TestCase
+class PeersTest extends TestCase
 {
     /** @test */
     public function all_calls_correct_url()
     {
-        $this->assertResponse(2, 'GET', 'votes', function ($mock) {
+        $this->assertResponse(2, 'GET', 'peers', function ($mock) {
             return $mock->all();
         });
     }
@@ -34,7 +34,7 @@ class VotesTest extends TestCase
     /** @test */
     public function show_calls_correct_url()
     {
-        $this->assertResponse(2, 'GET', 'votes/dummy', function ($mock) {
+        $this->assertResponse(2, 'GET', 'peers/dummy', function ($mock) {
             return $mock->show('dummy');
         });
     }
@@ -44,6 +44,6 @@ class VotesTest extends TestCase
      */
     protected function getApiClass()
     {
-        return \ArkEcosystem\Client\API\Two\Votes::class;
+        return \ArkEcosystem\Client\API\Peers::class;
     }
 }
