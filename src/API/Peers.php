@@ -11,9 +11,7 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace ArkEcosystem\Client\API\One;
-
-use ArkEcosystem\Client\API\AbstractAPI;
+namespace ArkEcosystem\Client\API;
 
 /**
  * This is the peers resource class.
@@ -23,9 +21,9 @@ use ArkEcosystem\Client\API\AbstractAPI;
 class Peers extends AbstractAPI
 {
     /**
-     * Get all accounts.
+     * Get all peers.
      *
-     * @param string $query
+     * @param array $query
      *
      * @return array
      */
@@ -35,25 +33,14 @@ class Peers extends AbstractAPI
     }
 
     /**
-     * Get a peer by the given IP address and port.
+     * Get a peer by the given IP address.
      *
      * @param string $ip
-     * @param int    $port
      *
      * @return array
      */
-    public function show(string $ip, int $port): array
+    public function show(string $ip): array
     {
-        return $this->get('peers/get', compact('ip', 'port'));
-    }
-
-    /**
-     * Get the node version of the given peer.
-     *
-     * @return array
-     */
-    public function version(): array
-    {
-        return $this->get('peers/version');
+        return $this->get("peers/{$ip}");
     }
 }

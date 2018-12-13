@@ -11,22 +11,22 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace ArkEcosystem\Tests\Client\API\One;
+namespace ArkEcosystem\Tests\Client\API;
 
 use ArkEcosystem\Tests\Client\TestCase;
 
 /**
- * This is the peers resource test class.
+ * This is the votes resource test class.
  *
  * @author Brian Faust <brian@ark.io>
- * @covers \ArkEcosystem\Client\API\One\Peers
+ * @covers \ArkEcosystem\Client\API\Votes
  */
-class PeersTest extends TestCase
+class VotesTest extends TestCase
 {
     /** @test */
     public function all_calls_correct_url()
     {
-        $this->assertResponse(1, 'GET', 'peers', function ($mock) {
+        $this->assertResponse(2, 'GET', 'votes', function ($mock) {
             return $mock->all();
         });
     }
@@ -34,16 +34,8 @@ class PeersTest extends TestCase
     /** @test */
     public function show_calls_correct_url()
     {
-        $this->assertResponse(1, 'GET', 'peers/get', function ($mock) {
-            return $mock->show('ip', 1234);
-        });
-    }
-
-    /** @test */
-    public function version_calls_correct_url()
-    {
-        $this->assertResponse(1, 'GET', 'peers/version', function ($mock) {
-            return $mock->version();
+        $this->assertResponse(2, 'GET', 'votes/dummy', function ($mock) {
+            return $mock->show('dummy');
         });
     }
 
@@ -52,6 +44,6 @@ class PeersTest extends TestCase
      */
     protected function getApiClass()
     {
-        return \ArkEcosystem\Client\API\One\Peers::class;
+        return \ArkEcosystem\Client\API\Votes::class;
     }
 }

@@ -11,19 +11,17 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace ArkEcosystem\Client\API\Two;
-
-use ArkEcosystem\Client\API\AbstractAPI;
+namespace ArkEcosystem\Client\API;
 
 /**
- * This is the peers resource class.
+ * This is the votes resource class.
  *
  * @author Brian Faust <brian@ark.io>
  */
-class Peers extends AbstractAPI
+class Votes extends AbstractAPI
 {
     /**
-     * Get all peers.
+     * Get all votes.
      *
      * @param array $query
      *
@@ -31,18 +29,18 @@ class Peers extends AbstractAPI
      */
     public function all(array $query = []): array
     {
-        return $this->get('peers', $query);
+        return $this->get('votes', $query);
     }
 
     /**
-     * Get a peer by the given IP address.
+     * Get a vote by the given id.
      *
-     * @param string $ip
+     * @param string $id
      *
      * @return array
      */
-    public function show(string $ip): array
+    public function show(string $id): array
     {
-        return $this->get("peers/{$ip}");
+        return $this->get("votes/{$id}");
     }
 }

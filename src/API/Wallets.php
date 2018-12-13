@@ -11,9 +11,7 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace ArkEcosystem\Client\API\Two;
-
-use ArkEcosystem\Client\API\AbstractAPI;
+namespace ArkEcosystem\Client\API;
 
 /**
  * This is the wallets resource class.
