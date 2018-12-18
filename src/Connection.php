@@ -16,14 +16,6 @@ namespace ArkEcosystem\Client;
 use RuntimeException;
 use GuzzleHttp\Client;
 use BadMethodCallException;
-use Http\Client\HttpClient;
-use Http\Client\Common\Plugin;
-use Psr\Cache\CacheItemPoolInterface;
-use Http\Discovery\UriFactoryDiscovery;
-use Http\Client\Common\HttpMethodsClient;
-use ArkEcosystem\Client\HttpClient\Builder;
-use ArkEcosystem\Client\HttpClient\Plugin\History;
-use ArkEcosystem\Client\HttpClient\Plugin\ExceptionThrower;
 
 /**
  * This is the connection class.
@@ -48,19 +40,15 @@ class Connection
     public function __construct(array $config, Builder $httpClientBuilder = null)
     {
         $this->config = $config;
-        $this->responseHistory = new History();
-        $this->httpClientBuilder = $httpClientBuilder ?? new Builder();
 
-        $this->httpClientBuilder->addPlugin(new ExceptionThrower());
-        $this->httpClientBuilder->addPlugin(new Plugin\HistoryPlugin($this->responseHistory));
-        $this->httpClientBuilder->addPlugin(new Plugin\RedirectPlugin());
-        $this->httpClientBuilder->addPlugin(new Plugin\BaseUriPlugin(UriFactoryDiscovery::find()->createUri($config['host'])));
-        $this->httpClientBuilder->addPlugin(new Plugin\HeaderDefaultsPlugin([
-            'User-Agent' => 'ark-php-client (https://github.com/ArkEcosystem/php-client)',
-            'Content-Type' => 'application/json',
+        $this->client = new Client([
+            'base_uri' => $config['host'],
+            'headers' => [
+                'User-Agent' => 'ark-php-client (https://github.com/ArkEcosystem/php-client)',
+                'Content-Type' => 'application/json',
+                'API-Version' => 2,
+            ]
         ]));
-
-        $this->httpClientBuilder->addHeaderValue('API-Version', 2);
     }
 
     /**
@@ -81,19 +69,6 @@ class Connection
     }
 
     /**
-     * Create a Github\Client using a HttpClient.
-     *
-     * @param array                   $config
-     * @param \Http\Client\HttpClient $httpClient
-     *
-     * @return \ArkEcosystem\Client\Connection
-     */
-    public static function createWithHttpClient(array $config, HttpClient $httpClient): self
-    {
-        return new static($config, new Builder($httpClient));
-    }
-
-    /**
      * Make a new resource instance.
      *
      * @param string $name
@@ -110,48 +85,5 @@ class Connection
         }
 
         return new $class($this);
-    }
-
-    /**
-     * Add a cache plugin to cache responses locally.
-     *
-     * @param CacheItemPoolInterface $cache
-     * @param array                  $config
-     */
-    public function addCache(CacheItemPoolInterface $cachePool, array $config = [])
-    {
-        $this->getHttpClientBuilder()->addCache($cachePool, $config);
-    }
-
-    /**
-     * Remove the cache plugin.
-     */
-    public function removeCache(): void
-    {
-        $this->getHttpClientBuilder()->removeCache();
-    }
-
-    /**
-     * @return null|\Psr\Http\Message\ResponseInterface
-     */
-    public function getLastResponse()
-    {
-        return $this->responseHistory->getLastResponse();
-    }
-
-    /**
-     * @return \Http\Client\Common\HttpMethodsClient
-     */
-    public function getHttpClient(): HttpMethodsClient
-    {
-        return $this->getHttpClientBuilder()->getHttpClient();
-    }
-
-    /**
-     * @return \ArkEcosystem\Client\HttpClient\Builder
-     */
-    public function getHttpClientBuilder(): Builder
-    {
-        return $this->httpClientBuilder;
     }
 }

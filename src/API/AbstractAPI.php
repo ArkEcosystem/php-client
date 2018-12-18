@@ -24,7 +24,7 @@ use ArkEcosystem\Client\HttpClient\Message\ResponseMediator;
  *
  * @author Brian Faust <brian@ark.io>
  */
-abstract class AbstractAPI implements API
+abstract class AbstractAPI
 {
     /**
      * The client connection.
