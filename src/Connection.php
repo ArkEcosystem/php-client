@@ -48,7 +48,7 @@ class Connection
             ],
         ];
 
-        if ($handler) {
+        if ($handler instanceof HandlerStack) {
             $options['handler'] = $handler;
         }
 
@@ -91,7 +91,11 @@ class Connection
         return new $class($this);
     }
 
-    public function getHttpClient()
+    /**
+     * Get the Guzzle client instance.
+     * @return \GuzzleHttp\Client
+     */
+    public function getHttpClient(): Client
     {
         return $this->httpClient;
     }
