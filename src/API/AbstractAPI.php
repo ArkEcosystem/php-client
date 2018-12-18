@@ -33,20 +33,6 @@ abstract class AbstractAPI
     public $connection;
 
     /**
-     * The requested offset.
-     *
-     * @var null|int
-     */
-    protected $offset;
-
-    /**
-     * Number of items per request.
-     *
-     * @var null|int
-     */
-    protected $limit;
-
-    /**
      * Create a new API class instance.
      *
      * @param \ArkEcosystem\Client\Connection $connection
@@ -56,53 +42,17 @@ abstract class AbstractAPI
         $this->connection = $connection;
     }
 
-    public function getOffset(): ?int
-    {
-        return $this->offset;
-    }
-
-    public function setOffset(int $offset): API
-    {
-        $this->offset = (null === $offset ? $offset : (int) $offset);
-
-        return $this;
-    }
-
-    public function getLimit(): ?int
-    {
-        return $this->limit;
-    }
-
-    public function setLimit(int $limit): API
-    {
-        $this->limit = (null === $limit ? $limit : (int) $limit);
-
-        return $this;
-    }
-
     /**
      * Send a GET request with query parameters.
      *
      * @param string $path
-     * @param array  $parameters
+     * @param array  $query
      *
      * @return array|string
      */
-    protected function get(string $path, array $parameters = [])
+    protected function get(string $path, array $query = [])
     {
-        if (null !== $this->offset && ! isset($parameters['offset'])) {
-            $parameters['offset'] = $this->offset;
-        }
-
-        if (null !== $this->limit && ! isset($parameters['limit'])) {
-            $parameters['limit'] = $this->limit;
-        }
-
-        if (count($parameters) > 0) {
-            $path .= '?'.http_build_query($parameters);
-        }
-
-        $response = $this->connection->getHttpClient()->get($path);
+        $response = $this->connection->getHttpClient()->get($path, compact('query'));
 
         return json_decode($response->getBody()->getContents(), true);
     }
