@@ -48,7 +48,7 @@ class Connection
                 'User-Agent' => 'ark-php-client (https://github.com/ArkEcosystem/php-client)',
                 'Content-Type' => 'application/json',
                 'API-Version' => 2,
-            ]
+            ],
         ];
 
         if ($handler) {
