@@ -43,7 +43,6 @@ class Connection
         $options = [
             'base_uri' => $config['host'],
             'headers' => [
-                'User-Agent' => 'ark-php-client (https://github.com/ArkEcosystem/php-client)',
                 'Content-Type' => 'application/json',
                 'API-Version' => 2,
             ],
