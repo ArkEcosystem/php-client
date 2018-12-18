@@ -57,17 +57,11 @@ abstract class AbstractAPI
         $this->connection = $connection;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getOffset(): ?int
     {
         return $this->offset;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function setOffset(int $offset): API
     {
         $this->offset = (null === $offset ? $offset : (int) $offset);
@@ -75,17 +69,11 @@ abstract class AbstractAPI
         return $this;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getLimit(): ?int
     {
         return $this->limit;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function setLimit(int $limit): API
     {
         $this->limit = (null === $limit ? $limit : (int) $limit);
