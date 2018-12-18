@@ -13,9 +13,15 @@ declare(strict_types=1);
 
 namespace ArkEcosystem\Tests\Client;
 
-use GuzzleHttp\Psr7\Response;
 use ArkEcosystem\Client\Connection;
 use PHPUnit\Framework\TestCase as BaseTestCase;
+
+use GuzzleHttp\Client;
+use GuzzleHttp\Handler\MockHandler;
+use GuzzleHttp\HandlerStack;
+use GuzzleHttp\Psr7\Response;
+use GuzzleHttp\Psr7\Request;
+use GuzzleHttp\Exception\RequestException;
 
 abstract class TestCase extends BaseTestCase
 {
@@ -27,64 +33,22 @@ abstract class TestCase extends BaseTestCase
     protected $host = 'http://127.0.0.1:4002/api';
 
     /**
-     * Create an API resource mock.
-     *
-     * @param int $version
-     *
-     * @return object
-     */
-    protected function getApiMock()
-    {
-        $httpClient = $this
-            ->getMockBuilder(\Http\Client\HttpClient::class)
-            ->setMethods(['sendRequest'])
-            ->getMock();
-
-        $httpClient
-            ->expects($this->any())
-            ->method('sendRequest');
-
-        $connection = Connection::createWithHttpClient([
-            'host' => $this->host
-        ], $httpClient);
-
-        return $this
-            ->getMockBuilder($this->getApiClass())
-            ->setMethods(['get', 'post', 'postRaw', 'patch', 'delete', 'put', 'head'])
-            ->setConstructorArgs([$connection])
-            ->getMock();
-    }
-
-    /**
      * Perform a mocked request and assert its response.
      *
      * @param int        $version
      * @param string     $method
      * @param string     $path
      * @param callable   $callback
-     * @param array|null $expected
+     * @param array|null $expectedBody
      */
-    protected function assertResponse(int $version, string $method, string $path, callable $callback, array $expected = null): void
+    protected function assertResponse(int $version, string $method, string $path, callable $callback, array $expectedBody = []): void
     {
-        $expected = $expected ?: ['success' => true];
+        $mockHandler = new MockHandler([new Response(200, [], json_encode($expectedBody))]);
 
-        $api = $this->getApiMock();
-        $api->expects($this->once())
-            ->method(strtolower($method))
-            ->with($path)
-            ->will($this->returnValue($expected));
+        $connection = new Connection([
+            'host' => $this->host
+        ], HandlerStack::create($mockHandler));
 
-        $this->assertSame($expected, $callback($api));
-    }
-
-    protected function getResponse(): Response
-    {
-        $body = \GuzzleHttp\Psr7\stream_for(json_encode([
-            'username' => 'dummy',
-        ]));
-
-        return new Response(200, [
-            'Content-Type' => 'application/json',
-        ], $body);
+        $this->assertSame($expectedBody, $callback($connection));
     }
 }

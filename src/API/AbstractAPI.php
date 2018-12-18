@@ -17,7 +17,6 @@ use GuzzleHttp\Client;
 use ArkEcosystem\Client\Connection;
 use ArkEcosystem\Client\Http\Request;
 use ArkEcosystem\Client\Contracts\API;
-use ArkEcosystem\Client\HttpClient\Message\ResponseMediator;
 
 /**
  * This is the abstract resource class.
@@ -105,7 +104,7 @@ abstract class AbstractAPI
 
         $response = $this->connection->getHttpClient()->get($this->getUri($path));
 
-        return ResponseMediator::getContent($response);
+        return json_decode($response->getBody()->getContents(), true);
     }
 
     /**
@@ -124,7 +123,7 @@ abstract class AbstractAPI
             $this->createJsonBody($parameters)
         );
 
-        return ResponseMediator::getContent($response);
+        return json_decode($response->getBody()->getContents(), true);
     }
 
     /**

@@ -26,32 +26,24 @@ class NodeTest extends TestCase
     /** @test */
     public function status_calls_correct_url()
     {
-        $this->assertResponse(2, 'GET', 'node/status', function ($mock) {
-            return $mock->status();
+        $this->assertResponse(2, 'GET', 'node/status', function ($connection) {
+            return $connection->node()->status();
         });
     }
 
     /** @test */
     public function syncing_calls_correct_url()
     {
-        $this->assertResponse(2, 'GET', 'node/syncing', function ($mock) {
-            return $mock->syncing();
+        $this->assertResponse(2, 'GET', 'node/syncing', function ($connection) {
+            return $connection->node()->syncing();
         });
     }
 
     /** @test */
     public function configuration_calls_correct_url()
     {
-        $this->assertResponse(2, 'GET', 'node/configuration', function ($mock) {
-            return $mock->configuration();
+        $this->assertResponse(2, 'GET', 'node/configuration', function ($connection) {
+            return $connection->node()->configuration();
         });
-    }
-
-    /**
-     * @return string
-     */
-    protected function getApiClass()
-    {
-        return \ArkEcosystem\Client\API\Node::class;
     }
 }

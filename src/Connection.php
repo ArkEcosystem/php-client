@@ -55,7 +55,7 @@ class Connection
             $options['handler'] = $handler;
         }
 
-        $this->client = new Client($options);
+        $this->httpClient = new Client($options);
     }
 
     /**
@@ -92,5 +92,10 @@ class Connection
         }
 
         return new $class($this);
+    }
+
+    public function getHttpClient()
+    {
+        return $this->httpClient;
     }
 }

@@ -26,24 +26,16 @@ class PeersTest extends TestCase
     /** @test */
     public function all_calls_correct_url()
     {
-        $this->assertResponse(2, 'GET', 'peers', function ($mock) {
-            return $mock->all();
+        $this->assertResponse(2, 'GET', 'peers', function ($connection) {
+            return $connection->peers()->all();
         });
     }
 
     /** @test */
     public function show_calls_correct_url()
     {
-        $this->assertResponse(2, 'GET', 'peers/dummy', function ($mock) {
-            return $mock->show('dummy');
+        $this->assertResponse(2, 'GET', 'peers/dummy', function ($connection) {
+            return $connection->peers()->show('dummy');
         });
-    }
-
-    /**
-     * @return string
-     */
-    protected function getApiClass()
-    {
-        return \ArkEcosystem\Client\API\Peers::class;
     }
 }

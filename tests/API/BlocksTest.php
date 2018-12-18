@@ -26,40 +26,32 @@ class BlocksTest extends TestCase
     /** @test */
     public function all_calls_correct_url()
     {
-        $this->assertResponse(2, 'GET', 'blocks', function ($mock) {
-            return $mock->all();
+        $this->assertResponse(2, 'GET', 'blocks', function ($connection) {
+            return $connection->blocks()->all();
         });
     }
 
     /** @test */
     public function show_calls_correct_url()
     {
-        $this->assertResponse(2, 'GET', 'blocks/dummy', function ($mock) {
-            return $mock->show('dummy');
+        $this->assertResponse(2, 'GET', 'blocks/dummy', function ($connection) {
+            return $connection->blocks()->show('dummy');
         });
     }
 
     /** @test */
     public function transactions_calls_correct_url()
     {
-        $this->assertResponse(2, 'GET', 'blocks/dummy/transactions', function ($mock) {
-            return $mock->transactions('dummy');
+        $this->assertResponse(2, 'GET', 'blocks/dummy/transactions', function ($connection) {
+            return $connection->blocks()->transactions('dummy');
         });
     }
 
     /** @test */
     public function search_calls_correct_url()
     {
-        $this->assertResponse(2, 'POST', 'blocks/search', function ($mock) {
-            return $mock->search(['address' => 'dummy']);
+        $this->assertResponse(2, 'POST', 'blocks/search', function ($connection) {
+            return $connection->blocks()->search(['address' => 'dummy']);
         });
-    }
-
-    /**
-     * @return string
-     */
-    protected function getApiClass()
-    {
-        return \ArkEcosystem\Client\API\Blocks::class;
     }
 }
