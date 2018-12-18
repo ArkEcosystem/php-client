@@ -16,6 +16,7 @@ namespace ArkEcosystem\Client;
 use RuntimeException;
 use GuzzleHttp\Client;
 use BadMethodCallException;
+use GuzzleHttp\HandlerStack;
 
 /**
  * This is the connection class.
@@ -34,21 +35,27 @@ class Connection
     /**
      * Make a new connection instance.
      *
-     * @param array                                   $config
-     * @param \ArkEcosystem\Client\HttpClient\Builder $config
+     * @param array $config
+     * @param \GuzzleHttp\HandlerStack $handler
      */
-    public function __construct(array $config, Builder $httpClientBuilder = null)
+    public function __construct(array $config, HandlerStack $handler = null)
     {
         $this->config = $config;
 
-        $this->client = new Client([
+        $options = [
             'base_uri' => $config['host'],
             'headers' => [
                 'User-Agent' => 'ark-php-client (https://github.com/ArkEcosystem/php-client)',
                 'Content-Type' => 'application/json',
                 'API-Version' => 2,
             ]
-        ]));
+        ];
+
+        if ($handler) {
+            $options['handler'] = $handler;
+        }
+
+        $this->client = new Client($options);
     }
 
     /**

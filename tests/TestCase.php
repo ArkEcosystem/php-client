@@ -33,7 +33,7 @@ abstract class TestCase extends BaseTestCase
      *
      * @return object
      */
-    protected function getApiMock(int $version)
+    protected function getApiMock()
     {
         $httpClient = $this
             ->getMockBuilder(\Http\Client\HttpClient::class)
@@ -45,8 +45,7 @@ abstract class TestCase extends BaseTestCase
             ->method('sendRequest');
 
         $connection = Connection::createWithHttpClient([
-            'host'    => $this->host,
-            'version' => $version,
+            'host' => $this->host
         ], $httpClient);
 
         return $this
@@ -69,7 +68,7 @@ abstract class TestCase extends BaseTestCase
     {
         $expected = $expected ?: ['success' => true];
 
-        $api = $this->getApiMock($version);
+        $api = $this->getApiMock();
         $api->expects($this->once())
             ->method(strtolower($method))
             ->with($path)
