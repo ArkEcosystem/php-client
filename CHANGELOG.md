@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## Unreleased
 
+## 1.0.0 - 2018-12-18
+
+### Changed:
+
+- Only depend on the Guzzle client instead of Guzzle and PSR
+
+### Removed:
+
+- PSR dependencies
+- 1.0 API Support
+
 ## 0.1.5 - 2018-12-02
 
 ### Fixed:
