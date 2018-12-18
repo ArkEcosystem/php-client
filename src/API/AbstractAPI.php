@@ -102,7 +102,7 @@ abstract class AbstractAPI
             $path .= '?'.http_build_query($parameters);
         }
 
-        $response = $this->connection->getHttpClient()->get($this->getUri($path));
+        $response = $this->connection->getHttpClient()->get($path);
 
         return json_decode($response->getBody()->getContents(), true);
     }
@@ -118,37 +118,10 @@ abstract class AbstractAPI
     protected function post(string $path, array $parameters = [])
     {
         $response = $this->connection->getHttpClient()->post(
-            $this->getUri($path),
-            [],
-            $this->createJsonBody($parameters)
+            $path,
+            ['json' => $parameters]
         );
 
         return json_decode($response->getBody()->getContents(), true);
-    }
-
-    /**
-     * Get the URI used for the request.
-     *
-     * @param string $path
-     *
-     * @return string
-     */
-    private function getUri(string $path): string
-    {
-        return '/' !== $path[0] ? "/{$path}" : $path;
-    }
-
-    /**
-     * Create a JSON encoded version of an array of parameters.
-     *
-     * @param array $parameters Request parameters
-     *
-     * @return null|string
-     */
-    protected function createJsonBody(array $parameters): ?string
-    {
-        return (count($parameters) === 0)
-            ? null
-            : json_encode($parameters, empty($parameters) ? JSON_FORCE_OBJECT : 0);
     }
 }
