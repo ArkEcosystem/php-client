@@ -9,18 +9,12 @@
         "homepage": "https://github.com/faustbrian"
     }],
     "require": {
-        "php": "^7.1",
+        "php": "^7.2",
         "guzzlehttp/guzzle": "^6.3",
-        "illuminate/support": "^5.6"
+        "illuminate/support": "^5.7"
     },
     "require-dev": {
-        "cache/array-adapter": "^1.0",
-        "guzzlehttp/psr7": "^1.4",
-        "mockery/mockery": "^1.0",
-        "php-http/guzzle6-adapter": "^1.1",
-        "php-http/mock-client": "^1.1",
-        "phpunit/phpunit": "^7.0",
-        "symfony/var-dumper": "^4.1"
+        "phpunit/phpunit": "^7.5"
     },
     "suggest": {
         "ext-mbstring": "If ext-mbstring is not available you MUST install symfony/polyfill-mbstring"
