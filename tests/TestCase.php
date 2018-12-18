@@ -45,7 +45,7 @@ abstract class TestCase extends BaseTestCase
             ->method('sendRequest');
 
         $connection = Connection::createWithHttpClient([
-            'host' => $this->host
+            'host' => $this->host,
         ], $httpClient);
 
         return $this
