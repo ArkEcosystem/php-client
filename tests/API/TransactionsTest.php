@@ -26,64 +26,56 @@ class TransactionsTest extends TestCase
     /** @test */
     public function all_calls_correct_url()
     {
-        $this->assertResponse(2, 'GET', 'transactions', function ($mock) {
-            return $mock->all();
+        $this->assertResponse(2, 'GET', 'transactions', function ($connection) {
+            return $connection->transactions()->all();
         });
     }
 
     /** @test */
     public function create_calls_correct_url()
     {
-        $this->assertResponse(2, 'POST', 'transactions', function ($mock) {
-            return $mock->create(['transactions' => []]);
+        $this->assertResponse(2, 'POST', 'transactions', function ($connection) {
+            return $connection->transactions()->create(['transactions' => []]);
         });
     }
 
     /** @test */
     public function show_calls_correct_url()
     {
-        $this->assertResponse(2, 'GET', 'transactions/dummy', function ($mock) {
-            return $mock->show('dummy');
+        $this->assertResponse(2, 'GET', 'transactions/dummy', function ($connection) {
+            return $connection->transactions()->show('dummy');
         });
     }
 
     /** @test */
     public function all_unconfirmed_calls_correct_url()
     {
-        $this->assertResponse(2, 'GET', 'transactions/unconfirmed', function ($mock) {
-            return $mock->allUnconfirmed();
+        $this->assertResponse(2, 'GET', 'transactions/unconfirmed', function ($connection) {
+            return $connection->transactions()->allUnconfirmed();
         });
     }
 
     /** @test */
     public function show_unconfirmed_calls_correct_url()
     {
-        $this->assertResponse(2, 'GET', 'transactions/unconfirmed/dummy', function ($mock) {
-            return $mock->showUnconfirmed('dummy');
+        $this->assertResponse(2, 'GET', 'transactions/unconfirmed/dummy', function ($connection) {
+            return $connection->transactions()->showUnconfirmed('dummy');
         });
     }
 
     /** @test */
     public function search_calls_correct_url()
     {
-        $this->assertResponse(2, 'POST', 'transactions/search', function ($mock) {
-            return $mock->search(['amount' => 1]);
+        $this->assertResponse(2, 'POST', 'transactions/search', function ($connection) {
+            return $connection->transactions()->search(['amount' => 1]);
         });
     }
 
     /** @test */
     public function types_calls_correct_url()
     {
-        $this->assertResponse(2, 'GET', 'transactions/types', function ($mock) {
-            return $mock->types();
+        $this->assertResponse(2, 'GET', 'transactions/types', function ($connection) {
+            return $connection->transactions()->types();
         });
-    }
-
-    /**
-     * @return string
-     */
-    protected function getApiClass()
-    {
-        return \ArkEcosystem\Client\API\Transactions::class;
     }
 }

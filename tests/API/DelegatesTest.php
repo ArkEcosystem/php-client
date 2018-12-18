@@ -26,40 +26,32 @@ class DelegatesTest extends TestCase
     /** @test */
     public function all_calls_correct_url()
     {
-        $this->assertResponse(2, 'GET', 'delegates', function ($mock) {
-            return $mock->all();
+        $this->assertResponse(2, 'GET', 'delegates', function ($connection) {
+            return $connection->delegates()->all();
         });
     }
 
     /** @test */
     public function show_calls_correct_url()
     {
-        $this->assertResponse(2, 'GET', 'delegates/dummy', function ($mock) {
-            return $mock->show('dummy');
+        $this->assertResponse(2, 'GET', 'delegates/dummy', function ($connection) {
+            return $connection->delegates()->show('dummy');
         });
     }
 
     /** @test */
     public function blocks_calls_correct_url()
     {
-        $this->assertResponse(2, 'GET', 'delegates/dummy/blocks', function ($mock) {
-            return $mock->blocks('dummy');
+        $this->assertResponse(2, 'GET', 'delegates/dummy/blocks', function ($connection) {
+            return $connection->delegates()->blocks('dummy');
         });
     }
 
     /** @test */
     public function voters_calls_correct_url()
     {
-        $this->assertResponse(2, 'GET', 'delegates/dummy/voters', function ($mock) {
-            return $mock->voters('dummy');
+        $this->assertResponse(2, 'GET', 'delegates/dummy/voters', function ($connection) {
+            return $connection->delegates()->voters('dummy');
         });
-    }
-
-    /**
-     * @return string
-     */
-    protected function getApiClass()
-    {
-        return \ArkEcosystem\Client\API\Delegates::class;
     }
 }

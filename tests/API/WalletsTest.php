@@ -26,64 +26,64 @@ class WalletsTest extends TestCase
     /** @test */
     public function all_calls_correct_url()
     {
-        $this->assertResponse(2, 'GET', 'wallets', function ($mock) {
-            return $mock->all();
+        $this->assertResponse(2, 'GET', 'wallets', function ($connection) {
+            return $connection->wallets()->all();
         });
     }
 
     /** @test */
     public function top_calls_correct_url()
     {
-        $this->assertResponse(2, 'GET', 'wallets/top', function ($mock) {
-            return $mock->top();
+        $this->assertResponse(2, 'GET', 'wallets/top', function ($connection) {
+            return $connection->wallets()->top();
         });
     }
 
     /** @test */
     public function show_calls_correct_url()
     {
-        $this->assertResponse(2, 'GET', 'wallets/dummy', function ($mock) {
-            return $mock->show('dummy');
+        $this->assertResponse(2, 'GET', 'wallets/dummy', function ($connection) {
+            return $connection->wallets()->show('dummy');
         });
     }
 
     /** @test */
     public function transactions_calls_correct_url()
     {
-        $this->assertResponse(2, 'GET', 'wallets/dummy/transactions', function ($mock) {
-            return $mock->transactions('dummy');
+        $this->assertResponse(2, 'GET', 'wallets/dummy/transactions', function ($connection) {
+            return $connection->wallets()->transactions('dummy');
         });
     }
 
     /** @test */
     public function sent_transactions_calls_correct_url()
     {
-        $this->assertResponse(2, 'GET', 'wallets/dummy/transactions/sent', function ($mock) {
-            return $mock->sentTransactions('dummy');
+        $this->assertResponse(2, 'GET', 'wallets/dummy/transactions/sent', function ($connection) {
+            return $connection->wallets()->sentTransactions('dummy');
         });
     }
 
     /** @test */
     public function received_transactions_calls_correct_url()
     {
-        $this->assertResponse(2, 'GET', 'wallets/dummy/transactions/received', function ($mock) {
-            return $mock->receivedTransactions('dummy');
+        $this->assertResponse(2, 'GET', 'wallets/dummy/transactions/received', function ($connection) {
+            return $connection->wallets()->receivedTransactions('dummy');
         });
     }
 
     /** @test */
     public function votes_calls_correct_url()
     {
-        $this->assertResponse(2, 'GET', 'wallets/dummy/votes', function ($mock) {
-            return $mock->votes('dummy');
+        $this->assertResponse(2, 'GET', 'wallets/dummy/votes', function ($connection) {
+            return $connection->wallets()->votes('dummy');
         });
     }
 
     /** @test */
     public function search_calls_correct_url()
     {
-        $this->assertResponse(2, 'POST', 'wallets/search', function ($mock) {
-            return $mock->search(['address' => 'dummy']);
+        $this->assertResponse(2, 'POST', 'wallets/search', function ($connection) {
+            return $connection->wallets()->search(['address' => 'dummy']);
         });
     }
 

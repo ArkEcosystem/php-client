@@ -17,14 +17,13 @@ use GuzzleHttp\Client;
 use ArkEcosystem\Client\Connection;
 use ArkEcosystem\Client\Http\Request;
 use ArkEcosystem\Client\Contracts\API;
-use ArkEcosystem\Client\HttpClient\Message\ResponseMediator;
 
 /**
  * This is the abstract resource class.
  *
  * @author Brian Faust <brian@ark.io>
  */
-abstract class AbstractAPI implements API
+abstract class AbstractAPI
 {
     /**
      * The client connection.
@@ -57,17 +56,11 @@ abstract class AbstractAPI implements API
         $this->connection = $connection;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getOffset(): ?int
     {
         return $this->offset;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function setOffset(int $offset): API
     {
         $this->offset = (null === $offset ? $offset : (int) $offset);
@@ -75,17 +68,11 @@ abstract class AbstractAPI implements API
         return $this;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getLimit(): ?int
     {
         return $this->limit;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function setLimit(int $limit): API
     {
         $this->limit = (null === $limit ? $limit : (int) $limit);
@@ -117,7 +104,7 @@ abstract class AbstractAPI implements API
 
         $response = $this->connection->getHttpClient()->get($this->getUri($path));
 
-        return ResponseMediator::getContent($response);
+        return json_decode($response->getBody()->getContents(), true);
     }
 
     /**
@@ -136,7 +123,7 @@ abstract class AbstractAPI implements API
             $this->createJsonBody($parameters)
         );
 
-        return ResponseMediator::getContent($response);
+        return json_decode($response->getBody()->getContents(), true);
     }
 
     /**
