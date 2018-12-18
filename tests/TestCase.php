@@ -13,15 +13,13 @@ declare(strict_types=1);
 
 namespace ArkEcosystem\Tests\Client;
 
-use ArkEcosystem\Client\Connection;
-use PHPUnit\Framework\TestCase as BaseTestCase;
-
 use GuzzleHttp\Client;
-use GuzzleHttp\Handler\MockHandler;
 use GuzzleHttp\HandlerStack;
-use GuzzleHttp\Psr7\Response;
 use GuzzleHttp\Psr7\Request;
-use GuzzleHttp\Exception\RequestException;
+use GuzzleHttp\Psr7\Response;
+use ArkEcosystem\Client\Connection;
+use GuzzleHttp\Handler\MockHandler;
+use PHPUnit\Framework\TestCase as BaseTestCase;
 
 abstract class TestCase extends BaseTestCase
 {
@@ -46,7 +44,7 @@ abstract class TestCase extends BaseTestCase
         $mockHandler = new MockHandler([new Response(200, [], json_encode($expectedBody))]);
 
         $connection = new Connection([
-            'host' => $this->host
+            'host' => $this->host,
         ], HandlerStack::create($mockHandler));
 
         $this->assertSame($expectedBody, $callback($connection));
