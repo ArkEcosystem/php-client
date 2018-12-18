@@ -13,15 +13,9 @@ declare(strict_types=1);
 
 namespace ArkEcosystem\Tests\Client;
 
-use GuzzleHttp\Psr7\Request;
 use ArkEcosystem\Client\Connection;
-use Psr\Http\Message\ResponseInterface;
 use ArkEcosystem\Client\API\AbstractAPI;
-use Http\Client\Common\HttpMethodsClient;
 use ArkEcosystem\Client\ConnectionManager;
-use Cache\Adapter\PHPArray\ArrayCachePool;
-use Http\Client\Common\Plugin\CachePlugin;
-use ArkEcosystem\Client\HttpClient\Builder;
 
 /**
  * This is the connection manager test class.
