@@ -26,11 +26,11 @@ use GuzzleHttp\HandlerStack;
 class Connection
 {
     /**
-     * The connection configuration.
+     * The Guzzle Client instance.
      *
-     * @var \ArkEcosystem\Client\Config
+     * @var \GuzzleHttp\Client
      */
-    public $config;
+    public $httpClient;
 
     /**
      * Make a new connection instance.
@@ -40,8 +40,6 @@ class Connection
      */
     public function __construct(array $config, HandlerStack $handler = null)
     {
-        $this->config = $config;
-
         $options = [
             'base_uri' => $config['host'],
             'headers' => [
