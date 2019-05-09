@@ -49,4 +49,16 @@ class Node extends AbstractAPI
     {
         return $this->get('node/configuration');
     }
+
+    /**
+     * Get the node fee statistics.
+     *
+     * @param integer|null $days
+     * 
+     * @return array
+     */
+    public function fees(integer $days = null): array
+    {
+        return $this->get('node/fees', ['query' => ['days' => $days]]);
+    }
 }
