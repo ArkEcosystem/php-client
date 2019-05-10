@@ -46,4 +46,12 @@ class NodeTest extends TestCase
             return $connection->node()->configuration();
         });
     }
+
+    /** @test */
+    public function fees_calls_correct_url()
+    {
+        $this->assertResponse(2, 'GET', 'node/fees', function ($connection) {
+            return $connection->node()->fees();
+        });
+    }
 }
