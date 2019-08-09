@@ -32,13 +32,12 @@ abstract class TestCase extends BaseTestCase
     /**
      * Perform a mocked request and assert its response.
      *
-     * @param int        $version
      * @param string     $method
      * @param string     $path
      * @param callable   $callback
      * @param array|null $expectedBody
      */
-    protected function assertResponse(int $version, string $method, string $path, callable $callback, array $expectedBody = []): void
+    protected function assertResponse(string $method, string $path, callable $callback, array $expectedBody = []): void
     {
         $mockHandler = new MockHandler([new Response(200, [], json_encode($expectedBody))]);
 
