@@ -59,6 +59,6 @@ class Node extends AbstractAPI
      */
     public function fees(int $days = null): array
     {
-        return $this->get('node/fees', ['query' => ['days' => $days]]);
+        return $this->get('node/fees', ['days' => $days]);
     }
 }
