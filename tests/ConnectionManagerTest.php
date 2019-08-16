@@ -107,6 +107,6 @@ class ConnectionManagerTest extends TestCase
 
     private function setUpConfig(): array
     {
-        return ['host' => $this->host, 'version' => 1];
+        return ['host' => $this->host];
     }
 }

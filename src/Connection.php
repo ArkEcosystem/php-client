@@ -44,7 +44,6 @@ class Connection
             'base_uri' => $config['host'],
             'headers' => [
                 'Content-Type' => 'application/json',
-                'API-Version' => 2,
             ],
         ];
 

@@ -26,7 +26,7 @@ class WalletsTest extends TestCase
     /** @test */
     public function all_calls_correct_url()
     {
-        $this->assertResponse(2, 'GET', 'wallets', function ($connection) {
+        $this->assertResponse('GET', 'wallets', function ($connection) {
             return $connection->wallets()->all();
         });
     }
@@ -34,7 +34,7 @@ class WalletsTest extends TestCase
     /** @test */
     public function top_calls_correct_url()
     {
-        $this->assertResponse(2, 'GET', 'wallets/top', function ($connection) {
+        $this->assertResponse('GET', 'wallets/top', function ($connection) {
             return $connection->wallets()->top();
         });
     }
@@ -42,7 +42,7 @@ class WalletsTest extends TestCase
     /** @test */
     public function show_calls_correct_url()
     {
-        $this->assertResponse(2, 'GET', 'wallets/dummy', function ($connection) {
+        $this->assertResponse('GET', 'wallets/dummy', function ($connection) {
             return $connection->wallets()->show('dummy');
         });
     }
@@ -50,7 +50,7 @@ class WalletsTest extends TestCase
     /** @test */
     public function transactions_calls_correct_url()
     {
-        $this->assertResponse(2, 'GET', 'wallets/dummy/transactions', function ($connection) {
+        $this->assertResponse('GET', 'wallets/dummy/transactions', function ($connection) {
             return $connection->wallets()->transactions('dummy');
         });
     }
@@ -58,7 +58,7 @@ class WalletsTest extends TestCase
     /** @test */
     public function sent_transactions_calls_correct_url()
     {
-        $this->assertResponse(2, 'GET', 'wallets/dummy/transactions/sent', function ($connection) {
+        $this->assertResponse('GET', 'wallets/dummy/transactions/sent', function ($connection) {
             return $connection->wallets()->sentTransactions('dummy');
         });
     }
@@ -66,7 +66,7 @@ class WalletsTest extends TestCase
     /** @test */
     public function received_transactions_calls_correct_url()
     {
-        $this->assertResponse(2, 'GET', 'wallets/dummy/transactions/received', function ($connection) {
+        $this->assertResponse('GET', 'wallets/dummy/transactions/received', function ($connection) {
             return $connection->wallets()->receivedTransactions('dummy');
         });
     }
@@ -74,7 +74,7 @@ class WalletsTest extends TestCase
     /** @test */
     public function votes_calls_correct_url()
     {
-        $this->assertResponse(2, 'GET', 'wallets/dummy/votes', function ($connection) {
+        $this->assertResponse('GET', 'wallets/dummy/votes', function ($connection) {
             return $connection->wallets()->votes('dummy');
         });
     }
@@ -82,7 +82,7 @@ class WalletsTest extends TestCase
     /** @test */
     public function search_calls_correct_url()
     {
-        $this->assertResponse(2, 'POST', 'wallets/search', function ($connection) {
+        $this->assertResponse('POST', 'wallets/search', function ($connection) {
             return $connection->wallets()->search(['address' => 'dummy']);
         });
     }

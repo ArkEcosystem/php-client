@@ -26,7 +26,7 @@ class NodeTest extends TestCase
     /** @test */
     public function status_calls_correct_url()
     {
-        $this->assertResponse(2, 'GET', 'node/status', function ($connection) {
+        $this->assertResponse('GET', 'node/status', function ($connection) {
             return $connection->node()->status();
         });
     }
@@ -34,7 +34,7 @@ class NodeTest extends TestCase
     /** @test */
     public function syncing_calls_correct_url()
     {
-        $this->assertResponse(2, 'GET', 'node/syncing', function ($connection) {
+        $this->assertResponse('GET', 'node/syncing', function ($connection) {
             return $connection->node()->syncing();
         });
     }
@@ -42,7 +42,7 @@ class NodeTest extends TestCase
     /** @test */
     public function configuration_calls_correct_url()
     {
-        $this->assertResponse(2, 'GET', 'node/configuration', function ($connection) {
+        $this->assertResponse('GET', 'node/configuration', function ($connection) {
             return $connection->node()->configuration();
         });
     }
@@ -50,7 +50,7 @@ class NodeTest extends TestCase
     /** @test */
     public function fees_calls_correct_url()
     {
-        $this->assertResponse(2, 'GET', 'node/fees', function ($connection) {
+        $this->assertResponse('GET', 'node/fees', function ($connection) {
             return $connection->node()->fees();
         });
     }

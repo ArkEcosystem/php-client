@@ -26,7 +26,7 @@ class PeersTest extends TestCase
     /** @test */
     public function all_calls_correct_url()
     {
-        $this->assertResponse(2, 'GET', 'peers', function ($connection) {
+        $this->assertResponse('GET', 'peers', function ($connection) {
             return $connection->peers()->all();
         });
     }
@@ -34,7 +34,7 @@ class PeersTest extends TestCase
     /** @test */
     public function show_calls_correct_url()
     {
-        $this->assertResponse(2, 'GET', 'peers/dummy', function ($connection) {
+        $this->assertResponse('GET', 'peers/dummy', function ($connection) {
             return $connection->peers()->show('dummy');
         });
     }

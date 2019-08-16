@@ -72,7 +72,6 @@ class ConnectionTest extends TestCase
     {
         return (new ConnectionManager())->connect([
             'host'        => $this->host,
-            'version'     => 2,
         ]);
     }
 }
