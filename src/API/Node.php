@@ -51,6 +51,16 @@ class Node extends AbstractAPI
     }
 
     /**
+     * Get the node crypto configuration.
+     *
+     * @return array
+     */
+    public function crypto(): array
+    {
+        return $this->get('node/configuration/crypto');
+    }
+
+    /**
      * Get the node fee statistics.
      *
      * @param int|null $days
