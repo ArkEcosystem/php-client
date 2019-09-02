@@ -26,7 +26,7 @@ class DelegatesTest extends TestCase
     /** @test */
     public function all_calls_correct_url()
     {
-        $this->assertResponse(2, 'GET', 'delegates', function ($connection) {
+        $this->assertResponse('GET', 'delegates', function ($connection) {
             return $connection->delegates()->all();
         });
     }
@@ -34,7 +34,7 @@ class DelegatesTest extends TestCase
     /** @test */
     public function show_calls_correct_url()
     {
-        $this->assertResponse(2, 'GET', 'delegates/dummy', function ($connection) {
+        $this->assertResponse('GET', 'delegates/dummy', function ($connection) {
             return $connection->delegates()->show('dummy');
         });
     }
@@ -42,7 +42,7 @@ class DelegatesTest extends TestCase
     /** @test */
     public function blocks_calls_correct_url()
     {
-        $this->assertResponse(2, 'GET', 'delegates/dummy/blocks', function ($connection) {
+        $this->assertResponse('GET', 'delegates/dummy/blocks', function ($connection) {
             return $connection->delegates()->blocks('dummy');
         });
     }
@@ -50,7 +50,7 @@ class DelegatesTest extends TestCase
     /** @test */
     public function voters_calls_correct_url()
     {
-        $this->assertResponse(2, 'GET', 'delegates/dummy/voters', function ($connection) {
+        $this->assertResponse('GET', 'delegates/dummy/voters', function ($connection) {
             return $connection->delegates()->voters('dummy');
         });
     }
