@@ -48,6 +48,14 @@ class NodeTest extends TestCase
     }
 
     /** @test */
+    public function crypto_calls_correct_url()
+    {
+        $this->assertResponse('GET', 'node/configuration/crypto', function ($connection) {
+            return $connection->node()->crypto();
+        });
+    }
+
+    /** @test */
     public function fees_calls_correct_url()
     {
         $this->assertResponse('GET', 'node/fees', function ($connection) {
