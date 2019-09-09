@@ -78,4 +78,12 @@ class TransactionsTest extends TestCase
             return $connection->transactions()->types();
         });
     }
+
+    /** @test */
+    public function fees_calls_correct_url()
+    {
+        $this->assertResponse('GET', 'transactions/fees', function ($connection) {
+            return $connection->transactions()->fees();
+        });
+    }
 }

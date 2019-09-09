@@ -99,4 +99,14 @@ class Transactions extends AbstractAPI
     {
         return $this->get('transactions/types');
     }
+
+    /**
+     * Get the list of static transaction fees.
+     *
+     * @return array
+     */
+    public function fees(): array
+    {
+        return $this->get('transactions/fees');
+    }
 }
