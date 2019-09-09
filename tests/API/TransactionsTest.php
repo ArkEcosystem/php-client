@@ -26,7 +26,7 @@ class TransactionsTest extends TestCase
     /** @test */
     public function all_calls_correct_url()
     {
-        $this->assertResponse(2, 'GET', 'transactions', function ($connection) {
+        $this->assertResponse('GET', 'transactions', function ($connection) {
             return $connection->transactions()->all();
         });
     }
@@ -34,7 +34,7 @@ class TransactionsTest extends TestCase
     /** @test */
     public function create_calls_correct_url()
     {
-        $this->assertResponse(2, 'POST', 'transactions', function ($connection) {
+        $this->assertResponse('POST', 'transactions', function ($connection) {
             return $connection->transactions()->create(['transactions' => []]);
         });
     }
@@ -42,7 +42,7 @@ class TransactionsTest extends TestCase
     /** @test */
     public function show_calls_correct_url()
     {
-        $this->assertResponse(2, 'GET', 'transactions/dummy', function ($connection) {
+        $this->assertResponse('GET', 'transactions/dummy', function ($connection) {
             return $connection->transactions()->show('dummy');
         });
     }
@@ -50,7 +50,7 @@ class TransactionsTest extends TestCase
     /** @test */
     public function all_unconfirmed_calls_correct_url()
     {
-        $this->assertResponse(2, 'GET', 'transactions/unconfirmed', function ($connection) {
+        $this->assertResponse('GET', 'transactions/unconfirmed', function ($connection) {
             return $connection->transactions()->allUnconfirmed();
         });
     }
@@ -58,7 +58,7 @@ class TransactionsTest extends TestCase
     /** @test */
     public function show_unconfirmed_calls_correct_url()
     {
-        $this->assertResponse(2, 'GET', 'transactions/unconfirmed/dummy', function ($connection) {
+        $this->assertResponse('GET', 'transactions/unconfirmed/dummy', function ($connection) {
             return $connection->transactions()->showUnconfirmed('dummy');
         });
     }
@@ -66,7 +66,7 @@ class TransactionsTest extends TestCase
     /** @test */
     public function search_calls_correct_url()
     {
-        $this->assertResponse(2, 'POST', 'transactions/search', function ($connection) {
+        $this->assertResponse('POST', 'transactions/search', function ($connection) {
             return $connection->transactions()->search(['amount' => 1]);
         });
     }
@@ -74,7 +74,7 @@ class TransactionsTest extends TestCase
     /** @test */
     public function types_calls_correct_url()
     {
-        $this->assertResponse(2, 'GET', 'transactions/types', function ($connection) {
+        $this->assertResponse('GET', 'transactions/types', function ($connection) {
             return $connection->transactions()->types();
         });
     }
