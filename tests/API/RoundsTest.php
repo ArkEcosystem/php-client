@@ -27,7 +27,7 @@ class RoundsTest extends TestCase
     public function delegates_calls_correct_url()
     {
         $this->assertResponse('GET', 'rounds/12345/delegates', function ($connection) {
-            return $connection->rounds()->delegates('12345');
+            return $connection->rounds()->delegates(12345);
         });
     }
 }
