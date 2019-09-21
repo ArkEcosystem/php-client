@@ -1,0 +1,14 @@
+name: Test
+
+on: [push, pull_request]
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses: actions/checkout@v1
+            - name: Install
+              run: composer update --prefer-dist --no-interaction --prefer-lowest --prefer-stable --no-suggest
+            - name: Unit tests
+              run: ./vendor/bin/phpunit --coverage-clover=coverage.xml --coverage-text
