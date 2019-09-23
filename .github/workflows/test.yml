@@ -17,3 +17,5 @@ jobs:
               run: composer update --prefer-dist --no-interaction --prefer-lowest --prefer-stable --no-suggest
             - name: Unit tests
               run: ./vendor/bin/phpunit --coverage-clover=coverage.xml --coverage-text
+            - name: Codecov
+              run: bash <(curl -s https://codecov.io/bash) -t ${{ secrets.CODECOV_TOKEN }}
