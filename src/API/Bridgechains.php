@@ -18,7 +18,7 @@ namespace ArkEcosystem\Client\API;
  *
  * @author Brian Faust <brian@ark.io>
  */
-class bridgechains extends AbstractAPI
+class Bridgechains extends AbstractAPI
 {
     /**
      * Get all bridgechains.
