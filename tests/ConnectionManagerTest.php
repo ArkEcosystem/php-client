@@ -101,7 +101,7 @@ class ConnectionManagerTest extends TestCase
         $manager->connect($this->setUpConfig(), 'dummy-connection-2');
         $manager->connect($this->setUpConfig(), 'dummy-connection-3');
 
-        $this->assertInternalType('array', $manager->getConnections());
+        $this->assertIsArray($manager->getConnections());
         $this->assertCount(3, $manager->getConnections());
     }
 
