@@ -13,10 +13,10 @@ declare(strict_types=1);
 
 namespace ArkEcosystem\Client;
 
-use RuntimeException;
-use GuzzleHttp\Client;
 use BadMethodCallException;
+use GuzzleHttp\Client;
 use GuzzleHttp\HandlerStack;
+use RuntimeException;
 
 /**
  * This is the connection class.
@@ -35,14 +35,14 @@ class Connection
     /**
      * Make a new connection instance.
      *
-     * @param array $config
+     * @param array                    $config
      * @param \GuzzleHttp\HandlerStack $handler
      */
     public function __construct(array $config, HandlerStack $handler = null)
     {
         $options = [
             'base_uri' => $config['host'],
-            'headers' => [
+            'headers'  => [
                 'Content-Type' => 'application/json',
             ],
         ];
@@ -83,7 +83,7 @@ class Connection
         $name = ucfirst($name);
         $class = "ArkEcosystem\\Client\\API\\{$name}";
 
-        if (! class_exists($class)) {
+        if (!class_exists($class)) {
             throw new RuntimeException("Class [$class] does not exist.");
         }
 
@@ -92,6 +92,7 @@ class Connection
 
     /**
      * Get the Guzzle client instance.
+     *
      * @return \GuzzleHttp\Client
      */
     public function getHttpClient(): Client

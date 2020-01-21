@@ -13,10 +13,10 @@ declare(strict_types=1);
 
 namespace ArkEcosystem\Client\API;
 
-use GuzzleHttp\Client;
 use ArkEcosystem\Client\Connection;
-use ArkEcosystem\Client\Http\Request;
 use ArkEcosystem\Client\Contracts\API;
+use ArkEcosystem\Client\Http\Request;
+use GuzzleHttp\Client;
 
 /**
  * This is the abstract resource class.

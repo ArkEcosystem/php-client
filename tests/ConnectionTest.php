@@ -13,8 +13,8 @@ declare(strict_types=1);
 
 namespace ArkEcosystem\Tests\Client;
 
-use ArkEcosystem\Client\Connection;
 use ArkEcosystem\Client\API\AbstractAPI;
+use ArkEcosystem\Client\Connection;
 use ArkEcosystem\Client\ConnectionManager;
 
 /**
