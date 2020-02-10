@@ -7,6 +7,18 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## Unreleased
 
+## 1.1.0 - 2019-02-11
+
+### Added
+
+- Implement `bridgechains/*` endpoints
+- Implement `businesses/*` endpoints
+- Implement `locks/*` endpoints
+- Implement `rounds/*` endpoints
+- Implement `node/configuration/crypto` endpoint
+- Implement `transactions/fees` endpoint
+- Implement `wallets/{id}/locks` endpoint
+
 ## 1.0.1 - 2019-07-07
 
 ### Added:
