@@ -45,6 +45,26 @@ class Blocks extends AbstractAPI
     }
 
     /**
+     * Get the first block.
+     *
+     * @return array
+     */
+    public function first(): array
+    {
+        return $this->get('blocks/first');
+    }
+
+    /**
+     * Get the last block.
+     *
+     * @return array
+     */
+    public function last(): array
+    {
+        return $this->get('blocks/last');
+    }
+
+    /**
      * Get all transactions by the given block.
      *
      * @param string $id

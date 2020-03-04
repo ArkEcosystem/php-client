@@ -40,6 +40,22 @@ class BlocksTest extends TestCase
     }
 
     /** @test */
+    public function first_calls_correct_url()
+    {
+        $this->assertResponse('GET', 'blocks/first', function ($connection) {
+            return $connection->blocks()->first();
+        });
+    }
+
+    /** @test */
+    public function last_calls_correct_url()
+    {
+        $this->assertResponse('GET', 'blocks/last', function ($connection) {
+            return $connection->blocks()->last();
+        });
+    }
+
+    /** @test */
     public function transactions_calls_correct_url()
     {
         $this->assertResponse('GET', 'blocks/dummy/transactions', function ($connection) {
