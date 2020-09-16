@@ -17,6 +17,7 @@ use RuntimeException;
 use GuzzleHttp\Client;
 use BadMethodCallException;
 use GuzzleHttp\HandlerStack;
+use Illuminate\Support\Str;
 
 /**
  * This is the connection class.
@@ -41,7 +42,7 @@ class Connection
     public function __construct(array $config, HandlerStack $handler = null)
     {
         $options = [
-            'base_uri' => $config['host'],
+            'base_uri' => Str::finish($config['host'], '/'),
             'headers' => [
                 'Content-Type' => 'application/json',
             ],
