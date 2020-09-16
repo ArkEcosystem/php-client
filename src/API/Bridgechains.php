@@ -27,7 +27,7 @@ class Bridgechains extends AbstractAPI
      *
      * @return array
      */
-    public function all(array $query = []): array
+    public function all(array $query = []): ?array
     {
         return $this->get('bridgechains', $query);
     }
@@ -39,7 +39,7 @@ class Bridgechains extends AbstractAPI
      *
      * @return array
      */
-    public function show(string $id): array
+    public function show(string $id): ?array
     {
         return $this->get("bridgechain/{$id}");
     }
@@ -51,7 +51,7 @@ class Bridgechains extends AbstractAPI
      *
      * @return array
      */
-    public function search(array $parameters): array
+    public function search(array $parameters): ?array
     {
         return $this->post('bridgechain/search', $parameters);
     }

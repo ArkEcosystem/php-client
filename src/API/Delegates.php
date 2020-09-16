@@ -27,7 +27,7 @@ class Delegates extends AbstractAPI
      *
      * @return array
      */
-    public function all(array $query = []): array
+    public function all(array $query = []): ?array
     {
         return $this->get('delegates', $query);
     }
@@ -39,7 +39,7 @@ class Delegates extends AbstractAPI
      *
      * @return array
      */
-    public function show(string $id): array
+    public function show(string $id): ?array
     {
         return $this->get("delegates/{$id}");
     }
@@ -52,7 +52,7 @@ class Delegates extends AbstractAPI
      *
      * @return array
      */
-    public function blocks(string $id, array $query = []): array
+    public function blocks(string $id, array $query = []): ?array
     {
         return $this->get("delegates/{$id}/blocks", $query);
     }
@@ -65,7 +65,7 @@ class Delegates extends AbstractAPI
      *
      * @return array
      */
-    public function voters(string $id, array $query = []): array
+    public function voters(string $id, array $query = []): ?array
     {
         return $this->get("delegates/{$id}/voters", $query);
     }

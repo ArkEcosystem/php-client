@@ -27,7 +27,7 @@ class Rounds extends AbstractAPI
      *
      * @return array
      */
-    public function delegates(int $round_id): array
+    public function delegates(int $round_id): ?array
     {
         return $this->get("rounds/{$round_id}/delegates");
     }

@@ -27,7 +27,7 @@ class Businesses extends AbstractAPI
      *
      * @return array
      */
-    public function all(array $query = []): array
+    public function all(array $query = []): ?array
     {
         return $this->get('businesses', $query);
     }
@@ -39,7 +39,7 @@ class Businesses extends AbstractAPI
      *
      * @return array
      */
-    public function show(string $id): array
+    public function show(string $id): ?array
     {
         return $this->get("businesses/{$id}");
     }
@@ -52,7 +52,7 @@ class Businesses extends AbstractAPI
      *
      * @return array
      */
-    public function bridgechains(string $id, array $query = []): array
+    public function bridgechains(string $id, array $query = []): ?array
     {
         return $this->get("businesses/{$id}/bridgechains", $query);
     }
@@ -64,7 +64,7 @@ class Businesses extends AbstractAPI
      *
      * @return array
      */
-    public function search(array $parameters): array
+    public function search(array $parameters): ?array
     {
         return $this->post('businesses/search', $parameters);
     }

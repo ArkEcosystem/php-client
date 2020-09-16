@@ -48,7 +48,7 @@ abstract class AbstractAPI
      * @param string $path
      * @param array  $query
      *
-     * @return array|string
+     * @return array|null|bool
      */
     protected function get(string $path, array $query = [])
     {
@@ -63,7 +63,7 @@ abstract class AbstractAPI
      * @param string $path
      * @param array  $parameters
      *
-     * @return array|string
+     * @return array|null|bool
      */
     protected function post(string $path, array $parameters = [])
     {
