@@ -27,7 +27,7 @@ class Locks extends AbstractAPI
      *
      * @return array
      */
-    public function all(array $query = []): array
+    public function all(array $query = []): ?array
     {
         return $this->get('locks', $query);
     }
@@ -39,7 +39,7 @@ class Locks extends AbstractAPI
      *
      * @return array
      */
-    public function show(string $id): array
+    public function show(string $id): ?array
     {
         return $this->get("locks/{$id}");
     }
@@ -51,7 +51,7 @@ class Locks extends AbstractAPI
      *
      * @return array
      */
-    public function search(array $parameters): array
+    public function search(array $parameters): ?array
     {
         return $this->post('locks/search', $parameters);
     }
@@ -63,7 +63,7 @@ class Locks extends AbstractAPI
      *
      * @return array
      */
-    public function unlocked(array $parameters): array
+    public function unlocked(array $parameters): ?array
     {
         return $this->post('locks/unlocked', $parameters);
     }

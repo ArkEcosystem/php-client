@@ -27,7 +27,7 @@ class Transactions extends AbstractAPI
      *
      * @return array
      */
-    public function all(array $query = []): array
+    public function all(array $query = []): ?array
     {
         return $this->get('transactions', $query);
     }
@@ -39,7 +39,7 @@ class Transactions extends AbstractAPI
      *
      * @return array
      */
-    public function create(array $transactions): array
+    public function create(array $transactions): ?array
     {
         return $this->post('transactions', compact('transactions'));
     }
@@ -51,7 +51,7 @@ class Transactions extends AbstractAPI
      *
      * @return array
      */
-    public function show(string $id): array
+    public function show(string $id): ?array
     {
         return $this->get("transactions/{$id}");
     }
@@ -61,7 +61,7 @@ class Transactions extends AbstractAPI
      *
      * @return array
      */
-    public function allUnconfirmed(): array
+    public function allUnconfirmed(): ?array
     {
         return $this->get('transactions/unconfirmed');
     }
@@ -73,7 +73,7 @@ class Transactions extends AbstractAPI
      *
      * @return array
      */
-    public function showUnconfirmed(string $id): array
+    public function showUnconfirmed(string $id): ?array
     {
         return $this->get("transactions/unconfirmed/{$id}");
     }
@@ -85,7 +85,7 @@ class Transactions extends AbstractAPI
      *
      * @return array
      */
-    public function search(array $parameters): array
+    public function search(array $parameters): ?array
     {
         return $this->post('transactions/search', $parameters);
     }
@@ -95,7 +95,7 @@ class Transactions extends AbstractAPI
      *
      * @return array
      */
-    public function types(): array
+    public function types(): ?array
     {
         return $this->get('transactions/types');
     }
@@ -105,7 +105,7 @@ class Transactions extends AbstractAPI
      *
      * @return array
      */
-    public function fees(): array
+    public function fees(): ?array
     {
         return $this->get('transactions/fees');
     }
