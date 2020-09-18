@@ -15,7 +15,7 @@
 
 ## Documentation
 
-You can find installation instructions and detailed instructions on how to use this package at the [dedicated documentation site](https://docs.ark.io/sdk/clients/usage.html).
+You can find installation instructions and detailed instructions on how to use this package at the [dedicated documentation site](https://sdk.ark.dev/php/client).
 
 ## Security
 

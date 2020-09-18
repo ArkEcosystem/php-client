@@ -7,6 +7,25 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## Unreleased
 
+## 1.3.1 - 2020-09-16
+
+### Fixed:
+
+- Fix return types
+
+## 1.3.0 - 2020-09-16
+
+### Changed:
+
+- Update requirements to allow Laravel 8 and Guzzle 7
+
+## 1.2.0 - 2020-04-28
+
+### Added:
+
+- Methods for first and last block
+- Support for laravel 7
+
 ## 1.1.0 - 2020-02-11
 
 ### Added
@@ -68,4 +87,5 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Add explicit class name casting with ucfirst
 
 ## 0.1.0 - 2018-06-28
+
 - Initial Release
