@@ -13,10 +13,11 @@ declare(strict_types=1);
 
 namespace ArkEcosystem\Client\API;
 
-use GuzzleHttp\Client;
 use ArkEcosystem\Client\Connection;
-use ArkEcosystem\Client\Http\Request;
 use ArkEcosystem\Client\Contracts\API;
+use ArkEcosystem\Client\Http\Request;
+use GuzzleHttp\Client;
+use Illuminate\Support\Arr;
 
 /**
  * This is the abstract resource class.
@@ -52,7 +53,9 @@ abstract class AbstractAPI
      */
     protected function get(string $path, array $query = [])
     {
-        $response = $this->connection->getHttpClient()->get($path, compact('query'));
+        $response = $this->connection->getHttpClient()->get($path, [
+            'query' => Arr::dot($query),
+        ]);
 
         return json_decode($response->getBody()->getContents(), true);
     }
