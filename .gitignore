@@ -5,3 +5,4 @@ clover.xml
 .phpunit.result.cache
 .coverage
 coverage.xml
+.php_cs.cache
