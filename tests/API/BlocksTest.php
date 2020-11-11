@@ -62,12 +62,4 @@ class BlocksTest extends TestCase
             return $connection->blocks()->transactions('dummy');
         });
     }
-
-    /** @test */
-    public function search_calls_correct_url()
-    {
-        $this->assertResponse('POST', 'blocks/search', function ($connection) {
-            return $connection->blocks()->search(['address' => 'dummy']);
-        });
-    }
 }

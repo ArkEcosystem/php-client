@@ -110,18 +110,6 @@ class Wallets extends AbstractAPI
     }
 
     /**
-     * Filter all wallets by the given parameters.
-     *
-     * @param array $parameters
-     *
-     * @return array
-     */
-    public function search(array $parameters): ?array
-    {
-        return $this->post('wallets/search', $parameters);
-    }
-
-    /**
      * Get all wallets sorted by balance in descending order.
      *
      * @return array

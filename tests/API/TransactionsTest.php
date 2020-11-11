@@ -64,14 +64,6 @@ class TransactionsTest extends TestCase
     }
 
     /** @test */
-    public function search_calls_correct_url()
-    {
-        $this->assertResponse('POST', 'transactions/search', function ($connection) {
-            return $connection->transactions()->search(['amount' => 1]);
-        });
-    }
-
-    /** @test */
     public function types_calls_correct_url()
     {
         $this->assertResponse('GET', 'transactions/types', function ($connection) {

@@ -40,14 +40,6 @@ class LocksTest extends TestCase
     }
 
     /** @test */
-    public function search_calls_correct_url()
-    {
-        $this->assertResponse('POST', 'locks/search', function ($connection) {
-            return $connection->locks()->search(['address' => 'dummy']);
-        });
-    }
-
-    /** @test */
     public function unlocked_calls_correct_url()
     {
         $this->assertResponse('POST', 'locks/unlocked', function ($connection) {
