@@ -81,7 +81,7 @@ jobs:
                   branch: ${{ github.head_ref }}
 
     unit:
-        needs: [conflicts, analyse, format]
+        needs: [conflicts, format]
 
         runs-on: ubuntu-latest
 
