@@ -87,14 +87,6 @@ class WalletsTest extends TestCase
         });
     }
 
-    /** @test */
-    public function search_calls_correct_url()
-    {
-        $this->assertResponse('POST', 'wallets/search', function ($connection) {
-            return $connection->wallets()->search(['address' => 'dummy']);
-        });
-    }
-
     /**
      * @return string
      */

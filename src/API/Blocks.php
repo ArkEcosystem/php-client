@@ -76,16 +76,4 @@ class Blocks extends AbstractAPI
     {
         return $this->get("blocks/{$id}/transactions", $query);
     }
-
-    /**
-     * Filter all blocks by the given parameters.
-     *
-     * @param array $parameters
-     *
-     * @return array
-     */
-    public function search(array $parameters): ?array
-    {
-        return $this->post('blocks/search', $parameters);
-    }
 }

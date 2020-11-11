@@ -79,18 +79,6 @@ class Transactions extends AbstractAPI
     }
 
     /**
-     * Filter all transactions by the given parameters.
-     *
-     * @param array $parameters
-     *
-     * @return array
-     */
-    public function search(array $parameters): ?array
-    {
-        return $this->post('transactions/search', $parameters);
-    }
-
-    /**
      * Get a list of valid transaction types.
      *
      * @return array

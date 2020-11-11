@@ -45,18 +45,6 @@ class Locks extends AbstractAPI
     }
 
     /**
-     * Filter all locks by the given parameters.
-     *
-     * @param array $parameters
-     *
-     * @return array
-     */
-    public function search(array $parameters): ?array
-    {
-        return $this->post('locks/search', $parameters);
-    }
-
-    /**
      * Filter all unlocked locks by the given parameters.
      *
      * @param array $parameters
