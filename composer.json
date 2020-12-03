@@ -9,7 +9,7 @@
         "homepage": "https://github.com/faustbrian"
     }],
     "require": {
-        "php": "^7.2|^7.4|^8.0",
+        "php": "^7.4|^8.0",
         "guzzlehttp/guzzle": "^6.5|^7.0",
         "illuminate/support": "^6.0|^7.0|^8.0"
     },
