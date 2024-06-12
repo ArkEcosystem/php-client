@@ -42,7 +42,7 @@ class ConnectionManager
      * @param array  $config
      * @param string $name
      *
-     * @return \ArkEcosystem\Client\Connection
+     * @return Connection
      */
     public function connect(array $config, string $name = 'main'): Connection
     {
@@ -72,7 +72,7 @@ class ConnectionManager
      *
      * @param string|null $name
      *
-     * @return \ArkEcosystem\Client\Connection
+     * @return Connection
      */
     public function connection(string $name = null): Connection
     {
