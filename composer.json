@@ -1,23 +1,30 @@
 {
     "name": "arkecosystem/client",
     "description": "A simple PHP API client for the Ark Blockchain.",
-    "keywords": ["api", "ark", "blockchain", "crypto", "currency"],
+    "keywords": [
+        "api",
+        "ark",
+        "blockchain",
+        "crypto",
+        "currency"
+    ],
     "license": "MIT",
-    "authors": [{
-        "name": "Brian Faust",
-        "email": "brian@ark.io",
-        "homepage": "https://github.com/faustbrian"
-    }],
+    "authors": [
+        {
+            "name": "Brian Faust",
+            "email": "brian@ark.io",
+            "homepage": "https://github.com/faustbrian"
+        }
+    ],
     "require": {
-        "php": "^7.4|^8.0",
-        "guzzlehttp/guzzle": "^6.5|^7.0",
-        "illuminate/support": "^6.0|^7.0|^8.0"
+        "php": "^8.2",
+        "guzzlehttp/guzzle": "^7.8",
+        "illuminate/support": "^11.10"
     },
     "require-dev": {
-        "friendsofphp/php-cs-fixer": "^2.16",
-        "pestphp/drift": "^0.3.0",
-        "pestphp/pest": "^0.3.8",
-        "phpunit/phpunit": "^9.3.10"
+        "friendsofphp/php-cs-fixer": "^3.58",
+        "pestphp/pest": "^2.34",
+        "phpunit/phpunit": "^10.5"
     },
     "suggest": {
         "ext-mbstring": "If ext-mbstring is not available you MUST install symfony/polyfill-mbstring"
@@ -34,7 +41,10 @@
     },
     "config": {
         "preferred-install": "dist",
-        "sort-packages": true
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
     },
     "extra": {
         "branch-alias": {
