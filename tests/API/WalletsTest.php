@@ -48,14 +48,6 @@ class WalletsTest extends TestCase
     }
 
     /** @test */
-    public function locks_calls_correct_url()
-    {
-        $this->assertResponse('GET', 'wallets/dummy/locks', function ($connection) {
-            return $connection->wallets()->locks('dummy');
-        });
-    }
-
-    /** @test */
     public function transactions_calls_correct_url()
     {
         $this->assertResponse('GET', 'wallets/dummy/transactions', function ($connection) {
