@@ -14,9 +14,9 @@ declare(strict_types=1);
 namespace ArkEcosystem\Client\API;
 
 /**
- * This is the blocks resource class.
+ * This is the blockchain resource class.
  *
- * @author Brian Faust <brian@ark.io>
+ * @author Alfonso Bribiesca <alfonso@ardenthq.com>
  */
 class Blockchain extends AbstractAPI
 {
