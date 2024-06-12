@@ -20,9 +20,9 @@ namespace ArkEcosystem\Client\API;
  */
 class ApiNodes extends AbstractAPI
 {
-    /** 
+    /**
      * Get all available nodes serving APIs.
-     * 
+     *
      * @param array $query
      *
      * @return array

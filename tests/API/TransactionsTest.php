@@ -78,7 +78,7 @@ class TransactionsTest extends TestCase
             return $connection->transactions()->fees();
         });
     }
-    
+
     /** @test */
     public function schemas_calls_correct_url()
     {

@@ -20,7 +20,7 @@ namespace ArkEcosystem\Client\API;
  */
 class Blockchain extends AbstractAPI
 {
-    /** 
+    /**
      * Get blockchain information.
      *
      * @param array $query
