@@ -24,6 +24,22 @@ use ArkEcosystem\Tests\Client\TestCase;
 class RoundsTest extends TestCase
 {
     /** @test */
+    public function all_calls_correct_url()
+    {
+        $this->assertResponse('GET', 'rounds', function ($connection) {
+            return $connection->rounds()->all();
+        });
+    }
+
+    /** @test */
+    public function view_calls_correct_url()
+    {
+        $this->assertResponse('GET', 'rounds/dummy', function ($connection) {
+            return $connection->rounds()->show('dummy');
+        });
+    }
+
+    /** @test */
     public function delegates_calls_correct_url()
     {
         $this->assertResponse('GET', 'rounds/12345/delegates', function ($connection) {

@@ -21,6 +21,30 @@ namespace ArkEcosystem\Client\API;
 class Rounds extends AbstractAPI
 {
     /**
+     * Get all rounds.
+     *
+     * @param array $query
+     *
+     * @return array
+     */
+    public function all(array $query = []): ?array
+    {
+        return $this->get('rounds', $query);
+    }
+
+    /**
+     * Get a round by the given id.
+     *
+     * @param string $id
+     *
+     * @return array
+     */
+    public function show(string $id): ?array
+    {
+        return $this->get("rounds/{$id}");
+    }
+
+    /**
      * Get the forging delegates of a round by the given id.
      *
      * @param int $id
