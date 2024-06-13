@@ -35,7 +35,7 @@ class RoundsTest extends TestCase
     public function view_calls_correct_url()
     {
         $this->assertResponse('GET', 'rounds/dummy', function ($connection) {
-            return $connection->rounds()->show('dummy');
+            return $connection->rounds()->show(12345);
         });
     }
 
