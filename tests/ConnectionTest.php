@@ -13,8 +13,9 @@ declare(strict_types=1);
 
 namespace ArkEcosystem\Tests\Client;
 
-use ArkEcosystem\Client\API\AbstractAPI;
+use GuzzleHttp\HandlerStack;
 use ArkEcosystem\Client\Connection;
+use ArkEcosystem\Client\API\AbstractAPI;
 use ArkEcosystem\Client\ConnectionManager;
 
 /**
@@ -61,6 +62,16 @@ class ConnectionTest extends TestCase
         $actual = $connection->api('blocks');
 
         $this->assertInstanceOf(AbstractAPI::class, $actual);
+    }
+
+    /** @test */
+    public function should_accept_custom_handler()
+    {
+        $handler = HandlerStack::create();
+
+        $connection = new Connection(['host' => $this->host], $handler);
+
+        $this->assertEquals($handler, $connection->httpClient->getConfig('handler'));
     }
 
     /**
