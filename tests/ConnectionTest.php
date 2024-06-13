@@ -13,10 +13,10 @@ declare(strict_types=1);
 
 namespace ArkEcosystem\Tests\Client;
 
-use GuzzleHttp\HandlerStack;
-use ArkEcosystem\Client\Connection;
 use ArkEcosystem\Client\API\AbstractAPI;
+use ArkEcosystem\Client\Connection;
 use ArkEcosystem\Client\ConnectionManager;
+use GuzzleHttp\HandlerStack;
 
 /**
  * This is the connection manager test class.
@@ -71,7 +71,7 @@ class ConnectionTest extends TestCase
 
         $connection = new Connection(['host' => $this->host], $handler);
 
-        $this->assertEquals($handler, $connection->getHttpClient()->getConfig('handler'));
+        $this->assertSame($handler, $connection->getHttpClient()->getConfig('handler'));
     }
 
     /**
