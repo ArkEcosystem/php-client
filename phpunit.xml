@@ -14,5 +14,8 @@
             <directory suffix=".php">./app</directory>
             <directory suffix=".php">./src</directory>
         </include>
+        <exclude>
+            <file>./src/API/AbstractAPI.php</file>
+        </exclude>
     </source>
 </phpunit>

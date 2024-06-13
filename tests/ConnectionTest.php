@@ -71,7 +71,7 @@ class ConnectionTest extends TestCase
 
         $connection = new Connection(['host' => $this->host], $handler);
 
-        $this->assertEquals($handler, $connection->httpClient->getConfig('handler'));
+        $this->assertEquals($handler, $connection->getHttpClient()->getConfig('handler'));
     }
 
     /**
