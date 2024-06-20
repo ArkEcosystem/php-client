@@ -29,7 +29,7 @@ class Connection
     /**
      * The Guzzle Client instance.
      *
-     * @var \GuzzleHttp\Client
+     * @var Client
      */
     public $httpClient;
 
@@ -37,7 +37,7 @@ class Connection
      * Make a new connection instance.
      *
      * @param array                    $config
-     * @param \GuzzleHttp\HandlerStack $handler
+     * @param HandlerStack $handler
      */
     public function __construct(array $config, HandlerStack $handler = null)
     {
@@ -77,7 +77,7 @@ class Connection
      *
      * @param string $name
      *
-     * @return \ArkEcosystem\Client\API\AbstractAPI
+     * @return API\AbstractAPI
      */
     public function api(string $name): API\AbstractAPI
     {
@@ -94,7 +94,7 @@ class Connection
     /**
      * Get the Guzzle client instance.
      *
-     * @return \GuzzleHttp\Client
+     * @return Client
      */
     public function getHttpClient(): Client
     {

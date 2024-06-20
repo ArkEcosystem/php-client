@@ -29,14 +29,14 @@ abstract class AbstractAPI
     /**
      * The client connection.
      *
-     * @var \ArkEcosystem\Client\Connection
+     * @var Connection
      */
     public $connection;
 
     /**
      * Create a new API class instance.
      *
-     * @param \ArkEcosystem\Client\Connection $connection
+     * @param Connection $connection
      */
     public function __construct(Connection $connection)
     {

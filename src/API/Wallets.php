@@ -45,19 +45,6 @@ class Wallets extends AbstractAPI
     }
 
     /**
-     * Get all locks for the given wallet.
-     *
-     * @param string $id
-     * @param array  $query
-     *
-     * @return array
-     */
-    public function locks(string $id, array $query = []): ?array
-    {
-        return $this->get("wallets/{$id}/locks", $query);
-    }
-
-    /**
      * Get all transactions for the given wallet.
      *
      * @param string $id

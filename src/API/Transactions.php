@@ -97,4 +97,14 @@ class Transactions extends AbstractAPI
     {
         return $this->get('transactions/fees');
     }
+
+    /**
+     * Get the list of transaction schemas.
+     *
+     * @return array
+     */
+    public function schemas(): ?array
+    {
+        return $this->get('transactions/schemas');
+    }
 }
