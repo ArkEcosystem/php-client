@@ -14,8 +14,8 @@ declare(strict_types=1);
 namespace ArkEcosystem\Tests\Client;
 
 use ArkEcosystem\Client\API\AbstractAPI;
-use ArkEcosystem\Client\Connection;
-use ArkEcosystem\Client\ConnectionManager;
+use ArkEcosystem\Client\ArkClient;
+use ArkEcosystem\Client\ClientManager;
 use GuzzleHttp\HandlerStack;
 
 /**
@@ -24,12 +24,12 @@ use GuzzleHttp\HandlerStack;
  * @author Brian Faust <brian@ark.io>
  * @covers \ArkEcosystem\Client\Connection
  */
-class ConnectionTest extends TestCase
+class ArkClientTest extends TestCase
 {
     /** @test */
     public function it_should_return_an_api()
     {
-        $connection = $this->getConnection();
+        $connection = $this->getClient();
 
         $this->assertInstanceOf(AbstractAPI::class, $connection->api('blocks'));
     }
@@ -37,7 +37,7 @@ class ConnectionTest extends TestCase
     /** @test */
     public function should_call_on_api_if_exists()
     {
-        $connection = $this->getConnection();
+        $connection = $this->getClient();
 
         $actual = $connection->blocks();
 
@@ -47,7 +47,7 @@ class ConnectionTest extends TestCase
     /** @test */
     public function should_call_and_throw_if_not_exists()
     {
-        $connection = $this->getConnection();
+        $connection = $this->getClient();
 
         $this->expectException(\BadMethodCallException::class);
 
@@ -57,7 +57,7 @@ class ConnectionTest extends TestCase
     /** @test */
     public function should_get_an_api()
     {
-        $connection = $this->getConnection();
+        $connection = $this->getClient();
 
         $actual = $connection->api('blocks');
 
@@ -69,20 +69,18 @@ class ConnectionTest extends TestCase
     {
         $handler = HandlerStack::create();
 
-        $connection = new Connection(['host' => $this->host], $handler);
+        $connection = new ArkClient(host: $this->host, handler: $handler);
 
         $this->assertSame($handler, $connection->getHttpClient()->getConfig('handler'));
     }
 
     /**
-     * Get a new connection instance.
+     * Get a new client instance.
      *
-     * @return Connection
+     * @return ArkClient
      */
-    private function getConnection(): Connection
+    private function getClient(): ArkClient
     {
-        return (new ConnectionManager())->connect([
-            'host'        => $this->host,
-        ]);
+        return (new ClientManager())->connect($this->host);
     }
 }

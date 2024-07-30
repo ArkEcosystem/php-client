@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace ArkEcosystem\Client\API;
 
+use ArkEcosystem\Client\ArkClient;
 use ArkEcosystem\Client\Connection;
 use ArkEcosystem\Client\Contracts\API;
 use ArkEcosystem\Client\Http\Request;
@@ -27,20 +28,20 @@ use Illuminate\Support\Arr;
 abstract class AbstractAPI
 {
     /**
-     * The client connection.
+     * The client .
      *
-     * @var Connection
+     * @var ArkClient
      */
-    public $connection;
+    public $client;
 
     /**
      * Create a new API class instance.
      *
-     * @param Connection $connection
+     * @param Connection $client
      */
-    public function __construct(Connection $connection)
+    public function __construct(ArkClient $client)
     {
-        $this->connection = $connection;
+        $this->client = $client;
     }
 
     /**
@@ -53,7 +54,7 @@ abstract class AbstractAPI
      */
     protected function get(string $path, array $query = [])
     {
-        $response = $this->connection->getHttpClient()->get($path, [
+        $response = $this->client->getHttpClient()->get($path, [
             'query' => Arr::dot($query),
         ]);
 
@@ -70,7 +71,7 @@ abstract class AbstractAPI
      */
     protected function post(string $path, array $parameters = [])
     {
-        $response = $this->connection->getHttpClient()->post(
+        $response = $this->client->getHttpClient()->post(
             $path,
             ['json' => $parameters]
         );

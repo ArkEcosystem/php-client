@@ -16,6 +16,7 @@ namespace ArkEcosystem\Client;
 use BadMethodCallException;
 use GuzzleHttp\Client;
 use GuzzleHttp\HandlerStack;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 use RuntimeException;
 
@@ -24,7 +25,7 @@ use RuntimeException;
  *
  * @author Brian Faust <brian@ark.io>
  */
-class Connection
+class ArkClient
 {
     /**
      * The Guzzle Client instance.
@@ -36,14 +37,17 @@ class Connection
     /**
      * Make a new connection instance.
      *
-     * @param array                    $config
+     * @param string $host
+     * @param array $clientConfig
      * @param HandlerStack $handler
      */
-    public function __construct(array $config, HandlerStack $handler = null)
+    public function __construct(string $host, array $clientConfig = [], HandlerStack $handler = null)
     {
         $options = [
-            'base_uri' => Str::finish($config['host'], '/'),
+            ...$clientConfig,
+            'base_uri' => Str::finish($host, '/'),
             'headers'  => [
+                ...Arr::get($clientConfig, 'headers', []),
                 'Content-Type' => 'application/json',
             ],
         ];

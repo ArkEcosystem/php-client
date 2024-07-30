@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace ArkEcosystem\Tests\Client;
 
-use ArkEcosystem\Client\Connection;
+use ArkEcosystem\Client\ArkClient;
 use GuzzleHttp\Handler\MockHandler;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Psr7\Request;
@@ -41,10 +41,11 @@ abstract class TestCase extends BaseTestCase
     {
         $mockHandler = new MockHandler([new Response(200, [], json_encode($expectedBody))]);
 
-        $connection = new Connection([
-            'host' => $this->host,
-        ], HandlerStack::create($mockHandler));
+        $client = new ArkClient(
+            host: 'https://dwallets-evm.mainsailhq.com/api',
+            handler: HandlerStack::create($mockHandler)
+        );
 
-        $this->assertSame($expectedBody, $callback($connection));
+        $this->assertSame($expectedBody, $callback($client));
     }
 }
