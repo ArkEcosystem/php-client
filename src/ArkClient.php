@@ -62,12 +62,8 @@ class ArkClient
         $this->validateHosts($hostOrHosts);
 
         if (is_array($hostOrHosts)) {
-            $baseUri = $hostOrHosts['api'];
-
             $this->hosts = $hostOrHosts;
         } else {
-            $baseUri = $hostOrHosts;
-
             $this->hosts = ['api' => $hostOrHosts];
         }
 
