@@ -85,7 +85,7 @@ class ArkClientTest extends TestCase
             'transactions' => 'https://dwallets-evm.mainsailhq.com/tx/api',
             'evm'          => 'https://dwallets-evm.mainsailhq.com/evm',
         ];
-        
+
         $this->expectException(\InvalidArgumentException::class);
 
         new ArkClient($hosts);
