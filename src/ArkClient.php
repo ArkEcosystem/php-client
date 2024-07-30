@@ -23,7 +23,7 @@ use RuntimeException;
 /**
  * This is the connection class.
  *
- * @author Brian Faust <brian@ark.io>
+ * @autor Brian Faust <brian@ark.io>
  */
 class ArkClient
 {
@@ -35,17 +35,42 @@ class ArkClient
     public $httpClient;
 
     /**
+     * The hosts to connect to.
+     *
+     * @var array{
+     *  api: string,
+     *  transactions: string,
+     *  evm: string
+     * }
+     */
+    public array $hosts;
+
+    /**
      * Make a new connection instance.
      *
-     * @param string $host
+     * @param string|array{
+     *  api: string,
+     *  transactions: string,
+     *  evm: string
+     * } $hostOrHosts
      * @param array $clientConfig
      * @param HandlerStack $handler
+     *
+     * @throws InvalidArgumentException if $hostOrHosts is an array and does not have the required format
      */
-    public function __construct(string $host, array $clientConfig = [], HandlerStack $handler = null)
+    public function __construct(array|string $hostOrHosts, array $clientConfig = [], HandlerStack $handler = null)
     {
+        $this->validateHosts($hostOrHosts);
+
+        if (is_array($hostOrHosts)) {
+            $baseUri = $hostOrHosts['api'];
+        } else {
+            $baseUri = $hostOrHosts;
+        }
+
         $options = [
             ...$clientConfig,
-            'base_uri' => Str::finish($host, '/'),
+            'base_uri' => Str::finish($baseUri, '/'),
             'headers'  => [
                 ...Arr::get($clientConfig, 'headers', []),
                 'Content-Type' => 'application/json',
@@ -60,6 +85,28 @@ class ArkClient
     }
 
     /**
+     * Validate the hosts array format.
+     *
+     * @param string|array $hostOrHosts
+     *
+     * @throws InvalidArgumentException if the hosts array does not have the required format
+     */
+    private function validateHosts(array|string $hostOrHosts): void
+    {
+        if (is_array($hostOrHosts)) {
+            $requiredKeys = ['api', 'transactions', 'evm'];
+
+            foreach ($requiredKeys as $key) {
+                if (!array_key_exists($key, $hostOrHosts)) {
+                    throw new \InvalidArgumentException(sprintf('The hosts array must contain the key "%s".', $key));
+                }
+            }
+        }
+    }
+
+    /**
+     * Handle dynamic method calls into the connection.
+     *
      * @param string $name
      * @param mixed  $args
      *
