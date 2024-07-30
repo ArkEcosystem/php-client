@@ -26,9 +26,9 @@ use PHPUnit\Framework\TestCase;
 class ArkClientBuilderTest extends TestCase
 {
     private array $hosts = [
-        'api' => 'https://api.example.com',
-        'transactions' => 'https://transactions.example.com',
-        'evm' => 'https://evm.example.com',
+        'api' => 'https://dwallets-evm.mainsailhq.com/api',
+        'transactions' => 'https://dwallets-evm.mainsailhq.com/tx',
+        'evm' => 'https://dwallets-evm.mainsailhq.com/evm'
     ];
 
     /** @test */
