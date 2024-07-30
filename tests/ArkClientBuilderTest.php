@@ -27,7 +27,7 @@ class ArkClientBuilderTest extends TestCase
 {
     private array $hosts = [
         'api'          => 'https://dwallets-evm.mainsailhq.com/api',
-        'transactions' => 'https://dwallets-evm.mainsailhq.com/tx',
+        'transactions' => 'https://dwallets-evm.mainsailhq.com/tx/api',
         'evm'          => 'https://dwallets-evm.mainsailhq.com/evm',
     ];
 
