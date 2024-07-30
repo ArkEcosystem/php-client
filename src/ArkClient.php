@@ -17,7 +17,6 @@ use BadMethodCallException;
 use GuzzleHttp\Client;
 use GuzzleHttp\HandlerStack;
 use Illuminate\Support\Arr;
-use Illuminate\Support\Str;
 use RuntimeException;
 
 /**
@@ -43,7 +42,7 @@ class ArkClient
      *  evm: string|null
      * }
      */
-    public array $hosts;
+    private array $hosts;
 
     /**
      * Make a new connection instance.
@@ -74,7 +73,6 @@ class ArkClient
 
         $options = [
             ...$clientConfig,
-            'base_uri' => Str::finish($baseUri, '/'),
             'headers'  => [
                 ...Arr::get($clientConfig, 'headers', []),
                 'Content-Type' => 'application/json',
@@ -86,20 +84,6 @@ class ArkClient
         }
 
         $this->httpClient = new Client($options);
-    }
-
-    /**
-     * Validate the hosts array format.
-     *
-     * @param string|array $hostOrHosts
-     *
-     * @throws InvalidArgumentException if the hosts array does not have the required format
-     */
-    private function validateHosts(array|string $hostOrHosts): void
-    {
-        if (is_array($hostOrHosts) && !array_key_exists('api', $hostOrHosts)) {
-            throw new \InvalidArgumentException(sprintf('The hosts array must contain the key "api".'));
-        }
     }
 
     /**
@@ -119,6 +103,18 @@ class ArkClient
         } catch (RuntimeException $e) {
             throw new BadMethodCallException(sprintf('Undefined method called: "%s"', $name));
         }
+    }
+
+    /**
+     * @return array{
+     *  api: string,
+     *  transactions: string|null,
+     *  evm: string|null
+     * }
+     */
+    public function getHosts(): array
+    {
+        return $this->hosts;
     }
 
     /**
@@ -148,5 +144,19 @@ class ArkClient
     public function getHttpClient(): Client
     {
         return $this->httpClient;
+    }
+
+    /**
+     * Validate the hosts array format.
+     *
+     * @param string|array $hostOrHosts
+     *
+     * @throws InvalidArgumentException if the hosts array does not have the required format
+     */
+    private function validateHosts(array|string $hostOrHosts): void
+    {
+        if (is_array($hostOrHosts) && ! array_key_exists('api', $hostOrHosts)) {
+            throw new \InvalidArgumentException(sprintf('The hosts array must contain the key "api".'));
+        }
     }
 }

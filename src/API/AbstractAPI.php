@@ -19,6 +19,7 @@ use ArkEcosystem\Client\Contracts\API;
 use ArkEcosystem\Client\Http\Request;
 use GuzzleHttp\Client;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Str;
 
 /**
  * This is the abstract resource class.
@@ -54,7 +55,7 @@ abstract class AbstractAPI
      */
     protected function get(string $path, array $query = [])
     {
-        $response = $this->client->getHttpClient()->get($path, [
+        $response = $this->client->getHttpClient()->get($this->buildUrl('get', $path), [
             'query' => Arr::dot($query),
         ]);
 
@@ -72,10 +73,21 @@ abstract class AbstractAPI
     protected function post(string $path, array $parameters = [])
     {
         $response = $this->client->getHttpClient()->post(
-            $path,
+            $this->buildUrl('post', $path),
             ['json' => $parameters]
         );
 
         return json_decode($response->getBody()->getContents(), true);
+    }
+
+    private function buildUrl(string $method, string $path): string
+    {
+        if ($method === 'post') {
+            $baseUri = Arr::get($this->client->getHosts(), 'transactions', $this->client->getHosts()['api']);
+        } else {
+            $baseUri = $this->client->getHosts()['api'];
+        }
+
+        return Str::finish($baseUri, '/').$path;
     }
 }

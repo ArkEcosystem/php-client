@@ -21,7 +21,7 @@ use GuzzleHttp\HandlerStack;
 class ArkClientBuilder
 {
     private static ?self $instance = null;
-    
+
     /**
      * The hosts to connect to.
      *
@@ -48,19 +48,6 @@ class ArkClientBuilder
     private ?HandlerStack $handler = null;
 
     /**
-     * Get the singleton instance of the builder.
-     *
-     * @return self
-     */
-    private static function getInstance(): self
-    {
-        if (self::$instance === null) {
-            self::$instance = new self();
-        }
-        return self::$instance;
-    }
-
-    /**
      * Initialize the builder with hosts.
      *
      * @param array{
@@ -73,8 +60,9 @@ class ArkClientBuilder
      */
     public static function withHosts(array $hosts): self
     {
-        $instance = self::getInstance();
+        $instance        = self::getInstance();
         $instance->hosts = $hosts;
+
         return $instance;
     }
 
@@ -88,6 +76,7 @@ class ArkClientBuilder
     public function withClientConfig(array $clientConfig): self
     {
         $this->clientConfig = $clientConfig;
+
         return $this;
     }
 
@@ -101,6 +90,7 @@ class ArkClientBuilder
     public function withHandler(HandlerStack $handler): self
     {
         $this->handler = $handler;
+
         return $this;
     }
 
@@ -113,4 +103,18 @@ class ArkClientBuilder
     {
         return new ArkClient($this->hosts, $this->clientConfig, $this->handler);
     }
+
+    /**
+     * Get the singleton instance of the builder.
+     *
+     * @return self
+     */
+    private static function getInstance(): self
+    {
+        if (self::$instance === null) {
+            self::$instance = new self();
+            }
+
+            return self::$instance;
+        }
 }

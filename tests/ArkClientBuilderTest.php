@@ -13,8 +13,8 @@ declare(strict_types=1);
 
 namespace ArkEcosystem\Tests\Client;
 
-use ArkEcosystem\Client\ArkClientBuilder;
 use ArkEcosystem\Client\ArkClient;
+use ArkEcosystem\Client\ArkClientBuilder;
 use GuzzleHttp\HandlerStack;
 use PHPUnit\Framework\TestCase;
 
@@ -26,9 +26,9 @@ use PHPUnit\Framework\TestCase;
 class ArkClientBuilderTest extends TestCase
 {
     private array $hosts = [
-        'api' => 'https://dwallets-evm.mainsailhq.com/api',
+        'api'          => 'https://dwallets-evm.mainsailhq.com/api',
         'transactions' => 'https://dwallets-evm.mainsailhq.com/tx',
-        'evm' => 'https://dwallets-evm.mainsailhq.com/evm'
+        'evm'          => 'https://dwallets-evm.mainsailhq.com/evm',
     ];
 
     /** @test */
@@ -37,7 +37,7 @@ class ArkClientBuilderTest extends TestCase
         $client = ArkClientBuilder::withHosts($this->hosts)->create();
 
         $this->assertInstanceOf(ArkClient::class, $client);
-        $this->assertEquals($this->hosts, $client->hosts);
+        $this->assertSame($this->hosts, $client->getHosts());
     }
 
     /** @test */
@@ -51,7 +51,7 @@ class ArkClientBuilderTest extends TestCase
 
         $this->assertInstanceOf(ArkClient::class, $client);
         $this->assertArrayHasKey('timeout', $client->getHttpClient()->getConfig());
-        $this->assertEquals(2.0, $client->getHttpClient()->getConfig('timeout'));
+        $this->assertSame(2.0, $client->getHttpClient()->getConfig('timeout'));
     }
 
     /** @test */
@@ -71,7 +71,7 @@ class ArkClientBuilderTest extends TestCase
     public function it_should_create_a_client_with_all_parameters()
     {
         $clientConfig = ['timeout' => 2.0];
-        $handler = HandlerStack::create();
+        $handler      = HandlerStack::create();
 
         $client = ArkClientBuilder::withHosts($this->hosts)
             ->withClientConfig($clientConfig)
@@ -79,9 +79,9 @@ class ArkClientBuilderTest extends TestCase
             ->create();
 
         $this->assertInstanceOf(ArkClient::class, $client);
-        $this->assertEquals($this->hosts, $client->hosts);
+        $this->assertSame($this->hosts, $client->getHosts());
         $this->assertArrayHasKey('timeout', $client->getHttpClient()->getConfig());
-        $this->assertEquals(2.0, $client->getHttpClient()->getConfig('timeout'));
+        $this->assertSame(2.0, $client->getHttpClient()->getConfig('timeout'));
         $this->assertSame($handler, $client->getHttpClient()->getConfig('handler'));
     }
 }
