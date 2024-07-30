@@ -26,24 +26,24 @@ class RoundsTest extends TestCase
     /** @test */
     public function all_calls_correct_url()
     {
-        $this->assertResponse('GET', 'rounds', function ($connection) {
-            return $connection->rounds()->all();
+        $this->assertResponse('GET', 'rounds', function ($client) {
+            return $client->rounds()->all();
         });
     }
 
     /** @test */
     public function view_calls_correct_url()
     {
-        $this->assertResponse('GET', 'rounds/dummy', function ($connection) {
-            return $connection->rounds()->show(12345);
+        $this->assertResponse('GET', 'rounds/dummy', function ($client) {
+            return $client->rounds()->show(12345);
         });
     }
 
     /** @test */
     public function delegates_calls_correct_url()
     {
-        $this->assertResponse('GET', 'rounds/12345/delegates', function ($connection) {
-            return $connection->rounds()->delegates(12345);
+        $this->assertResponse('GET', 'rounds/12345/delegates', function ($client) {
+            return $client->rounds()->delegates(12345);
         });
     }
 }

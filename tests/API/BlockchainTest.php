@@ -26,8 +26,8 @@ class BlockchainTest extends TestCase
     /** @test */
     public function blockchain´_calls_correct_url()
     {
-        $this->assertResponse('GET', 'blockchain', function ($connection) {
-            return $connection->blockchain()->blockchain();
+        $this->assertResponse('GET', 'blockchain', function ($client) {
+            return $client->blockchain()->blockchain();
         });
     }
 }
