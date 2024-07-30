@@ -39,8 +39,8 @@ class ArkClient
      *
      * @var array{
      *  api: string,
-     *  transactions: string,
-     *  evm: string
+     *  transactions: string|null,
+     *  evm: string|null
      * }
      */
     public array $hosts;
@@ -50,8 +50,8 @@ class ArkClient
      *
      * @param string|array{
      *  api: string,
-     *  transactions: string,
-     *  evm: string
+     *  transactions: string|null,
+     *  evm: string|null
      * } $hostOrHosts
      * @param array $clientConfig
      * @param HandlerStack $handler
@@ -93,14 +93,8 @@ class ArkClient
      */
     private function validateHosts(array|string $hostOrHosts): void
     {
-        if (is_array($hostOrHosts)) {
-            $requiredKeys = ['api', 'transactions', 'evm'];
-
-            foreach ($requiredKeys as $key) {
-                if (!array_key_exists($key, $hostOrHosts)) {
-                    throw new \InvalidArgumentException(sprintf('The hosts array must contain the key "%s".', $key));
-                }
-            }
+        if (is_array($hostOrHosts) && !array_key_exists('api', $hostOrHosts)) {
+            throw new \InvalidArgumentException(sprintf('The hosts array must contain the key "api".'));
         }
     }
 

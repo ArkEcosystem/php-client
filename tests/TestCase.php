@@ -42,7 +42,7 @@ abstract class TestCase extends BaseTestCase
         $mockHandler = new MockHandler([new Response(200, [], json_encode($expectedBody))]);
 
         $client = new ArkClient(
-            host: 'https://dwallets-evm.mainsailhq.com/api',
+            hostOrHosts: 'https://dwallets-evm.mainsailhq.com/api',
             handler: HandlerStack::create($mockHandler)
         );
 

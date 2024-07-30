@@ -69,7 +69,7 @@ class ArkClientTest extends TestCase
     {
         $handler = HandlerStack::create();
 
-        $connection = new ArkClient(host: $this->host, handler: $handler);
+        $connection = new ArkClient(hostOrHosts: $this->host, handler: $handler);
 
         $this->assertSame($handler, $connection->getHttpClient()->getConfig('handler'));
     }
