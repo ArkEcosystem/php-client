@@ -19,10 +19,10 @@ use ArkEcosystem\Client\ClientManager;
 use GuzzleHttp\HandlerStack;
 
 /**
- * This is the connection manager test class.
+ * This is the ark client test class.
  *
  * @author Brian Faust <brian@ark.io>
- * @covers \ArkEcosystem\Client\Connection
+ * @covers \ArkEcosystem\Client\ArkClient
  */
 class ArkClientTest extends TestCase
 {
@@ -62,6 +62,33 @@ class ArkClientTest extends TestCase
         $actual = $connection->api('blocks');
 
         $this->assertInstanceOf(AbstractAPI::class, $actual);
+    }
+
+    /** @test */
+    public function should_accept_hosts_as_an_array()
+    {
+        $hosts = [
+            'api'          => 'https://dwallets-evm.mainsailhq.com/api',
+            'transactions' => 'https://dwallets-evm.mainsailhq.com/tx/api',
+            'evm'          => 'https://dwallets-evm.mainsailhq.com/evm',
+        ];
+
+        $client = new ArkClient($hosts);
+
+        $this->assertSame($hosts, $client->getHosts());
+    }
+
+    /** @test */
+    public function does_not_accepts_hosts_array_without_api()
+    {
+        $hosts = [
+            'transactions' => 'https://dwallets-evm.mainsailhq.com/tx/api',
+            'evm'          => 'https://dwallets-evm.mainsailhq.com/evm',
+        ];
+        
+        $this->expectException(\InvalidArgumentException::class);
+
+        new ArkClient($hosts);
     }
 
     /** @test */
