@@ -101,6 +101,27 @@ class ArkClientTest extends TestCase
         $this->assertSame($handler, $connection->getHttpClient()->getConfig('handler'));
     }
 
+    /** @test */
+    public function should_set_host()
+    {
+        $client = $this->getClient();
+
+        $newHost = 'https://new-host.com/api';
+        $client->setHost($newHost, 'api');
+
+        $this->assertSame($newHost, $client->getHosts()['api']);
+    }
+
+    /** @test */
+    public function should_throw_exception_if_host_type_is_invalid()
+    {
+        $client = $this->getClient();
+
+        $this->expectException(\InvalidArgumentException::class);
+
+        $client->setHost('https://new-host.com/api', 'other');
+    }
+
     /**
      * Get a new client instance.
      *

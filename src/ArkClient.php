@@ -102,6 +102,23 @@ class ArkClient
     }
 
     /**
+     * Set the host for the given type.
+     *
+     * @param string $host
+     * @param string $type
+     *
+     * @throws InvalidArgumentException if the type is not 'api', 'transactions', or 'evm'
+     */
+    public function setHost(string $host, string $type): void
+    {
+        if (! in_array($type, ['api', 'transactions', 'evm'], true)) {
+            throw new \InvalidArgumentException('Invalid host type.');
+        }
+
+        $this->hosts[$type] = $host;
+    }
+
+    /**
      * @return array{
      *  api: string,
      *  transactions: string|null,
