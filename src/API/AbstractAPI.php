@@ -95,7 +95,7 @@ abstract class AbstractAPI
 
         // Reset the API to the default value.
         $this->api = 'api';
-        
+
         return Str::finish($baseUri, '/').$path;
     }
 }

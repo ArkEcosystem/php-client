@@ -48,9 +48,10 @@ abstract class TestCase extends BaseTestCase
         $mockHandler = new MockHandler([
             function (Request $request) use ($method, $path, $expectedBody, $hosts, $expectedApi) {
                 $this->assertSame($method, $request->getMethod());
-                $this->assertSame($hosts[$expectedApi] . '/' . $path, $request->getUri()->__toString());
+                $this->assertSame($hosts[$expectedApi].'/'.$path, $request->getUri()->__toString());
+
                 return new Response(200, [], json_encode($expectedBody));
-            }
+            },
         ]);
 
         $client = new ArkClient(
@@ -59,6 +60,5 @@ abstract class TestCase extends BaseTestCase
         );
 
         $this->assertSame($expectedBody, $callback($client));
-
     }
 }
