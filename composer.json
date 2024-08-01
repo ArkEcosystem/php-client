@@ -11,9 +11,9 @@
     "license": "MIT",
     "authors": [
         {
-            "name": "Brian Faust",
-            "email": "brian@ark.io",
-            "homepage": "https://github.com/faustbrian"
+            "name": "ARK Ecosystem",
+            "email": "info@arkscic.com",
+            "homepage": "https://arkscic.com"
         }
     ],
     "require": {
