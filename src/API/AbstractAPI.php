@@ -35,6 +35,8 @@ abstract class AbstractAPI
      */
     public $client;
 
+    private string $api = 'api';
+
     /**
      * Create a new API class instance.
      *
@@ -55,7 +57,7 @@ abstract class AbstractAPI
      */
     protected function get(string $path, array $query = [])
     {
-        $response = $this->client->getHttpClient()->get($this->buildUrl('get', $path), [
+        $response = $this->client->getHttpClient()->get($this->buildUrl($path), [
             'query' => Arr::dot($query),
         ]);
 
@@ -73,21 +75,27 @@ abstract class AbstractAPI
     protected function post(string $path, array $parameters = [])
     {
         $response = $this->client->getHttpClient()->post(
-            $this->buildUrl('post', $path),
+            $this->buildUrl($path),
             ['json' => $parameters]
         );
 
         return json_decode($response->getBody()->getContents(), true);
     }
 
-    private function buildUrl(string $method, string $path): string
+    protected function withApi(string $api): self
     {
-        if ($method === 'post') {
-            $baseUri = Arr::get($this->client->getHosts(), 'transactions', $this->client->getHosts()['api']);
-        } else {
-            $baseUri = $this->client->getHosts()['api'];
-        }
+        $this->api = $api;
 
+        return $this;
+    }
+
+    private function buildUrl(string $path): string
+    {
+        $baseUri = $this->client->getHosts()[$this->api];
+
+        // Reset the API to the default value.
+        $this->api = 'api';
+        
         return Str::finish($baseUri, '/').$path;
     }
 }

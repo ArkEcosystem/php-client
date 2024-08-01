@@ -34,9 +34,14 @@ class TransactionsTest extends TestCase
     /** @test */
     public function create_calls_correct_url()
     {
-        $this->assertResponse('POST', 'transactions', function ($client) {
-            return $client->transactions()->create(['transactions' => []]);
-        });
+        $this->assertResponse(
+            method: 'POST',
+            path: 'transactions',
+            callback: function ($client) {
+                return $client->transactions()->create(['transactions' => []]);
+            },
+            expectedApi: 'transactions'
+        );
     }
 
     /** @test */

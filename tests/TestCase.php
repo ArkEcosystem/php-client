@@ -37,15 +37,28 @@ abstract class TestCase extends BaseTestCase
      * @param callable   $callback
      * @param array|null $expectedBody
      */
-    protected function assertResponse(string $method, string $path, callable $callback, array $expectedBody = []): void
+    protected function assertResponse(string $method, string $path, callable $callback, array $expectedBody = [], string $expectedApi = 'api'): void
     {
-        $mockHandler = new MockHandler([new Response(200, [], json_encode($expectedBody))]);
+        $hosts = [
+            'api'          => 'https://dwallets-evm.mainsailhq.com/api',
+            'transactions' => 'https://dwallets-evm.mainsailhq.com/tx/api',
+            'evm'          => 'https://dwallets-evm.mainsailhq.com/evm',
+        ];
+
+        $mockHandler = new MockHandler([
+            function (Request $request) use ($method, $path, $expectedBody, $hosts, $expectedApi) {
+                $this->assertSame($method, $request->getMethod());
+                $this->assertSame($hosts[$expectedApi] . '/' . $path, $request->getUri()->__toString());
+                return new Response(200, [], json_encode($expectedBody));
+            }
+        ]);
 
         $client = new ArkClient(
-            hostOrHosts: 'https://dwallets-evm.mainsailhq.com/api',
+            hostOrHosts: $hosts,
             handler: HandlerStack::create($mockHandler)
         );
 
         $this->assertSame($expectedBody, $callback($client));
+
     }
 }
