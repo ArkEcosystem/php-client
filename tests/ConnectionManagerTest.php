@@ -17,9 +17,6 @@ use ArkEcosystem\Client\Connection;
 use ArkEcosystem\Client\ConnectionManager;
 
 /**
- * This is the connection manager test class.
- *
- * @author Brian Faust <brian@ark.io>
  * @covers \ArkEcosystem\Client\ConnectionManager
  */
 class ConnectionManagerTest extends TestCase

@@ -19,9 +19,6 @@ use ArkEcosystem\Client\ConnectionManager;
 use GuzzleHttp\HandlerStack;
 
 /**
- * This is the connection manager test class.
- *
- * @author Brian Faust <brian@ark.io>
  * @covers \ArkEcosystem\Client\Connection
  */
 class ConnectionTest extends TestCase

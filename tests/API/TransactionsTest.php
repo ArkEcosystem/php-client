@@ -16,9 +16,6 @@ namespace ArkEcosystem\Tests\Client\API;
 use ArkEcosystem\Tests\Client\TestCase;
 
 /**
- * This is the transactions resource test class.
- *
- * @author Brian Faust <brian@ark.io>
  * @covers \ArkEcosystem\Client\API\Transactions
  */
 class TransactionsTest extends TestCase

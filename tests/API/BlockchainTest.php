@@ -16,9 +16,6 @@ namespace ArkEcosystem\Tests\Client\API;
 use ArkEcosystem\Tests\Client\TestCase;
 
 /**
- * This is the blockchain resource test class.
- *
- * @author Alfonso Bribiesca <alfonso@ardenthq.com>
  * @covers \ArkEcosystem\Client\API\Blockchain
  */
 class BlockchainTest extends TestCase
