@@ -13,11 +13,13 @@ declare(strict_types=1);
 
 namespace ArkEcosystem\Client\API;
 
+use ArkEcosystem\Client\ArkClient;
 use ArkEcosystem\Client\Connection;
 use ArkEcosystem\Client\Contracts\API;
 use ArkEcosystem\Client\Http\Request;
 use GuzzleHttp\Client;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Str;
 
 /**
  * This is the abstract resource class.
@@ -27,20 +29,22 @@ use Illuminate\Support\Arr;
 abstract class AbstractAPI
 {
     /**
-     * The client connection.
+     * The client .
      *
-     * @var Connection
+     * @var ArkClient
      */
-    public $connection;
+    public $client;
+
+    private string $api = 'api';
 
     /**
      * Create a new API class instance.
      *
-     * @param Connection $connection
+     * @param Connection $client
      */
-    public function __construct(Connection $connection)
+    public function __construct(ArkClient $client)
     {
-        $this->connection = $connection;
+        $this->client = $client;
     }
 
     /**
@@ -53,7 +57,7 @@ abstract class AbstractAPI
      */
     protected function get(string $path, array $query = [])
     {
-        $response = $this->connection->getHttpClient()->get($path, [
+        $response = $this->client->getHttpClient()->get($this->buildUrl($path), [
             'query' => Arr::dot($query),
         ]);
 
@@ -70,11 +74,28 @@ abstract class AbstractAPI
      */
     protected function post(string $path, array $parameters = [])
     {
-        $response = $this->connection->getHttpClient()->post(
-            $path,
+        $response = $this->client->getHttpClient()->post(
+            $this->buildUrl($path),
             ['json' => $parameters]
         );
 
         return json_decode($response->getBody()->getContents(), true);
+    }
+
+    protected function withApi(string $api): self
+    {
+        $this->api = $api;
+
+        return $this;
+    }
+
+    private function buildUrl(string $path): string
+    {
+        $baseUri = $this->client->getHosts()[$this->api];
+
+        // Reset the API to the default value.
+        $this->api = 'api';
+
+        return Str::finish($baseUri, '/').$path;
     }
 }

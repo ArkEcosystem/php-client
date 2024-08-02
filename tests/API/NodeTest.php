@@ -26,40 +26,40 @@ class NodeTest extends TestCase
     /** @test */
     public function status_calls_correct_url()
     {
-        $this->assertResponse('GET', 'node/status', function ($connection) {
-            return $connection->node()->status();
+        $this->assertResponse('GET', 'node/status', function ($client) {
+            return $client->node()->status();
         });
     }
 
     /** @test */
     public function syncing_calls_correct_url()
     {
-        $this->assertResponse('GET', 'node/syncing', function ($connection) {
-            return $connection->node()->syncing();
+        $this->assertResponse('GET', 'node/syncing', function ($client) {
+            return $client->node()->syncing();
         });
     }
 
     /** @test */
     public function configuration_calls_correct_url()
     {
-        $this->assertResponse('GET', 'node/configuration', function ($connection) {
-            return $connection->node()->configuration();
+        $this->assertResponse('GET', 'node/configuration', function ($client) {
+            return $client->node()->configuration();
         });
     }
 
     /** @test */
     public function crypto_calls_correct_url()
     {
-        $this->assertResponse('GET', 'node/configuration/crypto', function ($connection) {
-            return $connection->node()->crypto();
+        $this->assertResponse('GET', 'node/configuration/crypto', function ($client) {
+            return $client->node()->crypto();
         });
     }
 
     /** @test */
     public function fees_calls_correct_url()
     {
-        $this->assertResponse('GET', 'node/fees', function ($connection) {
-            return $connection->node()->fees();
+        $this->assertResponse('GET', 'node/fees', function ($client) {
+            return $client->node()->fees();
         });
     }
 }

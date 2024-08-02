@@ -26,16 +26,16 @@ class VotesTest extends TestCase
     /** @test */
     public function all_calls_correct_url()
     {
-        $this->assertResponse('GET', 'votes', function ($connection) {
-            return $connection->votes()->all();
+        $this->assertResponse('GET', 'votes', function ($client) {
+            return $client->votes()->all();
         });
     }
 
     /** @test */
     public function show_calls_correct_url()
     {
-        $this->assertResponse('GET', 'votes/dummy', function ($connection) {
-            return $connection->votes()->show('dummy');
+        $this->assertResponse('GET', 'votes/dummy', function ($client) {
+            return $client->votes()->show('dummy');
         });
     }
 
