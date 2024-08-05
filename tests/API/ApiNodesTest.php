@@ -14,8 +14,8 @@ class ApiNodesTest extends TestCase
     /** @test */
     public function api_nodes_calls_correct_url()
     {
-        $this->assertResponse('GET', 'api-nodes', function ($connection) {
-            return $connection->apiNodes()->all();
+        $this->assertResponse('GET', 'api-nodes', function ($client) {
+            return $client->apiNodes()->all();
         });
     }
 }

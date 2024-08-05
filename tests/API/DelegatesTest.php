@@ -14,32 +14,32 @@ class DelegatesTest extends TestCase
     /** @test */
     public function all_calls_correct_url()
     {
-        $this->assertResponse('GET', 'delegates', function ($connection) {
-            return $connection->delegates()->all();
+        $this->assertResponse('GET', 'delegates', function ($client) {
+            return $client->delegates()->all();
         });
     }
 
     /** @test */
     public function show_calls_correct_url()
     {
-        $this->assertResponse('GET', 'delegates/dummy', function ($connection) {
-            return $connection->delegates()->show('dummy');
+        $this->assertResponse('GET', 'delegates/dummy', function ($client) {
+            return $client->delegates()->show('dummy');
         });
     }
 
     /** @test */
     public function blocks_calls_correct_url()
     {
-        $this->assertResponse('GET', 'delegates/dummy/blocks', function ($connection) {
-            return $connection->delegates()->blocks('dummy');
+        $this->assertResponse('GET', 'delegates/dummy/blocks', function ($client) {
+            return $client->delegates()->blocks('dummy');
         });
     }
 
     /** @test */
     public function voters_calls_correct_url()
     {
-        $this->assertResponse('GET', 'delegates/dummy/voters', function ($connection) {
-            return $connection->delegates()->voters('dummy');
+        $this->assertResponse('GET', 'delegates/dummy/voters', function ($client) {
+            return $client->delegates()->voters('dummy');
         });
     }
 }

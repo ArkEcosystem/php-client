@@ -14,16 +14,16 @@ class PeersTest extends TestCase
     /** @test */
     public function all_calls_correct_url()
     {
-        $this->assertResponse('GET', 'peers', function ($connection) {
-            return $connection->peers()->all();
+        $this->assertResponse('GET', 'peers', function ($client) {
+            return $client->peers()->all();
         });
     }
 
     /** @test */
     public function show_calls_correct_url()
     {
-        $this->assertResponse('GET', 'peers/dummy', function ($connection) {
-            return $connection->peers()->show('dummy');
+        $this->assertResponse('GET', 'peers/dummy', function ($client) {
+            return $client->peers()->show('dummy');
         });
     }
 }

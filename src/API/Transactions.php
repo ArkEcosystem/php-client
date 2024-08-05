@@ -27,7 +27,7 @@ class Transactions extends AbstractAPI
      */
     public function create(array $transactions): ?array
     {
-        return $this->post('transactions', compact('transactions'));
+        return $this->withApi('transactions')->post('transactions', compact('transactions'));
     }
 
     /**
