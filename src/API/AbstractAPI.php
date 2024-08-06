@@ -2,15 +2,6 @@
 
 declare(strict_types=1);
 
-/*
- * This file is part of Ark PHP Client.
- *
- * (c) Ark Ecosystem <info@ark.io>
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
- */
-
 namespace ArkEcosystem\Client\API;
 
 use ArkEcosystem\Client\ArkClient;
@@ -21,11 +12,6 @@ use GuzzleHttp\Client;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 
-/**
- * This is the abstract resource class.
- *
- * @author Brian Faust <brian@ark.io>
- */
 abstract class AbstractAPI
 {
     /**

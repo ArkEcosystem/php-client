@@ -11,8 +11,6 @@
 [![Latest Version](https://badgen.now.sh/github/release/ArkEcosystem/php-client)](https://github.com/ArkEcosystem/php-client/releases)
 [![License: MIT](https://badgen.now.sh/badge/license/MIT/green)](https://opensource.org/licenses/MIT)
 
-> Lead Maintainer: [Brian Faust](https://github.com/faustbrian)
-
 ## Documentation
 
 You can find installation instructions and detailed instructions on how to use this package at the [dedicated documentation site](https://sdk.ark.dev/php/client).
