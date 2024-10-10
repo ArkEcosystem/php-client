@@ -29,7 +29,7 @@ class Receipts extends AbstractAPI
      */
     public function show(string $txHash): ?array
     {
-        $result = $this->get("receipts", ['txHash' => $txHash])['data'];
+        $result = $this->get('receipts', ['txHash' => $txHash])['data'];
 
         if (empty($result)) {
             throw new Exception(sprintf('No receipt found for transaction %s', $txHash));
