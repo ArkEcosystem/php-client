@@ -128,7 +128,8 @@ class ArkClient
      */
     public function api(string $name): API\AbstractAPI
     {
-        $name  = ucfirst($name);
+        $name  = $name === 'evm' ? 'EVM' : ucfirst($name);
+        
         $class = "ArkEcosystem\\Client\\API\\{$name}";
 
         if (! class_exists($class)) {
