@@ -46,7 +46,7 @@ class ArkClient
      *
      * @throws InvalidArgumentException if $hostOrHosts is an array and does not have the required format
      */
-    public function __construct(array|string $hostOrHosts, array $clientConfig = [], HandlerStack $handler = null)
+    public function __construct(array|string $hostOrHosts, array $clientConfig = [], ?HandlerStack $handler = null)
     {
         $this->validateHosts($hostOrHosts);
 

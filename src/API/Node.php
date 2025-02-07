@@ -53,7 +53,7 @@ class Node extends AbstractAPI
      *
      * @return array
      */
-    public function fees(int $days = null): ?array
+    public function fees(?int $days = null): ?array
     {
         return $this->get('node/fees', ['days' => $days]);
     }

@@ -31,7 +31,7 @@ jobs:
     #         - name: Setup PHP
     #           uses: shivammathur/setup-php@v2
     #           with:
-    #               php-version: "8.2"
+    #               php-version: "8.4"
     #               extensions: mbstring, dom, fileinfo, intl, gd, imagick, bcmath, soap, zip, sqlite, pcov
     #               coverage: pcov
 
@@ -65,7 +65,7 @@ jobs:
             - name: Setup PHP
               uses: shivammathur/setup-php@v2
               with:
-                  php-version: "8.2"
+                  php-version: "8.4"
                   extensions: mbstring, dom, fileinfo, intl, gd, imagick, bcmath, soap, zip, sqlite, pcov
                   coverage: pcov
 
@@ -74,6 +74,8 @@ jobs:
 
             - name: Run php-cs-fixer
               run: composer format
+              env:
+                PHP_CS_FIXER_IGNORE_ENV: true # TODO: Remove this line when php-cs-fixer is updated
 
             - uses: stefanzweifel/git-auto-commit-action@v4
               with:
@@ -94,7 +96,7 @@ jobs:
             - name: Setup PHP
               uses: shivammathur/setup-php@v2
               with:
-                  php-version: "8.2"
+                  php-version: "8.4"
                   extensions: mbstring, dom, fileinfo, intl, gd, imagick, bcmath, soap, zip, sqlite, pcov
                   coverage: pcov
 

@@ -49,7 +49,7 @@ class ClientManager
      *
      * @param string|null $name
      */
-    public function disconnect(string $name = null): void
+    public function disconnect(?string $name = null): void
     {
         $name = $name ?? $this->getDefaultClient();
 
@@ -63,7 +63,7 @@ class ClientManager
      *
      * @return ArkClient
      */
-    public function client(string $name = null): ArkClient
+    public function client(?string $name = null): ArkClient
     {
         $name = $name ?? $this->getDefaultClient();
 
