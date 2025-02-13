@@ -95,7 +95,7 @@ class Transactions extends AbstractAPI
     }
 
     /**
-     * Get the pool configuration
+     * Get the pool configuration.
      *
      * @return array
      */
