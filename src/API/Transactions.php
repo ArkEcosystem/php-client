@@ -93,4 +93,14 @@ class Transactions extends AbstractAPI
     {
         return $this->get('transactions/schemas');
     }
+
+    /**
+     * Get the pool configuration
+     *
+     * @return array
+     */
+    public function configuration(): ?array
+    {
+        return $this->withApi('transactions')->get('configuration');
+    }
 }
