@@ -43,9 +43,14 @@ class TransactionsTest extends TestCase
     /** @test */
     public function all_unconfirmed_calls_correct_url()
     {
-        $this->assertResponse('GET', 'transactions/unconfirmed', function ($client) {
-            return $client->transactions()->allUnconfirmed();
-        });
+        $this->assertResponse(
+            method: 'GET',
+            path: 'transactions/unconfirmed',
+            callback: function ($client) {
+                return $client->transactions()->allUnconfirmed();
+            },
+            expectedApi: 'transactions'
+        );
     }
 
     /** @test */

@@ -49,7 +49,7 @@ class Transactions extends AbstractAPI
      */
     public function allUnconfirmed(): ?array
     {
-        return $this->get('transactions/unconfirmed');
+        return $this->withApi('transactions')->get('transactions/unconfirmed');
     }
 
     /**
