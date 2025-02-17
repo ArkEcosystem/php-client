@@ -43,17 +43,27 @@ class TransactionsTest extends TestCase
     /** @test */
     public function all_unconfirmed_calls_correct_url()
     {
-        $this->assertResponse('GET', 'transactions/unconfirmed', function ($client) {
-            return $client->transactions()->allUnconfirmed();
-        });
+        $this->assertResponse(
+            method: 'GET',
+            path: 'transactions/unconfirmed',
+            callback: function ($client) {
+                return $client->transactions()->allUnconfirmed();
+            },
+            expectedApi: 'transactions'
+        );
     }
 
     /** @test */
     public function show_unconfirmed_calls_correct_url()
     {
-        $this->assertResponse('GET', 'transactions/unconfirmed/dummy', function ($client) {
-            return $client->transactions()->showUnconfirmed('dummy');
-        });
+        $this->assertResponse(
+            method: 'GET',
+            path: 'transactions/unconfirmed/dummy',
+            callback: function ($client) {
+                return $client->transactions()->showUnconfirmed('dummy');
+            },
+            expectedApi: 'transactions'
+        );
     }
 
     /** @test */
@@ -78,5 +88,18 @@ class TransactionsTest extends TestCase
         $this->assertResponse('GET', 'transactions/schemas', function ($client) {
             return $client->transactions()->schemas();
         });
+    }
+
+    /** @test */
+    public function configuration_calls_correct_url()
+    {
+        $this->assertResponse(
+            method: 'GET',
+            path: 'configuration',
+            callback: function ($client) {
+                return $client->transactions()->configuration();
+            },
+            expectedApi: 'transactions'
+        );
     }
 }

@@ -49,7 +49,7 @@ class Transactions extends AbstractAPI
      */
     public function allUnconfirmed(): ?array
     {
-        return $this->get('transactions/unconfirmed');
+        return $this->withApi('transactions')->get('transactions/unconfirmed');
     }
 
     /**
@@ -61,7 +61,7 @@ class Transactions extends AbstractAPI
      */
     public function showUnconfirmed(string $id): ?array
     {
-        return $this->get("transactions/unconfirmed/{$id}");
+        return $this->withApi('transactions')->get("transactions/unconfirmed/{$id}");
     }
 
     /**
@@ -92,5 +92,15 @@ class Transactions extends AbstractAPI
     public function schemas(): ?array
     {
         return $this->get('transactions/schemas');
+    }
+
+    /**
+     * Get the pool configuration.
+     *
+     * @return array
+     */
+    public function configuration(): ?array
+    {
+        return $this->withApi('transactions')->get('configuration');
     }
 }
