@@ -57,6 +57,19 @@ class TransactionsTest extends TestCase
     }
 
     /** @test */
+    public function configuration_calls_correct_url()
+    {
+        $this->assertResponse(
+            method: 'GET',
+            path: 'configuration',
+            callback: function ($client) {
+                return $client->transactions()->configuration();
+            },
+            expectedApi: 'transactions'
+        );
+    }
+
+    /** @test */
     public function types_calls_correct_url()
     {
         $this->assertResponse('GET', 'transactions/types', function ($client) {
