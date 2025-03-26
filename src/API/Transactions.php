@@ -65,6 +65,16 @@ class Transactions extends AbstractAPI
     }
 
     /**
+     * Get the transaction pool configuration.
+     *
+     * @return array
+     */
+    public function configuration(): ?array
+    {
+        return $this->withApi('transactions')->get('configuration');
+    }
+
+    /**
      * Get a list of valid transaction types.
      *
      * @return array
