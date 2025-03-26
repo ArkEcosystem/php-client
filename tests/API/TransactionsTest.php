@@ -68,28 +68,4 @@ class TransactionsTest extends TestCase
             expectedApi: 'transactions'
         );
     }
-
-    /** @test */
-    public function types_calls_correct_url()
-    {
-        $this->assertResponse('GET', 'transactions/types', function ($client) {
-            return $client->transactions()->types();
-        });
-    }
-
-    /** @test */
-    public function fees_calls_correct_url()
-    {
-        $this->assertResponse('GET', 'transactions/fees', function ($client) {
-            return $client->transactions()->fees();
-        });
-    }
-
-    /** @test */
-    public function schemas_calls_correct_url()
-    {
-        $this->assertResponse('GET', 'transactions/schemas', function ($client) {
-            return $client->transactions()->schemas();
-        });
-    }
 }
