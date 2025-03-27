@@ -33,10 +33,10 @@ class TransactionsTest extends TestCase
     }
 
     /** @test */
-    public function show_calls_correct_url()
+    public function get_calls_correct_url()
     {
         $this->assertResponse('GET', 'transactions/dummy', function ($client) {
-            return $client->transactions()->show('dummy');
+            return $client->transactions()->get('dummy');
         });
     }
 
@@ -54,13 +54,13 @@ class TransactionsTest extends TestCase
     }
 
     /** @test */
-    public function show_unconfirmed_calls_correct_url()
+    public function get_unconfirmed_calls_correct_url()
     {
         $this->assertResponse(
             method: 'GET',
             path: 'transactions/unconfirmed/dummy',
             callback: function ($client) {
-                return $client->transactions()->showUnconfirmed('dummy');
+                return $client->transactions()->getUnconfirmed('dummy');
             },
             expectedApi: 'transactions'
         );

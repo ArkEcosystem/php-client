@@ -21,13 +21,13 @@ class ReceiptsTest extends TestCase
     }
 
     /** @test */
-    public function show_calls_correct_url()
+    public function get_calls_correct_url()
     {
         $this->assertResponse(
             method: 'GET',
             path: 'receipts?txHash=dummyTxHash',
             callback: function ($client) {
-                return $client->receipts()->show('dummyTxHash');
+                return $client->receipts()->get('dummyTxHash');
             },
             response: ['data' => [['id' => 'dummyTxHash']]],
             expectedBody: ['id' => 'dummyTxHash']
@@ -43,7 +43,7 @@ class ReceiptsTest extends TestCase
             method: 'GET',
             path: 'receipts?txHash=dummyTxHash',
             callback: function ($client) {
-                return $client->receipts()->show('dummyTxHash');
+                return $client->receipts()->get('dummyTxHash');
             },
             response: ['data' => []],
         );
