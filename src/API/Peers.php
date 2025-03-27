@@ -15,7 +15,7 @@ class Peers extends AbstractAPI
      */
     public function all(array $query = []): ?array
     {
-        return $this->get('peers', $query);
+        return $this->requestGet('peers', $query);
     }
 
     /**
@@ -25,8 +25,8 @@ class Peers extends AbstractAPI
      *
      * @return array
      */
-    public function show(string $ip): ?array
+    public function get(string $ip): ?array
     {
-        return $this->get("peers/{$ip}");
+        return $this->requestGet("peers/{$ip}");
     }
 }
