@@ -15,7 +15,7 @@ class Transactions extends AbstractAPI
      */
     public function all(array $query = []): ?array
     {
-        return $this->get('transactions', $query);
+        return $this->requestGet('transactions', $query);
     }
 
     /**
@@ -27,7 +27,7 @@ class Transactions extends AbstractAPI
      */
     public function create(array $transactions): ?array
     {
-        return $this->withApi('transactions')->post('transactions', compact('transactions'));
+        return $this->withApi('transactions')->requestPost('transactions', compact('transactions'));
     }
 
     /**
@@ -37,9 +37,9 @@ class Transactions extends AbstractAPI
      *
      * @return array
      */
-    public function show(string $id): ?array
+    public function get(string $id): ?array
     {
-        return $this->get("transactions/{$id}");
+        return $this->requestGet("transactions/{$id}");
     }
 
     /**
@@ -49,7 +49,7 @@ class Transactions extends AbstractAPI
      */
     public function allUnconfirmed(): ?array
     {
-        return $this->withApi('transactions')->get('transactions/unconfirmed');
+        return $this->withApi('transactions')->requestGet('transactions/unconfirmed');
     }
 
     /**
@@ -59,9 +59,9 @@ class Transactions extends AbstractAPI
      *
      * @return array
      */
-    public function showUnconfirmed(string $id): ?array
+    public function getUnconfirmed(string $id): ?array
     {
-        return $this->withApi('transactions')->get("transactions/unconfirmed/{$id}");
+        return $this->withApi('transactions')->requestGet("transactions/unconfirmed/{$id}");
     }
 
     /**
@@ -71,7 +71,7 @@ class Transactions extends AbstractAPI
      */
     public function types(): ?array
     {
-        return $this->get('transactions/types');
+        return $this->requestGet('transactions/types');
     }
 
     /**
@@ -81,7 +81,7 @@ class Transactions extends AbstractAPI
      */
     public function fees(): ?array
     {
-        return $this->get('transactions/fees');
+        return $this->requestGet('transactions/fees');
     }
 
     /**
@@ -91,7 +91,7 @@ class Transactions extends AbstractAPI
      */
     public function schemas(): ?array
     {
-        return $this->get('transactions/schemas');
+        return $this->requestGet('transactions/schemas');
     }
 
     /**
@@ -101,6 +101,6 @@ class Transactions extends AbstractAPI
      */
     public function configuration(): ?array
     {
-        return $this->withApi('transactions')->get('configuration');
+        return $this->withApi('transactions')->requestGet('configuration');
     }
 }

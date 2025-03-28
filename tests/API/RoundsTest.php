@@ -23,7 +23,7 @@ class RoundsTest extends TestCase
     public function view_calls_correct_url()
     {
         $this->assertResponse('GET', 'rounds/12345', function ($client) {
-            return $client->rounds()->show(12345);
+            return $client->rounds()->get(12345);
         });
     }
 

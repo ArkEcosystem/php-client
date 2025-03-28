@@ -20,10 +20,10 @@ class BlocksTest extends TestCase
     }
 
     /** @test */
-    public function show_calls_correct_url()
+    public function get_calls_correct_url()
     {
         $this->assertResponse('GET', 'blocks/dummy', function ($client) {
-            return $client->blocks()->show('dummy');
+            return $client->blocks()->get('dummy');
         });
     }
 

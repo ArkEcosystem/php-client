@@ -13,7 +13,7 @@ class Node extends AbstractAPI
      */
     public function status(): ?array
     {
-        return $this->get('node/status');
+        return $this->requestGet('node/status');
     }
 
     /**
@@ -23,7 +23,7 @@ class Node extends AbstractAPI
      */
     public function syncing(): ?array
     {
-        return $this->get('node/syncing');
+        return $this->requestGet('node/syncing');
     }
 
     /**
@@ -33,7 +33,7 @@ class Node extends AbstractAPI
      */
     public function configuration(): ?array
     {
-        return $this->get('node/configuration');
+        return $this->requestGet('node/configuration');
     }
 
     /**
@@ -43,7 +43,7 @@ class Node extends AbstractAPI
      */
     public function crypto(): ?array
     {
-        return $this->get('node/configuration/crypto');
+        return $this->requestGet('node/configuration/crypto');
     }
 
     /**
@@ -55,6 +55,6 @@ class Node extends AbstractAPI
      */
     public function fees(?int $days = null): ?array
     {
-        return $this->get('node/fees', ['days' => $days]);
+        return $this->requestGet('node/fees', ['days' => $days]);
     }
 }

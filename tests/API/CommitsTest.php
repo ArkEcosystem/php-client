@@ -12,10 +12,10 @@ use ArkEcosystem\Tests\Client\TestCase;
 class CommitsTest extends TestCase
 {
     /** @test */
-    public function show_calls_correct_url()
+    public function get_calls_correct_url()
     {
         $this->assertResponse('GET', 'commits/1', function ($client) {
-            return $client->commits()->show(1);
+            return $client->commits()->get(1);
         });
     }
 }

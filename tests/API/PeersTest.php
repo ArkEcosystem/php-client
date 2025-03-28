@@ -20,10 +20,10 @@ class PeersTest extends TestCase
     }
 
     /** @test */
-    public function show_calls_correct_url()
+    public function get_calls_correct_url()
     {
         $this->assertResponse('GET', 'peers/dummy', function ($client) {
-            return $client->peers()->show('dummy');
+            return $client->peers()->get('dummy');
         });
     }
 }
