@@ -20,10 +20,10 @@ class DelegatesTest extends TestCase
     }
 
     /** @test */
-    public function show_calls_correct_url()
+    public function get_calls_correct_url()
     {
         $this->assertResponse('GET', 'delegates/dummy', function ($client) {
-            return $client->delegates()->show('dummy');
+            return $client->delegates()->get('dummy');
         });
     }
 

@@ -15,7 +15,7 @@ class Rounds extends AbstractAPI
      */
     public function all(array $query = []): ?array
     {
-        return $this->get('rounds', $query);
+        return $this->requestGet('rounds', $query);
     }
 
     /**
@@ -25,9 +25,9 @@ class Rounds extends AbstractAPI
      *
      * @return array
      */
-    public function show(int $round_id): ?array
+    public function get(int $round_id): ?array
     {
-        return $this->get("rounds/{$round_id}");
+        return $this->requestGet("rounds/{$round_id}");
     }
 
     /**
@@ -39,6 +39,6 @@ class Rounds extends AbstractAPI
      */
     public function delegates(int $round_id): ?array
     {
-        return $this->get("rounds/{$round_id}/delegates");
+        return $this->requestGet("rounds/{$round_id}/delegates");
     }
 }

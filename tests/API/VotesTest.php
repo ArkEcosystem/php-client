@@ -20,10 +20,10 @@ class VotesTest extends TestCase
     }
 
     /** @test */
-    public function show_calls_correct_url()
+    public function get_calls_correct_url()
     {
         $this->assertResponse('GET', 'votes/dummy', function ($client) {
-            return $client->votes()->show('dummy');
+            return $client->votes()->get('dummy');
         });
     }
 

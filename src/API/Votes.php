@@ -15,7 +15,7 @@ class Votes extends AbstractAPI
      */
     public function all(array $query = []): ?array
     {
-        return $this->get('votes', $query);
+        return $this->requestGet('votes', $query);
     }
 
     /**
@@ -25,8 +25,8 @@ class Votes extends AbstractAPI
      *
      * @return array
      */
-    public function show(string $id): ?array
+    public function get(string $id): ?array
     {
-        return $this->get("votes/{$id}");
+        return $this->requestGet("votes/{$id}");
     }
 }

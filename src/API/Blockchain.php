@@ -15,6 +15,6 @@ class Blockchain extends AbstractAPI
      */
     public function blockchain(): ?array
     {
-        return $this->get('blockchain');
+        return $this->requestGet('blockchain');
     }
 }

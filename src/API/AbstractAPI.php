@@ -41,7 +41,7 @@ abstract class AbstractAPI
      *
      * @return array|null|bool
      */
-    protected function get(string $path, array $query = [])
+    protected function requestGet(string $path, array $query = [])
     {
         $response = $this->client->getHttpClient()->get($this->buildUrl($path), [
             'query' => Arr::dot($query),
@@ -58,7 +58,7 @@ abstract class AbstractAPI
      *
      * @return array|null|bool
      */
-    protected function post(string $path, array $parameters = [])
+    protected function requestPost(string $path, array $parameters = [])
     {
         $response = $this->client->getHttpClient()->post(
             $this->buildUrl($path),

@@ -13,8 +13,8 @@ class Commits extends AbstractAPI
      *
      * @return array
      */
-    public function show(int $height): ?array
+    public function get(int $height): ?array
     {
-        return $this->get("commits/{$height}");
+        return $this->requestGet("commits/{$height}");
     }
 }

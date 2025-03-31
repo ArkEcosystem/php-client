@@ -26,6 +26,6 @@ class EVM extends AbstractAPI
             'Content-Type' => 'application/json',
         ];
 
-        return $this->withApi('evm')->post('api/', $body, $headers);
+        return $this->withApi('evm')->requestPost('api/', $body, $headers);
     }
 }

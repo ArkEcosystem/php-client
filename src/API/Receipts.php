@@ -17,7 +17,7 @@ class Receipts extends AbstractAPI
      */
     public function all(array $query = []): ?array
     {
-        return $this->get('receipts', $query);
+        return $this->requestGet('receipts', $query);
     }
 
     /**
@@ -27,9 +27,9 @@ class Receipts extends AbstractAPI
      *
      * @return array
      */
-    public function show(string $txHash): ?array
+    public function get(string $txHash): ?array
     {
-        $result = $this->get('receipts', ['txHash' => $txHash])['data'];
+        $result = $this->requestGet('receipts', ['txHash' => $txHash])['data'];
 
         if (empty($result)) {
             throw new Exception(sprintf('No receipt found for transaction %s', $txHash));

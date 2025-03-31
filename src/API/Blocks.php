@@ -15,7 +15,7 @@ class Blocks extends AbstractAPI
      */
     public function all(array $query = []): ?array
     {
-        return $this->get('blocks', $query);
+        return $this->requestGet('blocks', $query);
     }
 
     /**
@@ -25,9 +25,9 @@ class Blocks extends AbstractAPI
      *
      * @return array
      */
-    public function show(string $id): ?array
+    public function get(string $id): ?array
     {
-        return $this->get("blocks/{$id}");
+        return $this->requestGet("blocks/{$id}");
     }
 
     /**
@@ -37,7 +37,7 @@ class Blocks extends AbstractAPI
      */
     public function first(): ?array
     {
-        return $this->get('blocks/first');
+        return $this->requestGet('blocks/first');
     }
 
     /**
@@ -47,7 +47,7 @@ class Blocks extends AbstractAPI
      */
     public function last(): ?array
     {
-        return $this->get('blocks/last');
+        return $this->requestGet('blocks/last');
     }
 
     /**
@@ -60,6 +60,6 @@ class Blocks extends AbstractAPI
      */
     public function transactions(string $id, array $query = []): ?array
     {
-        return $this->get("blocks/{$id}/transactions", $query);
+        return $this->requestGet("blocks/{$id}/transactions", $query);
     }
 }

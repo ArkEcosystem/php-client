@@ -15,6 +15,6 @@ class ApiNodes extends AbstractAPI
      */
     public function all(array $query = []): ?array
     {
-        return $this->get('api-nodes', $query);
+        return $this->requestGet('api-nodes', $query);
     }
 }

@@ -28,10 +28,10 @@ class WalletsTest extends TestCase
     }
 
     /** @test */
-    public function show_calls_correct_url()
+    public function get_calls_correct_url()
     {
         $this->assertResponse('GET', 'wallets/dummy', function ($client) {
-            return $client->wallets()->show('dummy');
+            return $client->wallets()->get('dummy');
         });
     }
 
