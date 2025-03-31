@@ -65,36 +65,6 @@ class Transactions extends AbstractAPI
     }
 
     /**
-     * Get a list of valid transaction types.
-     *
-     * @return array
-     */
-    public function types(): ?array
-    {
-        return $this->requestGet('transactions/types');
-    }
-
-    /**
-     * Get the list of static transaction fees.
-     *
-     * @return array
-     */
-    public function fees(): ?array
-    {
-        return $this->requestGet('transactions/fees');
-    }
-
-    /**
-     * Get the list of transaction schemas.
-     *
-     * @return array
-     */
-    public function schemas(): ?array
-    {
-        return $this->requestGet('transactions/schemas');
-    }
-
-    /**
      * Get the pool configuration.
      *
      * @return array
