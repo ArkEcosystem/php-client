@@ -7,39 +7,39 @@ namespace ArkEcosystem\Tests\Client\API;
 use ArkEcosystem\Tests\Client\TestCase;
 
 /**
- * @covers \ArkEcosystem\Client\API\Delegates
+ * @covers \ArkEcosystem\Client\API\Validators
  */
-class DelegatesTest extends TestCase
+class ValidatorsTest extends TestCase
 {
     /** @test */
     public function all_calls_correct_url()
     {
-        $this->assertResponse('GET', 'delegates', function ($client) {
-            return $client->delegates()->all();
+        $this->assertResponse('GET', 'validators', function ($client) {
+            return $client->validators()->all();
         });
     }
 
     /** @test */
     public function get_calls_correct_url()
     {
-        $this->assertResponse('GET', 'delegates/dummy', function ($client) {
-            return $client->delegates()->get('dummy');
+        $this->assertResponse('GET', 'validators/dummy', function ($client) {
+            return $client->validators()->get('dummy');
         });
     }
 
     /** @test */
     public function blocks_calls_correct_url()
     {
-        $this->assertResponse('GET', 'delegates/dummy/blocks', function ($client) {
-            return $client->delegates()->blocks('dummy');
+        $this->assertResponse('GET', 'validators/dummy/blocks', function ($client) {
+            return $client->validators()->blocks('dummy');
         });
     }
 
     /** @test */
     public function voters_calls_correct_url()
     {
-        $this->assertResponse('GET', 'delegates/dummy/voters', function ($client) {
-            return $client->delegates()->voters('dummy');
+        $this->assertResponse('GET', 'validators/dummy/voters', function ($client) {
+            return $client->validators()->voters('dummy');
         });
     }
 }

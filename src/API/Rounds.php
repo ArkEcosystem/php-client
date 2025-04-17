@@ -31,14 +31,14 @@ class Rounds extends AbstractAPI
     }
 
     /**
-     * Get the forging delegates of a round by the given id.
+     * Get the forging validators of a round by the given id.
      *
      * @param int $round_id
      *
      * @return array
      */
-    public function delegates(int $round_id): ?array
+    public function validators(int $round_id): ?array
     {
-        return $this->requestGet("rounds/{$round_id}/delegates");
+        return $this->requestGet("rounds/{$round_id}/validators");
     }
 }

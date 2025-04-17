@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ArkEcosystem\Client\API;
 
-class Delegates extends AbstractAPI
+class Validators extends AbstractAPI
 {
     /**
      * Get all accounts.
@@ -15,7 +15,7 @@ class Delegates extends AbstractAPI
      */
     public function all(array $query = []): ?array
     {
-        return $this->requestGet('delegates', $query);
+        return $this->requestGet('validators', $query);
     }
 
     /**
@@ -27,11 +27,11 @@ class Delegates extends AbstractAPI
      */
     public function get(string $id): ?array
     {
-        return $this->requestGet("delegates/{$id}");
+        return $this->requestGet("validators/{$id}");
     }
 
     /**
-     * Get all blocks for the given delegate.
+     * Get all blocks for the given validator.
      *
      * @param string $id
      * @param array  $query
@@ -40,11 +40,11 @@ class Delegates extends AbstractAPI
      */
     public function blocks(string $id, array $query = []): ?array
     {
-        return $this->requestGet("delegates/{$id}/blocks", $query);
+        return $this->requestGet("validators/{$id}/blocks", $query);
     }
 
     /**
-     * Get all voters for the given delegate.
+     * Get all voters for the given validator.
      *
      * @param string $id
      * @param array  $query
@@ -53,6 +53,6 @@ class Delegates extends AbstractAPI
      */
     public function voters(string $id, array $query = []): ?array
     {
-        return $this->requestGet("delegates/{$id}/voters", $query);
+        return $this->requestGet("validators/{$id}/voters", $query);
     }
 }

@@ -28,10 +28,10 @@ class RoundsTest extends TestCase
     }
 
     /** @test */
-    public function delegates_calls_correct_url()
+    public function validators_calls_correct_url()
     {
-        $this->assertResponse('GET', 'rounds/12345/delegates', function ($client) {
-            return $client->rounds()->delegates(12345);
+        $this->assertResponse('GET', 'rounds/12345/validators', function ($client) {
+            return $client->rounds()->validators(12345);
         });
     }
 }
