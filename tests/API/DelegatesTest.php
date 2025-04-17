@@ -9,7 +9,7 @@ use ArkEcosystem\Tests\Client\TestCase;
 /**
  * @covers \ArkEcosystem\Client\API\Validators
  */
-class ValidatorsTest extends TestCase
+class DelegatesTest extends TestCase
 {
     /** @test */
     public function all_calls_correct_url()
