@@ -4,10 +4,8 @@ declare(strict_types=1);
 
 namespace ArkEcosystem\Tests\Client;
 
-use ArkEcosystem\Client\API\AbstractAPI;
 use ArkEcosystem\Client\API\Blocks;
 use ArkEcosystem\Client\ArkClient;
-use ArkEcosystem\Client\ClientManager;
 use GuzzleHttp\HandlerStack;
 
 /**

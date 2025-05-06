@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace ArkEcosystem\Tests\Client;
 
-use ArkEcosystem\Client\Connection;
 use ArkEcosystem\Client\ClientManager;
+use ArkEcosystem\Client\Connection;
 
 /**
  * @covers \ArkEcosystem\Client\ClientManager
