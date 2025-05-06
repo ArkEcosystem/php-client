@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace ArkEcosystem\Tests\Client\API;
 
+use ArkEcosystem\Client\ArkClient;
 use ArkEcosystem\Tests\Client\TestCase;
 
 /**
@@ -14,7 +15,7 @@ class ApiNodesTest extends TestCase
     /** @test */
     public function api_nodes_calls_correct_url()
     {
-        $this->assertResponse('GET', 'api-nodes', function ($client) {
+        $this->assertResponse('GET', 'api-nodes', function (ArkClient $client) {
             return $client->apiNodes()->all();
         });
     }

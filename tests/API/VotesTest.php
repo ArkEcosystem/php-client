@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace ArkEcosystem\Tests\Client\API;
 
+use ArkEcosystem\Client\ArkClient;
 use ArkEcosystem\Tests\Client\TestCase;
 
 /**
@@ -14,7 +15,7 @@ class VotesTest extends TestCase
     /** @test */
     public function all_calls_correct_url()
     {
-        $this->assertResponse('GET', 'votes', function ($client) {
+        $this->assertResponse('GET', 'votes', function (ArkClient $client) {
             return $client->votes()->all();
         });
     }
@@ -22,7 +23,7 @@ class VotesTest extends TestCase
     /** @test */
     public function get_calls_correct_url()
     {
-        $this->assertResponse('GET', 'votes/dummy', function ($client) {
+        $this->assertResponse('GET', 'votes/dummy', function (ArkClient $client) {
             return $client->votes()->get('dummy');
         });
     }

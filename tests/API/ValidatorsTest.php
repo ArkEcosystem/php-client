@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace ArkEcosystem\Tests\Client\API;
 
+use ArkEcosystem\Client\ArkClient;
 use ArkEcosystem\Tests\Client\TestCase;
 
 /**
@@ -14,7 +15,7 @@ class ValidatorsTest extends TestCase
     /** @test */
     public function all_calls_correct_url()
     {
-        $this->assertResponse('GET', 'validators', function ($client) {
+        $this->assertResponse('GET', 'validators', function (ArkClient $client) {
             return $client->validators()->all();
         });
     }
@@ -22,7 +23,7 @@ class ValidatorsTest extends TestCase
     /** @test */
     public function get_calls_correct_url()
     {
-        $this->assertResponse('GET', 'validators/dummy', function ($client) {
+        $this->assertResponse('GET', 'validators/dummy', function (ArkClient $client) {
             return $client->validators()->get('dummy');
         });
     }
@@ -30,7 +31,7 @@ class ValidatorsTest extends TestCase
     /** @test */
     public function blocks_calls_correct_url()
     {
-        $this->assertResponse('GET', 'validators/dummy/blocks', function ($client) {
+        $this->assertResponse('GET', 'validators/dummy/blocks', function (ArkClient $client) {
             return $client->validators()->blocks('dummy');
         });
     }
@@ -38,7 +39,7 @@ class ValidatorsTest extends TestCase
     /** @test */
     public function voters_calls_correct_url()
     {
-        $this->assertResponse('GET', 'validators/dummy/voters', function ($client) {
+        $this->assertResponse('GET', 'validators/dummy/voters', function (ArkClient $client) {
             return $client->validators()->voters('dummy');
         });
     }

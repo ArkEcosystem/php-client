@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ArkEcosystem\Tests\Client;
 
-use ArkEcosystem\Client\ArkClient;
+use ArkEcosystem\Client\Connection;
 use ArkEcosystem\Client\ClientManager;
 
 /**
@@ -51,7 +51,7 @@ class ClientManagerTest extends TestCase
         $manager = new ClientManager();
         $manager->connect($this->host, 'dummy-client');
 
-        $this->assertInstanceOf(ArkClient::class, $manager->client('dummy-client'));
+        $this->assertInstanceOf(Connection::class, $manager->client('dummy-client'));
     }
 
     /** @test */

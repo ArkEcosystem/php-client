@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace ArkEcosystem\Tests\Client\API;
 
+use ArkEcosystem\Client\ArkClient;
 use ArkEcosystem\Tests\Client\TestCase;
 
 /**
@@ -14,7 +15,7 @@ class TransactionsTest extends TestCase
     /** @test */
     public function all_calls_correct_url()
     {
-        $this->assertResponse('GET', 'transactions', function ($client) {
+        $this->assertResponse('GET', 'transactions', function (ArkClient $client) {
             return $client->transactions()->all();
         });
     }
@@ -25,7 +26,7 @@ class TransactionsTest extends TestCase
         $this->assertResponse(
             method: 'POST',
             path: 'transactions',
-            callback: function ($client) {
+            callback: function (ArkClient $client) {
                 return $client->transactions()->create(['transactions' => []]);
             },
             expectedApi: 'transactions'
@@ -35,7 +36,7 @@ class TransactionsTest extends TestCase
     /** @test */
     public function get_calls_correct_url()
     {
-        $this->assertResponse('GET', 'transactions/dummy', function ($client) {
+        $this->assertResponse('GET', 'transactions/dummy', function (ArkClient $client) {
             return $client->transactions()->get('dummy');
         });
     }
@@ -46,7 +47,7 @@ class TransactionsTest extends TestCase
         $this->assertResponse(
             method: 'GET',
             path: 'transactions/unconfirmed',
-            callback: function ($client) {
+            callback: function (ArkClient $client) {
                 return $client->transactions()->allUnconfirmed();
             },
             expectedApi: 'transactions'
@@ -59,7 +60,7 @@ class TransactionsTest extends TestCase
         $this->assertResponse(
             method: 'GET',
             path: 'transactions/unconfirmed/dummy',
-            callback: function ($client) {
+            callback: function (ArkClient $client) {
                 return $client->transactions()->getUnconfirmed('dummy');
             },
             expectedApi: 'transactions'
@@ -72,7 +73,7 @@ class TransactionsTest extends TestCase
         $this->assertResponse(
             method: 'GET',
             path: 'configuration',
-            callback: function ($client) {
+            callback: function (ArkClient $client) {
                 return $client->transactions()->configuration();
             },
             expectedApi: 'transactions'
