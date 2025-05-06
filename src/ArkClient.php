@@ -4,162 +4,98 @@ declare(strict_types=1);
 
 namespace ArkEcosystem\Client;
 
-use BadMethodCallException;
-use GuzzleHttp\Client;
+use ArkEcosystem\Client\API\ApiNodes;
+use ArkEcosystem\Client\API\Blockchain;
+use ArkEcosystem\Client\API\Blocks;
+use ArkEcosystem\Client\API\Commits;
+use ArkEcosystem\Client\API\Contracts;
+use ArkEcosystem\Client\API\EVM;
+use ArkEcosystem\Client\API\Node;
+use ArkEcosystem\Client\API\Peers;
+use ArkEcosystem\Client\API\Receipts;
+use ArkEcosystem\Client\API\Rounds;
+use ArkEcosystem\Client\API\Transactions;
+use ArkEcosystem\Client\API\Validators;
+use ArkEcosystem\Client\API\Votes;
+use ArkEcosystem\Client\API\Wallets;
 use GuzzleHttp\HandlerStack;
-use Illuminate\Support\Arr;
-use RuntimeException;
 
-/**
- * This is the connection class.
- */
 class ArkClient
 {
-    /**
-     * The Guzzle Client instance.
-     *
-     * @var Client
-     */
-    public $httpClient;
+    public Connection $connection;
 
-    /**
-     * The hosts to connect to.
-     *
-     * @var array{
-     *  api: string,
-     *  transactions: string|null,
-     *  evm: string|null
-     * }
-     */
-    private array $hosts;
-
-    /**
-     * Make a new connection instance.
-     *
-     * @param string|array{
-     *  api: string,
-     *  transactions: string|null,
-     *  evm: string|null
-     * } $hostOrHosts
-     * @param array $clientConfig
-     * @param HandlerStack $handler
-     *
-     * @throws InvalidArgumentException if $hostOrHosts is an array and does not have the required format
-     */
-    public function __construct(array|string $hostOrHosts, array $clientConfig = [], ?HandlerStack $handler = null)
+    public function __construct(string|array $hostOrHosts, array $clientConfig = [], ?HandlerStack $handler = null)
     {
-        $this->validateHosts($hostOrHosts);
-
-        if (is_array($hostOrHosts)) {
-            $this->hosts = $hostOrHosts;
-        } else {
-            $this->hosts = ['api' => $hostOrHosts];
-        }
-
-        $options = [
-            ...$clientConfig,
-            'headers'  => [
-                ...Arr::get($clientConfig, 'headers', []),
-                'Content-Type' => 'application/json',
-            ],
-        ];
-
-        if ($handler instanceof HandlerStack) {
-            $options['handler'] = $handler;
-        }
-
-        $this->httpClient = new Client($options);
+        $this->connection = new Connection($hostOrHosts, $clientConfig, $handler);
     }
 
-    /**
-     * Handle dynamic method calls into the connection.
-     *
-     * @param string $name
-     * @param mixed  $args
-     *
-     * @throws BadMethodCallException
-     *
-     * @return ApiInterface
-     */
-    public function __call($name, $args)
+    public function apiNodes(): ApiNodes
     {
-        try {
-            return $this->api($name);
-        } catch (RuntimeException $e) {
-            throw new BadMethodCallException(sprintf('Undefined method called: "%s"', $name));
-        }
+        return new ApiNodes($this->connection);
     }
 
-    /**
-     * Set the host for the given type.
-     *
-     * @param string $host
-     * @param string $type
-     *
-     * @throws InvalidArgumentException if the type is not 'api', 'transactions', or 'evm'
-     */
-    public function setHost(string $host, string $type): void
+    public function blockchain(): Blockchain
     {
-        if (! in_array($type, ['api', 'transactions', 'evm'], true)) {
-            throw new \InvalidArgumentException('Invalid host type.');
-        }
-
-        $this->hosts[$type] = $host;
+        return new Blockchain($this->connection);
     }
 
-    /**
-     * @return array{
-     *  api: string,
-     *  transactions: string|null,
-     *  evm: string|null
-     * }
-     */
-    public function getHosts(): array
+    public function blocks(): Blocks
     {
-        return $this->hosts;
+        return new Blocks($this->connection);
     }
 
-    /**
-     * Make a new resource instance.
-     *
-     * @param string $name
-     *
-     * @return API\AbstractAPI
-     */
-    public function api(string $name): API\AbstractAPI
+    public function commits(): Commits
     {
-        $name  = $name === 'evm' ? 'EVM' : ucfirst($name);
-
-        $class = "ArkEcosystem\\Client\\API\\{$name}";
-
-        if (! class_exists($class)) {
-            throw new RuntimeException("Class [$class] does not exist.");
-        }
-
-        return new $class($this);
+        return new Commits($this->connection);
     }
 
-    /**
-     * Get the Guzzle client instance.
-     *
-     * @return Client
-     */
-    public function getHttpClient(): Client
+    public function contracts(): Contracts
     {
-        return $this->httpClient;
+        return new Contracts($this->connection);
     }
 
-    /**
-     * Validate the hosts array format.
-     *
-     * @param string|array $hostOrHosts
-     *
-     * @throws InvalidArgumentException if the hosts array does not have the required format
-     */
-    private function validateHosts(array|string $hostOrHosts): void
+    public function evm(): EVM
     {
-        if (is_array($hostOrHosts) && ! array_key_exists('api', $hostOrHosts)) {
-            throw new \InvalidArgumentException(sprintf('The hosts array must contain the key "api".'));
-        }
+        return new EVM($this->connection);
+    }
+
+    public function node(): Node
+    {
+        return new Node($this->connection);
+    }
+
+    public function peers(): Peers
+    {
+        return new Peers($this->connection);
+    }
+
+    public function receipts(): Receipts
+    {
+        return new Receipts($this->connection);
+    }
+
+    public function rounds(): Rounds
+    {
+        return new Rounds($this->connection);
+    }
+
+    public function transactions(): Transactions
+    {
+        return new Transactions($this->connection);
+    }
+
+    public function validators(): Validators
+    {
+        return new Validators($this->connection);
+    }
+
+    public function votes(): Votes
+    {
+        return new Votes($this->connection);
+    }
+
+    public function wallets(): Wallets
+    {
+        return new Wallets($this->connection);
     }
 }
