@@ -4,33 +4,29 @@ declare(strict_types=1);
 
 namespace ArkEcosystem\Client\API;
 
-use ArkEcosystem\Client\ArkClient;
 use ArkEcosystem\Client\Connection;
-use ArkEcosystem\Client\Contracts\API;
-use ArkEcosystem\Client\Http\Request;
-use GuzzleHttp\Client;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 
 abstract class AbstractAPI
 {
     /**
-     * The client .
+     * The connection.
      *
-     * @var ArkClient
+     * @var Connection
      */
-    public $client;
+    public $connection;
 
     private string $api = 'api';
 
     /**
      * Create a new API class instance.
      *
-     * @param Connection $client
+     * @param Connection $connection
      */
-    public function __construct(ArkClient $client)
+    public function __construct(Connection $connection)
     {
-        $this->client = $client;
+        $this->connection = $connection;
     }
 
     /**
@@ -43,7 +39,7 @@ abstract class AbstractAPI
      */
     protected function requestGet(string $path, array $query = [])
     {
-        $response = $this->client->getHttpClient()->get($this->buildUrl($path), [
+        $response = $this->connection->getHttpClient()->get($this->buildUrl($path), [
             'query' => Arr::dot($query),
         ]);
 
@@ -60,7 +56,7 @@ abstract class AbstractAPI
      */
     protected function requestPost(string $path, array $parameters = [])
     {
-        $response = $this->client->getHttpClient()->post(
+        $response = $this->connection->getHttpClient()->post(
             $this->buildUrl($path),
             ['json' => $parameters]
         );
@@ -77,7 +73,7 @@ abstract class AbstractAPI
 
     private function buildUrl(string $path): string
     {
-        $baseUri = $this->client->getHosts()[$this->api];
+        $baseUri = $this->connection->getHosts()[$this->api];
 
         // Reset the API to the default value.
         $this->api = 'api';

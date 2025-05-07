@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace ArkEcosystem\Tests\Client\API;
 
+use ArkEcosystem\Client\ArkClient;
 use ArkEcosystem\Tests\Client\TestCase;
 use Exception;
 
@@ -15,7 +16,7 @@ class ReceiptsTest extends TestCase
     /** @test */
     public function all_calls_correct_url()
     {
-        $this->assertResponse('GET', 'receipts', function ($client) {
+        $this->assertResponse('GET', 'receipts', function (ArkClient $client) {
             return $client->receipts()->all();
         });
     }
@@ -26,7 +27,7 @@ class ReceiptsTest extends TestCase
         $this->assertResponse(
             method: 'GET',
             path: 'receipts?txHash=dummyTxHash',
-            callback: function ($client) {
+            callback: function (ArkClient $client) {
                 return $client->receipts()->get('dummyTxHash');
             },
             response: ['data' => [['id' => 'dummyTxHash']]],
@@ -42,7 +43,7 @@ class ReceiptsTest extends TestCase
         $this->assertResponse(
             method: 'GET',
             path: 'receipts?txHash=dummyTxHash',
-            callback: function ($client) {
+            callback: function (ArkClient $client) {
                 return $client->receipts()->get('dummyTxHash');
             },
             response: ['data' => []],

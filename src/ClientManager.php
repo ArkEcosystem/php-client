@@ -31,15 +31,15 @@ class ClientManager
      * @param string $host
      * @param string $name
      *
-     * @return ArkClient
+     * @return Connection
      */
-    public function connect(string $host, string $name = 'main'): ArkClient
+    public function connect(string $host, string $name = 'main'): Connection
     {
         if (isset($this->clients[$name])) {
             throw new InvalidArgumentException("Client [$name] is already configured.");
         }
 
-        $this->clients[$name] = new ArkClient($host);
+        $this->clients[$name] = new Connection($host);
 
         return $this->clients[$name];
     }
@@ -61,9 +61,9 @@ class ClientManager
      *
      * @param string|null $name
      *
-     * @return ArkClient
+     * @return Connection
      */
-    public function client(?string $name = null): ArkClient
+    public function client(?string $name = null): Connection
     {
         $name = $name ?? $this->getDefaultClient();
 
