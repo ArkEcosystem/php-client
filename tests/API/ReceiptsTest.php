@@ -26,7 +26,7 @@ class ReceiptsTest extends TestCase
     {
         $this->assertResponse(
             method: 'GET',
-            path: 'receipts?txHash=dummyTxHash',
+            path: 'receipts/dummyTxHash',
             callback: function (ArkClient $client) {
                 return $client->receipts()->get('dummyTxHash');
             },
@@ -42,7 +42,7 @@ class ReceiptsTest extends TestCase
 
         $this->assertResponse(
             method: 'GET',
-            path: 'receipts?txHash=dummyTxHash',
+            path: 'receipts/dummyTxHash',
             callback: function (ArkClient $client) {
                 return $client->receipts()->get('dummyTxHash');
             },
