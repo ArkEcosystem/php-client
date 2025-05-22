@@ -13,7 +13,7 @@ class EVM extends AbstractAPI
      *
      * @return array|null
      */
-    public function evmCall(array $payload): ?array
+    public function call(array $payload): ?array
     {
         $body = [
             'jsonrpc' => '2.0',

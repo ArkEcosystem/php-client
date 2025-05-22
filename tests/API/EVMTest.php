@@ -19,7 +19,7 @@ class EVMTest extends TestCase
             method: 'POST',
             path: 'api/',
             callback: function (ArkClient $client) {
-                return $client->evm()->evmCall([
+                return $client->evm()->call([
                     'method' => 'eth_call',
                     'params' => [[
                         'from' => '0x1234567890abcdef',
