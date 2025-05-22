@@ -13,16 +13,20 @@ use ArkEcosystem\Tests\Client\TestCase;
 class EVMTest extends TestCase
 {
     /** @test */
-    public function eth_call_calls_correct_url()
+    public function evm_call_calls_correct_url()
     {
         $this->assertResponse(
             method: 'POST',
             path: 'api/',
             callback: function (ArkClient $client) {
-                return $client->evm()->ethCall([
-                    'from' => '0x1234567890abcdef',
-                    'to'   => '0xfedcba0987654321',
-                    'data' => '0xabcdef',
+                return $client->evm()->evmCall([
+                    'method' => 'eth_call',
+                    'params' => [[
+                        'from' => '0x1234567890abcdef',
+                        'to'   => '0xfedcba0987654321',
+                        'data' => '0xabcdef',
+                    ], 'latest'],
+                    'id' => null,
                 ]);
             },
             expectedApi: 'evm'

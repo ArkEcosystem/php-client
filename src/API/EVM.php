@@ -13,19 +13,18 @@ class EVM extends AbstractAPI
      *
      * @return array|null
      */
-    public function ethCall(array $payload): ?array
+    public function evmCall(array $payload): ?array
     {
         $body = [
             'jsonrpc' => '2.0',
-            'method'  => 'eth_call',
-            'params'  => [$payload, 'latest'],
-            'id'      => null,
+            ...$payload,
         ];
 
         $headers = [
             'Content-Type' => 'application/json',
         ];
 
-        return $this->withApi('evm')->requestPost('api/', $body, $headers);
+        return $this->withApi('evm')
+            ->requestPost('api/', $body, $headers);
     }
 }
