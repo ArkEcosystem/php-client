@@ -5,34 +5,15 @@ declare(strict_types=1);
 namespace ArkEcosystem\Tests\Client\API;
 
 use ArkEcosystem\Client\ArkClient;
-use ArkEcosystem\Tests\Client\TestCase;
 
-/**
- * @covers \ArkEcosystem\Client\API\Votes
- */
-class VotesTest extends TestCase
-{
-    /** @test */
-    public function all_calls_correct_url()
-    {
-        $this->assertResponse('GET', 'votes', function (ArkClient $client) {
-            return $client->votes()->all();
-        });
-    }
+it('calls correct url for all', function () {
+    $this->assertResponse('GET', 'votes', function (ArkClient $client) {
+        return $client->votes()->all();
+    });
+});
 
-    /** @test */
-    public function get_calls_correct_url()
-    {
-        $this->assertResponse('GET', 'votes/dummy', function (ArkClient $client) {
-            return $client->votes()->get('dummy');
-        });
-    }
-
-    /**
-     * @return string
-     */
-    protected function getApiClass()
-    {
-        return \ArkEcosystem\Client\API\Votes::class;
-    }
-}
+it('calls correct url for get', function () {
+    $this->assertResponse('GET', 'votes/dummy', function (ArkClient $client) {
+        return $client->votes()->get('dummy');
+    });
+});
