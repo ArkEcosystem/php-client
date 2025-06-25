@@ -38,6 +38,6 @@ it('does not accept hosts array without api', function () {
 
 it('accepts custom handler', function () {
     $handler = HandlerStack::create();
-    $client = new ArkClient(hostOrHosts: $this->host, handler: $handler);
+    $client  = new ArkClient(hostOrHosts: $this->host, handler: $handler);
     expect($client->connection->getHttpClient()->getConfig('handler'))->toBe($handler);
 });
