@@ -7,89 +7,66 @@ namespace ArkEcosystem\Tests\Client;
 use ArkEcosystem\Client\ClientManager;
 use ArkEcosystem\Client\Connection;
 
-/**
- * @covers \ArkEcosystem\Client\ClientManager
- */
-class ClientManagerTest extends TestCase
-{
-    /** @test */
-    public function it_should_create_a_connection()
-    {
-        $manager = new ClientManager();
-        $manager->connect($this->host, 'dummy-client');
+beforeEach(function () {
+    $this->host = 'http://localhost';
+});
 
-        $this->assertArrayHasKey('dummy-client', $manager->getClients());
-    }
+it('should create a connection', function () {
+    $manager = new ClientManager();
+    $manager->connect($this->host, 'dummy-client');
 
-    /** @test */
-    public function it_should_throw_if_a_connection_already_exists()
-    {
-        $manager = new ClientManager();
-        $manager->connect($this->host, 'dummy-client');
+    expect($manager->getClients())->toHaveKey('dummy-client');
+});
 
-        $this->expectException(\InvalidArgumentException::class);
+it('should throw if a connection already exists', function () {
+    $manager = new ClientManager();
+    $manager->connect($this->host, 'dummy-client');
 
-        $manager->connect($this->host, 'dummy-client');
-    }
+    $manager->connect($this->host, 'dummy-client');
+})->throws(\InvalidArgumentException::class);
 
-    /** @test */
-    public function it_should_remove_a_connection()
-    {
-        $manager = new ClientManager();
-        $manager->connect($this->host, 'dummy-client');
+it('should remove a connection', function () {
+    $manager = new ClientManager();
+    $manager->connect($this->host, 'dummy-client');
 
-        $this->assertArrayHasKey('dummy-client', $manager->getClients());
+    expect($manager->getClients())->toHaveKey('dummy-client');
 
-        $manager->disconnect('dummy-client');
+    $manager->disconnect('dummy-client');
 
-        $this->assertArrayNotHasKey('dummy-client', $manager->getClients());
-    }
+    expect($manager->getClients())->not->toHaveKey('dummy-client');
+});
 
-    /** @test */
-    public function it_should_return_a_connection()
-    {
-        $manager = new ClientManager();
-        $manager->connect($this->host, 'dummy-client');
+it('should return a connection', function () {
+    $manager = new ClientManager();
+    $manager->connect($this->host, 'dummy-client');
 
-        $this->assertInstanceOf(Connection::class, $manager->client('dummy-client'));
-    }
+    expect($manager->client('dummy-client'))->toBeInstanceOf(Connection::class);
+});
 
-    /** @test */
-    public function it_should_throw_if_a_connection_does_not_exists()
-    {
-        $manager = new ClientManager();
+it('should throw if a connection does not exist', function () {
+    $manager = new ClientManager();
 
-        $this->expectException(\InvalidArgumentException::class);
+    $manager->client('dummy-client');
+})->throws(\InvalidArgumentException::class);
 
-        $manager->client('dummy-client');
-    }
+it('should return the default connection', function () {
+    $manager = new ClientManager();
 
-    /** @test */
-    public function it_should_return_the_default_connection()
-    {
-        $manager = new ClientManager();
+    expect($manager->getDefaultClient('main'))->toBe('main');
+});
 
-        $this->assertSame($manager->getDefaultClient('main'), 'main');
-    }
+it('should set the default connection', function () {
+    $manager = new ClientManager();
+    $manager->setDefaultClient('dummy-client');
 
-    /** @test */
-    public function it_should_set_the_default_connection()
-    {
-        $manager = new ClientManager();
-        $manager->setDefaultClient('dummy-client');
+    expect($manager->getDefaultClient())->toBe('dummy-client');
+});
 
-        $this->assertSame($manager->getDefaultClient(), 'dummy-client');
-    }
+it('should return all connections', function () {
+    $manager = new ClientManager();
+    $manager->connect($this->host, 'dummy-client-1');
+    $manager->connect($this->host, 'dummy-client-2');
+    $manager->connect($this->host, 'dummy-client-3');
 
-    /** @test */
-    public function it_should_return_all_connections()
-    {
-        $manager = new ClientManager();
-        $manager->connect($this->host, 'dummy-client-1');
-        $manager->connect($this->host, 'dummy-client-2');
-        $manager->connect($this->host, 'dummy-client-3');
-
-        $this->assertIsArray($manager->getClients());
-        $this->assertCount(3, $manager->getClients());
-    }
-}
+    expect($manager->getClients())->toBeArray()->toHaveCount(3);
+});

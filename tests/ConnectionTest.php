@@ -8,76 +8,50 @@ use ArkEcosystem\Client\ClientManager;
 use ArkEcosystem\Client\Connection;
 use GuzzleHttp\HandlerStack;
 
-/**
- * @covers \ArkEcosystem\Client\Connection
- */
-class ConnectionTest extends TestCase
-{
-    /** @test */
-    public function should_accept_hosts_as_an_array()
-    {
-        $hosts = [
-            'api'          => 'https://dwallets-evm.mainsailhq.com/api',
-            'transactions' => 'https://dwallets-evm.mainsailhq.com/tx/api',
-            'evm'          => 'https://dwallets-evm.mainsailhq.com/evm',
-        ];
+beforeEach(function () {
+    $this->host = 'https://dwallets-evm.mainsailhq.com/api';
+});
 
-        $client = new Connection($hosts);
+it('accepts hosts as an array', function () {
+    $hosts = [
+        'api'          => 'https://dwallets-evm.mainsailhq.com/api',
+        'transactions' => 'https://dwallets-evm.mainsailhq.com/tx/api',
+        'evm'          => 'https://dwallets-evm.mainsailhq.com/evm',
+    ];
 
-        $this->assertSame($hosts, $client->getHosts());
-    }
+    $client = new Connection($hosts);
 
-    /** @test */
-    public function does_not_accepts_hosts_array_without_api()
-    {
-        $hosts = [
-            'transactions' => 'https://dwallets-evm.mainsailhq.com/tx/api',
-            'evm'          => 'https://dwallets-evm.mainsailhq.com/evm',
-        ];
+    expect($client->getHosts())->toBe($hosts);
+});
 
-        $this->expectException(\InvalidArgumentException::class);
+it('does not accept hosts array without api', function () {
+    $hosts = [
+        'transactions' => 'https://dwallets-evm.mainsailhq.com/tx/api',
+        'evm'          => 'https://dwallets-evm.mainsailhq.com/evm',
+    ];
 
-        new Connection($hosts);
-    }
+    expect(fn () => new Connection($hosts))->toThrow(\InvalidArgumentException::class);
+});
 
-    /** @test */
-    public function should_accept_custom_handler()
-    {
-        $handler = HandlerStack::create();
+it('accepts custom handler', function () {
+    $handler = HandlerStack::create();
 
-        $connection = new Connection(hostOrHosts: $this->host, handler: $handler);
+    $connection = new Connection(hostOrHosts: $this->host, handler: $handler);
 
-        $this->assertSame($handler, $connection->getHttpClient()->getConfig('handler'));
-    }
+    expect($connection->getHttpClient()->getConfig('handler'))->toBe($handler);
+});
 
-    /** @test */
-    public function should_set_host()
-    {
-        $client = $this->getClient();
+it('sets host', function () {
+    $client = (new ClientManager())->connect($this->host);
 
-        $newHost = 'https://new-host.com/api';
-        $client->setHost($newHost, 'api');
+    $newHost = 'https://new-host.com/api';
+    $client->setHost($newHost, 'api');
 
-        $this->assertSame($newHost, $client->getHosts()['api']);
-    }
+    expect($client->getHosts()['api'])->toBe($newHost);
+});
 
-    /** @test */
-    public function should_throw_exception_if_host_type_is_invalid()
-    {
-        $client = $this->getClient();
+it('throws exception if host type is invalid', function () {
+    $client = (new ClientManager())->connect($this->host);
 
-        $this->expectException(\InvalidArgumentException::class);
-
-        $client->setHost('https://new-host.com/api', 'other');
-    }
-
-    /**
-     * Get a new client instance.
-     *
-     * @return Connection
-     */
-    private function getClient(): Connection
-    {
-        return (new ClientManager())->connect($this->host);
-    }
-}
+    expect(fn () => $client->setHost('https://new-host.com/api', 'other'))->toThrow(\InvalidArgumentException::class);
+});

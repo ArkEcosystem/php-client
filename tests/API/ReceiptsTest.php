@@ -5,48 +5,35 @@ declare(strict_types=1);
 namespace ArkEcosystem\Tests\Client\API;
 
 use ArkEcosystem\Client\ArkClient;
-use ArkEcosystem\Tests\Client\TestCase;
 use Exception;
 
-/**
- * @covers \ArkEcosystem\Client\API\Receipts
- */
-class ReceiptsTest extends TestCase
-{
-    /** @test */
-    public function all_calls_correct_url()
-    {
-        $this->assertResponse('GET', 'receipts', function (ArkClient $client) {
-            return $client->receipts()->all();
-        });
-    }
+it('calls the correct url for all', function () {
+    $this->assertResponse('GET', 'receipts', function (ArkClient $client) {
+        return $client->receipts()->all();
+    });
+});
 
-    /** @test */
-    public function get_calls_correct_url()
-    {
-        $this->assertResponse(
-            method: 'GET',
-            path: 'receipts/dummyTxHash',
-            callback: function (ArkClient $client) {
-                return $client->receipts()->get('dummyTxHash');
-            },
-            response: ['data' => [['id' => 'dummyTxHash']]],
-            expectedBody: ['id' => 'dummyTxHash']
-        );
-    }
+it('calls the correct url for get', function () {
+    $this->assertResponse(
+        method: 'GET',
+        path: 'receipts/dummyTxHash',
+        callback: function (ArkClient $client) {
+            return $client->receipts()->get('dummyTxHash');
+        },
+        response: ['data' => [['id' => 'dummyTxHash']]],
+        expectedBody: ['id' => 'dummyTxHash']
+    );
+});
 
-    /** @test */
-    public function validates_the_response()
-    {
-        $this->expectException(Exception::class);
+it('validates the response', function () {
+    $this->expectException(Exception::class);
 
-        $this->assertResponse(
-            method: 'GET',
-            path: 'receipts/dummyTxHash',
-            callback: function (ArkClient $client) {
-                return $client->receipts()->get('dummyTxHash');
-            },
-            response: ['data' => []],
-        );
-    }
-}
+    $this->assertResponse(
+        method: 'GET',
+        path: 'receipts/dummyTxHash',
+        callback: function (ArkClient $client) {
+            return $client->receipts()->get('dummyTxHash');
+        },
+        response: ['data' => []],
+    );
+});
