@@ -12,7 +12,7 @@ it('calls the correct URL for eth_call', function () {
         path: 'api/',
         callback: function (ArkClient $client) {
             return $client->evm()->call([
-                'method' => 'eth_call',
+                'method'     => 'eth_call',
                     'params' => [[
                         'from' => '0x1234567890abcdef',
                         'to'   => '0xfedcba0987654321',
