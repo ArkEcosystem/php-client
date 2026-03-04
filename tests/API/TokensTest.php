@@ -14,7 +14,7 @@ it('calls correct url for all', function () {
 
 it('calls correct url for all with whitelist', function () {
     $this->assertResponse('POST', 'tokens', function (ArkClient $client) {
-        return $client->tokens()->all([
+        return $client->tokens()->allWithWhitelist([
             'whitelist' => ['0x1234567890abcdef1234567890abcdef12345678'],
         ]);
     });
