@@ -13,9 +13,46 @@ it('calls correct url for all', function () {
 });
 
 it('calls correct url for all with whitelist', function () {
-    $this->assertResponse('POST', 'tokens', function (ArkClient $client) {
-        return $client->tokens()->all([
+    $this->assertResponse(
+        'POST',
+        'tokens',
+        function (ArkClient $client) {
+            return $client->tokens()->all([
+                'whitelist' => ['0x1234567890abcdef1234567890abcdef12345678'],
+            ]);
+        },
+        expectedRequestBody: [
             'whitelist' => ['0x1234567890abcdef1234567890abcdef12345678'],
+        ]
+    );
+});
+
+it('sends all whitelist values in the request body', function () {
+    $this->assertResponse(
+        'POST',
+        'tokens',
+        function (ArkClient $client) {
+            return $client->tokens()->all([
+                'whitelist' => [
+                    '0x1234567890abcdef1234567890abcdef12345678',
+                    '0xabcdef1234567890abcdef1234567890abcdef12',
+                ],
+            ]);
+        },
+        expectedRequestBody: [
+            'whitelist' => [
+                '0x1234567890abcdef1234567890abcdef12345678',
+                '0xabcdef1234567890abcdef1234567890abcdef12',
+            ],
+        ]
+    );
+});
+
+it('calls correct url for whitelist with query', function () {
+    $this->assertResponse('GET', 'tokens/whitelist?page=2&limit=10', function (ArkClient $client) {
+        return $client->tokens()->whitelist([
+            'page' => 2,
+            'limit' => 10,
         ]);
     });
 });

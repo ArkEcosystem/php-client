@@ -102,6 +102,10 @@ class Wallets extends AbstractAPI
      */
     public function tokensFor(string $id, array $query = []): ?array
     {
+        if (isset($query['whitelist'])) {
+            return $this->requestPost("wallets/{$id}/tokens", $query);
+        }
+
         return $this->requestGet("wallets/{$id}/tokens", $query);
     }
 
@@ -114,6 +118,10 @@ class Wallets extends AbstractAPI
      */
     public function tokens(array $query = []): ?array
     {
+        if (isset($query['whitelist'])) {
+            return $this->requestPost("wallets/tokens", $query);
+        }
+
         return $this->requestGet('wallets/tokens', $query);
     }
 }
