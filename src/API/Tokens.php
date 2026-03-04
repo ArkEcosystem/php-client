@@ -15,21 +15,11 @@ class Tokens extends AbstractAPI
      */
     public function all(array $query = []): ?array
     {
-        return $this->requestGet('tokens', $query);
-    }
+        if (isset($query['whitelist'])) {
+            return $this->requestPost('tokens', $query);
+        }
 
-    /**
-     * Get all tokens using whitelist filtering.
-     *
-     * This method sends a POST request with whitelist parameters.
-     *
-     * @param array $parameters
-     *
-     * @return array
-     */
-    public function allWithWhitelist(array $parameters = []): ?array
-    {
-        return $this->requestPost('tokens', $parameters);
+        return $this->requestGet('tokens', $query);
     }
 
     /**
