@@ -9,13 +9,13 @@ class Tokens extends AbstractAPI
     /**
      * Get all tokens.
      *
-     * @param array $parameters
+     * @param array $query
      *
      * @return array
      */
-    public function all(array $parameters = []): ?array
+    public function all(array $query = []): ?array
     {
-        return $this->requestGet('tokens', $parameters);
+        return $this->requestGet('tokens', $query);
     }
 
     /**
