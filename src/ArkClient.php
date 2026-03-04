@@ -14,6 +14,7 @@ use ArkEcosystem\Client\API\Node;
 use ArkEcosystem\Client\API\Peers;
 use ArkEcosystem\Client\API\Receipts;
 use ArkEcosystem\Client\API\Rounds;
+use ArkEcosystem\Client\API\Tokens;
 use ArkEcosystem\Client\API\Transactions;
 use ArkEcosystem\Client\API\Validators;
 use ArkEcosystem\Client\API\Votes;
@@ -77,6 +78,11 @@ class ArkClient
     public function rounds(): Rounds
     {
         return new Rounds($this->connection);
+    }
+
+    public function tokens(): Tokens
+    {
+        return new Tokens($this->connection);
     }
 
     public function transactions(): Transactions
