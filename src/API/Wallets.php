@@ -119,7 +119,7 @@ class Wallets extends AbstractAPI
     public function tokens(array $query = []): ?array
     {
         if (isset($query['whitelist'])) {
-            return $this->requestPost("wallets/tokens", $query);
+            return $this->requestPost('wallets/tokens', $query);
         }
 
         return $this->requestGet('wallets/tokens', $query);

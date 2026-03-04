@@ -36,8 +36,7 @@ abstract class TestCase extends BaseTestCase
         string $expectedApi = 'api',
         array $response = [],
         ?array $expectedRequestBody = null
-    ): void
-    {
+    ): void {
         $hosts = [
             'api'          => 'https://dwallets-evm.mainsailhq.com/api',
             'transactions' => 'https://dwallets-evm.mainsailhq.com/tx/api',

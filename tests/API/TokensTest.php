@@ -51,7 +51,7 @@ it('sends all whitelist values in the request body', function () {
 it('calls correct url for whitelist with query', function () {
     $this->assertResponse('GET', 'tokens/whitelist?page=2&limit=10', function (ArkClient $client) {
         return $client->tokens()->whitelist([
-            'page' => 2,
+            'page'  => 2,
             'limit' => 10,
         ]);
     });
