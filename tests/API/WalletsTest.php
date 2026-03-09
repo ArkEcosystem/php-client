@@ -47,3 +47,31 @@ it('calls correct url for votes', function () {
         return $client->wallets()->votes('dummy');
     });
 });
+
+it('calls correct url for all wallet tokens', function () {
+    $this->assertResponse('GET', 'wallets/tokens', function (ArkClient $client) {
+        return $client->wallets()->tokens();
+    });
+});
+
+it('calls correct url for all wallet tokens with query', function () {
+    $this->assertResponse('GET', 'wallets/tokens?limit=10', function (ArkClient $client) {
+        return $client->wallets()->tokens([
+            'limit' => 10,
+        ]);
+    });
+});
+
+it('calls correct url for a wallet tokens', function () {
+    $this->assertResponse('GET', 'wallets/dummy/tokens', function (ArkClient $client) {
+        return $client->wallets()->tokensFor('dummy');
+    });
+});
+
+it('calls correct url for a wallet tokens with query', function () {
+    $this->assertResponse('GET', 'wallets/dummy/tokens?limit=10', function (ArkClient $client) {
+        return $client->wallets()->tokensFor('dummy', [
+            'limit' => 10,
+        ]);
+    });
+});

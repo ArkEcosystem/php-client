@@ -28,8 +28,15 @@ abstract class TestCase extends BaseTestCase
      * @param callable   $callback
      * @param array|null $expectedBody
      */
-    protected function assertResponse(string $method, string $path, callable $callback, array $expectedBody = [], string $expectedApi = 'api', array $response = []): void
-    {
+    protected function assertResponse(
+        string $method,
+        string $path,
+        callable $callback,
+        array $expectedBody = [],
+        string $expectedApi = 'api',
+        array $response = [],
+        ?array $expectedRequestBody = null
+    ): void {
         $hosts = [
             'api'          => 'https://dwallets-evm.mainsailhq.com/api',
             'transactions' => 'https://dwallets-evm.mainsailhq.com/tx/api',
@@ -37,9 +44,13 @@ abstract class TestCase extends BaseTestCase
         ];
 
         $mockHandler = new MockHandler([
-            function (Request $request) use ($method, $path, $response, $hosts, $expectedApi) {
+            function (Request $request) use ($method, $path, $response, $hosts, $expectedApi, $expectedRequestBody) {
                 $this->assertSame($method, $request->getMethod());
                 $this->assertSame($hosts[$expectedApi].'/'.$path, $request->getUri()->__toString());
+
+                if ($expectedRequestBody !== null) {
+                    $this->assertSame($expectedRequestBody, json_decode($request->getBody()->getContents(), true));
+                }
 
                 return new Response(200, [], json_encode($response));
             },

@@ -91,4 +91,37 @@ class Wallets extends AbstractAPI
     {
         return $this->requestGet('wallets/top');
     }
+
+    /**
+     * Get all tokens held by the given wallet.
+     *
+     * @param string $id
+     * @param array  $query
+     *
+     * @return array
+     */
+    public function tokensFor(string $id, array $query = []): ?array
+    {
+        if (isset($query['whitelist'])) {
+            return $this->requestPost("wallets/{$id}/tokens", $query);
+        }
+
+        return $this->requestGet("wallets/{$id}/tokens", $query);
+    }
+
+    /**
+     * Get all tokens held by wallets.
+     *
+     * @param array $query
+     *
+     * @return array
+     */
+    public function tokens(array $query = []): ?array
+    {
+        if (isset($query['whitelist'])) {
+            return $this->requestPost('wallets/tokens', $query);
+        }
+
+        return $this->requestGet('wallets/tokens', $query);
+    }
 }
