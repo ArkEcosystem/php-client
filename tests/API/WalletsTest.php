@@ -18,6 +18,12 @@ it('calls correct url for top', function () {
     });
 });
 
+it('calls correct url for top with query', function () {
+    $this->assertResponse('GET', 'wallets/top?limit=10', function (ArkClient $client) {
+        return $client->wallets()->top(['limit' => 10]);
+    });
+});
+
 it('calls correct url for get', function () {
     $this->assertResponse('GET', 'wallets/dummy', function (ArkClient $client) {
         return $client->wallets()->get('dummy');
@@ -74,4 +80,34 @@ it('calls correct url for a wallet tokens with query', function () {
             'limit' => 10,
         ]);
     });
+});
+
+it('calls correct url for a wallet tokens with whitelist', function () {
+    $this->assertResponse(
+        'POST',
+        'wallets/dummy/tokens',
+        function (ArkClient $client) {
+            return $client->wallets()->tokensFor('dummy', [
+                'whitelist' => ['0x1234567890abcdef1234567890abcdef12345678'],
+            ]);
+        },
+        expectedRequestBody: [
+            'whitelist' => ['0x1234567890abcdef1234567890abcdef12345678'],
+        ]
+    );
+});
+
+it('calls correct url for all wallet tokens with whitelist', function () {
+    $this->assertResponse(
+        'POST',
+        'wallets/tokens',
+        function (ArkClient $client) {
+            return $client->wallets()->tokens([
+                'whitelist' => ['0x1234567890abcdef1234567890abcdef12345678'],
+            ]);
+        },
+        expectedRequestBody: [
+            'whitelist' => ['0x1234567890abcdef1234567890abcdef12345678'],
+        ]
+    );
 });
