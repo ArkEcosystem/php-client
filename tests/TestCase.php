@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ArkEcosystem\Tests\Client;
 
-use ArkEcosystem\Client\ArkClient;
+use ArkEcosystem\Client\Client;
 use GuzzleHttp\Handler\MockHandler;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Psr7\Request;
@@ -56,7 +56,7 @@ abstract class TestCase extends BaseTestCase
             },
         ]);
 
-        $client = new ArkClient(
+        $client = new Client(
             hostOrHosts: $hosts,
             handler: HandlerStack::create($mockHandler)
         );
