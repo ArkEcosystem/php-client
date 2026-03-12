@@ -81,7 +81,6 @@ it('calls correct url for a wallet tokens with whitelist', function () {
         'POST',
         'wallets/dummy/tokens',
         function (Client $client) {
-
             return $client->wallets()->tokensFor('dummy', [
                 'whitelist' => ['0x1234567890abcdef1234567890abcdef12345678'],
             ]);
