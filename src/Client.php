@@ -21,7 +21,7 @@ use ArkEcosystem\Client\API\Votes;
 use ArkEcosystem\Client\API\Wallets;
 use GuzzleHttp\HandlerStack;
 
-class ArkClient
+class Client
 {
     public Connection $connection;
 

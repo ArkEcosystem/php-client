@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace ArkEcosystem\Tests\Client\API;
 
-use ArkEcosystem\Client\ArkClient;
+use ArkEcosystem\Client\Client;
 
 it('calls the correct URL for eth_call', function () {
     $this->assertResponse(
         method: 'POST',
         path: 'api/',
-        callback: function (ArkClient $client) {
+        callback: function (Client $client) {
             return $client->evm()->call([
                 'method'     => 'eth_call',
                     'params' => [[

@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace ArkEcosystem\Tests\Client\API;
 
-use ArkEcosystem\Client\ArkClient;
+use ArkEcosystem\Client\Client;
 use Exception;
 
 it('calls the correct url for all', function () {
-    $this->assertResponse('GET', 'receipts', function (ArkClient $client) {
+    $this->assertResponse('GET', 'receipts', function (Client $client) {
         return $client->receipts()->all();
     });
 });
@@ -17,7 +17,7 @@ it('calls the correct url for get', function () {
     $this->assertResponse(
         method: 'GET',
         path: 'receipts/dummyTxHash',
-        callback: function (ArkClient $client) {
+        callback: function (Client $client) {
             return $client->receipts()->get('dummyTxHash');
         },
         response: ['data' => [['id' => 'dummyTxHash']]],
@@ -31,7 +31,7 @@ it('validates the response', function () {
     $this->assertResponse(
         method: 'GET',
         path: 'receipts/dummyTxHash',
-        callback: function (ArkClient $client) {
+        callback: function (Client $client) {
             return $client->receipts()->get('dummyTxHash');
         },
         response: ['data' => []],
