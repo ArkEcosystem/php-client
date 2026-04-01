@@ -19,7 +19,7 @@ it('calls correct url for top', function () {
 });
 
 it('calls correct url for top with query', function () {
-    $this->assertResponse('GET', 'wallets/top?limit=10', function (ArkClient $client) {
+    $this->assertResponse('GET', 'wallets/top?limit=10', function (Client $client) {
         return $client->wallets()->top(['limit' => 10]);
     });
 });

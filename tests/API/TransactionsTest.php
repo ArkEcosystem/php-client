@@ -44,7 +44,7 @@ it('calls correct url for all unconfirmed with query', function () {
     $this->assertResponse(
         method: 'GET',
         path: 'transactions/unconfirmed?limit=50',
-        callback: function (ArkClient $client) {
+        callback: function (Client $client) {
             return $client->transactions()->allUnconfirmed(['limit' => 50]);
         },
         expectedApi: 'transactions'
