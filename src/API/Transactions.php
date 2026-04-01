@@ -45,11 +45,13 @@ class Transactions extends AbstractAPI
     /**
      * Get all unconfirmed transactions.
      *
+     * @param array $query
+     *
      * @return array
      */
-    public function allUnconfirmed(): ?array
+    public function allUnconfirmed(array $query = []): ?array
     {
-        return $this->withApi('transactions')->requestGet('transactions/unconfirmed');
+        return $this->withApi('transactions')->requestGet('transactions/unconfirmed', $query);
     }
 
     /**

@@ -18,6 +18,12 @@ it('calls correct url for top', function () {
     });
 });
 
+it('calls correct url for top with query', function () {
+    $this->assertResponse('GET', 'wallets/top?limit=10', function (Client $client) {
+        return $client->wallets()->top(['limit' => 10]);
+    });
+});
+
 it('calls correct url for get', function () {
     $this->assertResponse('GET', 'wallets/dummy', function (Client $client) {
         return $client->wallets()->get('dummy');

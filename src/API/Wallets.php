@@ -85,11 +85,13 @@ class Wallets extends AbstractAPI
     /**
      * Get all wallets sorted by balance in descending order.
      *
+     * @param array $query
+     *
      * @return array
      */
-    public function top(): ?array
+    public function top(array $query = []): ?array
     {
-        return $this->requestGet('wallets/top');
+        return $this->requestGet('wallets/top', $query);
     }
 
     /**

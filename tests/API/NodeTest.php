@@ -38,6 +38,6 @@ it('calls the correct url for fees', function () {
 
 it('calls the correct url for fees with query', function () {
     $this->assertResponse('GET', 'node/fees?days=7', function (Client $client) {
-        return $client->node()->fees(7);
+        return $client->node()->fees(['days' => 7]);
     });
 });

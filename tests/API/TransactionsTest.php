@@ -40,6 +40,17 @@ it('calls correct url for all unconfirmed', function () {
     );
 });
 
+it('calls correct url for all unconfirmed with query', function () {
+    $this->assertResponse(
+        method: 'GET',
+        path: 'transactions/unconfirmed?limit=50',
+        callback: function (Client $client) {
+            return $client->transactions()->allUnconfirmed(['limit' => 50]);
+        },
+        expectedApi: 'transactions'
+    );
+});
+
 it('calls correct url for get unconfirmed', function () {
     $this->assertResponse(
         method: 'GET',
