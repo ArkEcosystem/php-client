@@ -23,9 +23,8 @@
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^2.16",
-        "pestphp/drift": "^0.3.0",
-        "pestphp/pest": "^0.3.8",
-        "phpunit/phpunit": "^9.3.10"
+        "pestphp/pest": "^1.23",
+        "phpunit/phpunit": "^9.6.33"
     },
     "suggest": {
         "ext-mbstring": "If ext-mbstring is not available you MUST install symfony/polyfill-mbstring"
@@ -42,7 +41,10 @@
     },
     "config": {
         "preferred-install": "dist",
-        "sort-packages": true
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
     },
     "extra": {
         "branch-alias": {
