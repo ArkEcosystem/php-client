@@ -39,7 +39,7 @@ class Connection
      * @param array                    $config
      * @param \GuzzleHttp\HandlerStack $handler
      */
-    public function __construct(array $config, HandlerStack $handler = null)
+    public function __construct(array $config, ?HandlerStack $handler = null)
     {
         $options = [
             'base_uri' => Str::finish($config['host'], '/'),
